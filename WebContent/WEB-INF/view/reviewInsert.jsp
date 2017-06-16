@@ -42,19 +42,19 @@
 						<div class="row">
 							<div class="col-md-12 col-sm-12 scrollpoint sp-effect1">
 								<form role="form">
+								
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="name">제목</label> <input
-											type="text" class="form-control" placeholder="제목을 입력하세요">
+										<label class="col-md-3 control-label" for="name"><h3>제목</h3></label> 
+										<input type="text" class="form-control" placeholder="제목을 입력하세요">
 									</div>
+									
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="message">내용</label>
+										<label class="col-md-3 control-label" for="message"><h3>내용</h3></label>
 										<textarea cols="30" rows="10" class="form-control"
 											placeholder="내용을 입력하세요"></textarea>
 									</div>
-
-<!-- 									<div class="container"> -->
-<!-- 									    <div class="row">     -->
-									        <div class="form-group ">  
+									 <div class="form-group ">
+										<label class="col-md-12 control-label" for="message"><h3>파일첨부</h3></label>
 									            <!-- image-preview-filename input [CUT FROM HERE]-->
 									            <div class="input-group image-preview">
 									                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
@@ -67,13 +67,12 @@
 									                    <div class="btn image-preview-input btn-primary btn-lg">
 									                        <span class="glyphicon glyphicon-folder-open"></span>
 									                        <span class="image-preview-input-title">Browse</span>
-									                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" /> <!-- rename it -->
+									                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"  class=""/> <!-- rename it -->
 									                    </div>
 									                </span>
 									            </div><!-- /input-group image-preview [TO HERE]--> 
 									        </div>
-<!-- 									    </div> -->
-<!-- 									</div> -->
+
 									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 									<center><button type="submit" class="btn btn-primary btn-lg btn-align">완료</button>
 									<button type='reset' class="btn  btn-lg btn-align">취소</button></center>
