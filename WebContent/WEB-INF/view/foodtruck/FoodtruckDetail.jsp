@@ -269,7 +269,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 					<li><a data-slide="prev" href="#myCarousel" class=""><i
 							class="glyphicon glyphicon-chevron-left"></i></a></li>
 					<li><a data-slide="next" href="#myCarousel" class=""><i
-							class="glyphicon glyphicon-chevron-right"></i></li>
+							class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 				</nav>
 				<!-- /.control-box -->
