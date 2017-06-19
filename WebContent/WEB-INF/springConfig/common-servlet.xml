@@ -41,6 +41,6 @@
     </mvc:message-converters>
 </mvc:annotation-driven>
 
-<context:component-scan base-package="activity.controller" />
+<context:component-scan base-package="yogo" />
 
 </beans>
