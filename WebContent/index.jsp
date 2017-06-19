@@ -113,6 +113,7 @@
 	</div>
     <div class="mainContainer">
         <h3 class="truckTitle">트럭리스트</h3>
+        <a href='activity.do'>activity 페이지</a>
         <div class="truckList">
             <div class="row">
                 <div class="col-sm-2 truckListItem">

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- WebContent \ META-INF \ context.xml -->
+<Context>
+	<Resource name='jdbc/myora'
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@192.168.0.169:1521:orcl"
+		username="yogo"
+		password="yogo"
+	/>
+</Context>

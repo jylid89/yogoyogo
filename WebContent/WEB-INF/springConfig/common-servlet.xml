@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+<!-- 뷰템플릿 설정 -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value='/WEB-INF/view/' />
+	<property name="suffix" value='.jsp' />
+</bean>
+
+<!-- JNDI 설정 -->
+<bean id='dataSource' class="org.springframework.jndi.JndiObjectFactoryBean">
+	<property name="jndiName" value="java:comp/env/jdbc/myora" />
+</bean>
+
+<!-- mybatis 설정 -->
+<bean id='factoryBean' class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="mapperLocations" value="classpath*:myproj/member/mybatis/*.xml" />
+</bean>
+
+<bean id='ss' class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="factoryBean"></constructor-arg>
+</bean>
+
+<mvc:annotation-driven>
+    <mvc:message-converters>
+        <!-- @ResponseBody로 String 처리할때 한글처리 -->
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+            <property name="supportedMediaTypes">
+                <list>
+                    <value>text/html;charset=UTF-8</value>
+                </list>
+            </property>
+        </bean>
+    </mvc:message-converters>
+</mvc:annotation-driven>
+
+<context:component-scan base-package="activity.controller" />
+
+</beans>
