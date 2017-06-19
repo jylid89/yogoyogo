@@ -1,16 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/freeboard/freeboard.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>자유게시판</title>
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
   <h2>자유게시판</h2>
   <!--<p>The .table-striped class adds zebra-stripes to a table:</p>            -->
   <table class="table table-striped">
@@ -43,7 +46,8 @@
       </tr>
     </tbody>
   </table>
-  <div class="writeBtn">글쓰기</div>
+  <div class="pageNum">< <a href="">1</a> ></div>
+  <div class="writeBtn"><a href="">글쓰기</a></div>
 </div>
 
 </body>
