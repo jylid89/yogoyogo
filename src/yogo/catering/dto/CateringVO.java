@@ -28,6 +28,10 @@ public class CateringVO {
 	private String cate_state;
 	/* 거절사유 */
 	private String cate_reson;
+	/* 푸드트럭 이름 */
+	private String truck_name;
+	/* 푸드트럭 주소 */
+	private String truck_addr;
 	
 	public String getCate_num() {
 		return cate_num;
@@ -95,6 +99,16 @@ public class CateringVO {
 	public void setCate_reson(String cate_reson) {
 		this.cate_reson = cate_reson;
 	}
-	
-	
+	public String getTruck_name() {
+		return truck_name;
+	}
+	public void setTruck_name(String truck_name) {
+		this.truck_name = truck_name;
+	}
+	public String getTruck_addr() {
+		return truck_addr;
+	}
+	public void setTruck_addr(String truck_addr) {
+		this.truck_addr = truck_addr;
+	}
 }

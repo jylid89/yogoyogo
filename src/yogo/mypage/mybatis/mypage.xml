@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage">
+
+<!-- 트럭리스트 셀렉 -->
+<select id="selectCate_user" resultType="yogo.catering.dto.CateringVO"> 
+	SELECT cate.*, truck.truck_name, truck.truck_addr, truck.truck_num FROM tb_cateconf cate, tb_truck truck
+	WHERE cate.mem_id = #{mem_id} AND cate.truck_num = truck.truck_num
+</select>
+
+</mapper>
