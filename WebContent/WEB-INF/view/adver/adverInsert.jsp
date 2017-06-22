@@ -14,17 +14,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Bootstrap 3.3.2 -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="assets/css/animate.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-<link rel="stylesheet" href="assets/js/rs-plugin/css/settings.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/slick.css">
+<link rel="stylesheet" href="/YogoYogo/assets/js/rs-plugin/css/settings.css">
 
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" type="text/css" href="css/review/reviewInsert.css">
-<script type="text/javascript" src="assets/js/modernizr.custom.32033.js"></script>
-<script type="text/javascript" src="js/review/reviewInsert.js"></script>
+<link rel="stylesheet" href="/YogoYogo/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/YogoYogo/css/review/reviewInsert.css">
+<script type="text/javascript" src="/YogoYogo/assets/js/modernizr.custom.32033.js"></script>
+<script type="text/javascript" src="/YogoYogo/js/review/reviewInsert.js"></script>
 
 </head>
 <body>

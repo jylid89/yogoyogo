@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adver">
+
+<!-- 광고리스트 -->
+<select id="adverList" resultType="yogo.adver.dto.AdverVO"> 
+	SELECT   a.*, m.mem_nick mem_nick
+	FROM 	tb_adver a , tb_member m
+	WHERE 	a.mem_id = m.mem_id
+</select>
+
+<!-- 광고 디테일 -->
+<select id="adverDetail" resultType="yogo.adver.dto.AdverVO" parameterType="String"> 
+	SELECT   *
+	FROM    tb_adver
+	WHERE  adv_num = #{adv_num}
+</select>
+
+<!-- 시퀀스 값 가져오기 -->
+<select id="selectSeq" resultType="String">
+	SELECT advconf_seq.nextval as advconf_seq FROM dual
+</select>
+
+<!-- 광고 신청추가(Insert) -->
+<insert id="advConfirmInsert" parameterType="yogo.adver.dto.AdverVO">
+	INSERT INTO tb_adverconf(advconf_num, adv_num, truck_num, advconf_state, advconf_reason, adv_start, adv_end )
+	VALUES( #{advconf_num}, #{adv_num}, #{truck_num}, '대기중', '대기중',
+	to_char(sysdate, 'yyyy-mm-dd'), to_char(add_months(sysdate, 1), 'yyyy-mm-dd') )
+</insert>
+
+<!-- ajax->신청/취소버튼 -->
+<select id="confirmCheck" resultType="String" parameterType="hashmap">
+	SELECT 	COUNT(*)
+	FROM     tb_adverconf
+	WHERE 	adv_num = #{adv_num}
+	AND 		truck_num = #{truck_num}
+</select>
+
+<!--ajax->승인제어 -->
+<select id="confirmCancel" resultType="String" parameterType="hashmap">
+	SELECT 	advconf_state
+	FROM 	tb_adverconf
+	WHERE 	adv_num = #{adv_num}
+	AND 		truck_num = #{truck_num}
+</select>
+
+<!-- 승인취소(Delete) -->
+<delete id="advConfirmDelete" parameterType="hashmap">
+	DELETE 
+	FROM 	tb_adverconf
+	WHERE 	adv_num = #{adv_num}
+	AND 		truck_num = #{truck_num}
+</delete>
+</mapper>
