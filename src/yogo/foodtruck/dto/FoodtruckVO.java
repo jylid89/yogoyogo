@@ -35,6 +35,10 @@ public class FoodtruckVO {
 	/* 푸드트럭 등록일 */
 	private String truck_date;
 	
+	/* 푸드트럭 주소 */
+	private String truck_addr;
+	
+	
 	public FoodtruckVO() {}
 
 	public FoodtruckVO(String truck_num, String mem_id, String truck_name, String truck_loc, String truck_pictemp1,
@@ -141,4 +145,13 @@ public class FoodtruckVO {
 	public void setTruck_date(String truck_date) {
 		this.truck_date = truck_date;
 	}
+
+	public String getTruck_addr() {
+		return truck_addr;
+	}
+
+	public void setTruck_addr(String truck_addr) {
+		this.truck_addr = truck_addr;
+	}
+	
 }
