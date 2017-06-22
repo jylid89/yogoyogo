@@ -10,19 +10,32 @@
     
      .containerright{
     	text-align: right;
+    	size: 
     }
     /*
     * 글 쓰기 버튼
     */
-    .enjoy-css {
+  .img-button{
+  
+  	width: 220px;
+  
+  } 
+  
+  .btn_plus{
+  
+	margin-top: 20pt;
+  
+  }
+  
+ .enjoy-css {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   width: 120px;
-  height: 50px;
+  height: 50px;x
   cursor: pointer;
   margin: 0 auto;
-  border: .5px solid rgb(38, 169, 245);
+  border: .5px solid rgb(255, 110, 80);
   -webkit-border-radius: 40px;
   border-radius: 35px;
 /*   font: normal 20px/20px "Domine Font Family", Helvetica, sans-serif; */
@@ -32,12 +45,11 @@
   text-overflow: clip;
   letter-spacing: 1px;
   background: rgb(255, 110, 80);
-  
+  font-size:20pt;
   position: relative;
-  box-shadow: 2px 4px 0 2px rgba(0,0,0,0.1);
+  margin-bottom:20pt;
+  
 }
-
-    
     .event-list {
 		list-style: none;
 		font-family: 'Lato', sans-serif;
@@ -133,131 +145,27 @@
 		color: rgb(30, 30, 30);
 		background-color: rgb(200, 200, 200);
 	}
-	.facebook a,
-	.twitter a,
-	.google-plus a {
-		display: block;
-		width: 100%;
-		color: rgb(75, 110, 168) !important;
-	}
-	.twitter a {
-		color: rgb(79, 213, 248) !important;
-	}
-	.google-plus a {
-		color: rgb(221, 75, 57) !important;
-	}
-	.facebook:hover a {
-		color: rgb(255, 255, 255) !important;
-		background-color: rgb(75, 110, 168) !important;
-	}
-	.twitter:hover a {
-		color: rgb(255, 255, 255) !important;
-		background-color: rgb(79, 213, 248) !important;
-	}
-	.google-plus:hover a {
-		color: rgb(255, 255, 255) !important;
-		background-color: rgb(221, 75, 57) !important;
-	}
 
-/* 	@media (min-width: 768px) { */
-/* 		.event-list > li { */
-/* 			position: relative; */
-/* 			display: block; */
-/* 			width: 100%; */
-/* 			height: 120px; */
-/* 			padding: 0px; */
-/* 		} */
-/* 		.event-list > li > time, */
-/* 		.event-list > li > img  { */
-/* 			display: inline-block; */
-/* 		} */
-/* 		.event-list > li > time, */
-/* 		.event-list > li > img { */
-/* 			width: 120px; */
-/* 			float: left; */
-/* 		} */
-/* 		.event-list > li > .info { */
-/* 			background-color: rgb(245, 245, 245); */
-/* 			overflow: hidden; */
-/* 		} */
-/* 		.event-list > li > time, */
-/* 		.event-list > li > img { */
-/* 			width: 120px; */
-/* 			height: 120px; */
-/* 			padding: 0px; */
-/* 			margin: 0px; */
-/* 		} */
-/* 		.event-list > li > .info { */
-/* 			position: relative; */
-/* 			height: 120px; */
-/* 			text-align: left; */
-/* 			padding-right: 40px; */
-/* 		}	 */
-/* 		.event-list > li > .info > .title,  */
-/* 		.event-list > li > .info > .desc { */
-/* 			padding: 0px 10px; */
-/* 		} */
-/* 		.event-list > li > .info > ul { */
-/* 			position: absolute; */
-/* 			left: 0px; */
-/* 			bottom: 0px; */
-/* 		} */
-/* 		.event-list > li > .social { */
-/* 			position: absolute; */
-/* 			top: 0px; */
-/* 			right: 0px; */
-/* 			display: block; */
-/* 			width: 40px; */
-/* 		} */
-/*         .event-list > li > .social > ul { */
-/*             border-left: 1px solid rgb(230, 230, 230); */
-/*         } */
-/* 		.event-list > li > .social > ul > li {			 */
-/* 			display: block; */
-/*             padding: 0px; */
-/* 		} */
-/* 		.event-list > li > .social > ul > li > a { */
-/* 			display: block; */
-/* 			width: 40px; */
-/* 			padding: 10px 0px 9px; */
-/* 		} */
-/* 	} */
+	
+	
+/*
+*더 보기 버튼
+*/
+.btn-default{
+	
+	color:white;
+	background-color: rgb(255,110,80);
+	border-color:0;	
+	
+}
 
-/* body { */
-/*  font-size: 18px;    */
-/* } */
-.orange-circle-button {
-	box-shadow: 2px 4px 0 2px rgba(0,0,0,0.1);
-	border: .5em solid #E84D0E;
-	font-size: 1em;
-	line-height: 1.1em;
-	color: #ffffff;
-	background-color: #e84d0e;
-	margin: auto;
-	border-radius: 50%;
-	height: 7em;
-	width: 7em;
-	position: relative;
-	
-	
-	
-}
-.orange-circle-button:hover {
-	color:#ffffff;
-    background-color: #e84d0e;
-	text-decoration: none;
-	border-color: #ff7536;
-	
-	
-}
-.orange-circle-button:visited {
-	color:#ffffff;
-    background-color: #e84d0e;
-	text-decoration: none;
-	
-}
-.orange-circle-link-greater-than {
-    font-size: 1em;
-}
+
+
+
+
+
+
+
+
 
 
