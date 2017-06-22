@@ -14,4 +14,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM tb_truck WHERE ${category} like '%'||#{value}||'%'
 </select>
 
+<select id="searchByMenu" parameterType="hashmap" resultType="yogo.foodtruck.dto.FoodtruckVO">
+	SELECT * FROM tb_truck 
+	WHERE TRUCK_NUM IN 
+	( 
+		SELECT DISTINCT TRUCK_NUM FROM tb_menu 
+		WHERE
+			<if test="eat != null">
+				${category} = #{eat}
+			
+				<if test="drink != null">
+					OR ${category} = #{drink}
+				</if>
+		
+				<if test="enjoy != null">
+					OR ${category} = #{enjoy}
+				</if>
+			</if>
+		
+			<if test="eat == null">
+				<if test="drink != null">
+					${category} = #{drink}
+					
+					<if test="enjoy != null">
+						OR ${category} = #{enjoy}
+					</if>
+				</if>
+				
+				<if test="drink == null">
+					<if test="enjoy != null">
+						${category} = #{enjoy}
+					</if>
+				</if>
+			</if>
+	)
+</select>
+
 </mapper>

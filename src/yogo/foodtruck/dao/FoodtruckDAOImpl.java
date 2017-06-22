@@ -28,17 +28,22 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 	}
 
 	@Override
-	public List<FoodtruckVO> search(String category, String[] value) {
-		System.out.println(category+"/"+value[0]);
+	public List<FoodtruckVO> search(String category, String[] values) {
 		List<FoodtruckVO> list = new ArrayList<FoodtruckVO>();
 		HashMap map = new HashMap();
 		map.put("category", category);
-		map.put("value", value[0]);
-		map.put("eat", value[1]);
-		map.put("drink", value[2]);
-		map.put("enjoy", value[3]);
+		
+		if(values[0] != null) map.put("value", values[0]);
+		if(values[1] != null) map.put("eat", values[1]);
+		if(values[2] != null) map.put("drink", values[2]);
+		if(values[3] != null) map.put("enjoy", values[3]);
+		
 		try {
-			list = (ArrayList)ss.selectList("foodtruck.search", map);
+			if(category.equals("MENU_CATE")) {
+				list = (ArrayList)ss.selectList("foodtruck.searchByMenu", map);
+			} else {
+				list = (ArrayList)ss.selectList("foodtruck.search", map);
+			}
 		} catch(Exception e) {
 			System.out.println("foodtruck search 실패 "+e.getMessage());
 		}
