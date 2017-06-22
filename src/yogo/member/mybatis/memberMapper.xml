@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+<!-- 로그인 -->
+<select id="login" parameterType="yogo.member.dto.MemberVO" resultType="yogo.member.dto.MemberVO"> 
+	SELECT 	*
+	FROM 	tb_member
+	WHERE 	mem_id=#{mem_id} AND mem_pass=#{mem_pass}
+</select>
+
+<!-- 회원가입 -->
+<insert id="insert" parameterType="yogo.member.dto.MemberVO">
+	INSERT INTO tb_member (mem_id, mem_nick, mem_pass, mem_name, mem_call, mem_state, mem_point )
+	VALUES ( #{mem_id}, #{mem_nick}, #{mem_pass}, #{mem_name}, #{mem_call}, #{mem_state} , 0 )
+</insert>
+
+</mapper>
