@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="catering">
+	
+<!-- 시퀀스 값 가져오기 -->
+<select id="selectSeq" resultType="String">
+	SELECT rev_seq.nextval as rev_seq FROM dual
+</select>	
+	
+<insert id="cateringinsert" parameterType="yogo.catering.dto.CateringVO">
+	INSERT INTO tb_cateconf
+	VALUES( #{cate_num}, 'sangjun0131@naver.com', 'TRUCK003',  #{cate_call}, #{cate_date}, #{cate_time}, #{cate_addr},#{cate_people},#{cate_budget}, '대기중', 'bb')
+</insert>
+
+<select id="cateringlist" resultType="yogo.foodtruck.dto.FoodtruckVO">
+	SELECT * FROM tb_truck
+</select>
+
+<select id="cateringdetail" parameterType="yogo.menu.dto.MenuVO" resultType="yogo.menu.dto.MenuVO">
+	SELECT truck.truck_name, me.menu_num, me.truck_num, me.menu_name, me.menu_content, me.menu_pictemp, me.menu_picreal, me.menu_price, me.menu_cate 
+	FROM tb_truck truck, tb_menu me 
+	WHERE truck.truck_num = me.truck_num 
+	AND me.truck_num = #{truck_num}
+</select>
+</mapper>
