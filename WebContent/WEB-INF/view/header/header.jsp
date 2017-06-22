@@ -1,36 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script>
-    function init() {
-        window.addEventListener('scroll', function(e){
-            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-                shrinkOn = 300,
-                header = document.querySelector("header");
-            if (distanceY > shrinkOn) {
-                classie.add(header,"smaller");
-            } else {
-                if (classie.has(header,"smaller")) {
-                    classie.remove(header,"smaller");
-                }
-            }
-        });
-    }
-    window.onload = init();
-</script>
+<!DOCTYPE html>
+<html>
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<link rel="stylesheet" type="text/css" href="css/header/header.css">
-<link rel="javascript" type="text/javascript" href="js/header/header.js">
+    <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    	<link rel="javascript" type="text/javascript" href="header.js">
+<title>Insert title here</title>
+</head>
 <header>
-    <div class="container clearfix">
-        <h1 id="logo">
-            LOGO
-        </h1>
-        <nav>
-            <a href="">푸드트럭</a>
-            <a href="">행사리스트</a>
-            <a href="">케이터링</a>
-            <a href="">커뮤니티</a>
-            <a href="">서비스</a>
-        </nav>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-slide-dropdown">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">LOGO</a>
     </div>
-</header><!-- /header -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-slide-dropdown">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">푸드트럭 <span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="#">푸드트럭 목록</a></li>
+                <li><a href="#">홍보</a></li>
+                <li><a href="#">리뷰</a></li>
+              </ul>                
+            </li>
+        	<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">커뮤니티 <span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">자유게시판</a></li>
+                <li><a href="#">Q&A</a></li>
+              </ul>                
+            </li>
+        	<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">행사<span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="#">행사목록</a></li>
+                <li><a href="#">행사지도</a></li>
+              </ul>                
+            </li>
+        	<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">케이터링<span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="#">케이터링 신청</a></li>
+                <li><a href="#">견적문의</a></li>
+              </ul>                
+            </li>
+        	<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">서비스<span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="#">서비스 이용방법</a></li>
+                <li><a href="#">광고대행</a></li>
+              </ul>                
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="loginView.do">로그인</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header>
+</html>
