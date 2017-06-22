@@ -12,5 +12,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE 	r.mem_id = m.mem_id
 </select>
 
+<!-- 시퀀스 값 가져오기 -->
+<select id="selectSeq" resultType="String">
+	SELECT rev_seq.nextval as rev_seq FROM dual
+</select>
+
+<!-- 리뷰 작성(Insert) -->
+<insert id="reviewInsert" parameterType="yogo.review.dto.ReviewVO">
+	INSERT INTO tb_review
+	VALUES( #{rev_num}, 'TRUCK002', 'dpdms403@naver.com', #{rev_title}, #{rev_content}, sysdate, 'aa', 'bb')
+</insert>
 
 </mapper>

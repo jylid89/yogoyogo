@@ -4,27 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>리뷰 남기기</title>
 <link rel="shortcut icon" href="favicon.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Marketing/view/css/activityinsert.css">
+<link rel="stylesheet" href="/YogoYogo/WEB-INF/view/activity/activityinsert.jsp">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Bootstrap 3.3.2 -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="assets/css/animate.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-<link rel="stylesheet" href="assets/js/rs-plugin/css/settings.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/slick.css">
+<link rel="stylesheet" href="/YogoYogo/assets/js/rs-plugin/css/settings.css">
 
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" type="text/css" href="css/review/reviewInsert.css">
-<script type="text/javascript" src="assets/js/modernizr.custom.32033.js"></script>
-<script type="text/javascript" src="js/review/reviewInsert.js"></script>
+<link rel="stylesheet" href="/YogoYogo/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="/YogoYogo/css/review/reviewInsert.css">
+<script type="text/javascript" src="/YogoYogo/assets/js/modernizr.custom.32033.js"></script>
+<script type="text/javascript" src="/YogoYogo/js/review/reviewInsert.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -41,17 +42,16 @@
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-12 col-sm-12 scrollpoint sp-effect1">
-								<form role="form">
+								<form  id="frm" action="reviewInsert.do" method="post">
 								
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="name"><h3>제목</h3></label> 
-										<input type="text" class="form-control" placeholder="제목을 입력하세요">
+										<label class="col-md-3 control-label" for="name" ><h3>제목</h3></label> 
+										<input type="text" class="form-control" placeholder="제목을 입력하세요" name="rev_title">
 									</div>
 									
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="message"><h3>내용</h3></label>
-										<textarea cols="30" rows="10" class="form-control"
-											placeholder="내용을 입력하세요"></textarea>
+										<label class="col-md-3 control-label" for="message" ><h3>내용</h3></label>
+										<textarea cols="30" rows="10" class="form-control" placeholder="내용을 입력하세요" name="rev_content"></textarea>
 									</div>
 									 <div class="form-group ">
 										<label class="col-md-12 control-label" for="message"><h3>파일첨부</h3></label>
@@ -67,14 +67,14 @@
 									                    <div class="btn image-preview-input btn-primary btn-lg">
 									                        <span class="glyphicon glyphicon-folder-open"></span>
 									                        <span class="image-preview-input-title">Browse</span>
-									                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"  class=""/> <!-- rename it -->
+									                        <input type="file" accept="image/png, image/jpeg, image/gif" name=""  class=""/> <!-- rename it -->
 									                    </div>
 									                </span>
 									            </div><!-- /input-group image-preview [TO HERE]--> 
 									        </div>
 
 									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-									<center><button type="submit" class="btn btn-primary btn-lg btn-align">완료</button>
+									<center><input type="submit" class="btn btn-primary btn-lg btn-align" id="btnInsert" value="완료"/>
 									<button type='reset' class="btn  btn-lg btn-align">취소</button></center>
 								</form>
 							</div>

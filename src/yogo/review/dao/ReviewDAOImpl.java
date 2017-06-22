@@ -24,4 +24,19 @@ public class ReviewDAOImpl implements ReviewDAO{
 		return reviewVo;
 	}
 
+	//리뷰 작성(Insert)
+	public int reviewInsert(ReviewVO vo) {
+		//시퀀스 값 가져오기
+		String seq = ss.selectOne("review.selectSeq");
+		//가져온 시퀀스 값에 문자열 넣어주기
+		String revSeq = "REV00";
+		revSeq += seq;
+		//vo에 시퀀스 값 넣기
+		vo.setRev_num(revSeq);
+		
+		int result = ss.insert("review.reviewInsert",vo);
+		
+		return result;
+	}
+
 }

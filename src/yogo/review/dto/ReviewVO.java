@@ -16,6 +16,10 @@ public class ReviewVO {
 	private String rev_date;
 	/* 회원 닉네임 */
 	private String mem_nick;
+	/* 사진 임시경로 */
+	private String rev_imgtemp;
+	/* 사진 실제경로 */
+	private String rev_imgreal;
 	
 	
 	public String getRev_num() {
@@ -60,8 +64,18 @@ public class ReviewVO {
 	public void setMem_nick(String mem_nick) {
 		this.mem_nick = mem_nick;
 	}
-	
-	
+	public String getRev_imgtemp() {
+		return rev_imgtemp;
+	}
+	public void setRev_imgtemp(String rev_imgtemp) {
+		this.rev_imgtemp = rev_imgtemp;
+	}
+	public String getRev_imgreal() {
+		return rev_imgreal;
+	}
+	public void setRev_imgreal(String rev_imgreal) {
+		this.rev_imgreal = rev_imgreal;
+	}
 	
 	
 }

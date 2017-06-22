@@ -17,6 +17,7 @@ public class ReviewController {
 	@Autowired
 	ReviewDAOImpl reviewDAO;
 	
+	//리뷰 리스트(Select)
 	@RequestMapping(value="/reviewList.do")
 	public ModelAndView reviewList() {
 		List<ReviewVO> list = reviewDAO.reviewList();
@@ -26,8 +27,18 @@ public class ReviewController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/reviewInsert.do")
-	public String reviewInsert() {
+	//리뷰폼이동
+	@RequestMapping(value="/reviewform.do")
+	public String reviewForm() {
 		return "/review/reviewInsert";
 	}
+	
+	//리뷰 작성(Insert)
+	@RequestMapping(value="/reviewInsert.do")
+	public String reviewInsert(ReviewVO vo) {
+		int result = reviewDAO.reviewInsert(vo);
+		return "redirect:reviewList.do";
+	}
+	
+	
 }
