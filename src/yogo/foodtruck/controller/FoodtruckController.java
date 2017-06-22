@@ -2,6 +2,7 @@ package yogo.foodtruck.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class FoodtruckController {
 		
 		list = foodtruckDao.list();
 		mv.addObject("list", list);
-		mv.setViewName("/foodtruck/foodtrucklist");
+		mv.setViewName("/foodtruck/foodtruckList");
 		return mv;
 	}
 	
@@ -35,10 +36,10 @@ public class FoodtruckController {
 		String [] values = new String[4];
 		List<FoodtruckVO> list = new ArrayList<FoodtruckVO>();
 		
-		if(category == "푸드트럭명") {
+		if(category.equals("푸드트럭명")) {
 			cate = "TRUCK_NAME";
 			values[0] = search_name;
-		} else if(category == "메뉴") {
+		} else if(category.equals("메뉴")) {
 			cate = "MENU_NAME";
 			if(eat.equals("on")) {
 				values[1] = "먹을거리";
@@ -47,14 +48,23 @@ public class FoodtruckController {
 			} else if(enjoy.equals("on")) {
 				values[3] = "즐길거리";
 			}
-		} else if(category == "위치") {
-			values[0] = addr;
+		} else if(category.equals("위치")) {
+			cate = "TRUCK_ADDR";
+			
+			StringTokenizer st = new StringTokenizer(addr);
+			String [] temp = new String[4];
+			int i = 0;
+			while(st.hasMoreTokens()) {
+				temp[i] = st.nextToken();
+				i = i+1;
+			}
+			values[0] = temp[1];
 		}
 		
 		ModelAndView mv = new ModelAndView();
 		list = foodtruckDao.search(cate, values);
 		mv.addObject("list", list);
-		mv.setViewName("/foodtruck/foodtrucklist");
+		mv.setViewName("/foodtruck/foodtruckList");
 		return mv;
 	}
 }

@@ -1,0 +1,23 @@
+#menu-toggle {
+    top: 0;
+    right: 0;
+    position: fixed;
+  }
+  
+  #menu-close {
+  	top: 0;
+    right: 0;
+    position: fixed;
+    display: none;
+  }
+
+  .toggle {
+    margin: 5px 5px 0 0;
+  }
+  
+  .filter {
+  	top: 5px;
+    right: -890px;
+    position: fixed;
+    display: none;
+  }

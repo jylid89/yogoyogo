@@ -29,6 +29,7 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 
 	@Override
 	public List<FoodtruckVO> search(String category, String[] value) {
+		System.out.println(category+"/"+value[0]);
 		List<FoodtruckVO> list = new ArrayList<FoodtruckVO>();
 		HashMap map = new HashMap();
 		map.put("category", category);
@@ -41,7 +42,7 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 		} catch(Exception e) {
 			System.out.println("foodtruck search 실패 "+e.getMessage());
 		}
-		return null;
+		return list;
 	}
 
 }
