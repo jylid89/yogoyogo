@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>푸드트럭 리스트</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
@@ -36,19 +37,84 @@
   }
 </style>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
+<script type="text/javascript">
+window.onload = function() {
+	// 실시간 위치를 선택했을 때 확인창을 띄워서 확인버튼을 누를시에  
+	document.getElementById('real_loc').onclick = function() {
+		var con_loc = confirm("현재 위치로 설정하시겠습니까?");
+		if(con_loc == true) {
+			if (navigator.geolocation) {
+			    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			    navigator.geolocation.getCurrentPosition(function(position) {
+			        
+			        var lat = position.coords.latitude, // 위도
+			            lon = position.coords.longitude; // 경도
+			            
+			        var geocoder = new daum.maps.services.Geocoder();
+			        
+			        // 현재위치의 좌표를 이용해서 행정동 주소 정보를 검색창에 표시합니다.
+			        searchAddrFromCoords(new daum.maps.LatLng(lat, lon), function(status, result) {
+			        	if (status === daum.maps.services.Status.OK) {
+			               	document.getElementById('addr').value = result[0].fullName;
+			        	}
+			        });
+			        
+			        function searchAddrFromCoords(coords, callback) {
+			            // 좌표로 행정동 주소 정보를 요청합니다
+			            geocoder.coord2addr(coords, callback);         
+			        }
+			});
+
+			} else { // 위치 정보를 사용 할 수 없을 때 메시지를 보여준다.
+			    alert("위치 서비스를 사용할 수 없습니다.");
+			}
+		}
+	}
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
+	// 검색창의 푸드트럭 메뉴 폼과 위치 폼을 숨긴다.  
+	$("#foodtruck_menu").hide();
+	$("#foodtruck_loc").hide();
+	
+	// 상단 오른쪽의 찾기 버튼을 클릭했을 때 검색창을 보여주고 버튼을 닫기버튼으로 바꾼다.
 	$("#menu-toggle").click(function() {
 		$('.filter').slideDown();
 		$('#menu-close').show();
 		$(this).hide();
 	});
 	
+	// 검색창의 닫기 버튼을 눌렀을 때 검색창을 숨기고 버튼을 찾기 버튼으로 바꾼다.
 	$("#menu-close").click(function() {
+		$('#select_search').val("");
+		$('#addr').val("");
 		$('.filter').slideUp();
 		$('#menu-toggle').show();
 		$(this).hide();
+	});
+	
+	// 카테고리가 변경 될 때마다 카테고리에 따라 보여줄 폼을 보여준다.
+	$("#category").change(function() {
+		if( $(this).children("option:selected").text() == "푸드트럭명" ) {
+			$("#foodtruck_menu").hide();
+			$("#foodtruck_loc").hide();
+			$("#foodtruck_name").show();
+		} else if( $(this).children("option:selected").text() == "메뉴") {
+			$("#foodtruck_name").hide();
+			$("#foodtruck_menu").show();
+			$("#foodtruck_loc").hide();
+		} else if( $(this).children("option:selected").text() == "위치") {
+			$("#foodtruck_name").hide();
+			$("#foodtruck_menu").hide();
+			$("#foodtruck_loc").show();
+		}
+	});
+	
+	$('#submit').click(function() {
+		$('#form').submit();
 	});
 });
 </script>
@@ -64,441 +130,25 @@ $(function() {
 		<div class="row">
 			<div class="col-md-10 col-sm-offset-1">
 				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/vege-4-love"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/67/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Vege 4 Love">
-							</a>
+					<c:forEach varStatus="status" items="${list}" var="a" >
+						<div class="col-md-3 col-xs-6  text-center">
+							<div class="logo">
+								<a href="/foodtruckDetail.do?truck_num=${a.truck_num}"> <img
+									src="http://api.sydneyfoodtrucks.com.au/v2/trucks/67/icon?size=200"
+									class="img-circle img-responsive img-border center-block"
+									alt="Vege 4 Love">
+								</a>
+							</div>
+							<div class="title">
+								<a href="/foodtruckDetail.do?truck_num=${a.truck_num}">${a.truck_name}</a>
+							</div>
 						</div>
-						<div class="title">
-							<a href="/trucks/vege-4-love">Vege 4 Love</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/dirty-bird-food-truck"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/65/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Dirty Bird Food Truck">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/dirty-bird-food-truck">Dirty Bird Food Truck</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/el-capo-food-truck"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/63/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="El Capo Food Truck">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/el-capo-food-truck">El Capo Food Truck</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/og-dogs-food-truck"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/62/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="OG Dogs Food&nbsp;Truck">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/og-dogs-food-truck">OG Dogs Food&nbsp;Truck</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
+						<c:if test="${status.count % 4 == 0 }">
+							</div>
+							<br/><br/><br/>
 				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/inbocca"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/60/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Inbocca">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/inbocca">Inbocca</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/lemon-rose"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/57/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Lemon Rose">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/lemon-rose">Lemon Rose</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/foods-of-the-realm"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/59/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Foods of the Realm">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/foods-of-the-realm">Foods of the Realm</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/thai-chicken-guy"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/54/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Thai Chicken Guy">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/thai-chicken-guy">Thai Chicken Guy</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/yum-thai-juice-bar"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/51/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Yum Thai Juice Bar">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/yum-thai-juice-bar">Yum Thai Juice Bar</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/miss-mabels"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/49/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Miss Mabel's">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/miss-mabels">Miss Mabel's</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/despana"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/48/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Despaña">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/despana">Despaña</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/nonnas-piada"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/47/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Nonna's Piada">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/nonnas-piada">Nonna's Piada</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/the-wienery"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/46/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="The Wienery">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/the-wienery">The Wienery</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/the-fancy-banger"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/45/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="The Fancy Banger">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/the-fancy-banger">The Fancy Banger</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/the-shuck-truck"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/44/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="The Shuck Truck">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/the-shuck-truck">The Shuck Truck</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/trinhys"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/40/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Trinhy's">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/trinhys">Trinhy's</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/shiso-fine"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/41/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Shiso Fine">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/shiso-fine">Shiso Fine</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/sakura-on-wheelz"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/39/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Sakura on Wheelz">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/sakura-on-wheelz">Sakura on Wheelz</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/fritzs-wieners"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/37/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Fritz’s Wieners">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/fritzs-wieners">Fritz’s Wieners</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/de-wafel"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/35/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="De Wafel">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/de-wafel">De Wafel</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/berlin-bangers"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/33/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Berlin Bangers">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/berlin-bangers">Berlin Bangers</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/mama-linhs"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/32/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Mama Linh’s">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/mama-linhs">Mama Linh’s</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/mister-gee-burger-truck"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/29/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Mister Gee Burger Truck">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/mister-gee-burger-truck">Mister Gee Burger
-								Truck</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/caminito"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/27/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Caminito">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/caminito">Caminito</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/monster-rolls"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/23/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Monster Rolls">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/monster-rolls">Monster Rolls</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/street-sliders"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/18/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Street Sliders">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/street-sliders">Street Sliders</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/lets-do-yum-cha"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/7/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Lets Do Yum Cha">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/lets-do-yum-cha">Lets Do Yum Cha</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/agape-organic-food-truck"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/5/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Agapé Organic Food Truck">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/agape-organic-food-truck">Agapé Organic Food
-								Truck</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/cantina-movil"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/2/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Cantina Movil">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/cantina-movil">Cantina Movil</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/tsuru"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/3/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Tsuru">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/tsuru">Tsuru</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/new-york-pastrami-deli"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/21/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="New York Pastrami Deli">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/new-york-pastrami-deli">New York Pastrami
-								Deli</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/bite-size-delights"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/14/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Bite Size Delights">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/bite-size-delights">Bite Size Delights</a>
-						</div>
-					</div>
-				</div>
-				<br/><br/><br/>
-				<div class="row">
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/the-nighthawk-diner"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/19/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="The Nighthawk Diner">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/the-nighthawk-diner">The Nighthawk Diner</a>
-						</div>
-					</div>
-					<div class="col-md-3 col-xs-6  text-center">
-						<div class="logo">
-							<a href="/trucks/urban-pasta"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/4/icon?size=200"
-								class="img-circle img-responsive img-border center-block"
-								alt="Urban Pasta">
-							</a>
-						</div>
-						<div class="title">
-							<a href="/trucks/urban-pasta">Urban Pasta</a>
-						</div>
-					</div>
+						</c:if>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -509,30 +159,38 @@ $(function() {
 			<div class="col-lg-3 col-md-6 col-md-offset-3 col-lg-offset-0">
 				<div class="well">
 					<h3 align="center">푸드트럭 검색</h3>
-					<form class="form-horizontal">
+					<form id='form' method="post" class="form-horizontal" action="foodtruckList_search.do">
 						<div class="form-group">
 							<label for="location1" class="control-label">카테고리</label> <select
-								class="form-control" name="" id="location1">
-								<option value="">푸드트럭명</option>
-								<option value="">메뉴</option>
-								<option value="">가격</option>
-							</select> <br /> <input id="select_search" name="select_search"
+								class="form-control" id="category" name='category'>
+								<option value="푸드트럭명">푸드트럭명</option>
+								<option value="메뉴">메뉴</option>
+								<option value="위치">위치</option>
+							</select> <br/> 
+							
+						</div>
+						<div class="form-group" id="foodtruck_name">
+							<label for="type1" class="control-label">푸드트럭명 검색</label> <br/>
+							<input id="search_name" name="search_name"
 								type="text" class="form-control" placeholder="검색어를 입력해주세요"
 								autofocus="">
 						</div>
-						<div class="form-group">
-							<label for="type1" class="control-label">지역</label><a href="#"
-								class="btn glyphicon glyphicon-record" role="button"></a> <select
-								class="form-control" name="" id="type1">
-								<option value="">서울특별시</option>
-								<option value="">인천광역시</option>
-								<option value="">경기도</option>
-							</select> <br /> <input id="addr" name="addr" type="text"
-								class="form-control" placeholder="동을 입력해주세요" autofocus="">
+						
+						<div class="form-group" id="foodtruck_menu">
+							<label for="type1" class="control-label">메뉴 검색</label> <br/>
+							<input type="checkbox" name="eat" >먹을거리 &nbsp
+							<input type="checkbox" name="drink" >마실거리 &nbsp
+							<input type="checkbox" name="enjoy" >즐길거리 &nbsp
+						</div>
+						
+						<div class="form-group" id="foodtruck_loc">
+							<label for="type1" class="control-label">주소검색</label>
+							<a id='real_loc' class="btn glyphicon glyphicon-record" role="button"></a> 							
+							<input name="addr" id="addr" type="text"
+								class="form-control" placeholder="주소를 입력해주세요" autofocus="">
 						</div>
 						<p class="text-center">
-							<a href="#" class="btn btn-primary glyphicon glyphicon-search"
-								role="button"></a>
+							<a id="submit" class="btn btn-primary glyphicon glyphicon-search" role="button"></a>
 						</p>
 					</form>
 				</div>
@@ -543,7 +201,5 @@ $(function() {
 		class="glyphicon glyphicon-bookmark"></i></a>
 	<a id="menu-close" href="#" class="btn btn-primary btn-lg toggle"><i
 		class="glyphicon glyphicon-remove"></i></a>
-	</ul>
-	</div>
 </body>
 </html>

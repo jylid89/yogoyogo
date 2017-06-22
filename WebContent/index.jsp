@@ -112,7 +112,7 @@
     <div class="Container">
 	</div>
     <div class="mainContainer">
-        <h3 class="truckTitle">트럭리스트</h3>
+        <h3 class="truckTitle"><a href="foodtruckList.do">트럭리스트</a></h3>
         <a href='activity.do'>activity 페이지</a>
         <div class="truckList">
             <div class="row">

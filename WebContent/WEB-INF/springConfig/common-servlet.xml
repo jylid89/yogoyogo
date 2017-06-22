@@ -21,7 +21,7 @@
 <!-- mybatis 설정 -->
 <bean id='factoryBean' class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource" />
-	<property name="mapperLocations" value="classpath*:yogo/review/mybatis/*.xml" />
+	<property name="mapperLocations" value="classpath*:yogo/*/mybatis/*.xml" />
 </bean>
 
 <bean id='ss' class="org.mybatis.spring.SqlSessionTemplate">

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="foodtruck">
+
+<!-- 트럭리스트 셀렉 -->
+<select id="select" resultType="yogo.foodtruck.dto.FoodtruckVO"> 
+	SELECT * FROM tb_truck	
+</select>
+
+<select id="search" parameterType="HashMap" resultType="yogo.foodtruck.dto.FoodtruckVO">
+	SELECT * FROM tb_truck WHERE ${category} like '%'||#{value}||'%'
+</select>
+
+</mapper>
