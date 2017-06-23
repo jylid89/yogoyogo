@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="select" resultType="yogo.foodtruck.dto.FoodtruckVO"> 
 	SELECT * FROM tb_truck	
 </select>
-
+<!-- 트럭 검색 -->
 <select id="search" parameterType="hashmap" resultType="yogo.foodtruck.dto.FoodtruckVO">
 	SELECT * FROM tb_truck WHERE ${category} like '%'||#{value}||'%'
 </select>

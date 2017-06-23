@@ -63,6 +63,7 @@ $(function() {
 			<h2>푸드트럭 리스트</h2>
 			<div class="colored-line"></div>
 		</div>
+		<!-- 리스트 부분 -->
 		<div class="row">
 			<div class="col-md-10 col-sm-offset-1">
 				<div class="row">

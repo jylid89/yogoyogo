@@ -54,6 +54,7 @@
 </script>
 </head>
 <body>
+	<!-- 트럭 디테일 부분 -->
 	<div class="container">
 		<div id="main_area">
 			<h1>${truckName}</h1>
@@ -151,7 +152,7 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- 케이터링 신청 모달 -->
 	<div class="modal fade" id="basicModal" tabindex="-1" role="dialog"
 		aria-labelledby="basicModal" aria-hidden="true">
 		<div class="modal-dialog">

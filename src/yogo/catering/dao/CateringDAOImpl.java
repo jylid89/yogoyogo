@@ -17,7 +17,7 @@ public class CateringDAOImpl implements CateringDAO {
 
 	@Autowired
 	SqlSessionTemplate ss;
-	
+//	리스트가져오는 부분
 	@Override
 	public List<FoodtruckVO> list() {
 		List<FoodtruckVO> list = new ArrayList<>();
@@ -31,7 +31,7 @@ public class CateringDAOImpl implements CateringDAO {
 		
 		return list;
 	}
-
+//	케이터링신청부분
 	@Override
 	public int cateringInsert(CateringVO vo) {
 		int result = 0;
@@ -58,7 +58,7 @@ public class CateringDAOImpl implements CateringDAO {
 	
 		return null;
 	}
-
+//	케이터링 디테일 부분
 	@Override
 	public List<MenuVO> cateringView(MenuVO vo) {
 		List<MenuVO> list = null;

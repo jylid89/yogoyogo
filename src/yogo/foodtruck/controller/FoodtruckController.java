@@ -27,7 +27,7 @@ public class FoodtruckController {
 				
 				return "/foodtruck/"+url;
 			}
-	
+//	리스트 부분
 	@RequestMapping(value="/foodtruckList.do")
 	public ModelAndView foodtruckList() {
 		ModelAndView mv = new ModelAndView();
@@ -39,7 +39,7 @@ public class FoodtruckController {
 		mv.setViewName("/foodtruck/foodtruckList");
 		return mv;
 	}
-	
+//	검색부분
 	@RequestMapping(value="/foodtruckList_search.do")
 	public ModelAndView trucklist_search(String category, String search_name, String eat, String drink, String enjoy, String addr) {
 		String cate = "";

@@ -16,7 +16,7 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 
 	@Autowired
 	SqlSessionTemplate ss;
-	
+//	리스트
 	@Override
 	public List<FoodtruckVO> list() {
 		List<FoodtruckVO> list = new ArrayList<FoodtruckVO>();
@@ -27,7 +27,7 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 		}
 		return list;
 	}
-
+//	검색 부분
 	@Override
 	public List<FoodtruckVO> search(String category, String[] value) {
 		System.out.println(category+"/"+value[0]);
@@ -45,7 +45,7 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 		}
 		return list;
 	}
-
+//	디테일 부분 중 푸드트럭 정보
 	@Override
 	public FoodtruckVO foodtruckView(FoodtruckVO vo) {
 		FoodtruckVO truckVO = null;
@@ -59,7 +59,7 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 		
 		return truckVO;
 	}
-
+//	디테일 부분 중 메뉴 정보
 	@Override
 	public List<MenuVO> menuView(FoodtruckVO vo) {
 		List<MenuVO> list = null;
