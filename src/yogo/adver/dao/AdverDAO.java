@@ -24,4 +24,7 @@ public interface AdverDAO {
 	//승인취소(Delete)
 	void advConfirmDelete(String adv_num,String truck_num);
 	
+	//광고 추가(Insert)
+	void advInsert(AdverVO vo);
+	
 }

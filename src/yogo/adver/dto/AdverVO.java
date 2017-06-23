@@ -23,6 +23,9 @@ public class AdverVO {
 	/* 승인번호 */
 	private String advconf_num;
 
+	/* 회원 아이디 */
+	private String mem_id;
+	
 	public String getAdv_title() {
 		return adv_title;
 	}
@@ -77,6 +80,14 @@ public class AdverVO {
 
 	public void setAdvconf_num(String advconf_num) {
 		this.advconf_num = advconf_num;
+	}
+
+	public String getMem_id() {
+		return mem_id;
+	}
+
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
 	}
 	
 	

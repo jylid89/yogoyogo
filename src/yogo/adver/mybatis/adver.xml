@@ -54,4 +54,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE 	adv_num = #{adv_num}
 	AND 		truck_num = #{truck_num}
 </delete>
+
+<!-- insert시퀀스 값 가져오기 -->
+<select id="selectAdvSeq" resultType="String">
+	SELECT adv_seq.nextval as adv_seq FROM dual
+</select>
+
+<!-- 광고추가(Insert) -->
+<insert id="advInsert" parameterType="yogo.adver.dto.AdverVO">
+	INSERT INTO tb_adver
+	VALUES(#{adv_num}, #{adv_title}, #{adv_content}, 0, #{mem_id}, 'aa', 'bb')	
+</insert>
+
 </mapper>

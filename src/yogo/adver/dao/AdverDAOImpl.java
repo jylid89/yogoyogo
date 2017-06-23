@@ -88,4 +88,17 @@ public class AdverDAOImpl implements AdverDAO{
 		
 	}
 
+	//광고 추가(Insert)
+	public void advInsert(AdverVO vo) {
+		//시퀀스 값 가져오기
+		String seq = ss.selectOne("adver.selectAdvSeq", vo);
+		//가져온 시퀀스 값에 문자열 넣어주기
+		String advSeq = "ADV00";
+		advSeq += seq;
+		//vo에 시퀀스 값 넣기
+		vo.setAdv_num(advSeq);
+		
+		int result = ss.insert("adver.advInsert", vo);
+	}
+
 }

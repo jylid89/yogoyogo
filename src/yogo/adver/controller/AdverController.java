@@ -74,6 +74,19 @@ public class AdverController {
 		return mv;
 	}
 	
+	//페이지 이동
+	@RequestMapping(value="/insertForm.do")
+	public String insertForm() {
+		return "/adver/adverInsert";
+	}
+	
+	//광고추가(Insert)
+	@RequestMapping(value="advInsert.do")
+	public String advInsert(AdverVO vo) {
+		adverDAO.advInsert(vo);
+		return "redirect:adverList.do";
+	}
+	
 	
 	
 }

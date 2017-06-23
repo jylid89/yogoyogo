@@ -14,17 +14,31 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Bootstrap 3.3.2 -->
-<link rel="stylesheet" href="/YogoYogo/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css">
-<link rel="stylesheet" href="/YogoYogo/assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="/YogoYogo/assets/css/slick.css">
-<link rel="stylesheet" href="/YogoYogo/assets/js/rs-plugin/css/settings.css">
+<link rel="stylesheet" href="assets/css/animate.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/slick.css">
+<link rel="stylesheet" href="assets/js/rs-plugin/css/settings.css">
 
-<link rel="stylesheet" href="/YogoYogo/assets/css/styles.css">
-<link rel="stylesheet" type="text/css" href="/YogoYogo/css/review/reviewInsert.css">
-<script type="text/javascript" src="/YogoYogo/assets/js/modernizr.custom.32033.js"></script>
-<script type="text/javascript" src="/YogoYogo/js/review/reviewInsert.js"></script>
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/review/reviewInsert.css">
+<script type="text/javascript" src="assets/js/modernizr.custom.32033.js"></script>
+<script type="text/javascript" src="js/review/reviewInsert.js"></script>
+<script type="text/javascript">
+		$(function(){
+			
+			$("#btnOk").click(function(){
+				var result = confirm("글을 등록 하시겠습니까?");
+				
+				if(result){
+					$("#frm").attr("action", "advInsert.do").submit();
+					//$("#searchForm").attr("action","<c:url value='/order/selectStatsByPoDateList.do'/>").submit();
+				}
+			})
+			
+		})
+	</script>
 
 </head>
 <body>
@@ -41,17 +55,17 @@
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-12 col-sm-12 scrollpoint sp-effect1">
-								<form role="form">
+								<form role="form" id="frm" >
 								
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="name"><h3>제목</h3></label> 
-										<input type="text" class="form-control" placeholder="제목을 입력하세요">
+										<input type="text" class="form-control" placeholder="제목을 입력하세요" name="adv_title">
 									</div>
 									
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="message"><h3>내용</h3></label>
 										<textarea cols="30" rows="10" class="form-control"
-											placeholder="내용을 입력하세요"></textarea>
+											placeholder="내용을 입력하세요" name="adv_content"></textarea>
 									</div>
 									 <div class="form-group ">
 										<label class="col-md-12 control-label" for="message"><h3>파일첨부</h3></label>
@@ -74,8 +88,9 @@
 									        </div>
 
 									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-									<center><button type="submit" class="btn btn-primary btn-lg btn-align">완료</button>
+									<center><input  type="button" class="btn btn-primary btn-lg btn-align" id="btnOk" value="완료"/>
 									<button type='reset' class="btn  btn-lg btn-align">취소</button></center>
+									<input type="hidden" value="adver@naver.com" name="mem_id" title="아이디!!!!"/>
 								</form>
 							</div>
 						</div>
