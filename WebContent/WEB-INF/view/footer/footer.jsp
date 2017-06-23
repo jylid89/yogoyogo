@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/YogoYogo/css/footer/footer.css>
+<link rel="stylesheet" href="footer.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- 합쳐지고 최소화된 최신 CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -56,7 +56,7 @@
                         <li> <a href="#"> 광고대행 </a> </li>
                     </ul>
                 </div>
-            <img class="footerLogo" src="/YogoYogo/images/adver/logo.png" alt="하단 로고">
+            <img class="footerLogo" src="logo.png" alt="하단 로고">
             </div>
             <!--/.row--> 
         </div>
