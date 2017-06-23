@@ -80,9 +80,9 @@
                     <div class="bs-slider-overlay"></div>
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_right">
-                        <h1 data-animation="animated zoomInLeft">요기요기여</h1>
+                        <h1 data-animation="animated zoomInLeft">케이터링</h1>
                         <p data-animation="animated fadeInRight">요기??????</p>
-                        <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
+                        <a href="catering/catelist.do" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">케이터링</a>
                         <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
                     </div>
                 </div>

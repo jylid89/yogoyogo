@@ -60,7 +60,7 @@
         	<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">케이터링<span class="caret"></span></a>				
 			  <ul class="dropdown-menu" role="menu">
-                <li><a href="#">케이터링 신청</a></li>
+                <li><a href="catering/catelist.do">케이터링 신청</a></li>
                 <li><a href="#">견적문의</a></li>
               </ul>                
             </li>
