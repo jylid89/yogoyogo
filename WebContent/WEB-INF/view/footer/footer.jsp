@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="footer.css">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/YogoYogo/css/footer/footer.css>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- 합쳐지고 최소화된 최신 CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -15,27 +20,43 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> LOGO </h3>
+                    <h3> 푸드트럭 </h3>
                     <ul>
-                        <li> <a href="#"> 푸드트럭 </a> </li>
-                        <li> <a href="#"> 행사리스트 </a> </li>
-                        <li> <a href="#"> 케이터링 </a> </li>
-                        <li> <a href="#"> 커뮤니티 </a> </li>
-                        <li> <a href="#"> 서비스 </a> </li>
+                        <li> <a href="#"> 푸드트럭 목록 </a> </li>
+                        <li> <a href="#"> 홍보 </a> </li>
+                        <li> <a href="#"> 리뷰 </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> 커뮤니티 </h3>
+                    <ul>
+                        <li> <a href="#"> 공지사항 </a> </li>
+                        <li> <a href="#"> 자유게시판 </a> </li>
                         <li> <a href="#"> Q & A </a> </li>
                     </ul>
                 </div>
-                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                    <h3> CONTACT </h3>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> 행사 </h3>
                     <ul>
-                        <li>
-                            <div class="input-append newsletter-box text-center">
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                <button class="btn  bg-gray" type="button"> 보내기 <i class="fa fa-long-arrow-right"> </i> </button>
-                            </div>
-                        </li>
+                        <li> <a href="#"> 행사목록 </a> </li>
+                        <li> <a href="#"> 행사지도 </a> </li>
                     </ul>
                 </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> 케이터링 </h3>
+                    <ul>
+                        <li> <a href="#"> 케이터링 신청 </a> </li>
+                        <li> <a href="#"> 견적문의 </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> 서비스 </h3>
+                    <ul>
+                        <li> <a href="#"> 서비스 이용방법 </a> </li>
+                        <li> <a href="#"> 광고대행 </a> </li>
+                    </ul>
+                </div>
+            <img class="footerLogo" src="/YogoYogo/images/adver/logo.png" alt="하단 로고">
             </div>
             <!--/.row--> 
         </div>
