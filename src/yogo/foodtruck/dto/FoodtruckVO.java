@@ -38,7 +38,6 @@ public class FoodtruckVO {
 	/* 푸드트럭 주소 */
 	private String truck_addr;
 	
-	
 	public FoodtruckVO() {}
 
 	public FoodtruckVO(String truck_num, String mem_id, String truck_name, String truck_loc, String truck_pictemp1,

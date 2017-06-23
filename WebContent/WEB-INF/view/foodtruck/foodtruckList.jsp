@@ -31,14 +31,14 @@
 					<c:forEach varStatus="status" items="${list}" var="a" >
 						<div class="col-md-3 col-xs-6  text-center">
 							<div class="logo">
-								<a href="/foodtruckDetail.do?truck_num=${a.truck_num}"> <img
+								<a href="foodtruckDetail.do?truck_num=${a.truck_num}"> <img
 									src="http://api.sydneyfoodtrucks.com.au/v2/trucks/67/icon?size=200"
 									class="img-circle img-responsive img-border center-block"
 									alt="Vege 4 Love">
 								</a>
 							</div>
 							<div class="title">
-								<a href="/foodtruckDetail.do?truck_num=${a.truck_num}">${a.truck_name}</a>
+								<a href="foodtruckDetail.do?truck_num=${a.truck_num}">${a.truck_name}</a>
 							</div>
 						</div>
 						<c:if test="${status.count % 4 == 0 }">

@@ -6,17 +6,27 @@ import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import yogo.foodtruck.dao.FoodtruckDAO;
 import yogo.foodtruck.dto.FoodtruckVO;
+import yogo.menu.dto.MenuVO;
 
 @Controller
 public class FoodtruckController {
 	
 	@Autowired
 	FoodtruckDAO foodtruckDao;
+	
+	//화면만 연결하는 메소드
+			@RequestMapping("/{url}.do")
+			public String member(@PathVariable String url){
+				System.out.println("요청받았음");
+				
+				return "/foodtruck/"+url;
+			}
 	
 	@RequestMapping(value="/foodtruckList.do")
 	public ModelAndView foodtruckList() {
@@ -40,10 +50,14 @@ public class FoodtruckController {
 			cate = "TRUCK_NAME";
 			values[0] = search_name;
 		} else if(category.equals("메뉴")) {
-			cate = "MENU_CATE";
-			if(eat != null)	if(eat.equals("on")) values[1] = "먹을거리";
-			if(drink != null) if(drink.equals("on")) values[2] = "마실거리";
-			if(enjoy != null) if(enjoy.equals("on")) values[3] = "즐길거리";
+			cate = "MENU_NAME";
+			if(eat.equals("on")) {
+				values[1] = "먹을거리";
+			} else if(drink.equals("on")) {
+				values[2] = "마실거리";
+			} else if(enjoy.equals("on")) {
+				values[3] = "즐길거리";
+			}
 		} else if(category.equals("위치")) {
 			cate = "TRUCK_ADDR";
 			
@@ -61,6 +75,19 @@ public class FoodtruckController {
 		list = foodtruckDao.search(cate, values);
 		mv.addObject("list", list);
 		mv.setViewName("/foodtruck/foodtruckList");
+		return mv;
+	}
+	
+	//foodtruck 상세정보
+	@RequestMapping(value="/foodtruckDetail.do")
+	public ModelAndView foodtruckView(FoodtruckVO vo){
+		System.out.println("디테일 컨트롤");
+		FoodtruckVO foodtruck = foodtruckDao.foodtruckView(vo);
+		List<MenuVO> menulist = foodtruckDao.menuView(vo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("foodtruck",foodtruck);
+		mv.addObject("menuList",menulist);
+		mv.setViewName("/foodtruck/foodtruckDetail");
 		return mv;
 	}
 }
