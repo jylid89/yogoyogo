@@ -27,7 +27,7 @@ body{
 }
 
 .row{
-    display: table-row;
+    
     margin: 0 auto;
     clear: both;
     text-align: center;
