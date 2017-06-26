@@ -18,7 +18,15 @@ public class BoardVO {
 	private String board_count;
 	/* 게시판 사진경로 */
 	private String board_pic;
+	/* 고객 닉네임  */
+	private String mem_nick;
 	
+	public String getMem_nick() {
+		return mem_nick;
+	}
+	public void setMem_nick(String mem_nick) {
+		this.mem_nick = mem_nick;
+	}
 	/* 게터세터 */
 	public String getBoard_num() {
 		return board_num;
