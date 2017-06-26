@@ -36,6 +36,8 @@ public class MemberController {
 		if ( reVO != null ) {
 			session.setAttribute("mem_id", reVO.getMem_id());	
 			session.setAttribute("mem_state", reVO.getMem_state());
+			session.setAttribute("mem_nick", reVO.getMem_nick());
+			session.setAttribute("mem_name", reVO.getMem_name());
 			result = 1;
 			view = "main/main";
 		}
@@ -67,5 +69,13 @@ public class MemberController {
 		public String loginCheck(String mem_id, String mem_pass){
 			String result = memberDao.loginCheck(mem_id, mem_pass);
 			return result;
+		}
+		
+	//로그아웃
+		@RequestMapping(value="/logOut.do")
+		public String logOut(HttpSession session){
+				session.invalidate();
+			
+			return "main/main";
 		}
 }
