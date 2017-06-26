@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/qna/qna.css">
+<link rel="stylesheet" href="/yogoyogo2/css/qna/qna.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
@@ -42,46 +43,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr tabindex="1">
-								<td>1</td>
-								<td>케이터링 문의</td>
-								<td>김상준</td>
-								<td>5시간전</td>
-								<td>5</td>
+						<c:forEach items="${listModel }" var="list">
+							<tr>
+								<td>${list.board_num }</td>
+								<td><a href="qnadetail.do?board_num=${list.board_num }">${list.board_title }</a></td>
+								<td>${list.mem_nick }</td>
+								<td>${list.board_time }</td>
+								<td>${list.board_count }</td>
 							</tr>
-							<tr tabindex="2">
-								<td>2</td>
-								<td>푸드트럭 문의</td>
-								<td>김상준</td>
-								<td>4시간전</td>
-								<td>22</td>
-							</tr>
-							<tr tabindex="3">
-								<td>3</td>
-								<td>커뮤니티 문의</td>
-								<td>김상준</td>
-								<td>3시간전</td>
-								<td>11</td>
-							</tr>
-							<tr tabindex="4">
-								<td>4</td>
-								<td>행사 문의</td>
-								<td>김상준</td>
-								<td>2시간전</td>
-								<td>44</td>
-							</tr>
-							<tr tabindex="5">
-								<td>5</td>
-								<td>행사지역 문의</td>
-								<td>김상준</td>
-								<td>1시간전</td>
-								<td>55</td>
-							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<div class="col-md-12">
 					<div class="col-md-offset-11">
-						<a href="#"><h4>글쓰기</h4></a>
+						<a href="qnaForm.do"><h4>글쓰기</h4></a>
 					</div>
 					<div class="col-md-4 col-md-offset-4">
 					<div class="clearfix"></div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna">
+	<select id="qnaList" parameterType="yogo.board.dto.BoardVO" resultType="yogo.board.dto.BoardVO">
+		SELECT mem.mem_nick, boa.board_num, boa.mem_id, boa.board_state, boa.board_title, boa.board_content, boa.board_time, boa.board_count, boa.board_pic
+		FROM tb_board boa, tb_member mem 
+		WHERE board_state ='QNA'
+		AND boa.mem_id = mem.mem_id
+	</select>
+	<!-- 시퀀스 값 가져오기 -->
+	<select id="selectSeq" resultType="String">
+	SELECT board_seq.nextval as board_seq FROM dual
+	</select>	
+	<insert id="qnaInsert" parameterType="yogo.board.dto.BoardVO">
+	INSERT INTO tb_board
+	VALUES( #{board_num}, 'sangjun0131@naver.com', 'QNA',  #{board_title}, #{board_content}, sysdate, 0,'aa')
+	</insert>
+	<select id="qnaDetail" parameterType="yogo.board.dto.BoardVO" resultType="yogo.board.dto.BoardVO">
+		SELECT  boa.board_num, boa.mem_id, boa.board_state, boa.board_title, boa.board_content, boa.board_time, boa.board_count, boa.board_pic, mem.mem_nick
+		FROM tb_board boa, tb_member mem 
+		WHERE boa.mem_id = mem.mem_id
+		AND boa.board_num = #{board_num}
+	</select>
+</mapper>
