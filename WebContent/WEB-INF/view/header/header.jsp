@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String mem_name = (String)session.getAttribute("mem_name");
+%>
 <!DOCTYPE html>
 <html>
 <head> 
@@ -15,7 +19,27 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     	<link rel="javascript" type="text/javascript" href="header.js">
-<title>Insert title here</title>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		
+		$("#login").show();
+		$("#logout").hide();
+		$("#logMsg").hide();
+		if($("#mem_name").val() != "null"){
+			$("#logout").show();
+			$("#login").hide();
+			$("#logMsg").show();
+			
+		}else{
+			$("#login").show();
+			$("#logout").hide();
+			$("#logMsg").hide();
+		}
+	});
+
+</script>    
 </head>
 <header>
 <nav class="navbar-default" role="navigation">
@@ -31,7 +55,6 @@
       <a class="navbar-brand" href="#">LOGO</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-slide-dropdown">
         <ul class="nav navbar-nav">
             <li class="dropdown">
@@ -49,6 +72,7 @@
                 <li><a href="#">자유게시판</a></li>
                 <li><a href="#">Q&A</a></li>
               </ul>                
+                <input type="hidden" value="<%=mem_name %>" id="mem_name" />
             </li>
         	<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">행사<span class="caret"></span></a>				
@@ -73,8 +97,13 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="loginView.do">로그인</a></li>
+            <li><a href="loginView.do" id="login">로그인</a>
+            <li><a href="logOut.do" id="logout">로그아웃</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+        	<li><a id="logMsg"><%=mem_name %>님, 환영합니다.</a></li>
+        </ul>
+            
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

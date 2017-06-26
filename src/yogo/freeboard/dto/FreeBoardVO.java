@@ -1,33 +1,16 @@
-package yogo.board.dto;
+package yogo.freeboard.dto;
 
-public class BoardVO {
+public class FreeBoardVO {
 
-	/* 게시판 글 번호 */
-	private String board_num;
-	/* 고객 아이디 */
-	private String mem_id;
-	/* 게시판 구분 */
-	private String board_state;
-	/* 게시판 제목 */
-	private String board_title;
-	/* 게시판 내용 */
-	private String board_content;
-	/* 게시판 일자 */
-	private String board_date;
-	/* 게시판 조회수 */
-	private String board_count;
-	/* 게시판 사진경로 */
-	private String board_pic;
-	/* 고객 닉네임  */
-	private String mem_nick;
+	String board_num;
+	String mem_id;
+	String board_state;
+	String board_title;
+	String board_content;
+	String board_time;
+	String board_count;
+	String board_pic;
 	
-	public String getMem_nick() {
-		return mem_nick;
-	}
-	public void setMem_nick(String mem_nick) {
-		this.mem_nick = mem_nick;
-	}
-	/* 게터세터 */
 	public String getBoard_num() {
 		return board_num;
 	}
@@ -58,12 +41,11 @@ public class BoardVO {
 	public void setBoard_content(String board_content) {
 		this.board_content = board_content;
 	}
-	
-	public String getBoard_date() {
-		return board_date;
+	public String getBoard_time() {
+		return board_time;
 	}
-	public void setBoard_date(String board_date) {
-		this.board_date = board_date;
+	public void setBoard_time(String board_time) {
+		this.board_time = board_time;
 	}
 	public String getBoard_count() {
 		return board_count;
