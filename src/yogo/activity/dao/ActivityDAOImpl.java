@@ -20,7 +20,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 		
 		List list = new ArrayList();
 		try{
-		list = ss.selectList("activity.select");
+		list = ss.selectList("activity.activitySelect");
 		}catch( Exception ex ){
 		 	System.out.println("ActitivyDAOImpl / activityselect"+ex.getMessage());
 		}

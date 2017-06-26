@@ -28,7 +28,7 @@
 			<div class="containerright">
 			<!-- 글쓰기 버튼 insert.do로 연결 -->
 				<button class="enjoy-css"
-					onclick="javascript:location.href='insert.do'">글쓰기</button>
+					onclick="javascript:location.href='activityInsert.do'">글쓰기</button>
 			</div>
 			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
 				<ul class="event-list">
@@ -45,7 +45,7 @@
 									</time>
 									<div class="info">
 										<p class="=title">${a.mark_content}</p>
-										<img alt="이쁜사진" src="/YogoYogo/images/activity/kim.jpg" />
+										<img alt="이쁜사진" src="/Marketing/img/kim.jpg" />
 									</div></li>
 							</c:forEach>
 						</c:otherwise>

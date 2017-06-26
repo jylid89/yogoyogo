@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import yogo.activity.dao.ActivityDAO;
 import yogo.activity.dao.ActivityDAOImpl;
 import yogo.activity.dto.ActivityVO;
 
@@ -26,18 +25,18 @@ public class ActivityController {
 		List<ActivityVO> list = activityDAO.list();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listModel",list);
-		mv.setViewName("/activity/activity");
+		mv.setViewName("/activtiy/activity");
 		return mv;
 		
 	}
 	/*
 	 * 글 쓰러 가기
 	 */
-	@RequestMapping(value="insert.do")
+	@RequestMapping(value="activityInsert.do")
 	public ModelAndView write(){
 		System.out.println("글쓰러가니?");
 		ModelAndView mv = new ModelAndView();
-	 	 mv.setViewName("/activity/activityinsert");
+	 	 mv.setViewName("/activtiy/activityInsert");
 		return mv;
 		
 	}
@@ -45,7 +44,7 @@ public class ActivityController {
 	/*
 	 * 글 쓰고 다시 리스트로 가기
 	 */
-	@RequestMapping(value="redirect.do")
+	@RequestMapping(value="activityInsertOk.do")
 	public ModelAndView insert( ActivityVO vo){
 		System.out.println("글써지니?");
 	 	int result = activityDAO.activityInsert(vo);
@@ -53,7 +52,7 @@ public class ActivityController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result",result);
 		mv.addObject("listModel",list);
-		mv.setViewName("/activity/activity");
+		mv.setViewName("/activtiy/activity");
 		return mv;
 		
 	}

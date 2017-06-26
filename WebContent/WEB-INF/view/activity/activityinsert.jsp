@@ -1,22 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/Marketing/css/activityinsert.css">
-<script type="text/javascript" src="/Marketing/js/activityinsert.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/YogoYogo/css/activity/activityinsert.css">
+<script type="text/javascript" src="/YogoYogo/js/activity/activityinsert.js"></script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
 
@@ -35,14 +39,15 @@
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-12 col-sm-12 scrollpoint">
-								<form role="form" method="post" action="activityInsert.do" >
+								<form role="form" method="post" action="activityInsertOk.do">
 
-									<br><br>
+									<br>
+									<br>
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="message"><h3>활동
-										내용</h3></label>
-										<textarea name="mark_content" cols="30" rows="10" class="form-control"
-											placeholder="내용을 입력하세요"></textarea>
+												내용</h3></label>
+										<textarea name="mark_content" cols="30" rows="10"
+											class="form-control" placeholder="내용을 입력하세요"></textarea>
 									</div>
 									<!-- **************파일첨부 1************* -->
 									<div class="form-group ">
@@ -71,17 +76,18 @@
 										</div>
 										<!-- /input-group image-preview [TO HERE]-->
 									</div>
+									<!-- Form actions -->
+									<div class="form-group">
+										<div class="col-md-12 text-right">
+											<button type="submit" class="btn btn-primary btn-lg">완료</button>
+											<button type='reset' class="btn btn-lg btn-danger">취소</button>
+										</div>
+									</div>
 								</form>
 							</div>
 						</div>
 					</div>
-					<!-- Form actions -->
-					<div class="form-group">
-						<div class="col-md-12 text-right">
-							<button type="submit" class="btn btn-primary btn-lg" onclick="javascript:location.href='redirect.do'">완료</button>
-							<button type='reset' class="btn btn-lg btn-danger">취소</button>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</section>

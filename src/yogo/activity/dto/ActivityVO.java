@@ -14,7 +14,16 @@ public class ActivityVO {
  	private String mark_pictemp;
  	 /* 사진 진짜 경로 */
 	private String mark_picreal;
+	/* 홍보 시작날짜 */
+	private String event_start;
 	
+	
+	public String getEvent_start() {
+		return event_start;
+	}
+	public void setEvent_start(String event_start) {
+		this.event_start = event_start;
+	}
 	public String getMark_num() {
 		return mark_num;
 	}

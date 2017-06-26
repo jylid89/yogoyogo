@@ -6,13 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="activity">
 
 <!-- 리스트 보는 sql -->
-<select id="select" resultType="yogo.activity.dto.ActivityVO">
+<select id="activitySelect" resultType="yogo.activity.dto.ActivityVO">
 	SELECT * FROM TB_MARKETING
 </select>
 
 <!-- 글 쓰는 sql -->
 <insert id="activityInsert" parameterType="yogo.activity.dto.ActivityVO">
-	 INSERT INTO TB_MARKETING VALUES( MARK_SEQ.nextval, 'TRUCK002', 'mark_content', '0', '0','0' )
+	 INSERT INTO TB_MARKETING VALUES( MARK_SEQ.nextval, 'TRUCK003', #{mark_content}, to_char(sysdate, 'yyyy-mm-dd'), '0','0','0' )
 </insert>
 
 
