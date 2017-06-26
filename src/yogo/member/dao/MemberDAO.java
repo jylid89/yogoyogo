@@ -12,4 +12,6 @@ public interface MemberDAO {
 	
 	/*로그인 기능*/
 	MemberVO memberLogin( MemberVO vo );	
+	
+	String loginCheck(String mem_id, String mem_pass);
 }

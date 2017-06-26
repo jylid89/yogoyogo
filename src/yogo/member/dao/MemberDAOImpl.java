@@ -1,5 +1,7 @@
 package yogo.member.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -41,4 +43,13 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return memberVo;
 	}
+	
+	//ajax->아이디/비번 확인
+	public String loginCheck(String mem_id, String mem_pass) {
+			HashMap map = new HashMap();
+			map.put("mem_id", mem_id);
+			map.put("mem_pass", mem_pass);
+			String result = ss.selectOne("loginCheck",map );
+				return result;
+			}
 }

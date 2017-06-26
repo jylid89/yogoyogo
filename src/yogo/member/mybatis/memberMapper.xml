@@ -18,4 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	VALUES ( #{mem_id}, #{mem_nick}, #{mem_pass}, #{mem_name}, #{mem_call}, #{mem_state} , 0 )
 </insert>
 
+<!-- 아이디/비번체크 -->
+<select id="loginCheck" parameterType="hashmap" resultType="String">
+	SELECT count(*) cnt
+	FROM tb_member
+	WHERE mem_id= #{mem_id}
+	AND mem_pass= #{mem_pass}
+</select>
+
 </mapper>

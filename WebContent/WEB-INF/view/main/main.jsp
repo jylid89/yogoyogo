@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<!--     <meta charset="UTF-8"> -->
-<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!--     <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

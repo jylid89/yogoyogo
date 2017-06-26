@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import yogo.member.dao.MemberDAOImpl;
@@ -35,7 +36,7 @@ public class MemberController {
 		if ( reVO != null ) {
 			session.setAttribute("mem_id", reVO.getMem_id());		
 			result = 1;
-			view = "header/header";
+			view = "main/main";
 		}
 		
 		ModelAndView mv = new ModelAndView();
@@ -58,4 +59,12 @@ public class MemberController {
 		
 		return mv;
 	}
+	
+	//ajax -> 승인 전인지 아닌지 제어
+		@RequestMapping(value="loginCheck.do")
+		@ResponseBody
+		public String loginCheck(String mem_id, String mem_pass){
+			String result = memberDao.loginCheck(mem_id, mem_pass);
+			return result;
+		}
 }
