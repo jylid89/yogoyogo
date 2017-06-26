@@ -13,7 +13,7 @@ public class BoardVO {
 	/* 게시판 내용 */
 	private String board_content;
 	/* 게시판 일자 */
-	private String board_time;
+	private String board_date;
 	/* 게시판 조회수 */
 	private String board_count;
 	/* 게시판 사진경로 */
@@ -58,11 +58,12 @@ public class BoardVO {
 	public void setBoard_content(String board_content) {
 		this.board_content = board_content;
 	}
-	public String getBoard_time() {
-		return board_time;
+	
+	public String getBoard_date() {
+		return board_date;
 	}
-	public void setBoard_time(String board_time) {
-		this.board_time = board_time;
+	public void setBoard_date(String board_date) {
+		this.board_date = board_date;
 	}
 	public String getBoard_count() {
 		return board_count;
