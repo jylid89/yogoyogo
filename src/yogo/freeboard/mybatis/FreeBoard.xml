@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="freeboard">
+
+<!-- 자유게시판 리스트 -->
+<select id="freeList" resultType="yogo.freeboard.dto.FreeBoardVO"> 
+	SELECT f.*, m.*
+	FROM 	tb_board f , tb_member m
+    where f.mem_id = m.mem_id
+</select>
+
+<select id="selectFreeSeq" resultType="String">
+	SELECT free_seq.nextval FROM dual
+</select>
+
+<!-- 리뷰 작성(Insert) -->
+<insert id="freeInsert" parameterType="yogo.freeboard.dto.FreeBoardVO">
+	INSERT INTO tb_board(board_num, board_title, mem_id,board_state, board_time, board_content)
+	VALUES(#{board_num}, #{board_title}, 'newhell202','자유게시판', to_char(sysdate, 'yymmdd'), #{board_content})
+</insert>
+</mapper>

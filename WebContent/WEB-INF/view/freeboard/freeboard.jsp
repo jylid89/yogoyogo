@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,28 +27,25 @@
       </tr>
     </thead>
     <tbody>
+      	<c:choose>
+      		<c:when test="${list == null}" >
+      		<p>등록된게없다</p>
+    		</c:when>
+    	<c:otherwise>
+      <c:forEach items="${list}" var="a">
       <tr>
-        <th>1</a></th>
-        <th><a href="">게시글입니다</a></th>
-        <th><a href="">관리자</a></th>
-        <th>2017 / 06 / 16</th>
+        <td>${a.board_num}</td>
+        <td><a href="">${a.board_title}</a></td>
+        <td><a href="">${a.mem_id}</a></td>
+        <td>${a.board_time}</td>
       </tr>
-      <tr>
-        <th>2</a></th>
-        <th><a href="">게시글입니다</a></th>
-        <th><a href="">관리자</a></th>
-        <th>2017 / 06 / 16</th>
-      </tr>
-      <tr>
-        <th>3</a></th>
-        <th><a href="">게시글입니다</a></th>
-        <th><a href="">관리자</a></th>
-        <th>2017 / 06 / 16</th>
-      </tr>
+      </c:forEach>
+      </c:otherwise>
+      	</c:choose>
     </tbody>
   </table>
   <div class="pageNum">< <a href="">1</a> ></div>
-  <div class="writeBtn"><a href="">글쓰기</a></div>
+  <div class="writeBtn"><a href="freeboardInsert.do">글쓰기</a></div>
 </div>
 
 </body>
