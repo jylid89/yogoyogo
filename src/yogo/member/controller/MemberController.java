@@ -34,7 +34,8 @@ public class MemberController {
 		MemberVO reVO = memberDao.memberLogin(vo);
 		
 		if ( reVO != null ) {
-			session.setAttribute("mem_id", reVO.getMem_id());		
+			session.setAttribute("mem_id", reVO.getMem_id());	
+			session.setAttribute("mem_state", reVO.getMem_state());
 			result = 1;
 			view = "main/main";
 		}
@@ -60,7 +61,7 @@ public class MemberController {
 		return mv;
 	}
 	
-	//ajax -> 승인 전인지 아닌지 제어
+	//ajax -> loginCheck
 		@RequestMapping(value="loginCheck.do")
 		@ResponseBody
 		public String loginCheck(String mem_id, String mem_pass){
