@@ -23,10 +23,10 @@
 
 <!-- Bootstrap 3.3.2 -->
 
-<link rel="stylesheet" href="/YogoYogo2/assets/css/animate.css">
+<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css">
 
-<link rel="stylesheet" href="/YogoYogo2/css/mypage/menu.css">
-<script type="text/javascript" src="/YogoYogo2/js/mypage/menu.js"></script>
+<link rel="stylesheet" href="/YogoYogo/css/mypage/menu.css">
+<script type="text/javascript" src="/YogoYogo/js/mypage/menu.js"></script>
 </head>
 <body>
 
