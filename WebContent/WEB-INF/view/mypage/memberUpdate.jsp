@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +30,12 @@
 <!-- Body -->
 <div class="join-agree-layout">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script type="text/javascript">
+$(function() {
+	$('input:radio[name=chk_info]:input[value='+$('#pmem_state').val()+']').attr("checked", true);
+});
+	
+</script>
 
 <br><br>
 
@@ -39,7 +45,7 @@
 	<div class="row">
 		<div class="col-sm-offset-2 col-sm-8">
 			<div class="col-sm-offset-2 col-sm-8">
-			<form class="form-horizontal" role="form" id="joinForm" method="post" action="" autocomplete="off" novalidate="novalidate">
+			<form class="form-horizontal" role="form" id="joinForm" method="post" action="memberUpdate.do" autocomplete="off" novalidate="novalidate">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						회원 정보수정
@@ -49,14 +55,13 @@
 						<div class="form-group joinForm-id">
 							<label for="id" class="col-sm-4 control-label"> 아이디 <br> <small class="text-danger">(필수입력)</small> </label>
 							<div class="col-sm-8">
-									<input id="id" name="id" type="text" class="form-control" placeholder="abcd@efg.com" autofocus="" disabled="disabled">
-								<input id="id2" name="id2" type="text" class="hidden">
+								<input id="mem_id" name="mem_id" type="text" class="form-control" placeholder="abcd@efg.com" autofocus="" disabled = "disabled" value="${vo.mem_id}">
 							</div>
 						</div>
 						<div class="form-group joinForm-pw">
 							<label for="pw" class="col-sm-4 control-label"> 비밀번호 <br> <small class="text-danger">(필수입력)</small> </label>
 							<div class="col-sm-8">
-								<input id="pw" name="pw" type="password" class="form-control" placeholder="Password">
+								<input id="mem_pass" name="mem_pass" type="password" class="form-control" placeholder="Password">
 							</div>
 						</div>
 						<div class="form-group joinForm-pw2">
@@ -65,10 +70,16 @@
 								<input id="pw2" name="pw2" type="password" class="form-control" placeholder="Password (재입력)">
 							</div>
 						</div>
+						<div class="form-group joinForm-id">
+							<label for="id" class="col-sm-4 control-label"> 닉네임 <br> <small class="text-danger"></small> </label>
+							<div class="col-sm-8">
+								<input id="mem_nick" name="mem_nick" type="text" class="form-control" value="${vo.mem_nick}">
+							</div>
+						</div>
 						<div class="form-group joinForm-name">
 							<label for="name" class="col-sm-4 control-label"> 이름 <br> <small class="text-danger">(필수입력)</small> </label>
 							<div class="col-sm-8">
-								<input id="name" name="name" type="text" class="form-control" placeholder="홍길동" value="">
+								<input id="mem_name" name="mem_name" type="text" class="form-control" placeholder="홍길동" value="${vo.mem_name}">
 							</div>
 						</div>
 					    	<div class="form-group joinForm-birthdate">
@@ -80,22 +91,25 @@
 					    	<div class="form-group joinForm-tel">
 							<label for="tel" class="col-sm-4 control-label"> 연락처  </label>
 							<div class="col-sm-8">
-								<input id="tel" name="tel" type="text" class="form-control" placeholder="000-0000-0000">
+								<input id="mem_call" name="mem_call" type="text" class="form-control" placeholder="000-0000-0000" value="${vo.mem_call}">
 							</div>
 						</div>
 						
 						<div class="form-group">
+							<input type="hidden" id="pmem_state" value="${vo.mem_state}" />
 							<label for="type" class="col-sm-4 control-label"> 회원유형  </label>
 							&nbsp&nbsp&nbsp&nbsp
-							<input type="radio" name="chk_info" value="회원"> 회원&nbsp
+							<input type="radio" name="chk_info" value="일반회원"> 일반회원&nbsp
 							<input type="radio" name="chk_info" value="사업자"> 사업자&nbsp
 							<input type="radio" name="chk_info" value="행사 기획자"> 행사 기획자&nbsp
+							<br/>
+							<input type="radio" name="chk_info" value="광고 대행사"> 광고 대행사&nbsp
 						</div>
 				
 							<div class="form-group joinForm-addr">
 							<label for="addr" class="col-sm-4 control-label"> 활동지역 </label>
 							<div class="col-sm-8">
-								<select id="addr" name="addr" class="form-control" placeholder="">
+								<select id="mem_state" name="mem_state" class="form-control" placeholder="">
 									<option>서울특별시</option>
 									<option>인천광별시</option>
 									<option>경기도</option>
@@ -105,9 +119,9 @@
 						<div class="form-group">
 							<label for="" class="col-sm-4 control-label"> 메뉴 </label>
 							<div class="col-sm-8">
-								<input id="" type="checkbox">먹을거리 &nbsp
-								<input id="" type="checkbox">마실거리 &nbsp
-								<input id="" type="checkbox">즐길거리 &nbsp
+								<input id="mem_point" type="checkbox">먹을거리 &nbsp
+								<input id="mem_point" type="checkbox">마실거리 &nbsp
+								<input id="mem_point" type="checkbox">즐길거리 &nbsp
 							</div>
 						</div>
 						<div class="form-group joinForm-addr">
@@ -124,7 +138,7 @@
 					<div class="panel-footer">
 						<div class="form-group" style="padding-top: 10px">
 							<div class="col-sm-offset-3 col-sm-6">
-								<button class="btn btn-lg btn-primary btn-block" type="submit">회원 정보수정</button>
+								<input type="submit" class="btn btn-lg btn-primary btn-block" value="회원정보수정" />
 							</div>
 						</div>						
 					</div>

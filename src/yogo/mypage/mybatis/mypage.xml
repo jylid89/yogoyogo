@@ -46,4 +46,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	AND c.advconf_state = '승인'
 </select>
 
+<!-- 개인정보 셀렉 -->
+<select id="selectMember" resultType="yogo.member.dto.MemberVO" parameterType="String">
+	SELECT * FROM tb_member WHERE mem_id = #{mem_id}
+</select>
+
+<!-- 개인정보 업데이트 -->
+<update id="memberUpdate" parameterType="yogo.member.dto.MemberVO">
+	UPDATE tb_member 
+	SET mem_nick = #{mem_nick}, mem_name = #{mem_name}, mem_call = #{mem_call}
+	WHERE mem_id = #{mem_id}
+</update>
+
+<!-- 메뉴정보 셀렉 -->
+<select id="selectMenu" resultType="yogo.menu.dto.MenuVO" parameterType="String">
+	SELECT menu.*, truck.truck_name, truck.truck_addr FROM tb_member member, tb_truck truck, tb_menu menu
+	WHERE member.mem_id = truck.mem_id AND truck.truck_num = menu.truck_num AND member.mem_id = #{mem_id}
+</select>
+
+<!-- 메뉴 seq 가져오기 -->
+<select id="selectMenuSeq" resultType="String">
+	SELECT menu_seq.nextval FROM dual
+</select>
+
+<!-- 메뉴 추가 -->
+<insert id="menuAdd" parameterType="yogo.menu.dto.MenuVO">
+	INSERT INTO tb_menu VALUES (#{menu_num}, #{truck_num}, #{menu_name}, #{menu_content}, 'aa', 'bb', #{menu_price}, #{menu_cate})	
+</insert>
+
+<!-- 메뉴 수정 -->
+<update id="menuMod" parameterType="yogo.menu.dto.MenuVO">
+	UPDATE tb_menu SET menu_name = #{menu_name}, menu_content = #{menu_content}, menu_price = #{menu_price}, menu_cate = #{menu_cate}
+	WHERE menu_num = #{menu_num}
+</update>
+
+<!-- 메뉴 삭제 -->
+<delete id="menuDel" parameterType="yogo.menu.dto.MenuVO">
+	DELETE FROM tb_menu WHERE menu_num = #{menu_num}
+</delete>
+
 </mapper>

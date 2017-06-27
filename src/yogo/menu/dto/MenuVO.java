@@ -1,7 +1,5 @@
 package yogo.menu.dto;
 
-
-
 public class MenuVO {
 	/* 메뉴번호 */
 	private String menu_num;
@@ -21,6 +19,8 @@ public class MenuVO {
 	private String menu_cate;
 	/* 푸드트럭 명*/
 	private String truck_name;
+	/* 푸드트럭 주소*/
+	private String truck_addr;
 	
 	public String getMenu_num() {
 		return menu_num;
@@ -76,5 +76,10 @@ public class MenuVO {
 	public void setTruck_name(String truck_name) {
 		this.truck_name = truck_name;
 	}
-	
+	public String getTruck_addr() {
+		return truck_addr;
+	}
+	public void setTruck_addr(String truck_addr) {
+		this.truck_addr = truck_addr;
+	}	
 }
