@@ -1,5 +1,7 @@
 package yogo.adver.dto;
 
+import java.util.List;
+
 public class AdverVO {
 
 	/* 광고명 */
@@ -25,6 +27,15 @@ public class AdverVO {
 
 	/* 회원 아이디 */
 	private String mem_id;
+	
+	/* 트럭명 */
+	private String truck_name;
+	
+	/* 광고승인 거절 이유 */
+	private String advconf_reason;
+	
+	/* flag */
+	private String flag;
 	
 	public String getAdv_title() {
 		return adv_title;
@@ -89,6 +100,32 @@ public class AdverVO {
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
+
+	public String getTruck_name() {
+		return truck_name;
+	}
+
+	public void setTruck_name(String truck_name) {
+		this.truck_name = truck_name;
+	}
+
+	public String getAdvconf_reason() {
+		return advconf_reason;
+	}
+
+	public void setAdvconf_reason(String advconf_reason) {
+		this.advconf_reason = advconf_reason;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+	
+	
 	
 	
 }

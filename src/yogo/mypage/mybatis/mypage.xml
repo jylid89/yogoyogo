@@ -11,4 +11,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE cate.mem_id = #{mem_id} AND cate.truck_num = truck.truck_num
 </select>
 
+<!-- (광고업체)광고신청현황 -->
+<select id="selectConfList_adver" resultType="yogo.adver.dto.AdverVO" parameterType="String"> 
+	SELECT c.*, a.*,t.*
+	FROM tb_adverconf c, tb_adver a, tb_truck t
+	WHERE c.adv_num = a.adv_num
+	AND t.truck_num = c.truck_num
+	AND a.mem_id = #{mem_id}
+	AND c.advconf_state not in( '거절' , '승인' )
+</select>
+
+<!-- 광고거절 UPDATE -->
+<update id="advRefuseUpdate" parameterType="yogo.adver.dto.AdverVO">
+	UPDATE tb_adverconf
+	SET advconf_state = '거절' , advconf_reason = #{advconf_reason}
+	WHERE adv_num = #{adv_num}
+
+</update>
+
+<!-- 광고거절 승인 -->
+<update id="advOkUpdate" parameterType="yogo.adver.dto.AdverVO">
+	UPDATE tb_adverconf
+	SET advconf_state = '승인' , advconf_reason = #{advconf_reason}
+	WHERE adv_num = #{adv_num}
+</update>
+
+<!-- 광고승인확인List -->
+<select id="adverAppConfirm" resultType="yogo.adver.dto.AdverVO" parameterType="String"> 
+	SELECT c.*, a.*,t.*
+	FROM tb_adverconf c, tb_adver a, tb_truck t
+	WHERE c.adv_num = a.adv_num
+	AND t.truck_num = c.truck_num
+	AND a.mem_id = #{mem_id}
+	AND c.advconf_state = '승인'
+</select>
+
 </mapper>

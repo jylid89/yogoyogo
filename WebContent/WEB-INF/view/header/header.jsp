@@ -95,6 +95,13 @@
                 <li><a href="#">광고대행</a></li>
               </ul>                
             </li>
+            <li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">마이페이지<span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="adverAppStatus_adver.do">광고현황리스트</a></li>
+                <li><a href="adverAppConfirm_adver.do">광고승인리스트</a></li>
+              </ul>                
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="loginView.do" id="login">로그인</a>
