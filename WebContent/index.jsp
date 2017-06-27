@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>yogoyogo메인~!</title>
+<title> yogo yogo 메인~!</title>
 </head>
 <body>
 
-<%
-response.sendRedirect("main.do");
-%>
+	<%
+	response.sendRedirect("main.do");
+	%>
 
 </body>
 </html>

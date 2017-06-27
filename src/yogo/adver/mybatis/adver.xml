@@ -15,8 +15,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 광고 디테일 -->
 <select id="adverDetail" resultType="yogo.adver.dto.AdverVO" parameterType="String"> 
 	SELECT   *
-	FROM    tb_adver
+	FROM    tb_adver 
 	WHERE  adv_num = #{adv_num}
+</select>
+
+<!-- 트럭번호가져오기-->
+<select id="selectTruck" resultType="String" parameterType="yogo.adver.dto.AdverVO"> 
+	SELECT truck_num
+	FROM tb_truck
+	WHERE mem_id = #{mem_id}
 </select>
 
 <!-- 시퀀스 값 가져오기 -->

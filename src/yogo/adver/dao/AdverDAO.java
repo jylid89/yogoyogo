@@ -10,7 +10,7 @@ public interface AdverDAO {
 	List<AdverVO> adverList();
 	
 	//광고 디테일(Detail)
-	AdverVO adverDetail(String adv_num);
+	AdverVO adverDetail(String adv_num,String mem_id);
 	
 	//광고 신청 추가(Insert)
 	int advConfirmInsert(AdverVO adverVo);

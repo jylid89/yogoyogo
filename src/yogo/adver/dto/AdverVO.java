@@ -37,6 +37,9 @@ public class AdverVO {
 	/* flag */
 	private String flag;
 	
+	/* 승인상태 */
+	private String advconf_state;
+	
 	public String getAdv_title() {
 		return adv_title;
 	}
@@ -124,8 +127,14 @@ public class AdverVO {
 	public void setFlag(String flag) {
 		this.flag = flag;
 	}
-	
-	
+
+	public String getAdvconf_state() {
+		return advconf_state;
+	}
+
+	public void setAdvconf_state(String advconf_state) {
+		this.advconf_state = advconf_state;
+	}
 	
 	
 }

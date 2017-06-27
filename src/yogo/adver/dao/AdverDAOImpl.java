@@ -39,8 +39,9 @@ public class AdverDAOImpl implements AdverDAO{
 	}
 
 	//광고 리스트 상세
-	public AdverVO adverDetail(String adv_num) {
+	public AdverVO adverDetail(String adv_num, String mem_id) {
 		AdverVO vo = ss.selectOne("adver.adverDetail",adv_num);
+		vo.setTruck_num(ss.selectOne("adver.selectTruck",mem_id));
 		return vo;
 	}
 
@@ -97,7 +98,7 @@ public class AdverDAOImpl implements AdverDAO{
 		advSeq += seq;
 		//vo에 시퀀스 값 넣기
 		vo.setAdv_num(advSeq);
-		
+		vo.setTruck_num(ss.selectOne("adver.selectTruck",vo));
 		int result = ss.insert("adver.advInsert", vo);
 	}
 

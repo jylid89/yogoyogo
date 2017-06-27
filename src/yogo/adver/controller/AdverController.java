@@ -2,6 +2,8 @@ package yogo.adver.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +32,9 @@ public class AdverController {
 	
 	//광고 디테일(Detail)
 	@RequestMapping(value="advDetail.do")
-	public ModelAndView advDetail(String adv_num) {
-		AdverVO vo = adverDAO.adverDetail(adv_num);
+	public ModelAndView advDetail(String adv_num,HttpSession session) {
+		String mem_id = (String)session.getAttribute("mem_id");
+		AdverVO vo = adverDAO.adverDetail(adv_num,mem_id);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/adver/adverDetail");
 		mv.addObject("vo", vo);
@@ -82,7 +85,9 @@ public class AdverController {
 	
 	//광고추가(Insert)
 	@RequestMapping(value="advInsert.do")
-	public String advInsert(AdverVO vo) {
+	public String advInsert(AdverVO vo, HttpSession session) {
+		vo.setAdv_num((String)session.getAttribute("mem_id"));
+		
 		adverDAO.advInsert(vo);
 		return "redirect:adverList.do";
 	}

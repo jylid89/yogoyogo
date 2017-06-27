@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +50,7 @@
 	        <li>
 	        </c:otherwise>
         </c:choose>
+        
           <div class="timeline-image">
             <img class="img-circle img-responsive" src="http://lorempixel.com/250/250/cats/1" alt="">
           </div>
@@ -63,7 +65,14 @@
               </p>
             </div>
           </div>
-          <div class="line"></div>
+          <c:choose>
+          <c:when test="${status.last}">
+          		<div></div>
+          </c:when>
+          <c:otherwise>
+          	<div class="line"></div>
+          </c:otherwise>
+          </c:choose>
         </li>
         </c:forEach>
       </ul>
