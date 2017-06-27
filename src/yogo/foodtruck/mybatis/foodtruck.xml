@@ -9,18 +9,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="select" resultType="yogo.foodtruck.dto.FoodtruckVO"> 
 	SELECT * FROM tb_truck	
 </select>
-<!-- 트럭 검색 -->
-<select id="search" parameterType="hashmap" resultType="yogo.foodtruck.dto.FoodtruckVO">
-	SELECT * FROM tb_truck WHERE ${category} like '%'||#{value}||'%'
-</select>
 
 <!-- 트럭 상세정보 -->
 <select id="truckdetail" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.foodtruck.dto.FoodtruckVO">
 	SELECT * FROM tb_truck WHERE truck_num = #{truck_num}
 </select>
+
 <!-- 메뉴 상세정보 -->
 <select id="menudetail" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.menu.dto.MenuVO">
 	SELECT * FROM tb_menu WHERE truck_num = #{truck_num}
+</select>
+
+<!-- 메뉴명, 위치에 따른 검색 -->
+<select id="search" parameterType="hashmap" resultType="yogo.foodtruck.dto.FoodtruckVO">
+	SELECT * FROM tb_truck WHERE ${category} like '%'||#{value}||'%'
+</select>
+
+<!-- 메뉴 카테고리에 따라 검색 -->
+<select id="searchByMenu" parameterType="hashmap" resultType="yogo.foodtruck.dto.FoodtruckVO">
+	SELECT * FROM tb_truck 
+	WHERE TRUCK_NUM IN 
+	( 
+		SELECT DISTINCT TRUCK_NUM FROM tb_menu 
+		WHERE
+			<if test="eat != null">
+				${category} = #{eat}
+			
+				<if test="drink != null">
+					OR ${category} = #{drink}
+				</if>
+		
+				<if test="enjoy != null">
+					OR ${category} = #{enjoy}
+				</if>
+			</if>
+		
+			<if test="eat == null">
+				<if test="drink != null">
+					${category} = #{drink}
+					
+					<if test="enjoy != null">
+						OR ${category} = #{enjoy}
+					</if>
+				</if>
+				
+				<if test="drink == null">
+					<if test="enjoy != null">
+						${category} = #{enjoy}
+					</if>
+				</if>
+			</if>
+	)
 </select>
 
 </mapper>

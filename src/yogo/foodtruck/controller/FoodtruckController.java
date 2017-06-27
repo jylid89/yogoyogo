@@ -20,13 +20,6 @@ public class FoodtruckController {
 	@Autowired
 	FoodtruckDAO foodtruckDao;
 	
-	//화면만 연결하는 메소드
-			@RequestMapping("/{url}.do")
-			public String member(@PathVariable String url){
-				System.out.println("요청받았음");
-				
-				return "/foodtruck/"+url;
-			}
 //	리스트 부분
 	@RequestMapping(value="/foodtruckList.do")
 	public ModelAndView foodtruckList() {
@@ -36,7 +29,7 @@ public class FoodtruckController {
 		
 		list = foodtruckDao.list();
 		mv.addObject("list", list);
-		mv.setViewName("/foodtruck/foodtruckList");
+		mv.setViewName("foodtruck/foodtruckList");
 		return mv;
 	}
 //	검색부분
@@ -74,7 +67,7 @@ public class FoodtruckController {
 		ModelAndView mv = new ModelAndView();
 		list = foodtruckDao.search(cate, values);
 		mv.addObject("list", list);
-		mv.setViewName("/foodtruck/foodtruckList");
+		mv.setViewName("foodtruck/foodtruckList");
 		return mv;
 	}
 	
