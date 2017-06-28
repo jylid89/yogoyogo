@@ -16,10 +16,10 @@ public class ReviewDAOImpl implements ReviewDAO{
 	
 	//리뷰 리스트 불러오기
 	@Override
-	public List<ReviewVO> reviewList() {
+	public List<ReviewVO> reviewList(String truck_num) {
 		
 		List<ReviewVO> reviewVo = null;
-		reviewVo =  ss.selectList("review.reviewList");
+		reviewVo =  ss.selectList("review.reviewList",truck_num);
 		System.out.println("reviewVO" + reviewVo);
 		return reviewVo;
 	}

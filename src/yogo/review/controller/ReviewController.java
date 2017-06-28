@@ -19,8 +19,8 @@ public class ReviewController {
 	
 	//리뷰 리스트(Select)
 	@RequestMapping(value="/reviewList.do")
-	public ModelAndView reviewList() {
-		List<ReviewVO> list = reviewDAO.reviewList();
+	public ModelAndView reviewList(String truck_num) {
+		List<ReviewVO> list = reviewDAO.reviewList(truck_num);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/review/reviewList");
 		mv.addObject("list", list);

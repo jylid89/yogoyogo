@@ -6,10 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="review">
 
 <!-- 리뷰리스트 -->
-<select id="reviewList" resultType="yogo.review.dto.ReviewVO"> 
+<select id="reviewList" resultType="yogo.review.dto.ReviewVO" parameterType="String"> 
 	SELECT r.rev_title rev_title, r.rev_content rev_content, r.rev_date rev_date, m.mem_nick mem_nick
 	FROM 	tb_review r , tb_member m
 	WHERE 	r.mem_id = m.mem_id
+	AND r.truck_num = #{truck_num}
 </select>
 
 <!-- 시퀀스 값 가져오기 -->
