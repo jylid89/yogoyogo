@@ -40,6 +40,9 @@ public class AdverVO {
 	/* 승인상태 */
 	private String advconf_state;
 	
+	/* 임시이미지 */
+	private String adv_pictemp;
+	
 	public String getAdv_title() {
 		return adv_title;
 	}
@@ -135,6 +138,15 @@ public class AdverVO {
 	public void setAdvconf_state(String advconf_state) {
 		this.advconf_state = advconf_state;
 	}
+
+	public String getAdv_pictemp() {
+		return adv_pictemp;
+	}
+
+	public void setAdv_pictemp(String adv_pictemp) {
+		this.adv_pictemp = adv_pictemp;
+	}
+	
 	
 	
 }
