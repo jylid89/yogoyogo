@@ -32,7 +32,7 @@ public class MypageController {
 		list = dao.selectCate_user(mem_id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
-		mv.setViewName("mypage/catAppStatus_user");
+		mv.setViewName("/mypage/catAppStatus_user");
 		return mv;
 	}
 	
@@ -49,14 +49,14 @@ public class MypageController {
 	}
 	
 	//광고거절/승인 UPDATE
-		@RequestMapping(value="/advRefuseUpdate.do")
+		@RequestMapping(value="advRefuseUpdate.do")
 		public String advRefuseUpdate(AdverVO vo) {
 			dao.advRefuseUpdate(vo);
 			return "redirect:adverAppStatus_adver.do";
 		}
 		
 	//광고승인확인List
-		@RequestMapping(value="/adverAppConfirm_adver.do")
+		@RequestMapping(value="adverAppConfirm_adver.do")
 		public ModelAndView adverAppConfirm_adver(HttpSession session) {
 			String mem_id = (String) session.getAttribute("mem_id");
 			List<AdverVO> list = new ArrayList<AdverVO>();
@@ -67,7 +67,7 @@ public class MypageController {
 			return mv;
 		}
 	// 사업자 메뉴 리스트
-		@RequestMapping(value="/menu_ceo.do")
+		@RequestMapping(value="menu_ceo.do")
 		public ModelAndView menu_ceo(HttpSession session) {
 			List<MenuVO> list = dao.selectMenu((String)session.getAttribute("mem_id"));
 			ModelAndView mv = new ModelAndView();
@@ -75,24 +75,24 @@ public class MypageController {
 			mv.addObject("truck_addr", list.get(0).getTruck_addr());
 			mv.addObject("truck_num", list.get(0).getTruck_num());
 			mv.addObject("list", list);
-			mv.setViewName("mypage/menu_ceo");
+			mv.setViewName("/mypage/menu_ceo");
 			return mv;
 		}
 		
 	// 사용자 정보 가지고 오기	
-		@RequestMapping(value="/selectMember.do")
+		@RequestMapping(value="selectMember.do")
 		public ModelAndView selectMember(HttpSession session) {
 			ModelAndView mv = new ModelAndView();
 			String mem_id = (String)session.getAttribute("mem_id");
 			MemberVO vo = dao.selectMember(mem_id);
 			
 			mv.addObject("vo", vo);
-			mv.setViewName("mypage/memberUpdate");
+			mv.setViewName("/mypage/memberUpdate");
 			return mv;
 		}
 		
 	// 사용자 정보 업데이트
-		@RequestMapping(value="/memberUpdate.do")
+		@RequestMapping(value="memberUpdate.do")
 		public String memberUpdate(MemberVO vo, HttpSession session) {
 			vo.setMem_id((String)session.getAttribute("mem_id"));
 			dao.memberUpdate(vo);
@@ -100,21 +100,21 @@ public class MypageController {
 		}
 		
 	// 메뉴 추가
-		@RequestMapping(value="/menuAdd.do")
+		@RequestMapping(value="menuAdd.do")
 		public String menuAdd(MenuVO vo) {
 			dao.menuAdd(vo);
 			return "redirect:menu_ceo.do";
 		}	
 		
 	// 메뉴 수정
-		@RequestMapping(value="/menuMod.do")
+		@RequestMapping(value="menuMod.do")
 		public String menuMod(MenuVO vo) {
 			dao.menuMod(vo);
 			return "redirect:menu_ceo.do";
 		}
 		
 	// 메뉴 삭제
-		@RequestMapping(value="/menuDel.do")
+		@RequestMapping(value="menuDel.do")
 		public String menuDel(MenuVO vo) {
 			dao.menuDel(vo);
 			return "redirect:menu_ceo.do";

@@ -17,20 +17,20 @@ public class MemberController {
 	@Autowired
 	MemberDAOImpl memberDao;
 	
-	@RequestMapping(value="/register.do")
+	@RequestMapping(value="register.do")
 	public String register(){
-		return "join/register";
+		return "/join/register";
 	}
 	
-	@RequestMapping(value="/loginView.do")
+	@RequestMapping(value="loginView.do")
 	public String loginView(){
-		return "login/loginView";
+		return "/login/loginView";
 	}
 	
-	@RequestMapping(value="/login.do")
+	@RequestMapping(value="login.do")
 	public ModelAndView login(MemberVO vo, HttpSession session){
 		int result = 0;
-		String view = "login/loginView";
+		String view = "/login/loginView";
 		MemberVO reVO = memberDao.memberLogin(vo);
 		
 		if ( reVO != null ) {
@@ -39,7 +39,7 @@ public class MemberController {
 			session.setAttribute("mem_nick", reVO.getMem_nick());
 			session.setAttribute("mem_name", reVO.getMem_name());
 			result = 1;
-			view = "main/main";
+			view = "/main/main";
 		}
 		
 		ModelAndView mv = new ModelAndView();
@@ -49,7 +49,7 @@ public class MemberController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/join.do")
+	@RequestMapping(value="join.do")
 	public ModelAndView join(MemberVO vo){
 		String msg = "가입실패";
 		int result = memberDao.memberInsert(vo);
@@ -58,7 +58,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(msg);
 		mv.addObject(result);
-		mv.setViewName("header/header");
+		mv.setViewName("/header/header");
 		
 		return mv;
 	}
@@ -72,10 +72,10 @@ public class MemberController {
 		}
 		
 	//로그아웃
-		@RequestMapping(value="/logOut.do")
+		@RequestMapping(value="logOut.do")
 		public String logOut(HttpSession session){
 				session.invalidate();
 			
-			return "main/main";
+			return "/main/main";
 		}
 }

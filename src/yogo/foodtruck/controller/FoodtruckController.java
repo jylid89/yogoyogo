@@ -21,7 +21,7 @@ public class FoodtruckController {
 	FoodtruckDAO foodtruckDao;
 	
 //	리스트 부분
-	@RequestMapping(value="/foodtruckList.do")
+	@RequestMapping(value="foodtruckList.do")
 	public ModelAndView foodtruckList() {
 		ModelAndView mv = new ModelAndView();
 		
@@ -29,11 +29,11 @@ public class FoodtruckController {
 		
 		list = foodtruckDao.list();
 		mv.addObject("list", list);
-		mv.setViewName("foodtruck/foodtruckList");
+		mv.setViewName("/foodtruck/foodtruckList");
 		return mv;
 	}
 //	검색부분
-	@RequestMapping(value="/foodtruckList_search.do")
+	@RequestMapping(value="foodtruckList_search.do")
 	public ModelAndView trucklist_search(String category, String search_name, String eat, String drink, String enjoy, String addr) {
 		String cate = "";
 		String [] values = new String[4];
@@ -67,12 +67,12 @@ public class FoodtruckController {
 		ModelAndView mv = new ModelAndView();
 		list = foodtruckDao.search(cate, values);
 		mv.addObject("list", list);
-		mv.setViewName("foodtruck/foodtruckList");
+		mv.setViewName("/foodtruck/foodtruckList");
 		return mv;
 	}
 	
 	//foodtruck 상세정보
-	@RequestMapping(value="/foodtruckDetail.do")
+	@RequestMapping(value="foodtruckDetail.do")
 	public ModelAndView foodtruckView(FoodtruckVO vo){
 		System.out.println("디테일 컨트롤");
 		FoodtruckVO foodtruck = foodtruckDao.foodtruckView(vo);

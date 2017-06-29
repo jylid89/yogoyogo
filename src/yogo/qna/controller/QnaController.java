@@ -26,7 +26,7 @@ public class QnaController {
 //			return "/qna/"+url;
 //		}
 		//write.do 생성
-		@RequestMapping("/qnaWrite_ok.do")
+		@RequestMapping("qnaWrite_ok.do")
 		public ModelAndView qnaIsnsert(BoardVO vo){
 			String message = "글작성 실패";
 			int result = qnaDAO.qnaInsert(vo);
@@ -34,19 +34,19 @@ public class QnaController {
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("message",message);
 			mv.addObject("result",result);
-			mv.setViewName("qna/qnaList");
+			mv.setViewName("/qna/qnaList");
 			return mv;
 		}
 		
 		//write 생성
-		@RequestMapping("/qnaForm.do") 
+		@RequestMapping("qnaForm.do") 
 		public String qnaWrite(){
 			return "/qna/qnaInsert";
 		}
 		
 		
 		//list.do 생성
-		@RequestMapping("/qnaList.do")
+		@RequestMapping("qnaList.do")
 		public ModelAndView qnaSelect(){
 			List<BoardVO> list = qnaDAO.qnaList();
 			System.out.println("케이터링 컨트롤 접속");
@@ -57,7 +57,7 @@ public class QnaController {
 		}
 		
 		//catering 상세정보
-		@RequestMapping("/qnadetail.do")
+		@RequestMapping("qnadetail.do")
 		public ModelAndView qnaView(BoardVO vo){
 //			cateringDAO.increaseCount(vo);
 			BoardVO boardVO = qnaDAO.qnaView(vo);

@@ -21,7 +21,7 @@ public class AdverController {
 	AdverDAOImpl adverDAO;
 	
 	//광고 리스트(Select)
-	@RequestMapping(value="/adverList.do")
+	@RequestMapping(value="adverList.do")
 	public ModelAndView reviewList() {
 		List<AdverVO> list = adverDAO.adverList();
 		ModelAndView mv = new ModelAndView();
@@ -78,7 +78,7 @@ public class AdverController {
 	}
 	
 	//페이지 이동
-	@RequestMapping(value="/insertForm.do")
+	@RequestMapping(value="insertForm.do")
 	public String insertForm() {
 		return "/adver/adverInsert";
 	}

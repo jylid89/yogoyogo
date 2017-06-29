@@ -24,7 +24,7 @@ public class FreeBoardController {
 	}
 	
 	//자유게시판 리스트(SELECT)
-	@RequestMapping(value="/freeboard.do")
+	@RequestMapping(value="freeboard.do")
 	public ModelAndView freeList(){
 		List<FreeBoardVO> freeVO = freeDAO.FreeBoardList();
 		ModelAndView mv = new ModelAndView();
