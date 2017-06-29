@@ -76,7 +76,7 @@ $(function() {
 					<div class="col-md-3 col-xs-6  text-center">
 						<div class="logo">
 							<a href="detail.do?truck_num=${a.truck_num }"> <img
-								src="${a.truck_pictemp1 }"
+								src="${a.truck_picreal1 }"
 								class="img-circle img-responsive img-border center-block"
 								alt="Vege 4 Love">
 							</a>
