@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/Yogo/css/footer/footer.css">
+<link rel="stylesheet" href="/yogoyogo4/css/footer/footer.css">
 <div class="footer">
     <div  id="footer">
         <div class="container">
@@ -8,19 +8,12 @@
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> 푸드트럭 </h3>
                     <ul>
-                        <li> <a href="#"> 푸드트럭 목록 </a> </li>
+                        <li> <a href="foodtruckList.do"> 푸드트럭 목록 </a> </li>
                         <li> <a href="#"> 홍보 </a> </li>
                         <li> <a href="#"> 리뷰 </a> </li>
                     </ul>
                 </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> 커뮤니티 </h3>
-                    <ul>
-                        <li> <a href="#"> 공지사항 </a> </li>
-                        <li> <a href="#"> 자유게시판 </a> </li>
-                        <li> <a href="#"> Q & A </a> </li>
-                    </ul>
-                </div>
+                
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> 행사 </h3>
                     <ul>
@@ -31,7 +24,7 @@
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> 케이터링 </h3>
                     <ul>
-                        <li> <a href="#"> 케이터링 신청 </a> </li>
+                        <li> <a href="catelist.do"> 케이터링 신청 </a> </li>
                         <li> <a href="#"> 견적문의 </a> </li>
                     </ul>
                 </div>
@@ -39,7 +32,16 @@
                     <h3> 서비스 </h3>
                     <ul>
                         <li> <a href="#"> 서비스 이용방법 </a> </li>
-                        <li> <a href="#"> 광고대행 </a> </li>
+                        <li> <a href="adverList.do"> 광고대행 </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> 커뮤니티 </h3>
+                    <ul>
+                    	<li><a href="#">뉴스</a></li>
+                        <li> <a href="#"> 공지사항 </a> </li>
+                        <li> <a href="freeboard.do"> 자유게시판 </a> </li>
+                        <li> <a href="qnaList.do"> Q & A </a> </li>
                     </ul>
                 </div>
             </div>

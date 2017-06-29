@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -9,28 +7,41 @@
 
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/yogoyogo2/css/qna/qnaInsert.css">
+<link rel="stylesheet" href="/yogoyogo4/css/qna/qnaInsert.css">
 
-<link rel="stylesheet" href="/yogoyogo2/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/yogoyogo2/assets/css/animate.css">
-<link rel="stylesheet" href="/yogoyogo2/assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="/yogoyogo2/assets/css/slick.css">
-<link rel="stylesheet" href="/yogoyogo2/assets/js/rs-plugin/css/settings.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/animate.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/slick.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/js/rs-plugin/css/settings.css">
 
-<link rel="stylesheet" href="/yogoyogo2/assets/css/styles.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/styles.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<script src="/yogoyogo4/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="/yogoyogo4/assets/js/bootstrap.min.js"></script>
 <!-- Bootstrap 3.3.2 -->
 
-<script type="text/javascript" src="/yogoyogo2/assets/js/modernizr.custom.32033.js"></script>
-<script type="text/javascript" src="/yogoyogo2/js/qna/qnaInsert.js"></script>
-
+<script type="text/javascript" src="/yogoyogo4/assets/js/modernizr.custom.32033.js"></script>
+<script type="text/javascript" src="/yogoyogo4/js/qna/qnaInsert.js"></script>
+<script src="/yogoyogo4/assets/js/slick.min.js"></script>
+	<script src="/yogoyogo4/assets/js/placeholdem.min.js"></script>
+	<script src="/yogoyogo4/assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+	<script
+		src="/yogoyogo4/assets/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/yogoyogo4/assets/js/waypoints.min.js"></script>
+	<script src="/yogoyogo4/assets/js/scripts.js"></script>
+		
+	<script>
+		$(document).ready(function() {
+			appMaster.preLoader();
+		});
+	</script>
 </head>
-<body>
+<div class="body">
 
 	<div class="wrapper">
 
@@ -72,20 +83,8 @@
 		</section>
  
 	</div>
-	<script src="/yogoyogo2/assets/js/jquery-1.11.1.min.js"></script>
-	<script src="/yogoyogo2/assets/js/bootstrap.min.js"></script>
-	<script src="/yogoyogo2/assets/js/slick.min.js"></script>
-	<script src="/yogoyogo2/assets/js/placeholdem.min.js"></script>
-	<script src="/yogoyogo2/assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-	<script
-		src="/yogoyogo2/assets/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="/yogoyogo2/assets/js/waypoints.min.js"></script>
-	<script src="/yogoyogo2/assets/js/scripts.js"></script>
-	<script>
-		$(document).ready(function() {
-			appMaster.preLoader();
-		});
-	</script>
-</body>
+
+	
+</div>
 
 </html>

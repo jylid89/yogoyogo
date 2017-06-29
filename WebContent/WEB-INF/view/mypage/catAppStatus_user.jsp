@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/YogoYogo/css/mypage/catAppStatus_user.css">
+<link rel="stylesheet" type="text/css" href="/YogoYogo2/css/mypage/catAppStatus_user.css">
 </head>
 <body>
 <br/><br/>

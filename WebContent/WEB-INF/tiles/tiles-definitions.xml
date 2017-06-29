@@ -19,7 +19,7 @@
   		<put-attribute name="footer" value='/WEB-INF/view/footer/footer.jsp' />
   	</definition>
   	
-  	<definition name='*/*' extends='defaultTemplate'>
+  	<definition name='/*/*' extends='defaultTemplate'>
   		<put-attribute name="title" value='YogoYogo' />
   		<put-attribute name="body" value='/WEB-INF/view/{1}/{2}.jsp' />
   	</definition>

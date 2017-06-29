@@ -15,19 +15,19 @@
 }
 </style>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
 <!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
 
-<link rel="stylesheet" href="css/catering/cateringDetail.css">
+<link rel="stylesheet" href="/yogoyogo4/css/catering/cateringDetail.css">
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -81,11 +81,11 @@
 									<c:choose>
 									<c:when test="${status.count - 1 == 0 }">
 										<div class="active item" data-slide-number="0">
-                                       	 <img src="http://placehold.it/770x300&text=one"></div>
+                                       	 <img src="${menu.menu_pictemp }"></div>
 									</c:when>
 									<c:otherwise>
 										<div class="item" data-slide-number="${status.count-1 }">
-											<img src="http://placehold.it/770x300&text=two"></div>
+											<img src="${menu.menu_pictemp }"></div>
 									</c:otherwise>
 									</c:choose>
 										</c:forEach>
@@ -116,10 +116,10 @@
 									<c:forEach varStatus="status" items="${model}" var='menu'>
 										<div id="slide-content-${status.count-1 }">
 											<h2>${menu.menu_name }</h2>
-											<p>${menu.menu_price }</p>
+											<p>${menu.menu_price } 원</p>
 											<tr>
 												<!--                                 모달버튼 -->
-												<a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">케이터링 주문하기</a>
+												<a href="#" class="btn btn-lg btn-success" data-toggle="modal" >케이터링 주문하기</a>
 										</div>
 									</c:forEach>
 								</c:otherwise>
@@ -143,7 +143,7 @@
 									<c:forEach varStatus="status" items="${model}" var='menu'>
 					<li class="col-sm-2"><a class="thumbnail"
 						id="carousel-selector-${status.count-1 }"><img
-							src="http://placehold.it/170x100&text=one"></a></li>
+							src="${menu.menu_pictemp }"></a></li>
 
 				 </c:forEach>
 				 </c:otherwise>

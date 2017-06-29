@@ -5,14 +5,14 @@
     <title>광고 대행</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="/YogoYogo/js/adver/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/YogoYogo/js/adver/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/YogoYogo/css/adver/adverList.css" />
+<!--     <link rel="stylesheet" type="text/css" href="/yogoyogo5/js/adver/bootstrap/css/bootstrap.min.css" /> -->
+<!--     <link rel="stylesheet" type="text/css" href="/yogoyogo5/js/adver/font-awesome/css/font-awesome.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/yogoyogo5/css/adver/adverList.css" />
 
-    <script type="text/javascript" src="/YogoYogo/js/adver/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/YogoYogo/js/adver/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/YogoYogo/js/adver/adverList.js"></script>
+<!--     <script type="text/javascript" src="/yogoyogo5/js/adver/js/jquery-1.10.2.min.js"></script> -->
+<!--     <script type="text/javascript" src="/yogoyogo5/js/adver/bootstrap/js/bootstrap.min.js"></script> -->
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="/yogoyogo5/js/adver/adverList.js"></script>
 <div class="body">
 <div class="container">
 <div class="page-header">
@@ -27,7 +27,7 @@
             <div class="col-md-4">
                 <div>
                     <form method="post" id="frm" name="frm" action="advDetail.do">
-                    <img src="http://www.prepbootstrap.com/Content/images/template/featureditems/product_001.jpg" alt="" class="img-rounded img-thumbnail" />
+                    <img src="${list.adv_pictemp }" alt="" class="img-rounded img-thumbnail" />
                     <h2>${list.mem_nick}</h2>
                     <p style="text-align: center;">
                         ${list.adv_title}

@@ -6,26 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Marketing/view/css/noticedetail.css">
+<!-- <link rel="stylesheet" href="/Marketing/view/css/noticedetail.css"> -->
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
 <!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap-theme.min.css"> -->
 
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.2/jquery.min.js"></script>
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.3.2/jquery.min.js"></script> -->
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script type="text/javascript" src="/Marketing/view/js/noticedetail.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
 </head>
-<body>
+<div class="body">
 
 	<div class='container'>
 		<div class='row'>
@@ -60,7 +58,7 @@
 		</div>
 	</div>
 
-</body>
+</div>
 </html>
 
 

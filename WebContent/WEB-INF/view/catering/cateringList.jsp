@@ -8,9 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
 <!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <style type="text/css">
   #menu-toggle {
@@ -37,8 +37,8 @@
     display: none;
   }
 </style>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <script type="text/javascript">
 $(function() {
 	$("#menu-toggle").click(function() {
@@ -76,7 +76,7 @@ $(function() {
 					<div class="col-md-3 col-xs-6  text-center">
 						<div class="logo">
 							<a href="detail.do?truck_num=${a.truck_num }"> <img
-								src="http://api.sydneyfoodtrucks.com.au/v2/trucks/67/icon?size=200"
+								src="${a.truck_pictemp1 }"
 								class="img-circle img-responsive img-border center-block"
 								alt="Vege 4 Love">
 							</a>

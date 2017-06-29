@@ -6,26 +6,37 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>리뷰 남기기</title>
 <link rel="shortcut icon" href="favicon.png">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/YogoYogo/WEB-INF/view/activity/activityinsert.jsp">
+<link rel="stylesheet" href="/yogoyogo4/css/qna/qnaInsert.css">
+
+<link rel="stylesheet" href="/yogoyogo4/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/yogoyogo4/assets/css/animate.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/css/slick.css">
+<link rel="stylesheet" href="/yogoyogo4/assets/js/rs-plugin/css/settings.css">
+
+<link rel="stylesheet" href="/yogoyogo4/assets/css/styles.css">
+
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<!-- Bootstrap 3.3.2 -->
-<link rel="stylesheet" href="/YogoYogo/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css">
-<link rel="stylesheet" href="/YogoYogo/assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="/YogoYogo/assets/css/slick.css">
-<link rel="stylesheet" href="/YogoYogo/assets/js/rs-plugin/css/settings.css">
-
-<link rel="stylesheet" href="/YogoYogo/assets/css/styles.css">
-<link rel="stylesheet" type="text/css" href="/YogoYogo/css/review/reviewInsert.css">
-<script type="text/javascript" src="/YogoYogo/assets/js/modernizr.custom.32033.js"></script>
-<script type="text/javascript" src="/YogoYogo/js/review/reviewInsert.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/yogoyogo4/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="/yogoyogo4/assets/js/bootstrap.min.js"></script>
+<!-- Bootstrap 3.3.2 -->
+
+<script type="text/javascript" src="/yogoyogo4/assets/js/modernizr.custom.32033.js"></script>
+<script type="text/javascript" src="/yogoyogo4/js/qna/qnaInsert.js"></script>
+<script src="/yogoyogo4/assets/js/slick.min.js"></script>
+	<script src="/yogoyogo4/assets/js/placeholdem.min.js"></script>
+	<script src="/yogoyogo4/assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+	<script
+		src="/yogoyogo4/assets/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/yogoyogo4/assets/js/waypoints.min.js"></script>
+	<script src="/yogoyogo4/assets/js/scripts.js"></script>
 
 </head>
 <body>
@@ -85,15 +96,6 @@
 		</section>
 
 	</div>
-	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/slick.min.js"></script>
-	<script src="assets/js/placeholdem.min.js"></script>
-	<script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-	<script
-		src="assets/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="assets/js/waypoints.min.js"></script>
-	<script src="assets/js/scripts.js"></script>
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();

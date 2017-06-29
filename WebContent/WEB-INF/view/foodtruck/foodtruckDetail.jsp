@@ -8,20 +8,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-</style>
-<link rel="stylesheet" href="css/foodtruck/foodtruckStyle.css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</style>
+<link rel="stylesheet" href="/yogoyogo4/css/foodtruck/foodtruckStyle.css">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+<!-- 부가적인 테마 -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 
 <!-- 다음맵 API -->
 <script type="text/javascript"
@@ -37,9 +39,9 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 	});
 </script>
 </head>
-<body>
+<div class="body">
 
-	<header class="business-header">
+	<header class="business-header" style="background-image: url(${foodtruck.truck_pictemp1});">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12  text-center">
@@ -158,14 +160,12 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 			<div class="carousel slide" id="myCarousel">
 				<div class="carousel-inner">
 				<c:forEach varStatus="status" items="${menuList}" var='menu'>
-				<c:if test="${status % 4 ==0 }">
 					<div class="item active">
 						<ul class="thumbnails">
-						<c:forEach varStatus="status" items="${menuList}" var='menu'>
 								<li class="col-sm-3">
 									<div class="fff">
 										<div class="thumbnail">
-											<img src="http://placehold.it/360x240" alt="">
+											<img src="${menu.menu_pictemp }" alt="">
 										</div>
 										<div class="caption">
 											<h4>${menu.menu_name }</h4>
@@ -174,46 +174,14 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 										</div>
 									</div>
 								</li>
-								</c:forEach>
 						</ul>
 					</div>
-					</c:if>
 					</c:forEach>
 					<!-- /Slide1 -->
 					
-<!-- 						<div class="item"> -->
-<!-- 							<ul class="thumbnails"> -->
-<%-- 							<c:forEach varStatus="status" items="${menuList}" var='menu'> --%>
-<%-- 							<c:if test="${status.count > 4 }"> --%>
-<!-- 								<li class="col-sm-3"> -->
-<!-- 									<div class="fff"> -->
-<!-- 										<div class="thumbnail"> -->
-<!-- 											<img src="http://placehold.it/360x240" alt=""> -->
-<!-- 										</div> -->
-<!-- 										<div class="caption"> -->
-<%-- 											<h4>${menu.menu_name }</h4> --%>
-<%-- 											<p>${menu.menu_price }</p> --%>
-<%-- 											<p>${menu.menu_content }</p> --%>
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</li> -->
-<%-- 								</c:if> --%>
-<%-- 								</c:forEach> --%>
-<!-- 							</ul> -->
-<!-- 						</div> -->
-						
-					<!-- /Slide2 -->
 				</div>
 
 
-				<nav>
-				<ul class="control-box pager">
-					<li><a data-slide="prev" href="#myCarousel" class=""><i
-							class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel" class=""><i
-							class="glyphicon glyphicon-chevron-right"></i></a></li>
-				</ul>
-				</nav>
 				<!-- /.control-box -->
 
 			</div>
@@ -221,8 +189,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 
 		</div>
 		<!-- /.col-xs-12 -->
-
 	</div>
 	<!-- /.container -->
-</body>
+</div>
 </html>

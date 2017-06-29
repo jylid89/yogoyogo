@@ -84,7 +84,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="images/adver/bita2.jpg" class="coupon-img img-rounded">
+                <img src="${vo.adv_pictemp }" class="coupon-img img-rounded">
                 <br/><br/>
                 <div class="col-md-9">
                     <p>${vo.adv_content }</p>
