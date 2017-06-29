@@ -17,8 +17,8 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <!--         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
         
-        <link rel="stylesheet" type="text/css" href="/yogoyogo4/css/style.css">
-        <link rel="javascript" type="text/javascript" href="/yogoyogo4/js/index.js">
+        <link rel="stylesheet" type="text/css" href="/YogoYogo/css/style.css">
+        <link rel="javascript" type="text/javascript" href="/YogoYogo/js/index.js">
 <div class="body">
         <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
 
@@ -123,7 +123,7 @@
             	<c:forEach varStatus="status" items="${list}" var="a" >
                 <div class="col-sm-2 truckListItem">
                     <a href="foodtruckDetail.do?truck_num=${a.truck_num}"> <img
-									src="${a.truck_pictemp1}"
+									src="${a.truck_picreal1}"
 									class="img-circle img-responsive img-border center-block"
 									alt="Vege 4 Love">
 								</a>

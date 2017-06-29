@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/yogoyogo4/css/footer/footer.css">
+<link rel="stylesheet" href="/YogoYogo/css/footer/footer.css">
 <div class="footer">
     <div  id="footer">
         <div class="container">

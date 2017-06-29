@@ -7,12 +7,12 @@
 
 <!--     <link rel="stylesheet" type="text/css" href="/yogoyogo5/js/adver/bootstrap/css/bootstrap.min.css" /> -->
 <!--     <link rel="stylesheet" type="text/css" href="/yogoyogo5/js/adver/font-awesome/css/font-awesome.min.css" /> -->
-    <link rel="stylesheet" type="text/css" href="/yogoyogo5/css/adver/adverList.css" />
+    <link rel="stylesheet" type="text/css" href="/YogoYogo/css/adver/adverList.css" />
 
 <!--     <script type="text/javascript" src="/yogoyogo5/js/adver/js/jquery-1.10.2.min.js"></script> -->
 <!--     <script type="text/javascript" src="/yogoyogo5/js/adver/bootstrap/js/bootstrap.min.js"></script> -->
 <!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-	<script type="text/javascript" src="/yogoyogo5/js/adver/adverList.js"></script>
+	<script type="text/javascript" src="/YogoYogo/js/adver/adverList.js"></script>
 <div class="body">
 <div class="container">
 <div class="page-header">

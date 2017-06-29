@@ -11,11 +11,11 @@
 <!-- 부가적인 테마 -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<link rel="stylesheet" type="text/css" href="/yogoyogo4/css/foodtruck/foodtruckList.css">
+<link rel="stylesheet" type="text/css" href="/YogoYogo/css/foodtruck/foodtruckList.css">
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="/yogoyogo4/js/foodtruck/foodtruckList.js"></script>
+<script src="/YogoYogo/js/foodtruck/foodtruckList.js"></script>
 </head>
 <div class="body">
 	<div class="trucklist container">
