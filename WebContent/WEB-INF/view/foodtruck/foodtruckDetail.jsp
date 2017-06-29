@@ -41,7 +41,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 </head>
 <div class="body">
 
-	<header class="business-header" style="background-image: url(${foodtruck.truck_pictemp1});">
+	<header class="business-header" style="background-image: url(${foodtruck.truck_picreal1});">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12  text-center">
@@ -165,7 +165,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 								<li class="col-sm-3">
 									<div class="fff">
 										<div class="thumbnail">
-											<img src="${menu.menu_pictemp }" alt="">
+											<img src="${menu.menu_picreal }" alt="">
 										</div>
 										<div class="caption">
 											<h4>${menu.menu_name }</h4>

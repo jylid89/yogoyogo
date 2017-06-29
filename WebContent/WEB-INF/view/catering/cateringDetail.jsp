@@ -81,11 +81,11 @@
 									<c:choose>
 									<c:when test="${status.count - 1 == 0 }">
 										<div class="active item" data-slide-number="0">
-                                       	 <img src="${menu.menu_pictemp }"></div>
+                                       	 <img src="${menu.menu_picreal }"></div>
 									</c:when>
 									<c:otherwise>
 										<div class="item" data-slide-number="${status.count-1 }">
-											<img src="${menu.menu_pictemp }"></div>
+											<img src="${menu.menu_picreal }"></div>
 									</c:otherwise>
 									</c:choose>
 										</c:forEach>
