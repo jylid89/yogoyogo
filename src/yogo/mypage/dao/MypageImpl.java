@@ -42,12 +42,14 @@ public class MypageImpl implements MypageDAO {
 	//광고거절 UPDATE
 	@Override
 	public void advRefuseUpdate(AdverVO vo) {
-		if(vo.getFlag() == "거절"){
 			ss.update("mypage.advRefuseUpdate", vo);			
-		}else{
-			ss.update("mypage.advOkUpdate", vo);
 		}
-		}
+	
+	//광고승인 UPDATE
+		@Override
+		public void advAckUpdate(AdverVO vo) {
+				ss.update("mypage.advOkUpdate", vo);
+			}
 
 	//광고승인확인List
 	@Override

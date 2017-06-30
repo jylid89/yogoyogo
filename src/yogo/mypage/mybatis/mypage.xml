@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	UPDATE tb_adverconf
 	SET advconf_state = '거절' , advconf_reason = #{advconf_reason}
 	WHERE adv_num = #{adv_num}
+	AND truck_num = #{truck_num}
 
 </update>
 
@@ -34,6 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	UPDATE tb_adverconf
 	SET advconf_state = '승인' , advconf_reason = #{advconf_reason}
 	WHERE adv_num = #{adv_num}
+	AND truck_num = #{truck_num}
 </update>
 
 <!-- 광고승인확인List -->

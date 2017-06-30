@@ -44,16 +44,23 @@ public class MypageController {
 		list = dao.adverConfList_adver(mem_id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
-		mv.setViewName("/mypage/adverAppStatus_adver");
+		mv.setViewName("mypage/adverAppStatus_adver");
 		return mv;
 	}
 	
-	//광고거절/승인 UPDATE
+	//광고거절 UPDATE
 		@RequestMapping(value="advRefuseUpdate.do")
 		public String advRefuseUpdate(AdverVO vo) {
 			dao.advRefuseUpdate(vo);
 			return "redirect:adverAppStatus_adver.do";
 		}
+		
+		//광고승인 UPDATE
+				@RequestMapping(value="advAckUpdate.do")
+				public String advAckUpdate(AdverVO vo) {
+					dao.advAckUpdate(vo);
+					return "redirect:adverAppStatus_adver.do";
+				}
 		
 	//광고승인확인List
 		@RequestMapping(value="adverAppConfirm_adver.do")

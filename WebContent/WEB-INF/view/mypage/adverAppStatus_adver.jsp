@@ -61,15 +61,33 @@
 		<script type="text/javascript">
 		
 			$(function(){
-
-				$("#adv_num2").val($("#adv_num").val());
+				
+				var truck_num;
+				
+				$(".reduOK").click(function(){
+					var index = $(".reduOK").index(this);
+					truck_num = $(".truck_num").eq(index).val(); 
+				})
+				
+				$(".adOK").click(function(){
+					var index = $(".adOK").index(this);
+					truck_num = $(".truck_num").eq(index).val(); 
 					
+				});
+			
+				
 				$("#refuse_OK").click(function(){
-					$("#frm").attr("action","advRefuseUpdate.do").submit();
+// 					$(".flag").val("거절");
+					$("#truck_num").val(truck_num);
+					$("#adv_num").val($(".adv_num").val());
+					$("#reForm").attr("action","advRefuseUpdate.do").submit();
 				});
 				
 				$("#ack_OK").click(function(){
-					$("#frm2").attr("action","advRefuseUpdate.do").submit();
+// 					$(".flag").val("승인")
+					$("#adv_num2").val($(".adv_num").val());	
+					$("#truck_num2").val($(".truck_num").val());
+					$("#adForm").attr("action","advAckUpdate.do").submit();
 				});
 			});
 		</script>
@@ -89,7 +107,8 @@
                         </p>
                     </div>
                     
-       	<form id="frm">
+       	
+       	
                     <div class="row">
                      <c:forEach varStatus="status" items="${list}" var="list" >
                         <div class="col-sm-4 col-xs-12">
@@ -98,24 +117,25 @@
                                     <img src="images/foodtruck/1.jpg" class="img-responsive" alt="this is a title" >
                                     <div class="overlay">
                                         <div class="buttons">
-                                            <a href="" data-toggle="modal" data-target="#ModalCancel">거절</a>
-                                            <a href="" target="_blank" id="" data-toggle="modal" data-target="#ModalOK"  id="adOk">승인</a>
+                                            <a href="" data-toggle="modal" class="reduOK" data-target="#ModalCancel">거절</a>
+                                            <a href="" target="_blank" class="adOK"  data-toggle="modal" data-target="#ModalOK"  >승인</a>
                                         </div>
                                     </div>
                                 </div>
                                 <figcaption>
                                 <h4>
                                 <a href="foodtruckDetail.do?truck_num=${list.truck_num}">
+                                <input type="hidden" class="truck_num"  value="${list.truck_num}"/>
                                     ${list.truck_name}
                                 </a>
                                 </h4>
                                 </figcaption>
                             </figure>
                         </div>
-       						<input type="hidden" value="${list.adv_num}" name="adv_num" id="adv_num"/>
+       						<input type="hidden" value="${list.adv_num}" class="adv_num"/>
                     </c:forEach>
                     
-                    <!-- Modal -->
+                    <!-- 거절Modal -->
 <div class="modal fade" id="ModalCancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -124,7 +144,14 @@
         <h4 class="modal-title" id="myModalLabel">거절사유를 입력하여 주세요.</h4>
       </div>
       <div class="modal-body">
+      
+      <form id="reForm">
        		<textarea id="advconf_reason" name="advconf_reason" style="width:100%;border:1;overflow:visible;text-overflow:ellipsis;" rows=10></textarea>
+     		<input type="hidden" name="truck_num" id="truck_num" />
+     		<input type="hidden"  name="adv_num" id="adv_num"/>
+<!-- 		  	<input type="hidden" name="flag" class="flag" /> -->
+     </form>
+     
       </div>
       <div class="modal-footer">
       	 <button type="button" class="btn btn-default" data-dismiss="modal" id="refuse_cancel">취소</button>
@@ -132,9 +159,9 @@
       </div>
     </div>
   </div></div>  
-  	<input type="hidden" value="거절" name="flag" />
-       	</form> 
-       	
+  
+  
+				<!-- 승인Modal -->       	
        	<div class="modal fade" id="ModalOK" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -143,10 +170,11 @@
         <h4 class="modal-title" id="myModalLabel">승인메시지를 남겨주세요.</h4>
       </div>
       <div class="modal-body">
-       	<form id="frm2">
+       	<form id="adForm">
        		<textarea id="advconf_reason" name="advconf_reason" style="width:100%;border:1;overflow:visible;text-overflow:ellipsis;" rows=10></textarea>
        		<input type="hidden" id="adv_num2" name="adv_num" /> 
-       		<input type="hidden" value="승인" name="flag" />
+       		<input type="hidden" id="truck_num2" name="truck_num" />
+<!--        		<input type="hidden" name="flag" class="flag"  /> -->
        	</form>
       </div>
       <div class="modal-footer">
@@ -155,124 +183,6 @@
       </div>
     </div>
   </div></div>
-
-
-<!--                         <div class="col-sm-4 col-xs-12"> -->
-<!--                             <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms"> -->
-<!--                                 <div class="img-wrapper"> -->
-<!--                                     <img src="images/foodtruck/2.jpg" class="img-responsive" alt="this is a title" > -->
-<!--                                     <div class="overlay"> -->
-<!--                                         <div class="buttons"> -->
-<!--                                             <a rel="gallery" class="fancybox" href="images/portfolio/item-2.jpg">승인</a> -->
-<!--                                             <a target="_blank" href="single-portfolio.html">취소</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <figcaption> -->
-<!--                                 <h4> -->
-<!--                                 <a href="#"> -->
-<!--                                     봉고봉고 -->
-<!--                                 </a> -->
-<!--                                 </h4> -->
-<!--                                 <p> -->
-<!--                                      닭강정 : W5,000 / 핫도그 : W3,000 -->
-<!--                                 </p> -->
-<!--                                 </figcaption> -->
-<!--                             </figure> -->
-<!--                         </div> -->
-                        
-<!--                         <div class="col-sm-4 col-xs-12"> -->
-<!--                             <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms"> -->
-<!--                                 <div class="img-wrapper"> -->
-<!--                                     <img src="images/foodtruck/3.jpg" class="img-responsive" alt="" > -->
-<!--                                     <div class="overlay"> -->
-<!--                                         <div class="buttons"> -->
-<!--                                             <a rel="gallery" class="fancybox" href="images/portfolio/item-3.jpg">승인</a> -->
-<!--                                             <a target="_blank" href="single-portfolio.html">취소</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <figcaption> -->
-<!--                                 <h4> -->
-<!--                                 <a href="#"> -->
-<!--                                    피자핏짜 -->
-<!--                                 </a> -->
-<!--                                 </h4> -->
-<!--                                 <p> -->
-<!--                                     페퍼로니 : W15,000 -->
-<!--                                 </p> -->
-<!--                                 </figcaption> -->
-<!--                             </figure> -->
-<!--                         </div> -->
-<!--                         <div class="col-sm-4 col-xs-12"> -->
-<!--                             <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="600ms"> -->
-<!--                                 <div class="img-wrapper"> -->
-<!--                                     <img src="images/foodtruck/4.jpg" class="img-responsive" alt="" > -->
-<!--                                     <div class="overlay"> -->
-<!--                                         <div class="buttons"> -->
-<!--                                             <a rel="gallery" class="fancybox" href="images/portfolio/item-4.jpg">승인</a> -->
-<!--                                             <a target="_blank" href="single-portfolio.html">취소</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <figcaption> -->
-<!--                                 <h4> -->
-<!--                                 <a href="#"> -->
-<!--                                     현진이네 포장마차 -->
-<!--                                 </a> -->
-<!--                                 </h4> -->
-<!--                                 <p> -->
-<!--                                     산낙지 : W15,000 / 쭈꾸미 : W12,000 -->
-<!--                                 </p> -->
-<!--                                 </figcaption> -->
-<!--                             </figure> -->
-<!--                         </div> -->
-<!--                         <div class="col-sm-4 col-xs-12"> -->
-<!--                             <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="900ms"> -->
-<!--                                 <div class="img-wrapper"> -->
-<!--                                     <img src="images/foodtruck/5.jpg" class="img-responsive" alt="" > -->
-<!--                                     <div class="overlay"> -->
-<!--                                         <div class="buttons"> -->
-<!--                                             <a rel="gallery" class="fancybox" href="images/portfolio/item-5.jpg">승인</a> -->
-<!--                                             <a target="_blank" href="single-portfolio.html">취소</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <figcaption> -->
-<!--                                 <h4> -->
-<!--                                 <a href="#"> -->
-<!--                                     상준이네 치킨 -->
-<!--                                 </a> -->
-<!--                                 </h4> -->
-<!--                                 <p> -->
-<!--                                     후라이드 : W15,000 / 양념 : W17,000  -->
-<!--                                 </p> -->
-<!--                                 </figcaption> -->
-<!--                             </figure> -->
-<!--                         </div> -->
-<!--                         <div class="col-sm-4 col-xs-12"> -->
-<!--                             <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="1200ms"> -->
-<!--                                 <div class="img-wrapper"> -->
-<!--                                     <img src="images/foodtruck/6.jpg" class="img-responsive" alt="" > -->
-<!--                                     <div class="overlay"> -->
-<!--                                         <div class="buttons"> -->
-<!--                                             <a rel="gallery" class="fancybox" href="images/portfolio/item-6.jpg">승인</a> -->
-<!--                                             <a target="_blank" href="single-portfolio.html">취소</a> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <figcaption> -->
-<!--                                 <h4> -->
-<!--                                 <a href="#"> -->
-<!--                                     커피커핑 -->
-<!--                                 </a> -->
-<!--                                 </h4> -->
-<!--                                 <p> -->
-<!--                                     아메리카노 : W3,000 / 라뗴 : W3,500 -->
-<!--                                 </p> -->
-<!--                                 </figcaption> -->
-<!--                             </figure> -->
-<!--                         </div> -->
                     </div>
                 </div>
             </section> <!-- #works -->

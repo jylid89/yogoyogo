@@ -16,6 +16,9 @@ public interface MypageDAO {
 
 	//광고거절 UPDATE
 	void advRefuseUpdate(AdverVO vo);
+	
+	//광고승인 UPDATE
+	void advAckUpdate(AdverVO vo);
 
 	//광고승인확인List
 	List<AdverVO> adverAppConfirm_adver(String mem_id);
