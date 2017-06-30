@@ -14,8 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 회원가입 -->
 <insert id="insert" parameterType="yogo.member.dto.MemberVO">
-	INSERT INTO tb_member (mem_id, mem_nick, mem_pass, mem_name, mem_call, mem_state, mem_point )
-	VALUES ( #{mem_id}, #{mem_nick}, #{mem_pass}, #{mem_name}, #{mem_call}, #{mem_state} , 0 )
+	INSERT INTO tb_member 
+	VALUES ( #{mem_id}, #{mem_nick}, #{mem_pass}, #{mem_name}, #{mem_call}, #{mem_state} , 500, 'aa' )
 </insert>
 
 <!-- 아이디/비번체크 -->

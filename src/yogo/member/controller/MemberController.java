@@ -22,6 +22,11 @@ public class MemberController {
 		return "/join/register";
 	}
 	
+	@RequestMapping(value="register1.do")
+	public String register1(){
+		return "/join/register1";
+	}
+	
 	@RequestMapping(value="loginView.do")
 	public String loginView(){
 		return "/login/loginView";
@@ -58,7 +63,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(msg);
 		mv.addObject(result);
-		mv.setViewName("/header/header");
+		mv.setViewName("/main/main");
 		
 		return mv;
 	}
