@@ -37,7 +37,7 @@ public class ActivityController {
 		System.out.println("글쓰러가니?");
 		ModelAndView mv = new ModelAndView();
 	 	 mv.setViewName("/activtiy/activityInsert");
-		return mv;
+		return mv;   
 		
 	}
 	

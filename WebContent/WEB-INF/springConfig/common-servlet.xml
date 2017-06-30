@@ -60,4 +60,7 @@
    <property name="definitions" value='/WEB-INF/tiles/tiles-definitions.xml' />
 </bean>
 
+<!-- 파일업로드 설정 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
 </beans>

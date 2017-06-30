@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+
+<!-- 공지사항 이벤트 리스트 불러오기 -->
+<select id="noticeSelect" resultType="yogo.board.dto.BoardVO">
+	SELECT board.*, mem.* 
+	FROM tb_board board, tb_member mem 
+	WHERE (board.board_state = '공지사항' OR board.board_state = '이벤트') AND board.mem_id = mem.mem_id
+</select>
+
+<!-- 공지사항 이벤트 글 쓰기 -->
+<insert id="noticeInsert" parameterType="yogo.board.dto.BoardVO">
+	INSERT INTO TB_BOARD 
+	VALUES ( BOARD_SEQ.nextval, 'yogo@naver.com', #{board_state}, #{board_title}, #{board_content}, sysdate, '0'
+	<if test="board_picreal!= null">
+    ,#{board_picreal}
+	</if>
+	)
+</insert>
+
+<!-- 공지사항 이벤트 상세보기  -->
+<select id="noticeView" resultType="yogo.board.dto.BoardVO" parameterType="yogo.board.dto.BoardVO" >
+	SELECT *
+	FROM tb_board
+	WHERE board_num = #{board_num} 
+</select>
+
+<!-- 공지사항 이벤트 삭제 -->
+<delete id="noticeDelete" parameterType="yogo.board.dto.BoardVO">
+	DELETE
+	FROM tb_board
+	WHERE board_num = #{board_num} 
+</delete>
+
+<!--  공지사항 이벤트 수정하기 -->
+<update id="noticeUpdate" parameterType="yogo.board.dto.BoardVO">
+	UPDATE tb_board
+	SET board_title=#{board_title}, board_content=#{board_content}
+	<if test = "board_picreal != null">
+	, board_picreal=#{board_picreal}
+	</if>
+	WHERE board_num=#{board_num}
+</update>
+
+<!--  공지사항 이벤트 조회수 -->
+<update id="noticeIncrease" parameterType="yogo.board.dto.BoardVO">
+	UPDATE tb_board
+	SET board_count = board_count + 1
+	WHERE board_num=#{board_num}
+</update>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
