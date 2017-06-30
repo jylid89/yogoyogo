@@ -114,7 +114,7 @@
                         <div class="col-sm-4 col-xs-12">
                             <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
                                 <div class="img-wrapper">
-                                    <img src="images/foodtruck/1.jpg" class="img-responsive" alt="this is a title" >
+                                    <img src="${list.truck_picreal1 }" class="img-responsive" alt="this is a title" >
                                     <div class="overlay">
                                         <div class="buttons">
                                             <a href="" data-toggle="modal" class="reduOK" data-target="#ModalCancel">거절</a>

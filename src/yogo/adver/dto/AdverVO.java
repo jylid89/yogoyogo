@@ -43,6 +43,9 @@ public class AdverVO {
 	/* 임시이미지 */
 	private String adv_pictemp;
 	
+	/* 트럭이미지1 */
+	private String truck_picreal1;
+	
 	public String getAdv_title() {
 		return adv_title;
 	}
@@ -145,6 +148,14 @@ public class AdverVO {
 
 	public void setAdv_pictemp(String adv_pictemp) {
 		this.adv_pictemp = adv_pictemp;
+	}
+
+	public String getTruck_picreal1() {
+		return truck_picreal1;
+	}
+
+	public void setTruck_picreal1(String truck_picreal1) {
+		this.truck_picreal1 = truck_picreal1;
 	}
 	
 	
