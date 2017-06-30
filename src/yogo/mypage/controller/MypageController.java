@@ -3,6 +3,7 @@ package yogo.mypage.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,5 +126,17 @@ public class MypageController {
 		public String menuDel(MenuVO vo) {
 			dao.menuDel(vo);
 			return "redirect:menu_ceo.do";
+		}
+		
+	//(사업자)광고신청현황
+		@RequestMapping(value="adverAppStatus_ceo.do")
+		public ModelAndView adverAppStatus_ceo(HttpSession session){
+			String mem_id = (String)session.getAttribute("mem_id");
+			List<AdverVO> list = new ArrayList<AdverVO>();
+			list = dao.adverAppStatus_ceo(mem_id);
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("list", list);
+			mv.setViewName("/mypage/adverAppStatus_ceo");
+			return mv;
 		}
 }

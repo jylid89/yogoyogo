@@ -87,4 +87,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	DELETE FROM tb_menu WHERE menu_num = #{menu_num}
 </delete>
 
+<!-- (사업자)광고신청현황 -->
+<select id="adverAppStatus_ceo" resultType="yogo.adver.dto.AdverVO" parameterType="String"> 
+	SELECT   ad.adv_title, m.mem_nick, a.advconf_state , a.advconf_reason, ad.adv_num
+    FROM     tb_truck t, tb_adverconf a, tb_adver ad, tb_member m
+    WHERE   t.truck_num = a.truck_num
+    AND      a.adv_num = ad.adv_num
+    AND      ad.mem_id = m.mem_id
+    AND 		t.mem_id =#{mem_id}
+</select>
+
 </mapper>

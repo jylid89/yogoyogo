@@ -41,4 +41,7 @@ public interface MypageDAO {
 	// 메뉴 삭제
 	void menuDel(MenuVO vo);
 
+	//(사업자)광고신청현황
+	List<AdverVO> adverAppStatus_ceo(String mem_id);
+
 }

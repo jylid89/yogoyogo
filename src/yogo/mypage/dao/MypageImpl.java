@@ -134,4 +134,12 @@ public class MypageImpl implements MypageDAO {
 			System.out.println("메뉴 add 실패 "+e.getMessage());
 		}
 	}
+
+	//(사업자)광고신청현황
+	@Override
+	public List<AdverVO> adverAppStatus_ceo(String mem_id) {
+		List<AdverVO> list = new ArrayList();
+		list = ss.selectList("mypage.adverAppStatus_ceo", mem_id);
+		return list;
+	}
 }
