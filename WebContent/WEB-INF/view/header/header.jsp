@@ -40,7 +40,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-default" href="main.do"><img  src="/yogoyogo4/images/logo/logo.png"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-slide-dropdown">
