@@ -33,7 +33,7 @@ public class FoodtruckController {
 		return mv;
 	}
 //	검색부분
-	@RequestMapping(value="foodtruckList_search.do")
+	@RequestMapping(value="/foodtruckList_search.do")
 	public ModelAndView trucklist_search(String category, String search_name, String eat, String drink, String enjoy, String addr) {
 		String cate = "";
 		String [] values = new String[4];
@@ -43,14 +43,10 @@ public class FoodtruckController {
 			cate = "TRUCK_NAME";
 			values[0] = search_name;
 		} else if(category.equals("메뉴")) {
-			cate = "MENU_NAME";
-			if(eat.equals("on")) {
-				values[1] = "먹을거리";
-			} else if(drink.equals("on")) {
-				values[2] = "마실거리";
-			} else if(enjoy.equals("on")) {
-				values[3] = "즐길거리";
-			}
+			cate = "MENU_CATE";
+			if(eat != null)	if(eat.equals("on")) values[1] = "먹을거리";
+			if(drink != null) if(drink.equals("on")) values[2] = "마실거리";
+			if(enjoy != null) if(enjoy.equals("on")) values[3] = "즐길거리";
 		} else if(category.equals("위치")) {
 			cate = "TRUCK_ADDR";
 			

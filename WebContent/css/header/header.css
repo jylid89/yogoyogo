@@ -13,10 +13,3 @@
 .thumb-dropdown .dropdown-menu > li > a:hover .thumbnail  {
     display: block;    
 }
-
-.navbar 
-{
-	position : relative;
-	min-height : 50px;
-	border:1px solid transparent;
-}

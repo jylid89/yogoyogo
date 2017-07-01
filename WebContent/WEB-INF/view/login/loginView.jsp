@@ -1,26 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.security.SecureRandom"%>
+<%@ page import="java.math.BigInteger"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.net.URL" %>
+<%@ page import="java.net.HttpURLConnection" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="java.io.InputStreamReader" %>
+<%
+    String clientId = "zE5y1nty2rQY7EdwF341";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://192.168.0.178:8080/YogoYogo/naverlogin.do", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
-
-<!-- 부가적인 테마 -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
-<link rel="stylesheet" href="/YogoYogo/css/login/loginView.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
-<!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<link rel="stylesheet" href="/YogoYogo/css/loginview/loginview.css">
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
-	
 	$(function(){
-		
 		$("#loginOK").click(function(){
 			//신청/취소버튼 구분
 			$.ajax({
@@ -39,9 +45,7 @@
 			});
 			
 		});
-
 	});
-
 </script>    
 
 <title>로그인 페이지</title>
@@ -49,37 +53,90 @@
 <body>
 <div class="container">
     <div class="omb_login">
-    	<h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>
-		<div class="row omb_row-sm-offset-3 omb_socialButtons">
-    	    <div class="col-xs-4 col-sm-2">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-			        <i class="fa fa-facebook visible-xs"></i>
-			        <span class="hidden-xs">Facebook</span>
-		        </a>
-	        </div>
-        	<div class="col-xs-4 col-sm-2">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-			        <i class="fa fa-twitter visible-xs"></i>
-			        <span class="hidden-xs">Twitter</span>
-		        </a>
-	        </div>	
-        	<div class="col-xs-4 col-sm-2">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
-			        <i class="fa fa-google-plus visible-xs"></i>
-			        <span class="hidden-xs">Google+</span>
-		        </a>
-	        </div>	
+    	<h3 class="omb_authTitle">로그인 페이지</h3>
+		<div class="text-center">
+			<a href="<%=apiURL%>"><img height="44px" width="250px" src="/YogoYogo/images/login/네이버 아이디로 로그인_완성형_Green.PNG"/></a><br/><br/>
+			<a id="custom-login-btn" href="javascript:loginWithKakao()">
+				<img height="44px" width="250px" src="/YogoYogo/images/login/kakao_account_login_btn_medium_narrow.png"/>
+			</a><br/><br/>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+    	appId      : '662140027327622',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+    
+    FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+  };
+  
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.9&appId=1738956586403230";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+   function checkLoginState() {
+	    FB.getLoginStatus(function(response) {
+	      statusChangeCallback(response);
+	    });
+	  }
+  
+  function statusChangeCallback(response) {
+	    if (response.status === 'connected') {
+	    	FB.api('/me', function(data) {
+	    	    alert(JSON.stringify(data));
+// 	    	    alert(response.email);
+	    	}, {scope: 'publish_stream,user_likes'});
+	    } else {
+	    }
+	  }
+</script>
+<div class="fb-login-button" data-height="44px" data-width="250px" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="checkLoginState();"></div>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('d088e1794401d40ad78daf3b6e19bdea');
+    function loginWithKakao() {
+      // 로그인 창을 띄웁니다.
+      Kakao.Auth.login({
+    	  success: function(authObj) {
+    	        // 로그인 성공시, API를 호출합니다.
+    	        Kakao.API.request({
+    	          url: '/v1/user/me',
+    	          success: function(res) {
+//     	        	alert(JSON.stringify(res));
+    	        	$('#kmail').val(res.kaccount_email);
+    	        	$('#kname').val(res.properties.nickname);
+//     	        	$('#form').attr('action', '')
+    	          },
+    	          fail: function(error) {
+    	            alert(JSON.stringify(error));
+    	          }
+    	        });
+    	      }, 
+    	      fail: function(err) {
+    	        alert(JSON.stringify(err));
+    	      }
+      });
+    };
+  //]]>
+</script>
 		</div>
-
-		<div class="row omb_row-sm-offset-3 omb_loginOr">
-			<div class="col-xs-12 col-sm-6">
-				<hr class="omb_hrOr">
-				<span class="omb_spanOr">or</span>
-			</div>
-		</div>
-
+		<form id="form">
+			<input type="hidden" id="kmail" name="mem_id" value="" />
+			<input type="hidden" id="kname" name="mem_name" value="" />
+		</form>
+		
 		<div class="row omb_row-sm-offset-3">
-			<div class="col-xs-12 col-sm-6">	
+			<div class="col-xs-12 col-sm-6">
 			    <form class="omb_loginForm"  autocomplete="off" id="frm">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-user"></i></span>

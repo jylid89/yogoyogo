@@ -81,8 +81,19 @@
                 <li><a href="#">공지사항</a></li>
                 <li><a href="freeboard.do">자유게시판</a></li>
                 <li><a href="qnaList.do">Q&A</a></li>
-              </ul>                
-                <input type="hidden" value="<%=mem_name %>" id="mem_name" />
+              </ul>     
+            </li>
+            
+            <li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">마이페이지<span class="caret"></span></a>				
+			  <ul class="dropdown-menu" role="menu">
+                <li><a href="selectMember.do">개인정보수정</a></li>
+                <li><a href="menu_ceo.do">메뉴수정</a></li>
+                <li><a href="catAppStatus_user.do">케이터링 신청현황(일반회원)</a></li>
+                <li><a href="adverAppStatus_adver.do">광고현황리스트</a></li>
+                <li><a href="adverAppConfirm_adver.do">광고승인리스트</a></li>
+              </ul>
+              	<input type="hidden" value="<%=mem_name %>" id="mem_name" />                
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

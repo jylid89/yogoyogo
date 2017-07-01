@@ -73,7 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 메뉴 추가 -->
 <insert id="menuAdd" parameterType="yogo.menu.dto.MenuVO">
-	INSERT INTO tb_menu VALUES (#{menu_num}, #{truck_num}, #{menu_name}, #{menu_content}, 'aa', 'bb', #{menu_price}, #{menu_cate})	
+	INSERT INTO tb_menu VALUES (#{menu_num}, #{truck_num}, #{menu_name}, #{menu_content}, 'aa', #{menu_price}, #{menu_cate})	
 </insert>
 
 <!-- 메뉴 수정 -->

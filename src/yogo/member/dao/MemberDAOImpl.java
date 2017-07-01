@@ -38,7 +38,7 @@ public class MemberDAOImpl implements MemberDAO {
 		try {
 			memberVo = ss.selectOne("member.login", vo);
 		} catch (Exception e) {
-			System.out.println("로그인실패함");
+			System.out.println("로그인실패함!!!!");
 		}
 		
 		return memberVo;

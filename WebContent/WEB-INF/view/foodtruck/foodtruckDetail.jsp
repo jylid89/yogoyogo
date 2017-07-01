@@ -11,7 +11,7 @@
 	
 
 </style>
-<link rel="stylesheet" href="/yogoyogo4/css/foodtruck/foodtruckStyle.css">
+<link rel="stylesheet" href="/YogoYogo/css/foodtruck/foodtruckStyle.css">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <!-- <link rel="stylesheet" -->
 <!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->

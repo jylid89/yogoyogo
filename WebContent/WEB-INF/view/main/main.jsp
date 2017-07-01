@@ -37,7 +37,7 @@
                 <div class="item active">
 
                     <!-- Slide Background -->
-                    <img src="/yogoyogo4/images/main/img1.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="/YogoYogo/images/main/img1.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
                     <div class="bs-slider-overlay"></div>
 
                     <div class="container">
@@ -56,7 +56,7 @@
                 <!-- Second Slide -->
                 <div class="item">
                     <!-- Slide Background -->
-                    <img src="/yogoyogo4/images/main/img2.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="/YogoYogo/images/main/img2.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
                     <div class="bs-slider-overlay"></div>
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_center">
@@ -71,7 +71,7 @@
                 <div class="item">
 
                     <!-- Slide Background -->
-                    <img src="/yogoyogo4/images/main/img3.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="/YogoYogo/images/main/img3.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
                     <div class="bs-slider-overlay"></div>
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_right">
@@ -86,7 +86,7 @@
                 <div class="item">
 
                     <!-- Slide Background -->
-                    <img src="/yogoyogo4/images/main/img4.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                    <img src="/YogoYogo/images/main/img4.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
                     <div class="bs-slider-overlay"></div>
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_right">
