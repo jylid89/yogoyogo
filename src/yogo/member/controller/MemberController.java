@@ -174,6 +174,6 @@ public class MemberController {
 	            System.out.println(e);
 	        }
 			 
-			return "main/main";
+			return "/main/main";
 		}
 }
