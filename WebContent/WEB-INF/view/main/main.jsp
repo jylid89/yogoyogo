@@ -17,8 +17,9 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <!--         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
         
-        <link rel="stylesheet" type="text/css" href="/YogoYogo/css/style.css">
-        <link rel="javascript" type="text/javascript" href="/YogoYogo/js/index.js">
+        <link rel="stylesheet" type="text/css" href="/YogoYogo/css/main/style.css"/>
+        <link rel="javascript" type="text/javascript" href="/YogoYogo/js/main/index.js"/>
+		<script src="/YogoYogo/js/main/modernizr.custom.97074.js"></script>
 <div class="body">
         <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
 
@@ -114,11 +115,14 @@
             </a>
         </div> <!-- End  bootstrap-touch-slider Slider -->
         
-    <div class="Container">
-	</div>
-    <div class="mainContainer">
-        <h3 class="truckTitle"><a href="foodtruckList.do">트럭리스트</a></h3>
-        <div class="truckList">
+    <!-- special -->
+	<div class="special">
+		<div class="container">
+			<div class="special-heading">
+				<h3>푸드트럭 리스트</h3>
+			</div>
+			<div class="mainContainer">
+      	  <div class="truckList">
             <div class="row">
             	<c:forEach varStatus="status" items="${list}" var="a" >
                 <div class="col-sm-2 truckListItem">
@@ -133,5 +137,109 @@
             </div>
         </div>
     </div>
-   
+		</div>
+	</div>
+	<!-- //special -->
+   <!-- gallery -->
+	<div id="gallery" class="gallery">
+		<div class="container">
+			<div class="gallery-grids">
+				<section>
+					<ul id="da-thumbs" class="da-thumbs">
+						<li>
+							<a href="/YogoYogo/images/main/5.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/5.jpg" alt="" />
+								<div>
+									<h5>요고요고</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/6.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/6.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/7.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/7.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/8.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/8.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>	
+							<a href="/YogoYogo/images/main/9.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/9.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/5.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/5.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/6.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/6.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/7.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/7.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/YogoYogo/images/main/8.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="/YogoYogo/images/main/8.jpg" alt="" />
+								<div>
+									<h5>Elite Bakery</h5>
+									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+								</div>
+							</a>
+						</li>
+						
+					</ul>
+				</section>
+				<script type="text/javascript" src="/YogoYogo/js/main/jquery.hoverdir.js"></script>	
+				<script type="text/javascript">
+					$(function() {
+					
+						$(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
+
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+<!-- //gallery -->
 </div>
