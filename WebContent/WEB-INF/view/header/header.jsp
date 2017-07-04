@@ -35,14 +35,15 @@
 				<div class="modal-body modal-body-sub">
 					<div class="row">
 						<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
-							<div class="sap_tabs">	
-								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-									<ul>
-										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
-										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
-									</ul>		
-									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-										<div class="facts">
+<!-- 							<div class="sap_tabs">	 -->
+<!-- 								<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;"> -->
+<!-- 									<span>Sign in</span> -->
+<!-- 									<ul> -->
+<!-- 										<li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li> -->
+<!-- 										<li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li> -->
+<!-- 									</ul>		 -->
+<!-- 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0"> -->
+<!-- 										<div class="facts"> -->
 											<div class="register">
 												<form action="#" method="post">			
 													<input name="Email" placeholder="Email Address" type="text" required="">						
@@ -51,26 +52,27 @@
 														<input type="submit" value="Sign in"/>
 													</div>
 												</form>
+												<a href="register.do">회원가입</a>
 											</div>
-										</div> 
-									</div>	 
-									<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-										<div class="facts">
-											<div class="register">
-												<form action="#" method="post">			
-													<input placeholder="Name" name="Name" type="text" required="">
-													<input placeholder="Email Address" name="Email" type="email" required="">	
-													<input placeholder="Password" name="Password" type="password" required="">	
-													<input placeholder="Confirm Password" name="Password" type="password" required="">
-													<div class="sign-up">
-														<input type="submit" value="Create Account"/>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div> 			        					            	      
-								</div>	
-							</div>
+<!-- 										</div>  -->
+<!-- 									</div>	  -->
+<!-- 									<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1"> -->
+<!-- 										<div class="facts"> -->
+<!-- 											<div class="register"> -->
+<!-- 												<form action="#" method="post">			 -->
+<!-- 													<input placeholder="Name" name="Name" type="text" required=""> -->
+<!-- 													<input placeholder="Email Address" name="Email" type="email" required="">	 -->
+<!-- 													<input placeholder="Password" name="Password" type="password" required="">	 -->
+<!-- 													<input placeholder="Confirm Password" name="Password" type="password" required=""> -->
+<!-- 													<div class="sign-up"> -->
+<!-- 														<input type="submit" value="Create Account"/> -->
+<!-- 													</div> -->
+<!-- 												</form> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> 			        					            	       -->
+<!-- 								</div>	 -->
+<!-- 							</div> -->
 							<script src="/YogoYogo/js/header/easyResponsiveTabs.js" type="text/javascript"></script>
 							<script type="text/javascript">
  								$(document).ready(function () { 
