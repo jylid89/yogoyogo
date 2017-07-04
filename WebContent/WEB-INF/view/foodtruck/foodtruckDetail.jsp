@@ -8,10 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	
-
 </style>
-<link rel="stylesheet" href="/YogoYogo/css/foodtruck/foodtruckStyle.css">
+<!-- <link rel="stylesheet" href="/YogoYogo/css/foodtruck/foodtruckStyle.css"> -->
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <!-- <link rel="stylesheet" -->
 <!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
@@ -24,7 +22,27 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <!-- <script -->
 <!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="responsive Profile Tabs Widget responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } 
 
+</script>
+<!-- //for-mobile-apps -->
+<!-- <script type='text/javascript' src="js/jquery-1.11.2.min.js"></script> -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+<link href="/YogoYogo/css/foodtruck/style.css" rel="stylesheet"
+	type="text/css" media="all" />
+<link
+	href='//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic'
+	rel='stylesheet' type='text/css'>
 <!-- 다음맵 API -->
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=
@@ -41,28 +59,16 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 </head>
 <div class="body">
 
-	<header class="business-header" style="background-image: url(${foodtruck.truck_picreal1});">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12  text-center">
-				<br> <br> <br> <br> <br> <br>
-				<hr>
-				<h1 class="tagline">${foodtruck.truck_name }</h1>
-				<hr>
-				<p>맛있는 푸드트럭집</p>
-				<br>
-			</div>
-		</div>
+	<!-- main -->
+	<div class="col-xs-12" style="background-color: #fff;">
+	<div class="page-header" >
+	<h1>${foodtruck.truck_name }</h1>
 	</div>
-	</header>
-
-	<div class="container">
-		<div class="col-xs-12">
-			<div class="page-header">
-				<h1>위 치 정 보</h1>
-			</div>
+	</div>
+<!-- 	<div class="container"> -->
+		<div class="col-xs-14">
 			<!-- map보여지는 부분 -->
-			<div id="map" style="width: 100%; height: 500px;"></div>
+			<div id="map" style="width: 100%; height: 300px;"></div>
 			<script type="text/javascript">
 				var overlay;
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -149,47 +155,196 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 				}
 			</script>
 		</div>
-	</div>
+<!-- 	</div> -->
+	<div class="main">
+		<div class="sap_tabs">
+			<div id="horizontalTab"
+				style="display: block; width: 100%; margin: 0px;">
+				<ul class="resp-tabs-list">
+					<li class="resp-tab-item grid1" aria-controls="tab_item-0"
+						role="tab"><span>푸드트럭 <i>정보</i></span></li>
+					<li class="resp-tab-item grid2" aria-controls="tab_item-1"
+						role="tab"><span>타임 <i>라인</i></span></li>
+					<li class="resp-tab-item grid3" aria-controls="tab_item-2"
+						role="tab"><span>리뷰 </span></li>
+					<div class="clear"></div>
+				</ul>
 
-
-	<div class="container">
-		<div class="col-xs-12">
-			<div class="page-header">
-				<h1>메 뉴</h1>
-			</div>
-			<div class="carousel slide" id="myCarousel">
-				<div class="carousel-inner">
-				<c:forEach varStatus="status" items="${menuList}" var='menu'>
-					<div class="item active">
-						<ul class="thumbnails">
-								<li class="col-sm-3">
-									<div class="fff">
-										<div class="thumbnail">
-											<img src="${menu.menu_picreal }" alt="">
-										</div>
-										<div class="caption">
-											<h4>${menu.menu_name }</h4>
-											<p>${menu.menu_price }</p>
-											<p>${menu.menu_content }</p>
-										</div>
-									</div>
-								</li>
-						</ul>
+				<div class="resp-tabs-container">
+					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+				<!-- 메뉴부분 -->
+				<div class="facts">
+					<input id="question1" type="checkbox" name="toggle"
+						class="question" /> <label class="label" for="question1"> <img
+						src="/YogoYogo/images/foodtruck/menu.png" alt="" />
+						<p>먹을거리</p>
+					</label>
+					<section id="answer1">
+					<div class="panel-body">
+						<div class="col-md-3 order-grid">
+							<img src="/YogoYogo/images/foodtruck/d1.jpg" class="img-responsive" alt="/">
+							<div class="caption">
+								<div class="small">
+									<span class="text-ellipsis">메뉴</span><br /> <strong
+										class="text-ellipsis ">가격</strong>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 order-grid">
+							<img src="/YogoYogo/images/foodtruck/d2.jpg" class="img-responsive" alt="/">
+						</div>
+						<div class="col-md-3 order-grid">
+							<img src="/YogoYogo/images/foodtruck/d3.jpg" class="img-responsive" alt="/">
+						</div>
+						<div class="col-md-3 order-grid">
+							<img src="/YogoYogo/images/foodtruck/d4.jpg" class="img-responsive" alt="/">
+						</div>
+						<div class="clerafix"></div>
 					</div>
-					</c:forEach>
-					<!-- /Slide1 -->
-					
+					</section>
+
+					<input id="question2" type="checkbox" name="toggle"
+						class="question" /> <label class="label" for="question2">  <img
+						src="/YogoYogo/images/foodtruck/menu.png" alt="" />
+						<p>마실거리</p>
+					</label>
+
+					<section id="answer2">
+					<p>You don't. Simple.</p>
+					</section>
+
+					<input id="question3" type="checkbox" name="toggle"
+						class="question" /> <label class="label" for="question3">  <img
+						src="/YogoYogo/images/foodtruck/menu.png" alt="" />
+						<p>즐길거리</p>
+					</label>
+
+					<section id="answer3">
+					<p>Yes, and it looks good. Pretty awesome, eh?</p>
+					</section>
+
 				</div>
-
-
-				<!-- /.control-box -->
-
+					</div>
+				</div>
+				
+			
+			<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+				<div class="facts">
+					<div class="facts_left">
+						<img src="/YogoYogo/images/foodtruck/1.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="facts_right">
+						<div class="facts_right1">
+							<h2>James Robert</h2>
+						</div>
+						<div class="facts_right2">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="twitter"> </a></li>
+								<li><a href="#" class="p"> </a></li>
+								<li><a href="#" class="g-plus"> </a></li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="facts">
+					<div class="facts_left">
+						<img src="/YogoYogo/images/foodtruck/2.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="facts_right">
+						<div class="facts_right1">
+							<h2>Mill Franklin</h2>
+						</div>
+						<div class="facts_right2">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="twitter"> </a></li>
+								<li><a href="#" class="p"> </a></li>
+								<li><a href="#" class="g-plus"> </a></li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="facts">
+					<div class="facts_left">
+						<img src="/YogoYogo/images/foodtruck/3.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="facts_right">
+						<div class="facts_right1">
+							<h2>Michael Crisp</h2>
+						</div>
+						<div class="facts_right2">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="twitter"> </a></li>
+								<li><a href="#" class="p"> </a></li>
+								<li><a href="#" class="g-plus"> </a></li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
 			</div>
-			<!-- /#myCarousel -->
-
+			<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+				<div class="facts">
+					<div class="facts_left">
+						<img src="/YogoYogo/images/foodtruck/1.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="facts_right">
+						<div class="facts_right1">
+							<h2>James Robert</h2>
+						</div>
+						<div class="facts_right2">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="twitter"> </a></li>
+								<li><a href="#" class="p"> </a></li>
+								<li><a href="#" class="g-plus"> </a></li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
 		</div>
-		<!-- /.col-xs-12 -->
 	</div>
-	<!-- /.container -->
+	</div>
+<script src="/YogoYogo/js/foodtruck/easyResponsiveTabs.js"
+	type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#horizontalTab').easyResponsiveTabs({
+			type : 'default', //Types: default, vertical, accordion           
+			width : 'auto', //auto or any width like 600px
+			fit : true
+		// 100% fit in a container
+		});
+	});
+</script>
+<!-- //main -->
+
+
 </div>
 </html>
