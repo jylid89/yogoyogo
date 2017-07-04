@@ -5,20 +5,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="freeboard">
 
-<!-- 자유게시판 리스트 -->
-<select id="freeList" resultType="yogo.freeboard.dto.FreeBoardVO"> 
-	SELECT f.*, m.*
-	FROM 	tb_board f , tb_member m
-    where f.mem_id = m.mem_id
+<!-- 자유게시판 리스트(SELECT) -->
+<select id="freeList" resultType="yogo.board.dto.BoardVO"> 
+	SELECT 	*
+	FROM 	tb_board
+	WHERE 	board_state = 'freeboard'
 </select>
 
 <select id="selectFreeSeq" resultType="String">
 	SELECT free_seq.nextval FROM dual
 </select>
 
-<!-- 리뷰 작성(Insert) -->
-<insert id="freeInsert" parameterType="yogo.freeboard.dto.FreeBoardVO">
+<!-- 자유게시판 상세 뷰(SELECT) -->
+<select id="freeDetail" resultType="yogo.board.dto.BoardVO" parameterType="yogo.board.dto.BoardVO">
+ 	SELECT 	*
+ 	FROM 	tb_board
+ 	WHERE 	board_num = '${board_num}' AND board_state = 'freeboard'
+</select>
+
+<!-- 자유게시판 작성(Insert) -->
+<insert id="freeInsert" parameterType="yogo.board.dto.BoardVO">
 	INSERT INTO tb_board(board_num, board_title, mem_id,board_state, board_time, board_content)
-	VALUES(#{board_num}, #{board_title}, 'newhell202','자유게시판', to_char(sysdate, 'yymmdd'), #{board_content})
+	VALUES(free_seq.nextval, #{board_title}, 'yogo@naver.com','freeboard', to_char(sysdate, 'yymmdd'), #{board_content})
 </insert>
+
+<!-- 자유게시판 삭제(DELETE) -->
+<delete id="freeDelete" parameterType="yogo.board.dto.BoardVO">
+	DELETE
+	FROM tb_board
+	WHERE board_num = '${board_num}'
+</delete>
 </mapper>

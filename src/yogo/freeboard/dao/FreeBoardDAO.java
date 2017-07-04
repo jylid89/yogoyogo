@@ -2,16 +2,22 @@ package yogo.freeboard.dao;
 
 import java.util.List;
 
-import yogo.freeboard.dto.FreeBoardVO;
+import yogo.board.dto.BoardVO;
 
 public interface FreeBoardDAO {
 
 	//자유게시판 리스트(SELECT)
-	List<FreeBoardVO> FreeBoardList();
+	List<BoardVO> FreeBoardList();
+	
+	//자유게시판 상세뷰(SELECT)
+	BoardVO freeboardDetail(BoardVO vo);
 	
 	//자유게시판 작성(INSERT)
-	int FreeBoardInsert(FreeBoardVO vo);
+	void FreeBoardInsert(BoardVO vo);
 	
-	//자유 게시판 수정(UPDATE)
+	//자유 게시판 삭제(DELETE)
+	int freeBoardDelete(BoardVO vo);
 	
+	//자유게시판 수정(UPDATE)
+	void freeboardModify(BoardVO vo);
 }

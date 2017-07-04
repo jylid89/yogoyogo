@@ -28,14 +28,14 @@
     </thead>
     <tbody>
       	<c:choose>
-      		<c:when test="${list == null}" >
+      		<c:when test="${freeVO == null}" >
       		<p>등록된게없다</p>
     		</c:when>
     	<c:otherwise>
-      <c:forEach items="${list}" var="a">
+      <c:forEach items="${freeVO}" var="a">
       <tr>
         <td>${a.board_num}</td>
-        <td><a href="">${a.board_title}</a></td>
+        <td><a href="freeboardDetail.do?board_num=${a.board_num}">${a.board_title}</a></td>
         <td><a href="">${a.mem_id}</a></td>
         <td>${a.board_time}</td>
       </tr>
@@ -45,7 +45,7 @@
     </tbody>
   </table>
   <div class="pageNum">< <a href="">1</a> ></div>
-  <div class="writeBtn"><a href="freeboardInsert.do">글쓰기</a></div>
+  <a href="freeboardInsert.do"><div class="writeBtn">글쓰기</div></a>
 </div>
 
 </body>

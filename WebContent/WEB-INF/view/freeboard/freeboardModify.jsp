@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -44,12 +44,12 @@
 								
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="name"><h3>제목</h3></label> 
-										<input type="text" class="form-control" placeholder="제목을 입력하세요">
+										<input type="text" class="form-control" name="board_title" id="board_title" placeholder="제목을 입력하세요">
 									</div>
 									
 									<div class="form-group">
 										<label class="col-md-3 control-label" for="message"><h3>내용</h3></label>
-										<textarea cols="30" rows="10" class="form-control"
+										<textarea cols="30" rows="10" class="form-control" name="board_content" id="board_content"
 											placeholder="내용을 입력하세요"></textarea>
 									</div>
 									 <div class="form-group ">
