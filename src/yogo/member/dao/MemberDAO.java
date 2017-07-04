@@ -4,14 +4,18 @@ import yogo.member.dto.MemberVO;
 
 public interface MemberDAO {
 
-	/*id 중복체크 */
-	MemberVO idCheck( MemberVO vo );
-	
 	/* 회원가입 기능 */
 	int memberInsert( MemberVO vo );
 	
 	/*로그인 기능*/
 	MemberVO memberLogin( MemberVO vo );	
 	
+	/*  로그인 확인*/
 	String loginCheck(String mem_id, String mem_pass);
+
+	/* id 중복확인 */
+	String idCheck(String mem_id);
+	
+	/* 닉네임 중복확인 */
+	String nickCheck(String mem_nick);
 }

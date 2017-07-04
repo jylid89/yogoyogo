@@ -31,16 +31,12 @@ public class MemberController {
 		return "/join/register";
 	}
 	
-	@RequestMapping(value="register1.do")
-	public String register1(){
-		return "/join/register1";
-	}
-	
 	@RequestMapping(value="loginView.do")
 	public String loginView(){
 		return "/login/loginView";
 	}
 	
+	//로그인
 	@RequestMapping(value="login.do")
 	public ModelAndView login(MemberVO vo, HttpSession session){
 		int result = 0;
@@ -63,15 +59,17 @@ public class MemberController {
 		return mv;
 	}
 	
+	//회원가입
 	@RequestMapping(value="join.do")
-	public ModelAndView join(MemberVO vo){
+	public ModelAndView join(MemberVO vo, HttpSession session){
 		String msg = "가입실패";
 		int result = memberDao.memberInsert(vo);
 		if( result > 0 ) msg = "가입성공";
-		
+		session.setAttribute("msg", msg);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject(msg);
+//		mv.addObject("msg", msg);
 		mv.addObject(result);
+		
 		mv.setViewName("/main/main");
 		
 		return mv;
@@ -176,4 +174,19 @@ public class MemberController {
 			 
 			return "/main/main";
 		}
+		
+		//ajax -> 아이디 중복확인
+			@RequestMapping(value="idCheck.do")
+			@ResponseBody
+			public String idCheck(String mem_id){
+				String result = memberDao.idCheck(mem_id);
+				return result;
+			}
+		//닉네임 중복확인
+			@RequestMapping(value="nickCheck.do")
+			@ResponseBody
+			public String nickCheck(String mem_nick){
+				String result = memberDao.nickCheck(mem_nick);
+				return result;
+			}
 }

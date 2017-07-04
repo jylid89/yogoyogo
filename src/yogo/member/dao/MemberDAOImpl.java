@@ -14,13 +14,15 @@ public class MemberDAOImpl implements MemberDAO {
 	@Autowired
 	SqlSessionTemplate ss;
 	
+	//아이디 중복확인
 	@Override
-	public MemberVO idCheck(MemberVO vo) {
-		MemberVO memberVo = null;
+	public String idCheck(String mem_id) {
+		String result = ss.selectOne("member.idCheck", mem_id);
 		
-		return null;
+		return result;
 	}
 
+	//회원가입
 	@Override
 	public int memberInsert(MemberVO vo) {
 		int result = 0;
@@ -32,6 +34,7 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+	//로그인
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
 		MemberVO memberVo = null;
@@ -52,4 +55,12 @@ public class MemberDAOImpl implements MemberDAO {
 			String result = ss.selectOne("loginCheck",map );
 				return result;
 			}
+
+	//닉네임 중복확인
+	public String nickCheck(String mem_nick) {
+		
+		String result = ss.selectOne("member.nickCheck", mem_nick);
+		return result;
+	}
+
 }
