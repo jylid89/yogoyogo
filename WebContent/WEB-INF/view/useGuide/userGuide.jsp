@@ -91,7 +91,6 @@
     <!--/#blog-->
      
     <script type="text/javascript" src="/YogoYogo/js/useGuide/jquery.js"></script>
-    <script type="text/javascript" src="/YogoYogo/js/useGuide/bootstrap.min.js"></script>
     <script type="text/javascript" src="/YogoYogo/js/useGuide/lightbox.min.js"></script>
     <script type="text/javascript" src="/YogoYogo/js/useGuide/wow.min.js"></script>
     <script type="text/javascript" src="/YogoYogo/js/useGuide/main.js"></script> 
