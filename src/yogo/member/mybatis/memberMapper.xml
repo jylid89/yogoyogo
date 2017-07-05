@@ -53,4 +53,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				 sysdate, #{truck_addr} , #{car_number} )
 </insert>
 
+<!-- id를 이용해서 닉네임, 이름, 회원구분 가지고 오기 -->
+<select id="memberById" parameterType="String" resultType="yogo.member.dto.MemberVO">
+	SELECT mem_id, mem_nick, mem_name, mem_state
+	FROM tb_member
+	WHERE mem_id = #{mem_id}
+</select>
 </mapper>

@@ -76,4 +76,16 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	// id를 이용해서 닉네임, 이름, 회원구분 가지고 오기
+	@Override
+	public MemberVO memberById(String mem_id) {
+		MemberVO vo = new MemberVO();
+		try {
+			vo = ss.selectOne("member.memberById", mem_id);
+		} catch(Exception e) {
+			System.out.println("아이디를 통한 멤버정보 가지고 오기 실패"+e.getMessage());
+		}
+		return vo;
+	}
+
 }

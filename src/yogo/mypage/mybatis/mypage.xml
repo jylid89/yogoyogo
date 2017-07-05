@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 트럭리스트 셀렉 -->
 <select id="selectCate_user" resultType="yogo.catering.dto.CateringVO"> 
-	SELECT cate.*, truck.truck_name, truck.truck_addr, truck.truck_num FROM tb_cateconf cate, tb_truck truck
+	SELECT cate.*, truck.truck_name, truck.truck_addr, truck.truck_num, truck.truck_picreal1 FROM tb_cateconf cate, tb_truck truck
 	WHERE cate.mem_id = #{mem_id} AND cate.truck_num = truck.truck_num
 </select>
 

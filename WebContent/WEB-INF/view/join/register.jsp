@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -258,7 +259,7 @@
         <div class="form-group">
           <label class="control-label col-sm-3">아이디(이메일) : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-              <input type="email" class="form-control" name="mem_id" id="mem_id" placeholder="이메일을 입력하여 주세요." value="">
+              <input type="email" class="form-control" name="mem_id" id="mem_id" placeholder="이메일을 입력하여 주세요." value="${vo.mem_id }">
         </div>
               <div class="checkId"></div>
         </div>
@@ -279,13 +280,13 @@
         <div class="form-group">
           <label class="control-label col-sm-3">이름 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="">
+            <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="${vo.mem_name }">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">닉네임 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_nick" id="mem_nick" placeholder="Enter your Name here" value="">
+            <input type="text" class="form-control" name="mem_nick" id="mem_nick" placeholder="Enter your Name here" value="${vo.mem_nick }">
           </div>
           <div class="nickCheck"></div>
         </div>

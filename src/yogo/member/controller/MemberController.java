@@ -27,8 +27,16 @@ public class MemberController {
 	MemberDAOImpl memberDao;
 	
 	@RequestMapping(value="register.do")
-	public String register(){
-		return "/join/register";
+	public ModelAndView register(HttpSession session){
+		MemberVO vo = new MemberVO();
+		vo.setMem_id((String)session.getAttribute("mem_id"));
+		vo.setMem_nick((String)session.getAttribute("mem_nick"));
+		vo.setMem_name((String)session.getAttribute("mem_name"));
+		session.invalidate();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("vo", vo);
+		mv.setViewName("/join/register");
+		return mv;
 	}
 	
 	@RequestMapping(value="loginView.do")
@@ -96,16 +104,18 @@ public class MemberController {
 			
 			return "/main/main";
 		}
-		
+	
+	// 네이버 로그인
 		@RequestMapping(value="naverlogin.do")
 		public String naverlogin(String code, String state, HttpSession session) {
+			String nextpage = "";
 			JSONObject json = new JSONObject();
 			String next_apiURL;
 			String clientId = "zE5y1nty2rQY7EdwF341";//애플리케이션 클라이언트 아이디값";
 			String clientSecret = "bvrp6O39Bq";//애플리케이션 클라이언트 시크릿값";
 			String redirectURI = "";
 			try {
-				redirectURI = URLEncoder.encode("192.168.0.178/YogoYogo/main.do", "UTF-8");
+				redirectURI = URLEncoder.encode("192.168.0.178/YogoYogo5/register.do", "UTF-8");
 			} catch (UnsupportedEncodingException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -170,15 +180,27 @@ public class MemberController {
 	            System.out.println(response.toString());
 	            json = (JSONObject) parser.parse(response.toString());
 	            json = (JSONObject) parser.parse(json.get("response").toString());
-	            MemberVO vo = new MemberVO();
-//	            vo.setMem_id((String)json.get("email"));
-//	            vo.setMem_nick((String)json.get("nickname"));
-	            session.setAttribute("mem_name", json.get("nickname").toString());
+	            
+	            String result = memberDao.idCheck((String)json.get("email"));
+	            
+	            if(result.equals("0")) {
+	            	session.setAttribute("mem_id", (String)json.get("email"));
+		            session.setAttribute("mem_nick", (String)json.get("nickname"));
+		            session.setAttribute("mem_name", (String)json.get("name"));
+		            nextpage = "redirect:register.do";
+		            
+	            } else {
+	            	MemberVO vo = memberDao.memberById((String)json.get("email"));
+	            	session.setAttribute("mem_id", vo.getMem_id());	
+	    			session.setAttribute("mem_state", vo.getMem_state());
+	    			session.setAttribute("mem_nick", vo.getMem_nick());
+	    			session.setAttribute("mem_name", vo.getMem_name());
+	            	nextpage = "/main/main";
+	            }
 	        } catch (Exception e) {
 	            System.out.println(e);
 	        }
-			 
-			return "/main/main";
+			return nextpage;
 		}
 		
 		//ajax -> 아이디 중복확인

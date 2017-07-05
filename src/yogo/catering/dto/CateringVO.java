@@ -1,10 +1,5 @@
 package yogo.catering.dto;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.springframework.web.multipart.MultipartFile;
-
 public class CateringVO {
 	/* 케이터링 번호 */
 	private String cate_num;
@@ -32,6 +27,8 @@ public class CateringVO {
 	private String truck_name;
 	/* 푸드트럭 주소 */
 	private String truck_addr;
+	/* 푸드트럭 사진 */
+	private String truck_picreal1;
 	
 	public String getCate_num() {
 		return cate_num;
@@ -111,4 +108,11 @@ public class CateringVO {
 	public void setTruck_addr(String truck_addr) {
 		this.truck_addr = truck_addr;
 	}
+	public String getTruck_picreal1() {
+		return truck_picreal1;
+	}
+	public void setTruck_picreal1(String truck_picreal1) {
+		this.truck_picreal1 = truck_picreal1;
+	}
+	
 }

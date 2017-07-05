@@ -8,10 +8,7 @@
 
 <title>케이터링 신청현황 리스트(사용자)</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/YogoYogo2/css/mypage/catAppStatus_user.css">
+<link rel="stylesheet" type="text/css" href="/YogoYogo/css/mypage/catAppStatus_user.css">
 </head>
 <body>
 <br/><br/>
@@ -21,7 +18,7 @@
 		<div class="row"> 
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <a href="#">
-                            <img src="http://wanderluxe.theluxenomad.com/wp-content/uploads/2014/10/http-www.urchinbali.comgallery.jpg" class="img-responsive img-box img-thumbnail"> 
+                            <img src="${list.truck_picreal1 }" class="img-responsive img-box img-thumbnail"> 
                         </a>
                     </div> 
                     <div class="col-xs-12 col-sm-9 col-md-9">

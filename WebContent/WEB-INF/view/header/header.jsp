@@ -11,7 +11,7 @@
 <%@ page import="java.io.InputStreamReader" %>
 <%
     String clientId = "zE5y1nty2rQY7EdwF341";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://192.168.0.178:8080/YogoYogo/naverlogin.do", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://192.168.0.178:8080/YogoYogo5/naverlogin.do", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -160,13 +160,12 @@
 				</div> 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
-						<li><a href="main.do">메인</a></li>
 						<li><a href="foodtruckList.do" >푸드트럭</a></li> 	
 						<li><a href="about.html" >행사</a></li>
 						<li><a href="catelist.do">케이터링 신청</a></li>
 						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">서비스 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="icons.html">서비스 관련</a></li>
+								<li><a href="useGuide.do">서비스 관련</a></li>
 								<li><a href="adverList.do">광고대행</a></li>     
 							</ul>
 						</li>  
@@ -177,8 +176,18 @@
 								<li><a href="freeboard.do">자유게시판</a></li>
 								<li><a href="qnaList.do">Q&A</a></li>     
 							</ul>
-						</li>  
-						
+						</li>
+						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">마이페이지 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="selectMember.do">회원정보수정</a></li>
+								<li><a href="menu_ceo.do">메뉴수정(사업자)</a></li>
+								<li><a href="catAppStatus_user.do">케이터링신청현황(일반회원)</a></li>
+								<li><a href="catAppStatus_ceo.do">케이터링신청현황(사업자)</a></li>
+								<li><a href="adverAppStatus_ceo.do">광고신청현황(사업자)</a></li>
+								<li><a href="adverAppStatus_adver.do">광고신청현황(광고대행사)</a></li>
+								<li><a href="adverAppConfirm_adver.do">광고승인현황(광고대행사)</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</nav>

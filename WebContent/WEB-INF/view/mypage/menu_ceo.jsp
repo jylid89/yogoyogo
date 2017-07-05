@@ -36,6 +36,10 @@
 				<div class="carousel-inner">
 					<div class="item active">
 						<ul class="thumbnails">
+					<c:choose>
+        				<c:when test="${list == null}">
+        				</c:when>
+        				<c:otherwise>
 							<c:forEach items="${list}" var="list" varStatus="status" >
 							<li class="col-sm-3">
 								<div class="fff">
@@ -58,6 +62,8 @@
 										<ul class="thumbnails">
 								</c:if>
 							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 						</ul>
 					</div>
 				</div>

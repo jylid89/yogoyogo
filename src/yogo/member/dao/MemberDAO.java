@@ -21,4 +21,7 @@ public interface MemberDAO {
 	
 	/* 트럭인서트 */
 	void truckInsert(MemberVO vo);
+	
+	/* id를 이용해서 닉네임, 이름, 회원구분 가지고 오기 */
+	MemberVO memberById(String mem_id);
 }
