@@ -30,7 +30,7 @@
 <meta name="google-signin-client_id" content="709473571985-p4in51ou7vuhjknfg1n30av9b2sidbov.apps.googleusercontent.com">	
 <!-- //for-mobile-apps -->
 <!-- Custom Theme files -->
-<link href="/YogoYogo6/css/header/style.css" rel="stylesheet" type="text/css" media="all" /> 
+<link href="/YogoYogo/css/header/style.css" rel="stylesheet" type="text/css" media="all" /> 
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
 <link href="/YogoYogo/css/header/font-awesome.css" rel="stylesheet"> 
