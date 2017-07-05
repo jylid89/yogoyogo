@@ -1,5 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.security.SecureRandom"%>
+<%@ page import="java.math.BigInteger"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.net.URL" %>
+<%@ page import="java.net.HttpURLConnection" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="java.io.InputStreamReader" %>
+<%
+    String clientId = "zE5y1nty2rQY7EdwF341";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://192.168.0.178:8080/YogoYogo/naverlogin.do", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+%>
 <head>
 <title>Electronic Store a Ecommerce Online Shopping Category Bootstrap Responsive Website Template | About :: w3layouts</title>
 <!-- for-mobile-apps -->
@@ -7,11 +27,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Electronic Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-	function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="google-signin-client_id" content="709473571985-p4in51ou7vuhjknfg1n30av9b2sidbov.apps.googleusercontent.com">	
 <!-- //for-mobile-apps -->
 <!-- Custom Theme files -->
-<link href="/YogoYogo/css/header/style.css" rel="stylesheet" type="text/css" media="all" /> 
+<link href="/YogoYogo6/css/header/style.css" rel="stylesheet" type="text/css" media="all" /> 
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
 <link href="/YogoYogo/css/header/font-awesome.css" rel="stylesheet"> 
@@ -19,8 +38,12 @@
 <!-- web fonts --> 
 <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- //web fonts --> 
-</head> 
+<!-- //web fonts -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="/YogoYogo/js/header/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="/YogoYogo/js/header/login.js"></script>
+</head>
 <div class="header"> 
 	<!-- header modal -->
 	<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
@@ -30,7 +53,7 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 						&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Don't Wait, Login now!</h4>
+					<h4 class="modal-title" id="myModalLabel">LOGIN PAGE</h4>
 				</div>
 				<div class="modal-body modal-body-sub">
 					<div class="row">
@@ -45,13 +68,13 @@
 <!-- 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0"> -->
 <!-- 										<div class="facts"> -->
 											<div class="register">
-												<form action="#" method="post">			
-													<input name="Email" placeholder="Email Address" type="text" required="">						
-													<input name="Password" placeholder="Password" type="password" required="">										
-													<div class="sign-up">
-														<input type="submit" value="Sign in"/>
-													</div>
+												<form method="post" id="frm">			
+													<input type="text" id="mem_id" name="mem_id" placeholder="아이디(이메일)" required="">						
+													<input type="password" id="mem_pass" name="mem_pass" placeholder="비밀번호" required="">										
 												</form>
+													<div class="sign-up">
+														<input type="submit" id="loginOK" value="로그인"/>
+													</div>
 												<a href="register.do">회원가입</a>
 											</div>
 <!-- 										</div>  -->
@@ -73,30 +96,24 @@
 <!-- 									</div> 			        					            	       -->
 <!-- 								</div>	 -->
 <!-- 							</div> -->
-							<script src="/YogoYogo/js/header/easyResponsiveTabs.js" type="text/javascript"></script>
-							<script type="text/javascript">
- 								$(document).ready(function () { 
- 									$('#horizontalTab').easyResponsiveTabs({ 
- 										type: 'default', //Types: default, vertical, accordion            
- 										width: 'auto', //auto or any width like 600px 
- 										fit: true   // 100% fit in a container 
- 									}); 
-								}); 
- 							</script>  
+							
 							<div id="OR" class="hidden-xs">OR</div>
 						</div>
 						<div class="col-md-4 modal_body_right modal_body_right1">
 							<div class="row text-center sign-with">
 								<div class="col-md-12">
-									<h3 class="other-nw">Sign in with</h3>
-								</div>
-								<div class="col-md-12">
-									<ul class="social">
-										<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-										<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-										<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-										<li class="social_behance"><a href="#" class="entypo-behance"></a></li>
-									</ul>
+									<a href="<%=apiURL%>"><img height="44px" width="250px" src="/YogoYogo/images/login/네이버 아이디로 로그인_완성형_Green.PNG"/></a><br/><br/>
+									<a id="custom-login-btn" href="javascript:loginWithKakao()">
+										<img height="44px" width="250px" src="/YogoYogo/images/login/kakao_account_login_btn_medium_narrow.png"/>
+									</a><br/><br/>
+<div id="fb-root"></div>
+<div class="fb-login-button" data-height="44px" data-width="250px" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="checkLoginState();"></div><br/><br/>
+
+<div class="g-signin2" data-width="250px" data-height="44px" data-longtitle="true" data-theme="dark" data-onsuccess="onSignIn"></div>
+		<form id="form">
+			<input type="hidden" id="kmail" name="mem_id" value="" />
+			<input type="hidden" id="kname" name="mem_name" value="" />
+		</form>
 								</div>
 							</div>
 						</div>
