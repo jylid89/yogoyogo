@@ -63,4 +63,17 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+	public void truckInsert(MemberVO vo) {
+			//시퀀스 값 가져오기
+				String seq = ss.selectOne("member.selectSeq");
+				//가져온 시퀀스 값에 문자열 넣어주기
+				String revSeq = "TRUCK00";
+				revSeq += seq;
+				//vo에 시퀀스 값 넣기
+				vo.setTruck_num(revSeq);
+				System.out.println(vo.getCar_number() + " / " + vo.getTruck_catestate() + " / " + vo.getTruck_addr() + " / " + vo.getMem_id() + " / " + vo.getTruck_num()+ " / " + vo.getTruck_name());
+		ss.insert("member.truckInsert", vo);
+		
+	}
+
 }

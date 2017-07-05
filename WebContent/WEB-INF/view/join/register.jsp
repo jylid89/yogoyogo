@@ -125,6 +125,7 @@
 		
 		
 		
+		
 		$("#basicSignUp").click(function(){
 			
 			if(count >= 4 && $('input:radio[name=inlineRadioOptions]').is(':checked')){
@@ -137,9 +138,91 @@
 				return;
 			}
 		});
+			
+		$("#foodInsert").click(function(){
+			
+			var loc = $("#sample4_roadAddress").val();			
+			$("#truck_addr").val(loc);
+			
+			if(count >= 4 && $('input:radio[name=inlineRadioOptions]').is(':checked')){
+				var result = confirm(' 회원가입을 하시겠습니까?');
+					if(result) {
+						$("#basicForm").attr("action","join.do").submit();
+					}
+			}else{
+				alert("회원 구분을 체크해주세요");
+				return;
+			}
+		});
+		
+		//케이터링 여부
+		$(".truck_catestate").click(function(){
+			var index = $(".truck_catestate").index(this);
+			if($(".truck_catestate").index(this) == 0){
+				$("#truck_catestate").val("Y");
+			}else if($(".truck_catestate").index(this) == 1){
+				$("#truck_catestate").val("N");
+			}
+			
+		});
+		
+
 		
 	});
 
+</script>
+		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+                // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                if(fullRoadAddr !== ''){
+                    fullRoadAddr += extraRoadAddr;
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample4_roadAddress').value = fullRoadAddr;
+                document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
+
+                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                if(data.autoRoadAddress) {
+                    //예상되는 도로명 주소에 조합형 주소를 추가한다.
+                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                    document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+
+                } else if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+
+                } else {
+                    document.getElementById('guide').innerHTML = '';
+                }
+            }
+        }).open();
+    }
 </script>
 </head>
 <body>
@@ -227,23 +310,14 @@
             <input type="button" value="Sign Up" class="btn btn-primary" id="basicSignUp">
           </div>
         </div>
-      </form>
-    </div>
-</div>
-</div>
-
-<!-- ====================== 푸드트럭 추가폼 =========================== -->
-<div class="subDiv">
-	<div class="container">
-	<div class="row">
-    <div class="col-md-8">
-    <br/><br/>
-            <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data" >        
+        <!-- ====================== 푸드트럭 추가폼 =========================== -->
+    <div class="subDiv">
         <div class="form-group">
           <label class="control-label col-sm-3">트럭번호 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
             <input type="text" class="form-control" name="car_number" id="car_number" placeholder="푸드트럭 번호를 입력하여 주세요." value="">
           </div>
+          <div class="car_number"></div>
         </div>
 
         <div class="form-group">
@@ -251,29 +325,40 @@
           <div class="col-md-5 col-sm-9">
             <input type="text" class="form-control" name="truck_name" id="truck_name" placeholder="상호명 입력" value="">
           </div>
+          <div class="truck_name"></div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-3">활동 지역<span class="text-danger">*</span></label>
-          <div class="col-md-8 col-sm-9">
-	          <select class="form-control selectpicker" id="Select1" style="height:30px">
-	          	<option>1</option>
-	          	<option>2</option>
-	          	<option>3</option>
-	          	<option>4</option>
-	          	<option>5</option>
-	          </select>
+          <label class="control-label col-sm-3">주소<span class="text-danger">*</span></label>
+          <div class="col-md-3 col-sm-9">
+			<input type="text" class="form-control" id="sample4_postcode"  readonly="readonly" />
           </div>
+			<input type="button" class="btn btn-info" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" />
+          </div>
+          <div class="form-group">
+          	<label class="control-label col-sm-3"></label>
+		 <div class="col-md-5 col-sm-9">
+				<input type="text" class="form-control" id="sample4_roadAddress"  readonly="readonly"/>
+		 </div>
+		 </div>
+		 <div class="form-group">
+		 	<label class="control-label col-sm-3"></label>
+		 <div class="col-md-5 col-sm-9">
+				<input type="text" class="form-control" id="sample4_jibunAddress"  readonly="readonly" />
+		</div>
+				<span id="guide" style="color:#999"></span>
+				<input type="hidden" id="truck_addr" name="truck_addr" />
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">케이터링여부 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <label class="radio-inline">
-				  <input type="radio"  name="cateState" id="cateState1" value="option1"> 예
+				  <input type="radio"  class="truck_catestate" name="catestate" value="yes"> 예
 			  </label>
 			  <label class="radio-inline">
-				  <input type="radio" name="cateState" id="cateState2" value="option2"> 아니오
+				  <input type="radio" class="truck_catestate" name="catestate" value="no"> 아니오
 			  </label>
+			  <input type="hidden" id="truck_catestate" name="truck_catestate"/>
            </div>   
           </div>
         </div>
@@ -282,7 +367,7 @@
           <small>(optional)</small></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="file_nm" id="file_nm" class="form-control upload" placeholder="사진을 첨부하여 주세요." aria-describedby="file_upload">
+              <input type="file" name="truck_picreal1" id="truck_picreal1" class="form-control upload" placeholder="사진을 첨부하여 주세요." aria-describedby="file_upload">
             </div>
           </div>
         </div>
@@ -291,19 +376,21 @@
           <small>(optional)</small></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="file_nm" id="file_nm" class="form-control upload" placeholder="사진을 첨부하여 주세요." aria-describedby="file_upload">
+              <input type="file" name="truck_picreal2" id="truck_picreal2" class="form-control upload" placeholder="사진을 첨부하여 주세요." aria-describedby="file_upload">
             </div>
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-10">
-            <input name="Submit" type="submit" value="Sign Up" class="btn btn-primary">
+          	<input  type="button" value="취소" class="btn btn-primary">
+            <input name="foodInsert" type="button" value="회원가입" class="btn btn-primary" id="foodInsert">
           </div>
+        </div>
         </div>
       </form>
     </div>
 </div>
 </div>
-</div>
+
 </body>
 </html>

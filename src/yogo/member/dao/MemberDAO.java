@@ -18,4 +18,7 @@ public interface MemberDAO {
 	
 	/* 닉네임 중복확인 */
 	String nickCheck(String mem_nick);
+	
+	/* 트럭인서트 */
+	void truckInsert(MemberVO vo);
 }

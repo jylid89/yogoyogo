@@ -40,4 +40,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	AND mem_pass= #{mem_pass}
 </select>
 
+<!-- 시퀀스 값 가져오기 -->
+<select id="selectSeq" resultType="String">
+	SELECT truck_seq.nextval as truck_seq FROM dual
+</select>
+
+<!-- 사업자 회원가입 -->
+<insert id="truckInsert" parameterType="yogo.member.dto.MemberVO">
+	INSERT INTO tb_truck 
+	VALUES ( #{truck_num}, #{mem_id}, #{truck_name}, 
+				 'aa', 'bb', #{truck_catestate} , 
+				 sysdate, #{truck_addr} , #{car_number} )
+</insert>
+
 </mapper>

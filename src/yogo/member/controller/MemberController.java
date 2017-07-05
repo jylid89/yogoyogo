@@ -62,8 +62,14 @@ public class MemberController {
 	//회원가입
 	@RequestMapping(value="join.do")
 	public ModelAndView join(MemberVO vo, HttpSession session){
+			int result=0;
+		if(vo.getMem_state().equals("사업자")){
+			result = memberDao.memberInsert(vo);
+			memberDao.truckInsert(vo);
+		}else{
+			result = memberDao.memberInsert(vo);
+		}
 		String msg = "가입실패";
-		int result = memberDao.memberInsert(vo);
 		if( result > 0 ) msg = "가입성공";
 		session.setAttribute("msg", msg);
 		ModelAndView mv = new ModelAndView();
