@@ -15,19 +15,11 @@ import yogo.foodtruck.dto.FoodtruckVO;
 import yogo.menu.dto.MenuVO;
 
 @Controller
-@RequestMapping(value="catering")
 public class CateringController {
 	
 	@Autowired
 	CateringDAO cateringDAO;
 	
-	//화면만 연결하는 메소드
-		@RequestMapping("{url}.do")
-		public String member(@PathVariable String url){
-			System.out.println("요청받았음");
-			
-			return "/catering/"+url;
-		}
 		//write.do 생성
 		@RequestMapping("write_ok.do")
 		public ModelAndView insert(CateringVO vo){
@@ -42,7 +34,7 @@ public class CateringController {
 		}
 		
 		//list.do 생성
-		@RequestMapping("catelist.do")
+		@RequestMapping("cateList.do")
 		public ModelAndView getSelect(){
 			List<FoodtruckVO> list = cateringDAO.list();
 			System.out.println("케이터링 컨트롤 접속");
