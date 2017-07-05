@@ -143,13 +143,13 @@ public class NoticeController {
 	}
 		
 	
-	//파일업로드
-	@RequestMapping(value = "noticeInsertOk.do", method = RequestMethod.GET)
-    public ModelAndView fileForm() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("redirect:noticeList.do"); 
-         return mv;
-    }
+//	//파일업로드
+//	@RequestMapping(value = "noticeInsertOk.do", method = RequestMethod.GET)
+//    public ModelAndView fileForm() {
+//        ModelAndView mv = new ModelAndView();
+//        mv.setViewName("redirect:noticeList.do"); 
+//         return mv;
+//    }
      
 	//조회수
 	@RequestMapping(value="noticeShow.do")

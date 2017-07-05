@@ -1,3 +1,13 @@
+
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
+@font-face {
+  font-family: 'SungDongGothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/orgs/govs/sdgu/SungDongGothic/SungDongGothicEB.woff') format('woff');
+}
+
 #menu-toggle {
     top: 0;
     right: 0;

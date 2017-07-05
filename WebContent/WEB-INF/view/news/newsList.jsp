@@ -17,7 +17,9 @@
 	    			<section id="pinBoot">
 						<c:forEach varStatus="status" items="${list}" var="list" >
 	      					<article class="white-panel"><img src="${list.board_picreal }" alt="">
-	        					<h4><a href="newsDetail.do?board_num=${list.board_num}">${list.board_title }</a></h4>
+	      					<br/><br/>
+	        					<h4><a href="newsDetail.do?board_num=${list.board_num}"><font face="나눔고딕">${list.board_title }</font></a></h4>
+	        					<br/>
 	        					<p>${list.board_content}</p>
 	      					</article>
 						</c:forEach>

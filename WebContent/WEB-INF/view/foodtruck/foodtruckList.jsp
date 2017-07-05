@@ -8,6 +8,10 @@
 <title>푸드트럭 리스트</title>
 <link rel="stylesheet" type="text/css" href="/YogoYogo/css/foodtruck/foodtruckList.css">
 <link rel="stylesheet" type="text/css" href="/YogoYogo/css/main/style.css"/>
+<style type="text/css">
+.jua {font-family:'BM JUA','배달의민족 주아',sans-serif;}
+.hana{font-family:'BM HANNA','배달의민족 한나', sans-serif; }
+</style>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 <script src="/YogoYogo/js/foodtruck/foodtruckList.js"></script>
 <script src="/YogoYogo/js/main/modernizr.custom.97074.js"></script>
@@ -17,7 +21,7 @@
 	<div class="special">
 		<div class="container">
 			<div class="special-heading">
-				<h3>푸드트럭 리스트</h3>
+				<h3><font face="함초롬돋움">푸드트럭 리스트</font></h3>
 			</div>
 			<div class="mainContainer">
       	<div class="gallery-grids">
@@ -28,8 +32,8 @@
 							<a href="foodtruckDetail.do?truck_num=${a.truck_num}" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="${a.truck_picreal1}" alt="" />
 								<div>
-									<h5>${a.truck_name}</h5>
-									<span>${a.truck_addr }</span>
+									<h5><font face="함초롬돋움">${a.truck_name}</font></h5>
+									<span><font face="함초롬돋움">${a.truck_addr }</font></span>
 								</div>
 							</a>
 						</li>
