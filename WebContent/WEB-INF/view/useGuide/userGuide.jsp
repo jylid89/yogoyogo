@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Blog Timeline | Triangle</title>
-    <link href="/YogoYogo/css/userGuide/bootstrap.min.css" rel="stylesheet">
+   
     <link href="/YogoYogo/css/userGuide/font-awesome.min.css" rel="stylesheet">
     <link href="/YogoYogo/css/userGuide/lightbox.css" rel="stylesheet"> 
     <link href="/YogoYogo/css/userGuide/animate.min.css" rel="stylesheet"> 
@@ -39,7 +39,7 @@
                             <div class="single-blog timeline">
                                 <div class="single-blog-wrapper">
                                     <div class="post-thumb">
-                                        <img src="images/blog/timeline/1.jpg" class="img-responsive" alt="">
+                                        <img src="/YogoYogo/images/useGuide/timeline/1.jpg" class="img-responsive" alt="">
                                         <div class="post-overlay">
                                            <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
                                        </div>
@@ -56,7 +56,7 @@
                             <div class="single-blog timeline">
                                 <div class="single-blog-wrapper">
                                     <div class="post-thumb">
-                                        <img src="images/blog/timeline/2.jpg" class="img-responsive" alt="">
+                                        <img src="/YogoYogo/images/useGuide/timeline/2.jpg" class="img-responsive" alt="">
                                         <div class="post-overlay">
                                            <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
                                        </div>
