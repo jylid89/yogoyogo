@@ -36,5 +36,9 @@ public class HomeController {
          
         return "/main/main";
     }
+    @RequestMapping(value="useGuide.do")
+    public String useGuide(String url){    	
+    	return "useGuide/userGuide";
+    }
      
 }

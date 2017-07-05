@@ -1,145 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog Timeline | Triangle</title>
+    <link href="/YogoYogo/css/userGuide/bootstrap.min.css" rel="stylesheet">
+    <link href="/YogoYogo/css/userGuide/font-awesome.min.css" rel="stylesheet">
+    <link href="/YogoYogo/css/userGuide/lightbox.css" rel="stylesheet"> 
+    <link href="/YogoYogo/css/userGuide/animate.min.css" rel="stylesheet"> 
+	<link href="/YogoYogo/css/userGuide/main.css" rel="stylesheet">
+	<link href="/YogoYogo/css/userGuide/responsive.css" rel="stylesheet">
 
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
 
-    <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="userGuide.css">
-    <title>서비스 이용방법</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="inner">
-    <div class="page-header">
-		<h1 id="guideTitle">서비스 이용방법</h1>
-	</div>
-	<div id="timeline"><div class="row timeline-movement timeline-movement-top">
-    
-</div>
-<div class="row timeline-movement">
-    <div class="timeline-badge">
-        <span class="timeline-balloon-date-day"></span>
-        <span class="timeline-balloon-date-month"></span>
-    </div>
-
-    <div class="col-sm-6  timeline-item">
-        <div class="row">
-            <div class="col-sm-11">
-                <div class="timeline-panel credits">
-                    <ul class="timeline-panel-ul">
-                        <li><span class="importo">푸드 서비스</span></li>
-                        <li><span class="causale">식자재 / 용기 공급</span></li>
-                        <!--<li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>-->
-                    </ul>
+<body>    
+    <section id="blog" class="padding-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="timeline-blog overflow padding-top">
+                    <div class="timeline-date text-center">
+                        <a href="#" class="btn btn-common uppercase">서비스 이용방법</a>
+                    </div>
+                    <div class="timeline-divider overflow padding-bottom">
+                        <div class="col-sm-6 padding-right arrow-right wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="single-blog timeline">
+                                <div class="single-blog-wrapper">
+                                    <div class="post-thumb">
+                                        <img src="images/blog/timeline/1.jpg" class="img-responsive" alt="">
+                                        <div class="post-overlay">
+                                           <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="blogdetails.html">푸드 서비스</a></h2>
+                                    <h3 class="post-author"><a href="#">식자재 / 용기 공급</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 padding-left padding-top arrow-left wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="single-blog timeline">
+                                <div class="single-blog-wrapper">
+                                    <div class="post-thumb">
+                                        <img src="images/blog/timeline/2.jpg" class="img-responsive" alt="">
+                                        <div class="post-overlay">
+                                           <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
+                                       </div>
+                                    </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="blogdetails.html#">마케팅 서비스</a></h2>
+                                    <h3 class="post-author"><a href="#">SNS마케팅 명함/배너 등 브랜드 홍보 차량 외부광고 인터넷 방송 출연</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 padding-right arrow-right wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="single-blog timeline">
+                                <div class="single-blog-wrapper">
+                                    <div class="post-thumb">
+                                        <iframe src="https://player.vimeo.com/video/95995577"></iframe>
+                                    </div>
+                                </div>
+                                <div class="post-content overflow">
+                                    <h2 class="post-title bold"><a href="blogdetails.html">제휴 서비스</a></h2>
+                                    <h3 class="post-author"><a href="#">비즈니스 센터 세스코 인증 배달서비스 스마트 오더 지방 출장 지원 세무대리</a></h3>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber [...]</p>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--<div class="col-sm-6  timeline-item">
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-11">
-                <div class="timeline-panel debits">
-                    <ul class="timeline-panel-ul">
-                        <li><span class="importo">Mussum ipsum cacilds</span></li>
-                        <li><span class="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
-                        <li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>-->
-</div>
-
-<!--due -->
-
-<div class="row timeline-movement">
-    <div class="timeline-badge">
-        <span class="timeline-balloon-date-day"></span>
-        <span class="timeline-balloon-date-month"></span>
-    </div>
-
-    <div class="col-sm-offset-6 col-sm-6  timeline-item">
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-11">
-                <div class="timeline-panel debits">
-                    <ul class="timeline-panel-ul">
-                        <li><span class="importo">마케팅 서비스</span></li>
-                        <li><span class="causale">SNS마케팅 명함/배너 등 브랜드 홍보 차량 외부광고 인터넷 방송 출연</span> </li>
-                        <!--<li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>-->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--<div class="col-sm-6  timeline-item">
-        <div class="row">
-            <div class="col-sm-11">
-                <div class="timeline-panel credits">
-                    <ul class="timeline-panel-ul">
-                        <li><span class="importo">Mussum ipsum cacilds</span></li>
-                        <li><span class="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
-                        <li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>-->
-
-
-</div>
-<div class="row timeline-movement">
-    <div class="timeline-badge">
-        <span class="timeline-balloon-date-day"></span>
-        <span class="timeline-balloon-date-month"></span>
-    </div>
-
-    <div class="col-sm-6  timeline-item">
-        <div class="row">
-            <div class="col-sm-11">
-                <div class="timeline-panel debits">
-                    <ul class="timeline-panel-ul">
-                        <li><span class="importo"></span>제휴 서비스</li>
-                        <li><span class="causale">비즈니스 센터 세스코 인증 배달서비스 스마트 오더 지방 출장 지원 세무대리</span></li>
-                        <!--<li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>-->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--<div class="col-sm-6  timeline-item">
-        <div class="row">
-            <div class="col-sm-11">
-                <div class="timeline-panel credits">
-                    <ul class="timeline-panel-ul">
-                        <li><span class="importo">Mussum ipsum cacilds</span></li>
-                        <li><span class="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
-                        <li><p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>-->
-</div>
-</div>
-</div>
+    </section>
+    <!--/#blog-->
+     
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/jquery.js"></script>
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/lightbox.min.js"></script>
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/wow.min.js"></script>
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/main.js"></script> 
 </body>
 </html>
