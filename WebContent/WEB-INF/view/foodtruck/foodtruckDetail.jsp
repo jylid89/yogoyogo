@@ -62,7 +62,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 	<!-- main -->
 	<div class="col-xs-12" style="background-color: #fff;">
 	<div class="page-header" >
-	<h1>${foodtruck.truck_name }</h1>
+	<h1><font face="함초롬돋움">${foodtruck.truck_name }</font></h1>
 	</div>
 	</div>
 <!-- 	<div class="container"> -->
@@ -162,11 +162,11 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 				style="display: block; width: 100%; margin: 0px;">
 				<ul class="resp-tabs-list">
 					<li class="resp-tab-item grid1" aria-controls="tab_item-0"
-						role="tab"><span>푸드트럭 <i>정보</i></span></li>
+						role="tab"><span><font face="함초롬돋움">푸드트럭 정보</span></li>
 					<li class="resp-tab-item grid2" aria-controls="tab_item-1"
-						role="tab"><span>타임 <i>라인</i></span></li>
+						role="tab"><span><font face="함초롬돋움">타임 라인</font></span></li>
 					<li class="resp-tab-item grid3" aria-controls="tab_item-2"
-						role="tab"><span>리뷰 </span></li>
+						role="tab"><span><font face="함초롬돋움">리뷰</font> </span></li>
 					<div class="clear"></div>
 				</ul>
 
