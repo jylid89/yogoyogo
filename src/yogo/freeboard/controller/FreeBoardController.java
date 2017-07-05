@@ -40,7 +40,7 @@ public class FreeBoardController {
 	//자유게시판 상세 뷰
 	@RequestMapping(value="freeboardDetail.do")
 	public ModelAndView freeDetail(BoardVO vo){
-		BoardVO freeVO = freeDAO.freeboardDetail(vo);		
+		BoardVO freeVO = freeDAO.freeboardDetail(vo);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/freeboard/freeboardDetail");
@@ -72,9 +72,29 @@ public class FreeBoardController {
 	}
 	
 	//자유게시판 수정(UPDATE)
-	public void freeModify(BoardVO vo){
+	@RequestMapping(value="freeModify.do")
+	public ModelAndView freeModify(BoardVO vo){
+		BoardVO freeVO = freeDAO.freeboardDetail(vo);		
 		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/freeboard/freeboardModify");
+		mv.addObject("freeVO", freeVO);
+		
+		return mv;
 	}
+	
+	@RequestMapping(value="freeModifyOk.do")
+	public ModelAndView freeModifyOk(BoardVO vo){
+		List<BoardVO> freeVO = new ArrayList<BoardVO>(); 
+		freeDAO.freeboardModify(vo);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:freeboard.do");
+		mv.addObject("list", freeVO);
+		
+		return mv;
+	}
+}
 //	@RequestMapping(value="/list", method=RequestMethod.GET)
 //	public ModelAndView list(Sample sample) throws Exception{
 //		try {
@@ -88,4 +108,3 @@ public class FreeBoardController {
 //		}
 //	}
 	
-}

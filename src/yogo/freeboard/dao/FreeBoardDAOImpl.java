@@ -57,9 +57,16 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 		return result;
 	}
 
-	@Override
-	public void freeboardModify(BoardVO vo) {
-				
-	}
 	
+	//자유게시판 글 수정
+	@Override
+	public int freeboardModify(BoardVO vo) {
+		int result = 0;
+		try{
+		result = ss.update("freeboard.freeModify", vo);
+		}catch(Exception e){
+			System.out.println("자유게시판 글 수정 실패 : " + e.getMessage());
+		}
+		return result;
+	}
 }

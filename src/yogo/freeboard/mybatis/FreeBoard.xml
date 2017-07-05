@@ -7,9 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 자유게시판 리스트(SELECT) -->
 <select id="freeList" resultType="yogo.board.dto.BoardVO"> 
-	SELECT 	*
-	FROM 	tb_board
-	WHERE 	board_state = 'freeboard'
+	SELECT 	b.*, m.*
+	FROM 	tb_board b, tb_member m
+	WHERE 	board_state = 'freeboard' AND m.mem_id = b.mem_id
 </select>
 
 <select id="selectFreeSeq" resultType="String">
@@ -35,4 +35,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM tb_board
 	WHERE board_num = '${board_num}'
 </delete>
+
+<!-- 자유게시판 글 수정(UPDATE) -->
+<update id="freeModify" parameterType="yogo.board.dto.BoardVO">
+	UPDATE 	tb_board
+	SET 	board_title='${board_title}', board_content='${board_content}'
+	WHERE 	board_num='${board_num}'
+</update>
 </mapper>

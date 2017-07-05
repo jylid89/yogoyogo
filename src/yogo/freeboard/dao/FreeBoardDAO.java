@@ -19,5 +19,5 @@ public interface FreeBoardDAO {
 	int freeBoardDelete(BoardVO vo);
 	
 	//자유게시판 수정(UPDATE)
-	void freeboardModify(BoardVO vo);
+	int freeboardModify(BoardVO vo);
 }

@@ -22,7 +22,7 @@
       <tr>
         <th>번호</th>
         <th>제목</th>
-        <th>글쓴이</th>
+        <th>작성자</th>
         <th>게시날짜</th>
       </tr>
     </thead>
@@ -36,7 +36,7 @@
       <tr>
         <td>${a.board_num}</td>
         <td><a href="freeboardDetail.do?board_num=${a.board_num}">${a.board_title}</a></td>
-        <td><a href="">${a.mem_id}</a></td>
+        <td><a href="">${a.mem_nick}</a></td>
         <td>${a.board_time}</td>
       </tr>
       </c:forEach>
