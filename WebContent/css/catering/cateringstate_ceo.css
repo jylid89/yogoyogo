@@ -1,0 +1,30 @@
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th{
+	
+	text-align: center;
+	font-size: 22pt;
+	
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	
+	text-align: center;
+	font-size: 15pt;
+	
+}
+
+.btn{
+	
+	color: white;
+	
+}
+
+.btn-reject{
+	
+	background-color: rgb(255,110,80);
+	
+}
+
+.btn-approve{
+	
+	background-color: rgb(80,110,255);
+	
+}
