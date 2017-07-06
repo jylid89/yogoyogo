@@ -29,7 +29,23 @@ public class CateringVO {
 	private String truck_addr;
 	/* 푸드트럭 사진 */
 	private String truck_picreal1;
+	/* 고객 이름 */
+	private String mem_name;
+	/* 고객 연락처 */
+	private String mem_call;
 	
+	public String getMem_name() {
+		return mem_name;
+	}
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
+	public String getMem_call() {
+		return mem_call;
+	}
+	public void setMem_call(String mem_call) {
+		this.mem_call = mem_call;
+	}
 	public String getCate_num() {
 		return cate_num;
 	}

@@ -31,6 +31,20 @@ public class MypageImpl implements MypageDAO {
 		return list;
 	}
 
+	//케이터링 신청 현황 리스트 (사업자) 
+		@Override
+		public List<CateringVO> selectCate_ceo(String truck_num) {
+			// list 생성
+			List<CateringVO> list = new ArrayList();
+			// truck_num를 list에 넘겨줌
+			try{
+				list = ss.selectList("mypage.selectCate_ceo",truck_num);
+			}catch( Exception ex){
+				System.out.println("MypageImpl / selectCate_ceo : " + ex.getMessage());
+			}
+			return list;
+		}
+		
 	//(광고업체)광고신청현황
 	@Override
 	public List<AdverVO> adverConfList_adver(String mem_id) {

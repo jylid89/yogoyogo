@@ -11,6 +11,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE cate.mem_id = #{mem_id} AND cate.truck_num = truck.truck_num
 </select>
 
+<select id="selectCate_ceo" resultType="yogo.catering.dto.CateringVO">
+	SELECT cate.*, mem.*, truck.*
+	FROM tb_cateconf cate, tb_member mem, tb_truck truck
+	WHERE cate.mem_id = mem.mem_id AND cate.truck_num = truck.truck_num
+</select>
+
 <!-- (광고업체)광고신청현황 -->
 <select id="selectConfList_adver" resultType="yogo.adver.dto.AdverVO" parameterType="String"> 
 	SELECT c.*, a.*,t.*

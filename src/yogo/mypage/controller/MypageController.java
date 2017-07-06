@@ -37,6 +37,24 @@ public class MypageController {
 		return mv;
 	}
 	
+	// 케이터링 신청현황(사업자)
+	@RequestMapping(value="/catAppStatus_ceo.do")
+	public ModelAndView catAppStatus_ceo(){
+		System.out.println("사업자 컨트롤 타니?");
+		//찾을 아이디
+		String truck_num = "truck003";
+		List<CateringVO> list = new ArrayList<CateringVO>();
+		list = dao.selectCate_ceo(truck_num);
+		ModelAndView mv = new ModelAndView();
+		//list를 cateModel에 담아서 넘겨줌
+		mv.addObject("cateModel", list);
+		//페이지 바로 이동
+		mv.setViewName("/mypage/cateringstate_ceo");
+		return mv;
+	}
+	
+	
+	
 	//광고신청현황 list
 	@RequestMapping(value="/adverAppStatus_adver.do")
 	public ModelAndView adverAppStatusList_adver(HttpSession session) {

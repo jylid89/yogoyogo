@@ -8,8 +8,12 @@ import yogo.member.dto.MemberVO;
 import yogo.menu.dto.MenuVO;
 
 public interface MypageDAO {
+	
 	// 케이터링 신청현황(일반사용자)
 	List<CateringVO> selectCate_user(String mem_id);
+	
+	// 케이터링 신청현황(사업자)
+	List<CateringVO> selectCate_ceo(String truck_num);
 	
 	//(광고업체)광고신청현황
 	List<AdverVO> adverConfList_adver(String mem_id);
