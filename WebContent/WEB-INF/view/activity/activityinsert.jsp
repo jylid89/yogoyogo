@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
-	href="/YogoYogo/css/activity/activityinsert.css">
-<script type="text/javascript" src="/YogoYogo/js/activity/activityinsert.js"></script>
+	href="/Marketing/css/activityinsert.css">
+<script type="text/javascript" src="/Marketing/js/activityinsert.js"></script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -39,7 +39,8 @@
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-12 col-sm-12 scrollpoint">
-								<form role="form" method="post" action="activityInsertOk.do">
+								<form role="form" method="post" action="activityInsertOk.do"
+								enctype="multipart/form-data">
 
 									<br>
 									<br>
@@ -69,7 +70,7 @@
 													<span class="glyphicon glyphicon-folder-open"></span> <span
 														class="image-preview-input-title">Browse</span> <input
 														type="file" accept="image/png, image/jpeg, image/gif"
-														name="input-file-preview" class="" />
+														name="mark_pictemp" class="" />
 													<!-- rename it -->
 												</div>
 											</span>
