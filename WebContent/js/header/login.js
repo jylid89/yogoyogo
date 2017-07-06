@@ -5,9 +5,11 @@
 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 function hideURLbar(){ window.scrollTo(0,1); } 
 
+
 $(function() {
+	
+	// 로그인 버튼을 눌렀을 때 ajax를 통해 아이디 비밀번호 확인
 	$("#loginOK").click(function(){
-		//신청/취소버튼 구분
 		$.ajax({
 			url : "loginCheck.do",
 			type : "post",
@@ -23,6 +25,36 @@ $(function() {
 			}
 		});
 	});
+	
+	// 로그인 안한 상태일 때 로그인 버튼 보여주기
+	
+	$('.login').show();
+	$('.logout').hide();
+	
+	// 로그인 했을때
+	if ($('#mem_name').val() != "null") {
+		$('.login').hide();
+		$('.logout').show();
+		
+		// 로그인한 회원이 일반회원일때
+		if($('#mem_state').val() == "일반회원") {
+			$('.user').show();
+			$('.ceo').hide();
+			$('.adver').hide();
+			
+		// 로그인한 회원이 사업자일때
+		} else if($('#mem_state').val() == "사업자") {
+			$('.user').hide();
+			$('.ceo').show();
+			$('.adver').hide();
+			
+		// 로그인한 회원이 광고업체일때
+		} else if($('#mem_state').val() == "광고업체") {
+			$('.user').hide();
+			$('.ceo').hide();
+			$('.adver').show();
+		}
+	}
 });
 
 $(document).ready(function () { 
@@ -32,6 +64,7 @@ $(document).ready(function () {
 			fit: true   // 100% fit in a container 
 		});  
 
+//페이스북 로그인 했을때 사용자 정보 가지고 오기
 window.fbAsyncInit = function() {
     FB.init({
     	appId      : '275983546204498',
@@ -63,7 +96,7 @@ window.fbAsyncInit = function() {
   function statusChangeCallback(response) {
 	    if (response.status === 'connected') {
 	    	FB.api('/me', function(data) {
-	    	    alert(JSON.stringify(data));
+//	    	    alert(JSON.stringify(data));
 // 	    	    alert(response.email);
 	    	}, {scope: 'publish_stream,user_likes'});
 	    } else {
@@ -71,16 +104,17 @@ window.fbAsyncInit = function() {
 	  }  
 });
 
+// 구글 로그인 했을 때 사용자 정보 가지고 오는 부분
 function onSignIn(googleUser) {
-	  var profile = googleUser.getBasicProfile();
-	  alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	  alert('Name: ' + profile.getName());
-	  alert('Image URL: ' + profile.getImageUrl());
-	  alert('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+//	  var profile = googleUser.getBasicProfile();
+//	  alert('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//	  alert('Name: ' + profile.getName());
+//	  alert('Image URL: ' + profile.getImageUrl());
+//	  alert('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	}
 
 //<![CDATA[
-// 사용할 앱의 JavaScript 키를 설정해 주세요.
+// 카카오톡 로그인 javascript
 Kakao.init('d088e1794401d40ad78daf3b6e19bdea');
 function loginWithKakao() {
   // 로그인 창을 띄웁니다.

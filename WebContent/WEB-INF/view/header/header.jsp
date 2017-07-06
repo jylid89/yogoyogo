@@ -20,6 +20,11 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
 %>
+
+<%
+	String mem_name = (String)session.getAttribute("mem_name");
+	String mem_state = (String)session.getAttribute("mem_state");
+%>
 <head>
 <title>Electronic Store a Ecommerce Online Shopping Category Bootstrap Responsive Website Template | About :: w3layouts</title>
 <!-- for-mobile-apps -->
@@ -45,6 +50,8 @@
 <script type="text/javascript" src="/YogoYogo/js/header/login.js"></script>
 </head>
 <div class="header"> 
+	<input type="hidden" id="mem_name" value="<%=mem_name %>" />
+	<input type="hidden" id="mem_state" value="<%=mem_state %>" />
 	<!-- header modal -->
 	<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
 		aria-hidden="true">
@@ -139,8 +146,15 @@
 					</form>
 				</div>
 			</div>
-			<div class="w3l_login">
+			<div class="w3l_login login">
 				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+			</div>
+			<div class="w3l_login logout">
+				<a href="logOut.do"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+			</div>
+			<br/><br/><br/>
+			<div class="pull-right logout">
+				<div style="margin-right : 100px;"><%=mem_name %>님 환영합니다.</div>
 			</div>
 		</div>
 	</div>
@@ -171,21 +185,21 @@
 						</li>  
 						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="newsList.do">뉴스</a></li>
-								<li><a href="noticeList.do">공지사항</a></li>
+								<li><a href="icons.html">뉴스</a></li>
+								<li><a href="codes.html">공지사항</a></li>
 								<li><a href="freeboard.do">자유게시판</a></li>
 								<li><a href="qnaList.do">Q&A</a></li>     
 							</ul>
 						</li>
-						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">마이페이지 <span class="caret"></span></a>
+						<li class="w3pages logout"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">마이페이지 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="selectMember.do">회원정보수정</a></li>
-								<li><a href="menu_ceo.do">메뉴수정(사업자)</a></li>
-								<li><a href="catAppStatus_user.do">케이터링신청현황(일반회원)</a></li>
-								<li><a href="catAppStatus_ceo.do">케이터링신청현황(사업자)</a></li>
-								<li><a href="adverAppStatus_ceo.do">광고신청현황(사업자)</a></li>
-								<li><a href="adverAppStatus_adver.do">광고신청현황(광고대행사)</a></li>
-								<li><a href="adverAppConfirm_adver.do">광고승인현황(광고대행사)</a></li>
+								<li class="ceo"><a href="menu_ceo.do">메뉴수정(사업자)</a></li>
+								<li class="user"><a href="catAppStatus_user.do">케이터링신청현황(일반회원)</a></li>
+								<li class="ceo"><a href="catAppStatus_ceo.do">케이터링신청현황(사업자)</a></li>
+								<li class="ceo"><a href="adverAppStatus_ceo.do">광고신청현황(사업자)</a></li>
+								<li class="adver"><a href="adverAppStatus_adver.do">광고신청현황(광고대행사)</a></li>
+								<li class="adver"><a href="adverAppConfirm_adver.do">광고승인현황(광고대행사)</a></li>
 							</ul>
 						</li>
 					</ul>
