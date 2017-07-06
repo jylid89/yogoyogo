@@ -117,7 +117,7 @@
 <div class="fb-login-button" data-height="44px" data-width="250px" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="checkLoginState();"></div><br/><br/>
 
 <div class="g-signin2" data-width="250px" data-height="44px" data-longtitle="true" data-theme="dark" data-onsuccess="onSignIn"></div>
-		<form id="form">
+		<form id="form_login">
 			<input type="hidden" id="kmail" name="mem_id" value="" />
 			<input type="hidden" id="kname" name="mem_name" value="" />
 		</form>
