@@ -5,15 +5,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="activity">
 
-<!-- 리스트 보는 sql -->
+<!-- 리스트 보기 -->
 <select id="activitySelect" resultType="yogo.activity.dto.ActivityVO">
-	SELECT * FROM TB_MARKETING
+	SELECT mark_num, truck_num, mark_content, to_char(mark_date, 'yyyy-mm-dd') as mark_date, mark_picreal, event_start
+	FROM TB_MARKETING 
 </select>
 
-<!-- 글 쓰는 sql -->
+<!-- 글 쓰는기 -->
 <insert id="activityInsert" parameterType="yogo.activity.dto.ActivityVO">
-	 INSERT INTO TB_MARKETING VALUES( MARK_SEQ.nextval, 'TRUCK003', #{mark_content}, to_char(sysdate, 'yyyy-mm-dd'), '0','0','0' )
+	 INSERT INTO TB_MARKETING 
+	 VALUES( MARK_SEQ.nextval, 'TRUCK003', #{mark_content}, sysdate, #{mark_picreal}, sysdate )
 </insert>
+
+<!-- 글 지우기 -->
+<delete id="activityDelete" parameterType="yogo.activity.dto.ActivityVO">
+DELETE
+FROM tb_marketing
+WHERE mark_num = #{mark_num}
+</delete>
+
+<!-- 글 수정하기 -->
+<update id="activityUpdate" parameterType="yogo.activity.dto.ActivityVO">
+UPDATE tb_marketing
+SET mark_content=#{mark_content}
+<if test="mark_picreal != null">
+, mark_picreal=#{mark_picreal}
+</if>
+WHERE mark_num=#{mark_num}
+</update>
 
 
 </mapper>

@@ -1,5 +1,7 @@
 package yogo.activity.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ActivityVO {
 
 	/* 활동 글 시퀀스 넘버 */
@@ -10,12 +12,13 @@ public class ActivityVO {
  	private String mark_content;
  	/* 활동 일자 */
  	private String mark_date;
- 	/* 사진 보여지는 경로  */
- 	private String mark_pictemp;
+ 	/* 사진 가짜 경로  */
+ 	private MultipartFile mark_pictemp;
  	 /* 사진 진짜 경로 */
 	private String mark_picreal;
 	/* 홍보 시작날짜 */
 	private String event_start;
+	
 	
 	
 	public String getEvent_start() {
@@ -48,10 +51,11 @@ public class ActivityVO {
 	public void setMark_date(String mark_date) {
 		this.mark_date = mark_date;
 	}
-	public String getMark_pictemp() {
+
+	public MultipartFile getMark_pictemp() {
 		return mark_pictemp;
 	}
-	public void setMark_pictemp(String mark_pictemp) {
+	public void setMark_pictemp(MultipartFile mark_pictemp) {
 		this.mark_pictemp = mark_pictemp;
 	}
 	public String getMark_picreal() {

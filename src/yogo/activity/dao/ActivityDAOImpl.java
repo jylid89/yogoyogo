@@ -15,7 +15,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 	@Autowired
 	SqlSessionTemplate ss;
 	
-	@Override
+	//활동 리스트
 	public List<ActivityVO> list() {
 		
 		List list = new ArrayList();
@@ -27,7 +27,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 		return list;
 	}
 
-	@Override
+	// 활동 글 쓰기
 	public int activityInsert(ActivityVO vo) {
 		int result = 0;
 		try{
@@ -35,7 +35,30 @@ public class ActivityDAOImpl implements ActivityDAO {
 		}catch( Exception ex ){
 			System.out.println("ActivityDAOImpl / activtiyInsert 실패 " + ex.getMessage());
 		}
-		
+		return result;
+	}
+
+
+
+	// 활동 글 수정
+	public int activityUpdate(ActivityVO vo) {
+		int result = 0;
+		try{
+			result = ss.update("activity.activityUpdate",vo);
+		}catch(Exception ex){
+			System.out.println("ActivityDAOImpl / activityUpdate 실패 : " + ex.getMessage());
+		}
+		return result;
+	}
+
+	// 활동 글 삭제
+	public int activityDelete(ActivityVO vo) {
+		int result = 0;
+		try{
+			result = ss.delete("activity.activityDelete",vo);
+		}catch(Exception ex){
+			System.out.println("ActivityDAOImpl / activityDelete 실패 : " + ex.getMessage());
+		}
 		return result;
 	}
 
