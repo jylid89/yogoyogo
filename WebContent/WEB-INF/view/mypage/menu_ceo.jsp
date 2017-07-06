@@ -44,7 +44,7 @@
 							<li class="col-sm-3">
 								<div class="fff">
 									<div class="thumbnail">
-										<img src="http://placehold.it/360x240" alt="">
+										<img style="height:240px;, width:360px" id="menu_picreal" src="${list.menu_picreal }" alt="">
 									</div>
 									<div class="caption">
 										<input type='hidden' id='menu_num' value="${list.menu_num}">
@@ -87,7 +87,7 @@
 		</div>
 		<div class="col-sm-offset-1 col-sm-10" id="menuAdd">
 			<div class="col-sm-offset-1 col-sm-10">
-			<form class="form-horizontal" role="form" id="menuForm" method="post" autocomplete="off" novalidate="novalidate">
+			<form class="form-horizontal" role="form" id="menuForm" method="post" autocomplete="off" novalidate="novalidate" enctype="multipart/form-data">
 				<div class="panel panel-default">
 					<div class="panel-heading change">
 						메뉴추가
@@ -127,6 +127,7 @@
 						</div>
 						
 						<div class="input-group image-preview">
+						<input type="hidden" id="add_pic" name="ex_pic" value="">
 							<label class="col-sm-4 control-label"> 사진첨부  </label>
                 			<input type="text" class="form-control image-preview-filename" disabled="disabled">
                 			<span class="input-group-btn">
@@ -138,7 +139,7 @@
                     	<div class="btn btn-default image-preview-input">
                         	<span class="glyphicon glyphicon-folder-open"></span>
                         	<span class="image-preview-input-title">파일찾기</span>
-                        	<input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                        	<input type="file" accept="image/png, image/jpeg, image/gif" name="menu_pictemp"/> <!-- rename it -->
                     	</div>
                 			</span>
             			</div><!-- /input-group image-preview [TO HERE]--> 

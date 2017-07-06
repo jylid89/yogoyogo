@@ -1,5 +1,6 @@
 package yogo.mypage.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import yogo.adver.dao.AdverDAO;
@@ -125,19 +127,60 @@ public class MypageController {
 			return "redirect:selectMember.do";
 		}
 		
-	// 메뉴 추가
-		@RequestMapping(value="menuAdd.do")
-		public String menuAdd(MenuVO vo) {
-			dao.menuAdd(vo);
-			return "redirect:menu_ceo.do";
-		}	
-		
-	// 메뉴 수정
-		@RequestMapping(value="menuMod.do")
-		public String menuMod(MenuVO vo) {
-			dao.menuMod(vo);
-			return "redirect:menu_ceo.do";
-		}
+		// 메뉴 추가
+				@RequestMapping(value="menuAdd.do")
+				public String menuAdd(MenuVO vo) {
+					MultipartFile menu_pictemp = vo.getMenu_pictemp();
+			        if (menu_pictemp != null) {
+			            String menu_picreal = menu_pictemp.getOriginalFilename();
+			            menu_picreal = System.currentTimeMillis()+"_"+menu_picreal;
+			            vo.setMenu_picreal("/YogoYogo/images/menu/"+menu_picreal);
+			            try {
+			            	
+			                // 1. FileOutputStream 사용
+			                // byte[] fileData = file.getBytes();
+			                // FileOutputStream output = new FileOutputStream("C:/images/" + fileName);
+			                // output.write(fileData);
+			            	
+			                // 2. File 사용
+			                File file = new File("C:\\Users\\user\\git\\yogoyogo\\WebContent\\images\\menu\\" + menu_picreal);
+			                menu_pictemp.transferTo(file);
+			            } catch (Exception e) {
+			                System.out.println("파일업로드 실패 : " + e.getMessage());
+			            } // try - catch
+			        } // if
+					dao.menuAdd(vo);
+					return "redirect:menu_ceo.do";
+				}	
+				
+			// 메뉴 수정
+				@RequestMapping(value="menuMod.do")
+				public String menuMod(MenuVO vo) {
+					MultipartFile menu_pictemp = vo.getMenu_pictemp();
+					if(menu_pictemp.isEmpty()) {
+						vo.setMenu_picreal(vo.getEx_pic());
+					} else {
+						String menu_picreal = menu_pictemp.getOriginalFilename();
+			            menu_picreal = System.currentTimeMillis()+"_"+menu_picreal;
+			            vo.setMenu_picreal("/YogoYogo/images/menu/"+menu_picreal);
+			            try {
+			            	            	
+			                // 1. FileOutputStream 사용
+			                // byte[] fileData = file.getBytes();
+			                // FileOutputStream output = new FileOutputStream("C:/images/" + fileName);
+			                // output.write(fileData);
+			            	
+			                // 2. File 사용
+			                File file = new File("C:\\Users\\user\\git\\yogoyogo\\WebContent\\images\\menu\\" + menu_picreal);
+			                menu_pictemp.transferTo(file);
+			            } catch (Exception e) {
+			                System.out.println("파일업로드 실패 : " + e.getMessage());
+			            } // try - catch
+					}
+					
+					dao.menuMod(vo);
+					return "redirect:menu_ceo.do";
+				}
 		
 	// 메뉴 삭제
 		@RequestMapping(value="menuDel.do")

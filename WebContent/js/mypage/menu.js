@@ -109,6 +109,7 @@ $(document).ready(function() {
 		$('#add_menu_cate').val($(this).find('#menu_cate').val());
 		$('#add_menu_name').val($(this).find('#menu_name').text());
 		$('#add_menu_price').val($(this).find('#menu_price').text());
+		$('#add_pic').val($(this).find('#menu_picreal').attr('src'));
 		
 		// 메뉴 추가 및 수정 폼 보여줌
 		$('#menuAdd').show();

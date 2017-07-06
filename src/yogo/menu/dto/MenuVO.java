@@ -1,5 +1,7 @@
 package yogo.menu.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MenuVO {
 	/* 메뉴번호 */
 	private String menu_num;
@@ -10,7 +12,7 @@ public class MenuVO {
 	/* 메뉴설명 */
 	private String menu_content;
 	/* 사진임시경로 */
-	private String menu_pictemp;
+	private MultipartFile menu_pictemp;
 	/* 사진실제경로 */
 	private String menu_picreal;
 	/* 가격 */
@@ -21,6 +23,8 @@ public class MenuVO {
 	private String truck_name;
 	/* 푸드트럭 주소*/
 	private String truck_addr;
+	/* 메뉴 이전사진 */
+	private String ex_pic;
 	
 	public String getMenu_num() {
 		return menu_num;
@@ -46,10 +50,10 @@ public class MenuVO {
 	public void setMenu_content(String menu_content) {
 		this.menu_content = menu_content;
 	}
-	public String getMenu_pictemp() {
+	public MultipartFile getMenu_pictemp() {
 		return menu_pictemp;
 	}
-	public void setMenu_pictemp(String menu_pictemp) {
+	public void setMenu_pictemp(MultipartFile menu_pictemp) {
 		this.menu_pictemp = menu_pictemp;
 	}
 	public String getMenu_picreal() {
@@ -81,5 +85,11 @@ public class MenuVO {
 	}
 	public void setTruck_addr(String truck_addr) {
 		this.truck_addr = truck_addr;
-	}	
+	}
+	public String getEx_pic() {
+		return ex_pic;
+	}
+	public void setEx_pic(String ex_pic) {
+		this.ex_pic = ex_pic;
+	}
 }
