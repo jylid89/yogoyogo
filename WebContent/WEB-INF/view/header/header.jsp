@@ -76,8 +76,8 @@
 <!-- 										<div class="facts"> -->
 											<div class="register">
 												<form method="post" id="frm">			
-													<input type="text" id="mem_id" name="mem_id" placeholder="아이디(이메일)" required="">						
-													<input type="password" id="mem_pass" name="mem_pass" placeholder="비밀번호" required="">										
+													<input type="text" name="mem_id" placeholder="아이디(이메일)" required="">						
+													<input type="password" name="mem_pass" placeholder="비밀번호" required="">										
 												</form>
 													<div class="sign-up">
 														<input type="submit" id="loginOK" value="로그인"/>
@@ -134,7 +134,7 @@
 	<div class="header" id="home1">
 		<div class="container">
 			<div class="w3l_logo">
-				<h1><a href="index.html">Electronic Store<span>Your stores. Your place.</span></a></h1>
+				<h1><a href="main.do">Electronic Store<span>Your stores. Your place.</span></a></h1>
 			</div>
 			<div class="search">
 				<input class="search_box" type="checkbox" id="search_box">
