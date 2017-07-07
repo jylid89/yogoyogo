@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pos">
+
+<!-- 메뉴 리스트 보기 -->
+<select id="posSelect" resultType="yogo.pos.dto.PosVO">
+SELECT *
+FROM TB_MENU
+WHERE truck_num = 'TRUCK003'
+</select>
+
+<!-- 결제 완료 -->
+<insert id="posInsert" parameterType="yogo.pos.dto.PosVO">
+INSERT INTO TB_POS 
+VALUES( POS_SEQ.nextval,'TRUCK003', sysdate , #{pos_totprice} , '1')
+</insert>
+
+</mapper>
