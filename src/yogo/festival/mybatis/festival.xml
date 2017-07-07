@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="festival">
+	
+	<!-- 리스트 보기 -->
+	<select id="select" resultType="yogo.festival.dto.FestivalVO">
+		SELECT * FROM TB_EVENT
+	</select>
+
+	<!-- 행사 상세 보기 -->
+	<select id="selectOne" resultType="yogo.festival.dto.FestivalVO"
+		parameterType="yogo.festival.dto.FestivalVO">
+		SELECT * 
+		FROM TB_EVENT 
+		WHERE event_num = #{event_num}
+	</select>
+	
+	<!-- 행사 추가하기 -->
+	<insert id="festivalInsert" parameterType="yogo.festival.dto.FestivalVO">
+		INSERT INTO TB_EVENT VALUES( EVENT_SEQ.nextval, 'qwer01@yogo.com',
+		#{event_loc}, #{event_name}, #{event_content}, #{event_comp}, '0'
+		<if test="event_picreal!= null || event_picreal != 'null'  ">
+		, #{event_picreal}
+		</if>
+		,'0',sysdate,sysdate,sysdate )
+	</insert>
+	
+	<!-- 행사 수정하기 -->
+	<update id="festivalUpdate" parameterType="yogo.festival.dto.FestivalVO">
+	UPDATE tb_event
+	SET event_name=#{event_name}, event_loc=#{event_loc}, event_comp=#{event_comp}, event_content=#{event_content}
+	<if test="event_picreal == exFile ">
+	, event_picreal=#{exFile}
+	</if>
+	<if test="event_picreal != exFile">
+	, event_picreal=#{event_picreal}	
+	</if>
+	WHERE event_num=#{event_num}
+	</update>
+	
+	<!-- 행사 삭제하기 -->
+	<delete id="festivalDelete" parameterType="yogo.festival.dto.FestivalVO">
+	DELETE 
+	FROM tb_event
+	WHERE event_num=#{event_num}
+	</delete>
+	
+	<!-- 시퀀스 값 가져오기 -->
+	<select id="selectSeq" resultType="String">
+		SELECT eventconf_seq.nextval as eventconf_seq FROM dual
+	</select>
+	
+	<!-- 광고 신청추가(Insert) -->
+	<insert id="eventConfirmInsert" parameterType="yogo.festival.dto.FestivalVO">
+		INSERT INTO tb_eventconf
+		VALUES( eventconf_seq.nextval, #{event_num}, 'truck003', '대기중')
+	</insert>
+	
+	<!-- ajax->신청/취소버튼 -->
+	<select id="confirmCheck" resultType="String" parameterType="hashmap">
+		SELECT COUNT(*)
+		FROM tb_eventconf
+		WHERE event_num = #{event_num}
+		AND truck_num = #{truck_num}
+	</select>
+
+	<!--ajax->승인제어 -->
+	<select id="confirmCancel" resultType="String" parameterType="hashmap">
+		SELECT eveconf_state
+		FROM tb_eventconf
+		WHERE event_num = #{event_num}
+		AND truck_num = #{truck_num}
+	</select>
+
+	<!-- 승인취소(Delete) -->
+	<delete id="eventConfirmDelete" parameterType="hashmap">
+		DELETE
+		FROM tb_eventconf
+		WHERE event_num = #{event_num}
+		AND truck_num = #{truck_num}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
