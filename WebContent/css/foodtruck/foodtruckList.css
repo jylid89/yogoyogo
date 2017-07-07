@@ -1,11 +1,11 @@
 #menu-toggle {
-    top: 0;
+    top: 240px;
     right: 0;
     position: fixed;
   }
   
   #menu-close {
-  	top: 0;
+  	top: 240px;
     right: 0;
     position: fixed;
     display: none;
@@ -16,8 +16,8 @@
   }
   
   .filter {
-  	top: 5px;
-    right: -890px;
+  	top: 245px;
+    right: -880px;
     position: fixed;
     display: none;
   }
