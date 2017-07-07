@@ -57,6 +57,7 @@
 	border-radius: 10px;
 	vertical-align: middle;
 	height: 400px;
+	overflow: scroll;
 }
 .sale-footer{
 	
