@@ -7,9 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 메뉴 리스트 보기 -->
 <select id="posSelect" resultType="yogo.pos.dto.PosVO">
-SELECT *
-FROM TB_MENU
-WHERE truck_num = 'TRUCK003'
+SELECT menu.*, truck.truck_name
+FROM TB_MENU menu, TB_TRUCK truck
+WHERE truck.truck_num = 'TRUCK003' AND truck.truck_num = menu.truck_num 
 </select>
 
 <!-- 결제 완료 -->

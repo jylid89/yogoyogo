@@ -22,6 +22,7 @@ public class PosController {
 		
 		List<PosVO> list = posDAO.posList();
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("truck_name", list.get(0).getTruck_name());
 		mv.addObject("posModel",list);
 		mv.setViewName("/pos/pos");
 		return mv;

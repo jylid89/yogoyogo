@@ -9,19 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="/Marketing/css/pos/pos.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/YogoYogo/css/pos/pos.css">
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -59,7 +47,7 @@ function minus(elem){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="taglin">푸드트럭 제목</h1>
+				<h1 class="taglin">${truck_name }</h1>
 				<!-- 메뉴 버튼 -->
 				<div class="col-md-7">
 					<c:choose>
@@ -69,7 +57,7 @@ function minus(elem){
 						<c:otherwise>
 							<c:forEach items="${posModel}" var="p">
 								<div class="pos_menu agile-menu-grid" id='button'>
-										<img alt="" src="/Marketing/img/${p.menu_picreal }" style="width: 100%; height: 100%;">
+										<img alt="" src="${p.menu_picreal }" style="width: 100%; height: 100%;">
 										<div class="agileits-caption">
 											<h4>${p.menu_name }</h4>
 											<p>${p.menu_price }</p>
@@ -79,7 +67,7 @@ function minus(elem){
 						</c:otherwise>
 					</c:choose>
 				</div>
-s
+
 				<!-- 계산 목록   -->
 				<div class="col-md-5">
 					<div class="panel panel-default">
