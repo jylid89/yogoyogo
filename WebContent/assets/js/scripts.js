@@ -27,7 +27,7 @@ var appMaster = {
 //            }
 //        });
 //    }
-    ,
+    
 
     reviewsCarousel: function() {
         // Reviews Carousel

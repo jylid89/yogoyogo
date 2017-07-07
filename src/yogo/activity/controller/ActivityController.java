@@ -35,7 +35,7 @@ public class ActivityController {
 	public ModelAndView insertForm(){
 		System.out.println("湲��벐�윭媛��땲?");
 		ModelAndView mv = new ModelAndView();
-	 	 mv.setViewName("/activity/activityInsert");
+	 	 mv.setViewName("/activity/activityinsert");
 		return mv;
 	}
 	
