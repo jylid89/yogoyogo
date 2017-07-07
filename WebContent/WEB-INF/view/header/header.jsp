@@ -75,9 +75,9 @@
 <!-- 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0"> -->
 <!-- 										<div class="facts"> -->
 											<div class="register">
-												<form method="post" id="frm">			
-													<input type="text" name="mem_id" placeholder="아이디(이메일)" required="">						
-													<input type="password" name="mem_pass" placeholder="비밀번호" required="">										
+												<form method="post" id="frm">	
+													<input type="text" id="id" name="mem_id" placeholder="아이디(이메일)" required="">						
+													<input type="password" id="pass" name="mem_pass" placeholder="비밀번호" required="">										
 												</form>
 													<div class="sign-up">
 														<input type="submit" id="loginOK" value="로그인"/>

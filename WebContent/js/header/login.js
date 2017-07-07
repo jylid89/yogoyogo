@@ -13,7 +13,7 @@ $(function() {
 		$.ajax({
 			url : "loginCheck.do",
 			type : "post",
-			data : {"mem_id" : $("#mem_id").val() , "mem_pass" : $("#mem_pass").val()},
+			data : {"mem_id" : $("#id").val() , "mem_pass" : $("#pass").val()},
 			
 			success : function(data) {
 				if(data == "1"){
