@@ -7,8 +7,19 @@
 <title>메뉴 추가 및 수정(사업자)</title>
 <style type="text/css">
 </style>
-<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css">
-<link rel="stylesheet" href="/YogoYogo/css/mypage/menu.css">
+
+<link rel="stylesheet" href="/YogoYogo/css/mypage/menu.css" />
+<link rel="stylesheet" href="/YogoYogo/assets/css/animate.css" />
+<link rel="stylesheet" href="/YogoYogo/assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/YogoYogo/assets/css/slick.css" />
+<link rel="stylesheet" href="/YogoYogo/assets/js/rs-plugin/css/settings.css" />
+<link rel="stylesheet" href="/YogoYogo/assets/css/style.css" />
+<script type="text/javascript" src="/YogoYogo/assets/js/modernizr.custom.32033.js"></script>
+<script type="text/javascript" src="/YogoYogo/js/activity/activityinsert.js"></script>
+<script src="/YogoYogo/assets/js/slick.min.js"></script>
+<script src="/YogoYogo/assets/js/placeholdem.min.js"></script>
+<script src="/YogoYogo/assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+<script src="/YogoYogo/assets/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="/YogoYogo/js/mypage/menu.js"></script>
 </head>
 <body>
@@ -86,76 +97,71 @@
 		<br/><br/><br/><br/>
 		</div>
 		<div class="col-sm-offset-1 col-sm-10" id="menuAdd">
+		<form role="form" id="menuForm" method="post" autocomplete="off" novalidate="novalidate" enctype="multipart/form-data">
 			<div class="col-sm-offset-1 col-sm-10">
-			<form class="form-horizontal" role="form" id="menuForm" method="post" autocomplete="off" novalidate="novalidate" enctype="multipart/form-data">
-				<div class="panel panel-default">
-					<div class="panel-heading change">
-						메뉴추가
-					</div> <!-- panel heading -->
-					
-					<div class="panel-body">
-						<div class="form-group menu">
-							<input type="hidden" name="truck_num" id="add_truck_num">
-							<input type="hidden" name="menu_num" id="add_menu_num">
-							<label for="menu_name" class="col-sm-4 control-label"> 메뉴명  </label>
-							<div class="col-sm-8">
-								<input id="add_menu_name" name="menu_name" type="text" class="form-control" placeholder="떡볶이" value="">
-							</div>
-						</div>
-						<div class="form-group content">
-							<label for="menu_content" class="col-sm-4 control-label"> 메뉴설명  </label>
-							<div class="col-sm-8">
-								<input id="add_menu_content" name="menu_content" type="text" class="form-control" placeholder="메뉴설명을 써주세요" value="">
-							</div>
-						</div>
-					    <div class="form-group price">
-							<label for="price" class="col-sm-4 control-label"> 가격  </label>
-							<div class="col-sm-8">
-								<input id="add_menu_price" name="menu_price" type="text" class="form-control" placeholder="3000원">
-							</div>
-						</div>
-						
-						<div class="form-group cate">
-							<label for="price" class="col-sm-4 control-label"> 메뉴종류  </label>
-							<div class="col-sm-8">
-								<select id="add_menu_cate" name="menu_cate" class="form-control" placeholder="">
-									<option>먹을거리</option>
-									<option>마실거리</option>
-									<option>즐길거리</option>
-								</select>
-							</div>
-						</div>
-						
-						<div class="input-group image-preview">
-						<input type="hidden" id="add_pic" name="ex_pic" value="">
-							<label class="col-sm-4 control-label"> 사진첨부  </label>
-                			<input type="text" class="form-control image-preview-filename" disabled="disabled">
-                			<span class="input-group-btn">
-                    		<!-- image-preview-clear button -->
-                    		<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                        		<span class="glyphicon glyphicon-remove"></span> Clear
-                    		</button>
-                    	<!-- image-preview-input -->
-                    	<div class="btn btn-default image-preview-input">
-                        	<span class="glyphicon glyphicon-folder-open"></span>
-                        	<span class="image-preview-input-title">파일찾기</span>
-                        	<input type="file" accept="image/png, image/jpeg, image/gif" name="menu_pictemp"/> <!-- rename it -->
-                    	</div>
-                			</span>
-            			</div><!-- /input-group image-preview [TO HERE]--> 
-						
-					</div><!-- panel body -->
-					<div class="panel-footer">
-						<div class="form-group" style="padding-top: 10px">
-							<div class="col-sm-offset-3 col-sm-6 center-block text-center">
-								<input type='button' id="menuBtn" class="btn btn-lg btn-primary" value="메뉴추가">
-								<input type='button' id="menuMod" class="btn btn-lg btn-primary" value="메뉴수정">
-								<input type='button' id="menuDel" class="btn btn-lg btn-danger" value="메뉴삭제">
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>	
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="message"><h2 class="change">메뉴추가</h2></label>
+									</div>
+									<br/><br/><br/>
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="message"><h3>메뉴명</h3></label>
+										<input type="text" id="add_menu_name" name="menu_name" class="form-control" placeholder="메뉴명을 입력하세요" />
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="message"><h3>메뉴설명</h3></label>
+										<input type="text" id="add_menu_content" name="menu_content" class="form-control" placeholder="메뉴설명을 입력하세요" />
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="message"><h3>가격</h3></label>
+										<input type="text" id="add_menu_price" name="menu_price" class="form-control" placeholder="가격을 입력하세요" />
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="message"><h3>메뉴종류</h3></label>
+										<select id="add_menu_cate" name="menu_cate" class="form-control">
+											<option>먹을거리</option>
+											<option>마실거리</option>
+											<option>즐길거리</option>
+										</select>
+									</div>
+<!-- 									**************파일첨부 1************* -->
+									<div class="form-group ">
+										<label class="col-md-12 control-label" for="message"><h3>메뉴사진</h3></label>
+<!-- 										image-preview-filename input [CUT FROM HERE] -->
+										<div class="input-group image-preview">
+											<input type="hidden" id="add_pic" name="ex_pic" value="">
+											<input type="text"
+												class="form-control image-preview-filename"
+												disabled="disabled"/>
+<!-- 											don't give a name === doesn't send on POST/GET -->
+											<span class="input-group-btn"> 
+<!-- 											image-preview-clear button -->
+												<button type="button"
+													class="btn image-preview-clear btn-primary btn-lg"
+													style="display: none;">
+													<span class="glyphicon glyphicon-remove"></span>
+													 Clear
+												</button> 
+<!-- 												image-preview-input -->
+												<div class="btn image-preview-input btn-primary btn-lg">
+													<span class="glyphicon glyphicon-folder-open"></span> <span
+														class="image-preview-input-title">
+														Browse</span> <input type="file" accept="image/png, image/jpeg, image/gif" name="menu_pictemp"/>
+												</div>
+											</span>
+										</div>
+<!-- 										/input-group image-preview [TO HERE] -->
+									</div>
+<!-- 									Form actions -->
+									<div class="form-group">
+										<div class="col-md-12 text-right">
+											<input type='button' id="menuBtn" class="btn btn-lg btn-primary" value="메뉴추가">
+											<input type='button' id="menuMod" class="btn btn-lg btn-primary" value="메뉴수정">
+											<input type='button' id="menuDel" class="btn btn-lg btn-danger" value="메뉴삭제">
+										</div>
+									</div>
+									<input type="hidden" name="truck_num" id="add_truck_num">
+									<input type="hidden" name="menu_num" id="add_menu_num">
+								</form>
 		</div>
 		</div>
 	</div>

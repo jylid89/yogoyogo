@@ -1,6 +1,53 @@
-@CHARSET "UTF-8";
+/* body { */
+/* padding-top:20px; */
+/* font-size: 23px; */
+/* /* background-color: rgb(220, 220, 220); */ */
+
+/* } */
+
+/* h1{ */
+	
+/* 	font-size: 36pt; */
+/* 	text-align: center; */
+	
+/* } */
+
+/* h3{ */
+	
+/* 	font-size: 22pt; */
+	
+/* } */
+
+
+.input-group .form-control{
+	
+	height: 34pt;
+	
+}
+
+.control-label{
+
+	
+}	
+	
+.form-control{
+	
+	border-color: rgb(255,110,80);
+	font-size: 15px;
+	
+	
+}
+
+#btn_complete{
+	
+	background-color: rgb(255,110,80);
+	
+}
+
 .container{
+	
     margin-top:20px;
+    
 }
 .image-preview-input {
     position: relative;
@@ -8,7 +55,7 @@
     margin: 0px;    
     color: #333;
     background-color: #fff;
-    border-color: #ccc;    
+    border-color: rgb(255,110,80);    
 }
 .image-preview-input input[type=file] {
 	position: absolute;
