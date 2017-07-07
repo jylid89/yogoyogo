@@ -176,7 +176,7 @@ public class FestivalController {
 	}
 		
 	//ajax -> 신청하기/신청취소 버튼제어
-	@RequestMapping(value="confirmCheck.do")
+	@RequestMapping(value="eveconfirmCheck.do")
 	@ResponseBody
 	public String confirmCheck(String event_num, String truck_num){
 		
@@ -185,7 +185,7 @@ public class FestivalController {
 	}
 		
 	//ajax -> 승인 전인지 아닌지 제어
-	@RequestMapping(value="confirmCancel.do")
+	@RequestMapping(value="eveconfirmCancel.do")
 	@ResponseBody
 	public String confirmCancel(String event_num, String truck_num){
 		String result = festivalDAO.confirmCancel(event_num, truck_num);
@@ -193,7 +193,7 @@ public class FestivalController {
 	}
 		
 	//승인취소(delete)
-	@RequestMapping(value="advConfirmDelete.do")
+	@RequestMapping(value="eveConfirmDelete.do")
 	public ModelAndView advConfirmDelete(String event_num, String truck_num) {
 		festivalDAO.eventConfirmDelete(event_num, truck_num);
 		ModelAndView mv = new ModelAndView();
