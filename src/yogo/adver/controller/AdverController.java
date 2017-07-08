@@ -29,7 +29,7 @@ public class AdverController {
 		mv.addObject("list", list);
 		return mv;
 	}
-	
+
 	//광고 디테일(Detail)
 	@RequestMapping(value="advDetail.do")
 	public ModelAndView advDetail(String adv_num,HttpSession session) {

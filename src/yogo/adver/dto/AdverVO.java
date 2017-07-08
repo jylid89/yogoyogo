@@ -19,6 +19,9 @@ public class AdverVO {
 	/* 광고번호 */
 	private String adv_num;
 	
+	/* 광고이미지 */
+	private String adv_picreal;
+	
 	/* 트럭번호 */
 	private String truck_num;
 	
@@ -45,6 +48,14 @@ public class AdverVO {
 	
 	/* 트럭이미지1 */
 	private String truck_picreal1;
+	
+	public String getAdv_picreal() {
+		return adv_picreal;
+	}
+
+	public void setAdv_picreal(String adv_picreal) {
+		this.adv_picreal = adv_picreal;
+	}
 	
 	public String getAdv_title() {
 		return adv_title;
