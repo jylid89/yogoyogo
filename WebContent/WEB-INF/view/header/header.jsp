@@ -140,9 +140,10 @@
 				<input class="search_box" type="checkbox" id="search_box">
 				<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
 				<div class="search_form">
-					<form action="#" method="post">
-						<input type="text" name="Search" placeholder="Search...">
-						<input type="submit" value="Send">
+					<form action="foodtruckList_search.do" method="post">
+						<input type="hidden" name="category" value="푸드트럭명">
+						<input type="text" name="search_name" placeholder="푸드트럭 검색">
+						<input type="submit" value="검색">
 					</form>
 				</div>
 			</div>
