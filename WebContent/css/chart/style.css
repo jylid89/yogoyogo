@@ -1,0 +1,155 @@
+.wrapper {
+    display:inline-block;
+    margin-top:80px;
+    padding:15px;
+    width:100%;
+}
+.chart_agile_top {
+    background-color: rgba(255,110,87,.1);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    padding: 2em;
+    margin: 0 0 2em;
+}
+.chart_agile_bottom{
+	padding:20px;
+	background:#fff;
+}
+.area-grids-heading h3 {
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+div#graph10,div#graph11 {
+    width: 100%;
+}
+/*-- graphs --*/
+.area-grids{
+    border: 10px solid #d8d8d8;
+    background: #FFF;
+    padding: 1em;
+}
+.charts-right {
+    padding-left: 0;
+}
+.chart-left {
+    padding-right: 0;
+}
+.agile-bottom-right {
+    padding-left: 0;
+}
+.agile-bottom-left {
+    padding-right: 0;
+}
+#graph {
+  width: 100%;
+  margin: 20px auto 0 auto;
+}
+pre {
+  height: 250px;
+  overflow: auto;
+}
+
+div#graph1,div#graph4,div#graph5,div#graph6,div#graph7,div#graph8,div#graph9 {
+    width: 100% !important;
+    z-index: 1;
+}
+.agile-Updating-grids, .agile-bottom-grid, .agile-last-grid {
+    background: #eef9f0;
+    padding: 2em;
+	border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.agile-bottom-grids {
+    margin: 2em 0;
+}
+.agil-info-calendar {
+    margin: 1.5em 0;
+}
+.area-grids-heading h3 {
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+/*-- graphs --*/
+@media (max-width: 1280px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+  width: 260px ! important;
+}
+}
+@media (max-width: 1080px){
+div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 650px !important;
+}
+	}
+	@media (max-width: 1024px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 600px !important;
+}
+	}
+	@media (max-width: 800px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 430px !important;
+}
+	}
+@media (max-width: 768px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 400px !important;
+}
+}
+@media (max-width: 736px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 620px !important;
+}
+	}
+
+	@media (max-width: 667px){
+		div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 555px !important;
+}
+	}
+	@media (max-width: 640px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 525px !important;
+}
+	}
+	@media (max-width: 600px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 480px !important;
+}
+	}
+	@media (max-width: 568px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 450px !important;
+}
+	}
+	
+	@media (max-width: 480px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 332px !important;
+}
+	}
+	
+	@media (max-width: 414px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 300px !important;
+}
+	}
+	
+	@media (max-width: 375px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 290px !important;
+}
+	}
+	
+	@media (max-width: 320px){
+	div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#graph9,div#graph10,div#graph11 {
+    width: 250px !important;
+}
+	}

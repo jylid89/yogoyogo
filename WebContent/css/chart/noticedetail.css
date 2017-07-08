@@ -1,0 +1,54 @@
+/* 사진 중앙 정렬 */
+.img-wrapper{
+	
+	text-align: center;
+	
+}
+
+.tegline{
+	
+	font-size: 36pt;
+	
+}
+
+/* 내용 글씨 크기 조절 */
+.notice_word{
+	
+	font-size: 23px;
+	margin-left: 10px;
+	
+}
+
+
+
+
+/* 이미지   */
+.img-wrapper img{
+	display:inline-block;
+	overflow:hidden;
+
+	width: 1000px;
+	height: 600px;
+	max-width: 720px;
+	max-height: 480px;
+	
+}
+	
+	
+/* 이미지 스르륵 커지는거  */
+.img-wrapper img{
+transition:all .5s ease;
+-webkit-transition:all .5s ease;
+-moz-transition:all .5s ease;
+-ms-transition:all .5s ease;
+-o-transition:all .5s ease;
+vertical-aligm:middle;
+text-align: center;
+}
+.img-wrapper img:hover{
+transform:scale(1.2);
+-webkit-transform:scale(1.2);
+-ms-transform:scale(1.2);
+-moz-transform:scale(1.2);
+-o-transform:scale(1.2);
+}
