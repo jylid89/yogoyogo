@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 트럭번호가져오기-->
 <select id="selectTruck" resultType="String" parameterType="yogo.adver.dto.AdverVO"> 
-	SELECT truck_num
+	SELECT truck_num, truck_addr
 	FROM tb_truck
 	WHERE mem_id = #{mem_id}
 </select>

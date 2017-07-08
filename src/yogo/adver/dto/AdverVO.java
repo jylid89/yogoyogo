@@ -49,6 +49,17 @@ public class AdverVO {
 	/* 트럭이미지1 */
 	private String truck_picreal1;
 	
+	/* 트럭주소 */
+	private String truck_addr;
+	
+	public String getTruck_addr() {
+		return truck_addr;
+	}
+
+	public void setTruck_addr(String truck_addr) {
+		this.truck_addr = truck_addr;
+	}
+
 	public String getAdv_picreal() {
 		return adv_picreal;
 	}

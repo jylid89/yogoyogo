@@ -5,18 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <link rel="shortcut icon" href="favicon.png">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Marketing/view/css/activityinsert.css">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="css/adver/adverDetail.css">
+<link rel="stylesheet" href="/YogoYogo/css/adver/adverDetail.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
 	$(function(){
@@ -41,7 +33,7 @@
 		$("#btn_confirm").click(function(){
 			var result = confirm(' 기간은 승인 다음날부터 3개월까지 입니다.신청하시겠습니까?');
 			if(result) {
-				$("#frm").attr("action","advConfirmInsert.do").submit();
+				$("#confFrm").attr("action","advConfirmInsert.do").submit();
 			}
 		});
 		
@@ -58,7 +50,7 @@
 								alert("승인이 완료되어 취소가 불가 합니다.");
 								return;
 							}else{
-								$("#frm").attr("action","advConfirmDelete.do").submit();
+								$("#confFrm").attr("action","advConfirmDelete.do").submit();
 							}	
 						}
 					})
@@ -84,30 +76,26 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="${vo.adv_pictemp }" class="coupon-img img-rounded">
+                <img src="${vo.adv_picreal}" class="coupon-img img-rounded">
                 <br/><br/>
                 <div class="col-md-9">
                     <p>${vo.adv_content }</p>
                 </div>
                 <div class="col-md-3">
                     <div class="offer">
-<!--                         <span class="usd"><sup>$</sup></span> -->
-<!--                         <span class="number">39</span> -->
-<!--                         <span class="cents"><sup>95</sup></span> -->
 						<input type="button" class="btn btn-primary2" value="신청하기" id="btn_confirm"/>
 						<input type="button" class="btn btn-primary2" value="신청취소" id="btn_cancel"/>
 						<input type="hidden" value="N"  id="flag"/>
-						<form name="frm" id="frm" method="post">
+						<form name="confFrm" id="confFrm" method="post">
 							<input type="hidden" value="${vo.adv_num }" name="adv_num" id="adv_num"/>
-							<input type="hidden" value="TRUCK003" name="truck_num" id="truck_num"/>
+							<input type="hidden" value="${vo.truck_num }" name="truck_num" id="truck_num"/>
 						</form>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <p class="disclosure">서울 서초구 서초중앙로 85 가산빌딩 T 02-6006-7777
-					COPYRIGHT(C) KWANG DONG PHARMACEUTICAL CO., LTD. ALL RIGHTS RESERVED </p>
-                </div>
+                    <p class="disclosure">${vo.truck_addr }</p>
               </div>
+    	</div>
     	</div>
     </div>
     </div>

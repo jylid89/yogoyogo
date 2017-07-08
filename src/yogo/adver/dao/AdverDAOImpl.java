@@ -54,7 +54,7 @@ public class AdverDAOImpl implements AdverDAO{
 				advSeq += seq;
 				//vo에 시퀀스 값 넣기
 				adverVo.setAdvconf_num(advSeq);
-				
+				System.out.println(adverVo.getAdv_num() + " / " + adverVo.getAdvconf_num() + " / " + adverVo.getTruck_num());
 		int result = ss.insert("adver.advConfirmInsert", adverVo);
 		return result;
 	}
