@@ -9,12 +9,16 @@
     <meta name="author" content="">
     <title>Blog Timeline | Triangle</title>
    
-    <link href="/YogoYogo/css/userGuide/font-awesome.min.css" rel="stylesheet">
-    <link href="/YogoYogo/css/userGuide/lightbox.css" rel="stylesheet"> 
+<!--     <link href="/YogoYogo/css/userGuide/font-awesome.min.css" rel="stylesheet"> -->
+<!--     <link href="/YogoYogo/css/userGuide/lightbox.css" rel="stylesheet">  -->
     <link href="/YogoYogo/css/userGuide/animate.min.css" rel="stylesheet"> 
 	<link href="/YogoYogo/css/userGuide/main.css" rel="stylesheet">
 	<link href="/YogoYogo/css/userGuide/responsive.css" rel="stylesheet">
 
+<!--     <script type="text/javascript" src="/YogoYogo/js/useGuide/jquery.js"></script> -->
+<!--     <script type="text/javascript" src="/YogoYogo/js/useGuide/lightbox.min.js"></script> -->
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/wow.min.js"></script>
+    <script type="text/javascript" src="/YogoYogo/js/useGuide/main.js"></script>
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -39,7 +43,7 @@
                             <div class="single-blog timeline">
                                 <div class="single-blog-wrapper">
                                     <div class="post-thumb">
-                                        <img src="/YogoYogo/images/useGuide/timeline/1.jpg" class="img-responsive" alt="">
+                                        <img src="/YogoYogo/images/mypage/9863908-Hortalizas-frescas-Foto-de-archivo.jpg" class="img-responsive" alt="">
                                         <div class="post-overlay">
                                            <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
                                        </div>
@@ -56,7 +60,7 @@
                             <div class="single-blog timeline">
                                 <div class="single-blog-wrapper">
                                     <div class="post-thumb">
-                                        <img src="/YogoYogo/images/useGuide/timeline/2.jpg" class="img-responsive" alt="">
+                                        <img src="/YogoYogo/images/mypage/14559035591888.jpg" class="img-responsive" alt="">
                                         <div class="post-overlay">
                                            <span class="uppercase"><a href="#">14 <br><small>Feb</small></a></span>
                                        </div>
@@ -89,10 +93,6 @@
         </div>
     </section>
     <!--/#blog-->
-     
-    <script type="text/javascript" src="/YogoYogo/js/useGuide/jquery.js"></script>
-    <script type="text/javascript" src="/YogoYogo/js/useGuide/lightbox.min.js"></script>
-    <script type="text/javascript" src="/YogoYogo/js/useGuide/wow.min.js"></script>
-    <script type="text/javascript" src="/YogoYogo/js/useGuide/main.js"></script> 
+      
 </body>
 </html>
