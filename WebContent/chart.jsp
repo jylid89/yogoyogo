@@ -31,114 +31,120 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="/YogoYogo/js/chart/morris.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script> -->
 <!-- //charts -->
+<script type="text/javascript">
+$(function() {
+	$.ajax({
+		url : "chartList.do",
+		type : "post",
+		dataType : 'json',
+		data: {'selectDay' : '2017-07-09'},
+		success : function(data) {
+			console.log(data);
+			
+			Morris.Area({
+                element: 'graph7',
+                data: data,
+                xkey: '시간',
+                ykeys: ['평균값'],
+                labels: ['평균값'],
+                lineColors:['rgba(255, 110, 87, 100)',
+                               'rgba(255, 206, 86, 100)']
+              });
+		}
+	});
+});
+</script>
 </head>
 <body>
 <section  class="container">
 <!--main content start-->
 <!-- <section id="main-content"> -->
-	<section class="wrapper">
-		<div class="chart_agile">
-			<div class="col-md-12 chart_agile_left">
-				<div class="chart_agile_top">
-					<div class="area-grids-heading">
-							<h3>Monthly</h3>
-					</div>
-					<div class="chart_agile_bottom">
-						<div id="graph7"></div>
-							<script>
-						// This crosses a DST boundary in the UK.
-						Morris.Area({
-						  element: 'graph7',
-						  data: [
-							{x: '2013-03-30 22:00:00', y: 3, z: 3},
-							{x: '2013-03-31 00:00:00', y: 2, z: 0},
-							{x: '2013-03-31 02:00:00', y: 0, z: 2},
-							{x: '2013-03-31 04:00:00', y: 4, z: 4}
-						  ],
-						  xkey: 'x',
-						  ykeys: ['y', 'z'],
-						  labels: ['Y', 'Z'],
-						  lineColors:['rgba(255, 110, 87, 100)',
-					                    'rgba(255, 206, 86, 100)']
-						});
-						</script>
-
-					</div>
+   <section class="wrapper">
+      <div class="chart_agile">
+         <div class="col-md-12 chart_agile_left">
+            <div class="chart_agile_top">
+               <div class="area-grids-heading">
+                     <h3>Monthly</h3>
+               </div>
+               <div class="chart_agile_bottom">
+                  <div id="graph7"></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 chart_agile_right">
+			<div class="chart_agile_top">
+				<div class="area-grids-heading">
+					<h3>Daily</h3>
 				</div>
-			</div>
-			<div class="col-md-12 chart_agile_right">
-				<div class="chart_agile_top">
-					<div class="area-grids-heading">
-							<h3>Daily</h3>
-					</div>
-					<div class="chart_agile_bottom">
-						<div id="graph8"></div>
-							<script>
+				<div class="chart_agile_bottom">
+					<div id="graph8"></div>
+					<script>
 						/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
 						var day_data = [
-						  {"period": "2016-10-01", "licensed": 3407, "sorned": 660},
-						  {"period": "2016-09-30", "licensed": 3351, "sorned": 629},
-						  {"period": "2016-09-29", "licensed": 3269, "sorned": 618},
-						  {"period": "2016-09-20", "licensed": 3246, "sorned": 661},
-						  {"period": "2016-09-19", "licensed": 3257, "sorned": 667},
-						  {"period": "2016-09-18", "licensed": 3248, "sorned": 627},
-						  {"period": "2016-09-17", "licensed": 3171, "sorned": 660},
-						  {"period": "2016-09-16", "licensed": 3171, "sorned": 676},
-						  {"period": "2016-09-15", "licensed": 3201, "sorned": 656},
-						  {"period": "2016-09-12", "licensed": 3215, "sorned": 622}
+						  {"period": "2016-10-01", "평균값": 3407},
+						  {"period": "2016-09-30", "평균값": 3351},
+						  {"period": "2016-09-29", "평균값": 3269},
+						  {"period": "2016-09-20", "평균값": 3246},
+						  {"period": "2016-09-19", "평균값": 3257},
+						  {"period": "2016-09-18", "평균값": 3248},
+						  {"period": "2016-09-17", "평균값": 3171},
+						  {"period": "2016-09-16", "평균값": 3171},
+						  {"period": "2016-09-15", "평균값": 3201},
+						  {"period": "2016-09-12", "평균값": 3215}
 						];
 						Morris.Bar({
 						  element: 'graph8',
 						  data: day_data,
 						  xkey: 'period',
-						  ykeys: ['licensed', 'sorned'],
-						  labels: ['Licensed', 'SORN'],
+						  ykeys: ['평균값'],
+						  labels: ['평균값'],
 						  xLabelAngle: 60,
-						  barColors:['rgba(255, 110, 87, 100)',
-					                    'rgba(255, 206, 86, 100)']
+						  barColors:['rgba(255, 110, 87, 100)']
 						});
 						</script>
 
-					</div>	
 				</div>
 			</div>
-			<div class="col-md-12 chart_agile_left">
-				<div class="chart_agile_top">
-					<div class="area-grids-heading">
-							<h3>Yearly</h3>
-						</div>
-					<div class="chart_agile_bottom">
-						<div id="graph9"></div>
-						<script>
-						var day_data = [
-						  {"elapsed": "I", "value": 34},
-						  {"elapsed": "II", "value": 24},
-						  {"elapsed": "III", "value": 3},
-						  {"elapsed": "IV", "value": 12},
-						  {"elapsed": "V", "value": 13},
-						  {"elapsed": "VI", "value": 22},
-						  {"elapsed": "VII", "value": 5},
-						  {"elapsed": "VIII", "value": 26},
-						  {"elapsed": "IX", "value": 12},
-						  {"elapsed": "X", "value": 19}
-						];
+		</div>
+		<div class="col-md-12 chart_agile_left">
+			<div class="chart_agile_top">
+				<div class="area-grids-heading">
+					<h3>Yearly</h3>
+				</div>
+				<div class="chart_agile_bottom">
+					<div id="graph9"></div>
+					<script>
+						var month_data = [
+										  {"elapsed": "1월", "평균값": 34},
+										  {"elapsed": "2월", "평균값": 24},
+										  {"elapsed": "3월", "평균값": 3},
+										  {"elapsed": "4월", "평균값": 12},
+										  {"elapsed": "5월", "평균값": 13},
+										  {"elapsed": "6월", "평균값": 22},
+										  {"elapsed": "7월", "평균값": 5},
+										  {"elapsed": "8월", "평균값": 26},
+										  {"elapsed": "9월", "평균값": 12},
+										  {"elapsed": "10월", "평균값": 12},
+										  {"elapsed": "11월", "평균값": 12},
+										  {"elapsed": "12월", "평균값": 19}
+										];
 						Morris.Line({
 						  element: 'graph9',
-						  data: day_data,
+						  data: month_data,
 						  xkey: 'elapsed',
-						  ykeys: ['value'],
-						  labels: ['value'],
+						  ykeys: ['평균값'],
+						  labels: ['평균값'],
 						  parseTime: false,
 						  lineColors:['rgba(255, 110, 87, 100)',
 					                    'rgba(255, 206, 86, 100)']
 						});
 						</script>
 
-					</div>
 				</div>
 			</div>
-						<div class="clearfix"></div>
 		</div>
+                  <div class="clearfix"></div>
+      </div>
 </section>
 </section>
 </body>
