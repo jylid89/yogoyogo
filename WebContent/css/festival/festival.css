@@ -1,28 +1,11 @@
    /*
     * 글 쓰기 버튼
     */
-    .enjoy-css {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 120px;
-  height: 50px;
-  cursor: pointer;
-  margin: 0 auto;
-  border: .5px solid rgb(38, 169, 245);
-  -webkit-border-radius: 40px;
-  border-radius: 35px;
-/*   font: normal 20px/20px "Domine Font Family", Helvetica, sans-serif; */
-  color: rgb(255, 255, 255);
-  text-align: center;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  letter-spacing: 1px;
-  background: rgb(255, 110, 80);
-  
-  position: relative;
-  box-shadow: 2px 4px 0 2px rgba(0,0,0,0.1);
-}
+    
+.containerright{
+    	text-align: right;
+    	size: 
+    }
 
 .link-abs {
     position: absolute;
@@ -530,7 +513,7 @@ html {
 }
 body {
     height: 100%;
-    background-color: rgb(220, 220, 220); 
+    
     
 }
 form {
@@ -1218,9 +1201,7 @@ a.icon-news:before {
     border-color: #f2f2f2
 }
 .bg-blue {
-    background-color: rgb(220, 220, 220);
-    border-color: rgb(220, 220, 220);
-    color: #f2f2f2
+
 }
 .content.sketches {
     background: url(/cassette.axd/file/images/sketch-top-left-cac4da711b026ec6abc0fc491849f09dd1a3ff01.png) top left no-repeat, url(/cassette.axd/file/images/sketch-top-right-1fea00c0f6f4b896d885d32d37924b93867fb6bc.png) top right no-repeat
