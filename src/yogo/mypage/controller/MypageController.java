@@ -220,6 +220,6 @@ public class MypageController {
 			} else {
 				temp = "승인";
 			}
-			return temp, "redirect:catAppStatus_ceo.do";
+			return temp;
 		}
 }
