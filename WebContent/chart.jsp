@@ -34,10 +34,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 $(function() {
 	$.ajax({
-		url : "chartList.do",
+		url : "chartListTime.do",
 		type : "post",
 		dataType : 'json',
-		data: {'selectDay' : '2017-07-09'},
+		data: {'selectDay' : '2017-07-08'},
 		success : function(data) {
 			console.log(data);
 			
@@ -45,11 +45,52 @@ $(function() {
                 element: 'graph7',
                 data: data,
                 xkey: '시간',
-                ykeys: ['평균값'],
-                labels: ['평균값'],
+                ykeys: ['합계'],
+                labels: ['합계'],
                 lineColors:['rgba(255, 110, 87, 100)',
                                'rgba(255, 206, 86, 100)']
               });
+		}
+	});
+	
+	$.ajax({
+		url : "chartListDay.do",
+		type : "post",
+		dataType : 'json',
+		data: {'selectMon' : '2017-07'},
+		success : function(data) {
+			console.log(data);
+			
+			Morris.Bar({
+				  element: 'graph8',
+				  data: data,
+				  xkey: '일',
+				  ykeys: ['합계'],
+				  labels: ['합계'],
+				  xLabelAngle: 60,
+				  barColors:['rgba(255, 110, 87, 100)']
+				});
+		}
+	});
+	
+	$.ajax({
+		url : "chartListMon.do",
+		type : "post",
+		dataType : 'json',
+		data: {'selectYear' : '2017'},
+		success : function(data) {
+			console.log(data);
+			
+			Morris.Line({
+				  element: 'graph9',
+				  data: data,
+				  xkey: '월',
+				  ykeys: ['합계'],
+				  labels: ['합계'],
+				  parseTime: false,
+				  lineColors:['rgba(255, 110, 87, 100)',
+			                    'rgba(255, 206, 86, 100)']
+				});
 		}
 	});
 });
@@ -78,31 +119,6 @@ $(function() {
 				</div>
 				<div class="chart_agile_bottom">
 					<div id="graph8"></div>
-					<script>
-						/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-						var day_data = [
-						  {"period": "2016-10-01", "평균값": 3407},
-						  {"period": "2016-09-30", "평균값": 3351},
-						  {"period": "2016-09-29", "평균값": 3269},
-						  {"period": "2016-09-20", "평균값": 3246},
-						  {"period": "2016-09-19", "평균값": 3257},
-						  {"period": "2016-09-18", "평균값": 3248},
-						  {"period": "2016-09-17", "평균값": 3171},
-						  {"period": "2016-09-16", "평균값": 3171},
-						  {"period": "2016-09-15", "평균값": 3201},
-						  {"period": "2016-09-12", "평균값": 3215}
-						];
-						Morris.Bar({
-						  element: 'graph8',
-						  data: day_data,
-						  xkey: 'period',
-						  ykeys: ['평균값'],
-						  labels: ['평균값'],
-						  xLabelAngle: 60,
-						  barColors:['rgba(255, 110, 87, 100)']
-						});
-						</script>
-
 				</div>
 			</div>
 		</div>
@@ -113,33 +129,6 @@ $(function() {
 				</div>
 				<div class="chart_agile_bottom">
 					<div id="graph9"></div>
-					<script>
-						var month_data = [
-										  {"elapsed": "1월", "평균값": 34},
-										  {"elapsed": "2월", "평균값": 24},
-										  {"elapsed": "3월", "평균값": 3},
-										  {"elapsed": "4월", "평균값": 12},
-										  {"elapsed": "5월", "평균값": 13},
-										  {"elapsed": "6월", "평균값": 22},
-										  {"elapsed": "7월", "평균값": 5},
-										  {"elapsed": "8월", "평균값": 26},
-										  {"elapsed": "9월", "평균값": 12},
-										  {"elapsed": "10월", "평균값": 12},
-										  {"elapsed": "11월", "평균값": 12},
-										  {"elapsed": "12월", "평균값": 19}
-										];
-						Morris.Line({
-						  element: 'graph9',
-						  data: month_data,
-						  xkey: 'elapsed',
-						  ykeys: ['평균값'],
-						  labels: ['평균값'],
-						  parseTime: false,
-						  lineColors:['rgba(255, 110, 87, 100)',
-					                    'rgba(255, 206, 86, 100)']
-						});
-						</script>
-
 				</div>
 			</div>
 		</div>

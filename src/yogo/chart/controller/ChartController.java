@@ -18,12 +18,28 @@ public class ChartController {
 	@Autowired
 	ChartDAOImpl chartDAO;
 	
-	@RequestMapping(value="chartList.do")
+	@RequestMapping(value="chartListTime.do")
 	@ResponseBody
-	public List<Map<String,Object>> chartList( String selectDay ){
-		List<Map<String,Object>> chartDaily;
-		chartDaily = chartDAO.chartList(selectDay);
-		return chartDaily;
+	public List<Map<String,Object>> chartListTime( String selectDay ){
+		List<Map<String,Object>> chartListTime;
+		chartListTime = chartDAO.chartListTime(selectDay);
+		return chartListTime;
+	}
+	
+	@RequestMapping(value="chartListDay.do")
+	@ResponseBody
+	public List<Map<String,Object>> chartListDay( String selectMon ){
+		List<Map<String,Object>> chartListDay;
+		chartListDay = chartDAO.chartListDay(selectMon);
+		return chartListDay;
+	}
+	
+	@RequestMapping(value="chartListMon.do")
+	@ResponseBody
+	public List<Map<String,Object>> chartListMon( String selectYear ){
+		List<Map<String,Object>> chartListMon;
+		chartListMon = chartDAO.chartListMon(selectYear);
+		return chartListMon;
 	}
 	
 }

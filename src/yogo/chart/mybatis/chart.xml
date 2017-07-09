@@ -5,11 +5,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="chart">
 
-<select id="chartList" parameterType="String" resultType="hashmap">
+<select id="chartListTime" parameterType="String" resultType="hashmap">
 SELECT to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS') as 시간, sum(pos_totprice) as 합계
 FROM tb_pos
+WHERE to_char(pos_date, 'YYYY-MM-DD') = #{selectDay}
 GROUP BY to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS')
+ORDER BY to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS')
 </select>
 
+<select id="chartListDay" parameterType="String" resultType="hashmap">
+SELECT to_char(pos_date, 'YYYY-MM-DD') as 일, sum(pos_totprice) as 합계
+FROM tb_pos
+WHERE to_char(pos_date, 'YYYY-MM') = #{selectMon}
+GROUP BY to_char(pos_date, 'YYYY-MM-DD')
+ORDER BY to_char(pos_date, 'YYYY-MM-DD')
+</select>
+
+<select id="chartListMon" parameterType="String" resultType="hashmap">
+SELECT to_char(pos_date, 'YYYY-MM') as 월, sum(pos_totprice) as 합계
+FROM tb_pos
+WHERE to_char(pos_date, 'YYYY') = #{selectYear}
+GROUP BY to_char(pos_date, 'YYYY-MM')
+ORDER BY to_char(pos_date, 'YYYY-MM')
+</select>
 
 </mapper>
