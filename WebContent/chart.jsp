@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //charts -->
 <script type="text/javascript">
 $(function() {
-	$.ajax({
+	$.ajax({ 
 		url : "chartListTime.do",
 		type : "post",
 		dataType : 'json',
