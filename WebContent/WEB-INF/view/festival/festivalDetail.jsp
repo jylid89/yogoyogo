@@ -95,7 +95,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 </head>
 <body>
 	<header
-		style="background:url('/Marketing/img/festival/festivalBackground.jpg') center center no-repeat scroll"
+		style="background:url('/YogoYogo/images/festival/festivalBackground.jpg') center center no-repeat scroll"
 		class="business-header">
 	<div class="container">
 		<div class="row">
