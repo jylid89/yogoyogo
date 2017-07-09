@@ -20,13 +20,10 @@ public class ChartController {
 	
 	@RequestMapping(value="chartList.do")
 	@ResponseBody
-	public List<Map<String,Object>> chartList( String selectDay){
-		
+	public List<Map<String,Object>> chartList( String selectDay ){
 		List<Map<String,Object>> chartDaily;
 		chartDaily = chartDAO.chartList(selectDay);
-		
 		return chartDaily;
-		
 	}
 	
 }

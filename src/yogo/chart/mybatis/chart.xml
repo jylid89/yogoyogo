@@ -5,9 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="chart">
 
-<select id="chartList" resultType="yogo.pos.dto.PosVO">
-SELECT *
-FROM TB_POS
+<select id="chartList" parameterType="String" resultType="hashmap">
+SELECT to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS') as 시간, sum(pos_totprice) as 합계
+FROM tb_pos
+GROUP BY to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS')
 </select>
 
 
