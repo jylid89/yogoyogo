@@ -17,6 +17,11 @@ public class ChartController {
 
 	@Autowired
 	ChartDAOImpl chartDAO;
+
+	@RequestMapping(value="chartList.do")
+	public String chartList( ){
+		return "/chart/chart";
+	}
 	
 	@RequestMapping(value="chartListTime.do")
 	@ResponseBody
