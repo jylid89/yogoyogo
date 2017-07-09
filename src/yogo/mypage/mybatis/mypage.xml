@@ -104,4 +104,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     AND 		t.mem_id =#{mem_id}
 </select>
 
+<!-- (사업자)케이터링 요청 승인 시 -->
+<update id="catAppConfirm" parameterType="yogo.catering.dto.CateringVO">
+	UPDATE 	tb_cateconf
+	SET 	cate_state='승인'
+	WHERE 	cate_num = #{cate_num}
+</update>
+
+<!-- ajax->신청/취소버튼 -->
+<select id="cateConfirmCheck" resultType="String" parameterType="hashmap">
+	SELECT 	COUNT(*)
+	FROM    tb_cateconf
+	WHERE 	cate_num = #{cate_num}
+	AND 	truck_num = #{truck_num}
+</select>
+
 </mapper>

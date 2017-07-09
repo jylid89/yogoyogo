@@ -1,6 +1,7 @@
 package yogo.mypage.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -156,4 +157,27 @@ public class MypageImpl implements MypageDAO {
 		list = ss.selectList("mypage.adverAppStatus_ceo", mem_id);
 		return list;
 	}
+
+	//(사업자)케이터링 승인 시 상태 업데이트
+	@Override
+	public int catAppConfirm(CateringVO vo) {
+		int result = 0;
+		try {
+			result = ss.update("mypage.catAppConfirm",vo);
+		} catch(Exception e) {
+			System.out.println("mypage.catAppConfirm 실패 "+e.getMessage());
+		}
+		return result;
+	}
+	
+	//ajax->신청/취소버튼
+	@Override
+	public String cateConfirmCheck(String cate_num, String truck_num) {
+		HashMap map = new HashMap();
+		map.put("cate_num", cate_num);
+		map.put("truck_num", truck_num);
+		
+		String result = ss.selectOne("mypage.cateConfirmCheck",map);
+		return result;
+	}	
 }

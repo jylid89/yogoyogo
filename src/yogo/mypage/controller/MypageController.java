@@ -4,17 +4,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import yogo.adver.dao.AdverDAO;
-import yogo.adver.dao.AdverDAOImpl;
 import yogo.adver.dto.AdverVO;
 import yogo.catering.dto.CateringVO;
 import yogo.member.dto.MemberVO;
@@ -199,5 +197,29 @@ public class MypageController {
 			mv.addObject("list", list);
 			mv.setViewName("/mypage/adverAppStatus_ceo");
 			return mv;
+		}
+		
+		
+		//ajax -> 신청하기/신청취소 버튼제어
+		@RequestMapping(value="cateConfirmCheck.do")
+		@ResponseBody
+		public String confirmCheck(String cate_num,String truck_num){
+			
+			String result = dao.cateConfirmCheck(cate_num, truck_num);
+			return result;
+			
+		}
+		//(사업자)케이터링 승인 시
+		@RequestMapping(value="/catAppConfirm.do")
+		@ResponseBody
+		public String catAppConfirm(CateringVO vo){
+			String temp="";
+			int result = dao.catAppConfirm(vo);
+			if(result == 1) {
+				temp = "업데이트";
+			} else {
+				temp = "승인";
+			}
+			return temp, "redirect:catAppStatus_ceo.do";
 		}
 }
