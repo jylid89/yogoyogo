@@ -56,6 +56,20 @@ public class MypageController {
 		return mv;
 	}
 	
+	// 케이터링 신청현황(사업자)
+	@RequestMapping(value="/catAppApprove_ceo.do")
+	public ModelAndView catAppApprove_ceo(){
+		//찾을 아이디
+		String truck_num = "truck003";
+		List<CateringVO> list = new ArrayList<CateringVO>();
+		list = dao.selectApprove_ceo(truck_num);
+		ModelAndView mv = new ModelAndView();
+		//list를 cateModel에 담아서 넘겨줌
+		mv.addObject("cateModel", list);
+		//페이지 바로 이동
+		mv.setViewName("/mypage/cateringConfirm_ceo");
+		return mv;
+	}
 	
 	
 	//광고신청현황 list
@@ -253,4 +267,32 @@ public class MypageController {
 			mv.setViewName("/mypage/adverAppStatus_ceo");
 			return mv;
 		}
+		
+		
+	//(사업자)케이터링 승인 시
+	@RequestMapping(value="/catAppConfirm.do")
+	public ModelAndView catAppConfirm(CateringVO vo){
+		int result = dao.catAppConfirm(vo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result",result);
+		mv.setViewName("redirect:catAppStatus_ceo.do");
+		return mv;
+	}
+	
+	//(사업자)케이터링 거절 시
+	@RequestMapping(value="/catAppReject.do")
+	@ResponseBody
+	public ModelAndView catAppReject(CateringVO vo){
+		int result = dao.catAppReject(vo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result",result);
+		mv.setViewName("redirect:catAppStatus_ceo.do");
+		return mv;
+	}
+		
+		
+		
+		
+		
+		
 }

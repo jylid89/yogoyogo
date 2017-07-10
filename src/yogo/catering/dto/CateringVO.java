@@ -22,7 +22,7 @@ public class CateringVO {
 	/* 케이터링 승인상태 */
 	private String cate_state;
 	/* 거절사유 */
-	private String cate_reson;
+	private String cate_reason;
 	/* 푸드트럭 이름 */
 	private String truck_name;
 	/* 푸드트럭 주소 */
@@ -34,6 +34,15 @@ public class CateringVO {
 	/* 고객 연락처 */
 	private String mem_call;
 	
+	
+	
+	
+	public String getCate_reason() {
+		return cate_reason;
+	}
+	public void setCate_reason(String cate_reason) {
+		this.cate_reason = cate_reason;
+	}
 	public String getMem_name() {
 		return mem_name;
 	}
@@ -105,12 +114,6 @@ public class CateringVO {
 	}
 	public void setCate_state(String cate_state) {
 		this.cate_state = cate_state;
-	}
-	public String getCate_reson() {
-		return cate_reson;
-	}
-	public void setCate_reson(String cate_reson) {
-		this.cate_reson = cate_reson;
 	}
 	public String getTruck_name() {
 		return truck_name;

@@ -33,19 +33,32 @@ public class MypageImpl implements MypageDAO {
 	}
 
 	//케이터링 신청 현황 리스트 (사업자) 
-		@Override
-		public List<CateringVO> selectCate_ceo(String truck_num) {
-			// list 생성
-			List<CateringVO> list = new ArrayList();
-			// truck_num를 list에 넘겨줌
-			try{
-				list = ss.selectList("mypage.selectCate_ceo",truck_num);
-			}catch( Exception ex){
-				System.out.println("MypageImpl / selectCate_ceo : " + ex.getMessage());
-			}
-			return list;
+	@Override
+	public List<CateringVO> selectCate_ceo(String truck_num) {
+		// list 생성
+		List<CateringVO> list = new ArrayList();
+		// truck_num를 list에 넘겨줌
+		try{
+			list = ss.selectList("mypage.selectCate_ceo",truck_num);
+		}catch( Exception ex){
+			System.out.println("MypageImpl / selectCate_ceo : " + ex.getMessage());
 		}
-		
+		return list;
+	}
+	
+	//케이터링 승인완료 현황 리스트 (사업자) 
+	@Override
+	public List<CateringVO> selectApprove_ceo(String truck_num) {
+		// list 생성
+		List<CateringVO> list = new ArrayList();
+		// truck_num를 list에 넘겨줌
+		try{
+			list = ss.selectList("mypage.selectApprove_ceo",truck_num);
+		}catch( Exception ex){
+			System.out.println("MypageImpl / selectApprove_ceo : " + ex.getMessage());
+		}
+		return list;
+	}
 	//(광고업체)광고신청현황
 	@Override
 	public List<AdverVO> adverConfList_adver(String mem_id) {
@@ -178,5 +191,29 @@ public class MypageImpl implements MypageDAO {
 	public void ceoUpdate(MemberVO vo) {
 		ss.update("mypage.cedUpdate", vo);
 		
+	}
+	
+	//(사업자)케이터링 승인 시 상태 업데이트
+	@Override
+	public int catAppConfirm(CateringVO vo) {
+		int result = 0;
+		try {
+			result = ss.update("mypage.catAppConfirm",vo);
+		} catch(Exception e) {
+			System.out.println("mypage.catAppConfirm 실패 "+e.getMessage());
+		}
+		return result;
+	}
+	
+	//(사업자)케이터링 거절 시 상태 업데이트
+	@Override
+	public int catAppReject(CateringVO vo) {
+		int result = 0;
+		try {
+			result = ss.update("mypage.catAppReject",vo);
+		} catch(Exception e) {
+			System.out.println("mypage.catAppReject 실패 "+e.getMessage());
+		}
+		return result;
 	}
 }

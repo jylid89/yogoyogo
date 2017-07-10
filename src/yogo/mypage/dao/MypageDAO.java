@@ -15,6 +15,9 @@ public interface MypageDAO {
 	// 케이터링 신청현황(사업자)
 	List<CateringVO> selectCate_ceo(String truck_num);
 	
+	// 케이터링 승인완료 현황(사업자)
+	List<CateringVO> selectApprove_ceo(String truck_num);
+	
 	//(광고업체)광고신청현황
 	List<AdverVO> adverConfList_adver(String mem_id);
 
@@ -53,5 +56,11 @@ public interface MypageDAO {
 
 	//사업자 정보 수정
 	void ceoUpdate(MemberVO vo);
+	
+	//(사업자)케이터링 요청 승인 시
+	int catAppConfirm(CateringVO vo);
+	
+	//(사업자)케이터링 요청 거절 시
+	int catAppReject(CateringVO vo);
 
 }
