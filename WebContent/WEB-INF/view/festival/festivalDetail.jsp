@@ -1,7 +1,6 @@
 <%@ page import="java.text.NumberFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -17,19 +16,8 @@
 <title>Insert title here</title>
 <style type="text/css">
 </style>
-<link rel="stylesheet" href="/Marketing/css/festivaldetail.css">
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/YogoYogo/css/festival/festivaldetail.css">
 
 <!-- 다음맵 API -->
 <script type="text/javascript"
@@ -39,7 +27,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		
+
 		$.ajax({
 			url : "confirmCheck.do",
 			type : "post",
@@ -68,37 +56,50 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 		});
 
 		//신청취소 버튼 클릭시
-		$("#btn_cancel").click(function() {
-			var result = confirm('신청을 취소하시겠습니까? (승인이 된 후에는 취소가 불가 합니다.)');
-				if (result) {
-					$.ajax({
-						url : "confirmCancel.do",
-						type : "post",
-						data : {
-						"event_num" : $("#event_num").val(),
-						"truck_num" : $("#truck_num").val()
-					},
-					success : function(data) {
-						if (data != "대기중") {
-							alert("승인이 완료되어 취소가 불가 합니다.");
-							return;
-						} else {
-							$("#frm").attr("action","eventConfirmDelete.do").submit();
-						}
-					}
-				})
-			}
+		$("#btn_cancel")
+				.click(
+						function() {
+							var result = confirm('신청을 취소하시겠습니까? (승인이 된 후에는 취소가 불가 합니다.)');
+							if (result) {
+								$.ajax({
+									url : "confirmCancel.do",
+									type : "post",
+									data : {
+										"event_num" : $("#event_num").val(),
+										"truck_num" : $("#truck_num").val()
+									},
+									success : function(data) {
+										if (data != "대기중") {
+											alert("승인이 완료되어 취소가 불가 합니다.");
+											return;
+										} else {
+											$("#frm").attr("action",
+													"eventConfirmDelete.do")
+													.submit();
+										}
+									}
+								})
+							}
 
-		});
+						});
 	});
 </script>
+<!-- fireworks scripts -->
+<script type="text/javascript" src="/YogoYogo/js/festival/jquery.fireworks.js"></script>
+<script>
+	setTimeout(function() {
+		$('.w3-agilefireworks').fireworks();
+	});
+</script>
+<!-- //fireworks scripts -->
 </head>
 <body>
-	<header
-		style="background:url('/YogoYogo/images/festival/festivalBackground.jpg') center center no-repeat scroll"
-		class="business-header">
-	<div class="container">
-		<div class="row">
+	<!-- 헤더부분 -->
+	<div class="w3-agilefireworks">
+		<div
+			style="background: url('/YogoYogo/images/festival/2.jpg') center center no-repeat scroll"
+			class="business-header">
+
 			<div class="col-lg-12  text-center">
 				<br> <br> <br> <br> <br> <br>
 				<p class="tagline">${viewModel.event_name}</p>
@@ -106,24 +107,25 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 			</div>
 		</div>
 	</div>
-
-	</header>
+	<!-- 헤더 끝 -->
+	<!-- 본문 -->
 	<div class="container">
 		<div class="col-xs-12">
 			<div class="page-header">
-				<h2>주최자 : ${viewModel.event_comp }</h2>
+				<h2>주최자 :  ${viewModel.event_comp }</h2>
 				&nbsp;&nbsp;&nbsp;
 				<h2>행사 날짜 : ${viewModel.event_start } ~ ${viewModel.event_end }</h2>
+
 			</div>
+		</div>
+		<div class="col-xs-12">
 			<div class="page-header">
 				<h1>행 사 내 용</h1>
 			</div>
-			<img alt="" src="/Marketing/img/${viewModel.event_picreal }"> <br>
-			<br>
-			<br>
-			<p>${fn:replace(viewModel.event_content,cn,br)}</p>
+			<img alt="" src="/YogoYogo/images/festival/${viewModel.event_picreal }"> 
+				<h3 class="content">${fn:replace(viewModel.event_content,cn,br)}</h3>
+			
 		</div>
-		
 		<div class="col-xs-12">
 			<div class="page-header">
 				<h1>위 치 정 보</h1>
@@ -148,7 +150,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 				// 주소로 좌표를 검색합니다
 				geocoder
 						.addr2coord(
-								'서울특별시 금천구 가산디지털1로 151',
+								'${viewModel.event_map }',
 								function(status, result) {
 
 									// 정상적으로 검색이 완료됐으면 
@@ -214,42 +216,41 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 				var closeOverlay = function() {
 					overlay.setMap(null);
 				}
-				
 			</script>
-		</div> 
-			<input type="hidden" name=event_num value=${viewModel.event_num }>
-			<a onclick="javascript:location.href='festivalUpdate.do?event_num=${viewModel.event_num}'">수정</a>
-			<a onclick="javascript:location.href='festivalDelete.do?event_num=${viewModel.event_num}'">삭제</a>
-			<a onclick="javascript:location.href='festivalList.do'">목록가기</a>
+		</div>
+		<!-- 수정 삭제 버튼 -->
+		<div class="row">
+			<div class="col-xs-12 btn_group">
+				<div class="col-md-8 text-left">
+					<a onclick="javascript:location.href='festivalList.do'"><button
+							class="btn btn-1 btn-1a">목록</button></a>
+				</div>
+				<div class="col-md-4 text-right">
+					<a
+						onclick="javascript:location.href='festivalUpdate.do?event_num=${viewModel.event_num}'"><button
+							class="btn btn-1 btn-1a">수정</button></a> <a
+						onclick="javascript:location.href='festivalDelete.do?event_num=${viewModel.event_num}'"><button
+							class="btn btn-1 btn-1a">삭제</button></a>
+				</div>
+				<input type="hidden" name=event_num value=${viewModel.event_num }>
+			</div>
+		</div>
+		<!-- 입점 신청 버튼 -->
 		<div class="col-xs-12 btn_group">
 			<div class="offer btn_group">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<!--                         <span class="usd"><sup>$</sup></span> -->
-				<!--                         <span class="number">39</span> -->
-				<!--                         <span class="cents"><sup>95</sup></span> -->
-				<input type="button" class="btn btn-primary" value="입점 신청하기" id="btn_confirm" /> &nbsp;&nbsp;&nbsp;&nbsp; 
-				<input type="button" class="btn btn-danger" value="신청취소" id="btn_cancel" /> 
-				<input type="hidden" value="N" id="flag" />
+				<input type="button" class="btn btn-2 btn-primary" value="입점 신청하기"
+					id="btn_confirm" /> &nbsp;&nbsp;&nbsp;&nbsp; <input type="button"
+					class="btn btn-3 btn-danger" value="신청취소" id="btn_cancel" /> <input
+					type="hidden" value="N" id="flag" />
 				<form name="frm" id="frm" method="post">
-				<input type="hidden" value="${viewModel.event_num }"
-					   name="event_num" id="event_num" /> <input type="hidden"
-					   value="TRUCK003" name="truck_num" id="truck_num" />
+					<input type="hidden" value="" name="event_num" id="event_num" /> <input
+						type="hidden" value="TRUCK003" name="truck_num" id="truck_num" />
 				</form>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
 			</div>
 		</div>
 	</div>
+
+
 
 
 

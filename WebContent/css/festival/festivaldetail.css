@@ -12,7 +12,7 @@
 .btn_group{
 
 	text-align: center;
-	
+	padding: 20px;	
 }
 
 
@@ -63,16 +63,18 @@ body{
 /* Page Header */
 .page-header {
     background: #f9f9f9;
-    margin: -30px -40px 40px;
     padding: 20px 40px;
     border-top: 4px solid #ccc;
     color: #999;
     text-transform: uppercase;
 }
     
-.page-header h3 {
+ .content {
     line-height: 0.88rem;
-    color: #000;
+    font-size: 34px;
+    font-weight: 200;
+    padding: 20px 10px 0px;
+    text-align: left;
 }
 
 ul.thumbnails { 
@@ -112,6 +114,59 @@ ul.thumbnails {
     width: 15px;
 }
 
+
+/*commen css=============*/
+.btn{
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius:0px;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-1 {
+    border: 3px solid #fff;
+    color: #fff;    border: 1px solid #000;
+}
+.btn-2{
+	border: 1px solid #428bca;
+}
+.btn-3{
+	border: 1px solid #b92c28;
+}
+/*BUTTON 1a css=============*/
+
+.btn-1a{
+	 color: #000;
+    background: #fff;
+    margin: 0px;
+}
+
+.btn-1a:hover, .btn-1a:active {
+    color: #fff;
+    background: #000;
+}
 
 
 /* Mobile Only */

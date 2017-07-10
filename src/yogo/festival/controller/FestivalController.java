@@ -26,7 +26,7 @@ public class FestivalController {
 		List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listModel",list);
-		mv.setViewName("/festival/festival");
+		mv.setViewName("/festival/festivalList");
 		return mv;
 		
 	}
