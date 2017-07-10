@@ -1,139 +1,128 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<% String mem_state =  request.getParameter("mem_state");%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원정보 수정페이지</title>
-<!-- stylesheet -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600italic,600' rel='stylesheet' type='text/css'>
-<!-- bootstrap Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- bootstrap Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-<!-- Javascript files -->		
-
-<!-- BOOTSTRAP Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- for dragging/swiping/pinching, include hammer.js -->
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-<body class="body-layout">
-<!-- Logo & Navigation starts -->
-<div class="container sub-layout">
-<!-- Menu End -->
-<!-- Body -->
-<div class="join-agree-layout">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-<br><br>
-
-<div class="jumbotron">
-		<h1><span style="color: inherit; line-height: 1.4; font-family: 돋움, Dotum, Helvetica, sans-serif; font-size: 21px;">고객만족을 우선으로 생각하며, 최고 보다는 최선을 다하는 회사가 되겠습니다.</span></h1>
-</div>
-	<div class="row">
-		<div class="col-sm-offset-2 col-sm-8">
-			<div class="col-sm-offset-2 col-sm-8">
-			<form class="form-horizontal" role="form" id="joinForm" method="post" action="" autocomplete="off" novalidate="novalidate">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						회원 정보수정
-					</div> <!-- panel heading -->
-					
-					<div class="panel-body">
-						<div class="form-group joinForm-id">
-							<label for="id" class="col-sm-4 control-label"> 아이디 <br> <small class="text-danger">(필수입력)</small> </label>
-							<div class="col-sm-8">
-									<input id="id" name="id" type="text" class="form-control" placeholder="abcd@efg.com" autofocus="" disabled="disabled">
-								<input id="id2" name="id2" type="text" class="hidden">
-							</div>
-						</div>
-						<div class="form-group joinForm-pw">
-							<label for="pw" class="col-sm-4 control-label"> 비밀번호 <br> <small class="text-danger">(필수입력)</small> </label>
-							<div class="col-sm-8">
-								<input id="pw" name="pw" type="password" class="form-control" placeholder="Password">
-							</div>
-						</div>
-						<div class="form-group joinForm-pw2">
-							<label for="pw2" class="col-sm-4 control-label"> 비밀번호 확인 <br> <small class="text-danger">(필수입력)</small> </label>
-							<div class="col-sm-8">
-								<input id="pw2" name="pw2" type="password" class="form-control" placeholder="Password (재입력)">
-							</div>
-						</div>
-						<div class="form-group joinForm-name">
-							<label for="name" class="col-sm-4 control-label"> 이름 <br> <small class="text-danger">(필수입력)</small> </label>
-							<div class="col-sm-8">
-								<input id="name" name="name" type="text" class="form-control" placeholder="홍길동" value="">
-							</div>
-						</div>
-					    	<div class="form-group joinForm-birthdate">
-							<label for="birthdate" class="col-sm-4 control-label"> 생년월일  </label>
-							<div class="col-sm-8">
-								<input id="name" name="name" type="text" class="form-control" placeholder="910829" value="">
-							</div>
-						</div>
-					    	<div class="form-group joinForm-tel">
-							<label for="tel" class="col-sm-4 control-label"> 연락처  </label>
-							<div class="col-sm-8">
-								<input id="tel" name="tel" type="text" class="form-control" placeholder="000-0000-0000">
-							</div>
-						</div>
+<link rel="stylesheet" type="text/css" href="/YogoYogo/css/register/register.css" />
+<script type="text/javascript">
+	$(function(){
+		
+		var count = 0;
+		
+		//패스워드 유효성검사
+		$("#changePass").blur(function(){
+			var regExp_pass = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+			
+			if ( $("#changePass").val() != null && $("#changePass").val().match(regExp_pass) != null) {
+				$(".passChecked1").text("비밀번호가 올바릅니다.");
+				$("#confirmPass").blur(function(){
+					if($("#confirmPass").val() != null && $("#changePass").val() != null){
 						
-						<div class="form-group">
-							<label for="type" class="col-sm-4 control-label"> 회원유형  </label>
-							&nbsp&nbsp&nbsp&nbsp
-							<input type="radio" name="chk_info" value="회원"> 회원&nbsp
-							<input type="radio" name="chk_info" value="사업자"> 사업자&nbsp
-							<input type="radio" name="chk_info" value="행사 기획자"> 행사 기획자&nbsp
-						</div>
-				
-							<div class="form-group joinForm-addr">
-							<label for="addr" class="col-sm-4 control-label"> 활동지역 </label>
-							<div class="col-sm-8">
-								<select id="addr" name="addr" class="form-control" placeholder="">
-									<option>서울특별시</option>
-									<option>인천광별시</option>
-									<option>경기도</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-4 control-label"> 메뉴 </label>
-							<div class="col-sm-8">
-								<input id="" type="checkbox">먹을거리 &nbsp
-								<input id="" type="checkbox">마실거리 &nbsp
-								<input id="" type="checkbox">즐길거리 &nbsp
-							</div>
-						</div>
-						<div class="form-group joinForm-addr">
-							<label for="addr" class="col-sm-4 control-label"> 등록증 </label>
-							<div class="col-sm-8">
-								<input id="" type="checkbox">위생교육증 &nbsp
-								<input id="" type="checkbox">보건증 &nbsp
-								<input id="" type="checkbox">구조변경허가증 &nbsp
-								<br/>
-								<input id="" type="checkbox">LPG 승인서 &nbsp
-							</div>
-						</div>
-					</div><!-- panel body -->
-					<div class="panel-footer">
-						<div class="form-group" style="padding-top: 10px">
-							<div class="col-sm-offset-3 col-sm-6">
-								<button class="btn btn-lg btn-primary btn-block" type="submit">회원 정보수정</button>
-							</div>
-						</div>						
-					</div>
-				</div>
-			</form>	
-		</div>
+						if($("#confirmPass").val() == $("#changePass").val()){
+							$(".passChecked2").text("비밀번호가 일치합니다.");
+							$("#mem_pass").val($("#changePass").val());
+						}else{
+							$(".passChecked2").text("비밀번호가 다릅니다.");
+						}
+					}
+				});
+			}else{
+				$(".passChecked1").text("비밀번호가 올바르지 않습니다.");
+				return;
+			}
+		});
+		
+		//전화번호 유효성검사
+		$("#mem_call").blur(function(){
+			var call_check =  /^\d{3}-\d{3,4}-\d{4}$/;
+			
+			if ( $("#mem_call").val() != null && $("#mem_call").val().match(call_check) != null) {
+				$(".callCheck").text("전화번호가 올바릅니다.");
+				count = count + 1;
+			}else{
+				$(".callCheck").text("전화번호가 올바르지 않습니다.");
+				return;
+			}
+			
+		});
+		//basicUpdateUp(일반회원 수정시)
+		$("#basicUpdateUp").click(function(){
+			//비밀번호가 변경되었으면 mem_pass에 변경된 값 넣어주기
+			var result = confirm("수정 하시겠습니까?");
+			if(result){
+				$("#memUpdateForm").attr("action", "memberUpdate.do").submit();
+			}
+		});
+		
+	});
+
+</script>
+		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+</head>
+<body>
+	<div class="container">
+	<div class="row">
+    <div class="col-md-8">
+    <br/><br/>
+        <h1 class="entry-title"><span>회원정보 수정</span> </h1>
+        <hr>
+            <form class="form-horizontal" method="post"  id="memUpdateForm">        
+        <div class="form-group">
+          <label class="control-label col-sm-3">아이디(이메일) : <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-9">
+              <input type="email" class="form-control" readonly="readonly" name="mem_id" id="mem_id"  value="${vo.mem_id }">
+        	<input type="hidden" value="${vo.mem_state}" id="mem_state"/>
+        </div>
+              <div class="checkId"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">비밀번호 : <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-8">
+              <input type="password" class="form-control" id="changePass"  value="">
+          	  <input type="hidden" name="mem_pass" id="mem_pass" value="${vo.mem_pass }"/>
+          </div>
+          <div class="passChecked1"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">비밀번호 확인 : <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-8">
+              <input type="password" class="form-control" name="confirmPass" id="confirmPass" value="">
+          </div>
+          <div class="passChecked2"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">이름 : <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-9">
+            <input type="text" class="form-control" readonly="readonly" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="${vo.mem_name }">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">닉네임 : <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-9">
+            <input type="text" class="form-control" readonly="readonly" name="mem_nick" id="mem_nick" placeholder="Enter your Name here" value="${vo.mem_nick }">
+          </div>
+          <div class="nickCheck"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">핸드폰번호 : <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-9">
+            <input type="text" class="form-control" name="mem_call" id="mem_call" placeholder="ex)010-4321-8109" value="${vo.mem_call }">
+          </div>
+            <div class="callCheck"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-offset-3 col-xs-10">
+         	<input type="button" value="취소하기" class="btn btn-primary" id="basicUpdateCancel">
+            <input type="button" value="수정하기" class="btn btn-primary" id="basicUpdateUp">
+          </div>
+        </div>
+      </form>
+    </div>
 </div>
-<!-- Footer -->
-</body>
+</div>
 
 </body>
-</html>
+</html> 

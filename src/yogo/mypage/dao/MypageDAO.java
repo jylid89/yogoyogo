@@ -48,10 +48,10 @@ public interface MypageDAO {
 	//(사업자)광고신청현황
 	List<AdverVO> adverAppStatus_ceo(String mem_id);
 
-	
-	//ajax->버튼제어
-	String cateConfirmCheck(String cate_num, String truck_num);
-	
-	//(사업자)케이터링 요청 승인 시
-	int catAppConfirm(CateringVO vo);
+	//비밀번호 확인
+	String passCheck(String mem_pass, String mem_id);
+
+	//사업자 정보 수정
+	void ceoUpdate(MemberVO vo);
+
 }

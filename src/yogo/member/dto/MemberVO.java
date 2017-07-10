@@ -1,5 +1,7 @@
 package yogo.member.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVO {
 
 	/* 회원 아이디 */
@@ -47,7 +49,34 @@ public class MemberVO {
 	/* 트럭 등록일자 */
 	private String truck_date;
 	
+	/*사진 임시경로*/
+	private MultipartFile truck_pictemp;
 	
+	/* 트럭 우편번호 */
+	private String truck_postnum;
+	
+	/* 임시저장 */
+	private String exfile;
+	
+	
+	public String getExfile() {
+		return exfile;
+	}
+	public void setExfile(String exfile) {
+		this.exfile = exfile;
+	}
+	public String getTruck_postnum() {
+		return truck_postnum;
+	}
+	public void setTruck_postnum(String truck_postnum) {
+		this.truck_postnum = truck_postnum;
+	}
+	public MultipartFile getTruck_pictemp() {
+		return truck_pictemp;
+	}
+	public void setTruck_pictemp(MultipartFile truck_pictemp) {
+		this.truck_pictemp = truck_pictemp;
+	}
 	public String getMem_id() {
 		return mem_id;
 	}

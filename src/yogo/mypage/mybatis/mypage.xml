@@ -59,10 +59,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM tb_member WHERE mem_id = #{mem_id}
 </select>
 
+<!-- 사업자 개인정보 셀렉 -->
+<select id="selectCeoMember" resultType="yogo.member.dto.MemberVO" parameterType="String">
+	SELECT * 
+	FROM tb_member m, tb_truck t
+	WHERE t.mem_id = m.mem_id
+	AND m.mem_id = #{mem_id}
+</select>
+
 <!-- 개인정보 업데이트 -->
 <update id="memberUpdate" parameterType="yogo.member.dto.MemberVO">
 	UPDATE tb_member 
-	SET mem_nick = #{mem_nick}, mem_name = #{mem_name}, mem_call = #{mem_call}
+	SET mem_call = #{mem_call}, mem_pass = #{mem_pass}
 	WHERE mem_id = #{mem_id}
 </update>
 
@@ -104,19 +112,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     AND 		t.mem_id =#{mem_id}
 </select>
 
-<!-- (사업자)케이터링 요청 승인 시 -->
-<update id="catAppConfirm" parameterType="yogo.catering.dto.CateringVO">
-	UPDATE 	tb_cateconf
-	SET 	cate_state='승인'
-	WHERE 	cate_num = #{cate_num}
-</update>
-
-<!-- ajax->신청/취소버튼 -->
-<select id="cateConfirmCheck" resultType="String" parameterType="hashmap">
-	SELECT 	COUNT(*)
-	FROM    tb_cateconf
-	WHERE 	cate_num = #{cate_num}
-	AND 	truck_num = #{truck_num}
+<!-- 비밀번호 check(ajax) -->
+<select id="passCheck" resultType="String" parameterType="hashmap"> 
+	SELECT count(*)
+	FROM tb_member
+	WHERE mem_id = #{mem_id}
+	AND mem_pass = #{mem_pass}
 </select>
+
+<!-- 사업자 정보수정 -->
+<update id="cedUpdate" parameterType="yogo.member.dto.MemberVO">
+	UPDATE tb_truck
+	SET truck_name = #{truck_name}, car_number = #{car_number},
+	       truck_addr = #{truck_addr},   truck_postnum = #{truck_postnum}, 
+	       truck_catestate = #{truck_catestate}, truck_picreal1 = #{truck_picreal1}
+	WHERE mem_id = #{mem_id}
+</update>
 
 </mapper>

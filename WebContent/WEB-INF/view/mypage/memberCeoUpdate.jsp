@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<% String mem_state =  request.getParameter("mem_state");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,106 +10,47 @@
 <script type="text/javascript">
 	$(function(){
 		
+		
+		if($("#mem_state").val() == "사업자"){
+			$(".subDiv").show();
+			$("#basicUpdateUp").hide();
+			$("#basicUpdateCancel").hide();
+			
+			if($("#truck_catestate").val() == "Y"){
+				$("input:radio[name='catestate']:radio[value='yes']").prop("checked",true);
+			}else{
+				$("input:radio[name='catestate']:radio[value='no']").prop("checked",true);
+			}
+			
+			
+		}else{
+			$(".subDiv").hide();
+		}
+		
 		var count = 0;
 		
-		//푸드트럭 사업자 div 숨기기
-		$(".subDiv").hide();
-		
-		//회원 구분하기
-		$(".radioohoh").click(function(){
-			var index = $(".radioohoh").index(this);
-			if($(".radioohoh").index(this) == 1){
-				$(".subDiv").show();
-				$("#basicSignUp").hide();
-				$("#mem_state1").val("사업자");
-			}else if($(".radioohoh").index(this) == 0){
-				$(".subDiv").hide();
-				$("#basicSignUp").show();
-				$("#mem_state1").val("일반회원");
-			}else if($(".radioohoh").index(this) == 2){
-				$(".subDiv").hide();
-				$("#basicSignUp").show();
-				$("#mem_state1").val("광고업체");
-			}else{
-				$(".subDiv").hide();
-				$("#basicSignUp").show();
-				$("#mem_state1").val("행사기획자");
-			}
-		});
-		
-		//아이디 중복확인
-		$("#mem_id").blur(function(){
-			
-			var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-			
-			if ( $("#mem_id").val() != null && $("#mem_id").val().match(regExp) != null) {
-				$(".checkId").text("이메일 형식이 올바릅니다.");
-				$.ajax({
-					url : "idCheck.do",
-					type : "post",
-					data : {"mem_id" : $("#mem_id").val()},
-					success : function(data) {
-						if($("#mem_id") != null){
-							
-							if(data == "0"){
-								$(".checkId").text("");
-								$(".checkId").text("사용 가능합니다.");
-								count = count + 1;
-							}else{
-								$(".checkId").text("중복된 아이디가 존재합니다.");
-								return;
-							}	
-						}
-					}
-				});
-			   }else{
-				   $(".checkId").text("이메일 형식이 올바르지 않습니다.");
-				   return;
-			   }
-		});
-		
 		//패스워드 유효성검사
-		$("#mem_pass").blur(function(){
+		$("#changePass").blur(function(){
 			var regExp_pass = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
 			
-			if ( $("#mem_pass").val() != null && $("#mem_pass").val().match(regExp_pass) != null) {
-				$(".passCheck1").text("비밀번호가 올바릅니다.");
-				$("#cpassword").blur(function(){
-					if($("#cpassword").val() != null && $("#mem_pass").val() != null){
+			if ( $("#changePass").val() != null && $("#changePass").val().match(regExp_pass) != null) {
+				$(".passChecked1").text("비밀번호가 올바릅니다.");
+				$("#confirmPass").blur(function(){
+					if($("#confirmPass").val() != null && $("#changePass").val() != null){
 						
-						if($("#cpassword").val() == $("#mem_pass").val()){
-							$(".passCheck").text("비밀번호가 일치합니다.");
-							count = count + 1;
+						if($("#confirmPass").val() == $("#changePass").val()){
+							$(".passChecked2").text("비밀번호가 일치합니다.");
+							$("#realPass").val($("#changePass").val());
 						}else{
-							$(".passCheck").text("비밀번호가 다릅니다.");
+							$(".passChecked2").text("비밀번호가 다릅니다.");
+							return;
 						}
 					}
 				});
 			}else{
-				$(".passCheck1").text("비밀번호가 올바르지 않습니다.");
+				$(".passChecked1").text("비밀번호가 올바르지 않습니다.");
 				return;
 			}
-		});
-		
-		//닉네임 중복검사
-		$("#mem_nick").blur(function(){
-			$.ajax({
-				url : "nickCheck.do",
-				type : "post",
-				data : {"mem_nick" : $("#mem_nick").val()},
-				success : function(data) {
-					if($("#mem_nick") != null){
-						
-						if(data == "0"){
-							$(".nickCheck").text("사용 가능합니다.");
-							count = count + 1;
-						}else{
-							$(".nickCheck").text("중복된 닉네임이 존재합니다.");
-							return;
-						}	
-					}
-				}
-			});
 		});
 		
 		//전화번호 유효성검사
@@ -124,40 +67,6 @@
 			
 		});
 		
-		
-		
-		
-		$("#basicSignUp").click(function(){
-			
-			if(count >= 4 && $('input:radio[name=inlineRadioOptions]').is(':checked')){
-				var result = confirm(' 회원가입을 하시겠습니까?');
-					if(result) {
-						$("#basicForm").attr("action","join.do").submit();
-					}
-			}else{
-				alert("회원 구분을 체크해주세요");
-				return;
-			}
-		});
-			
-		$("#foodInsert").click(function(){
-			
-			var loc = $("#sample4_roadAddress").val();	
-			var post_num = $("#sample4_postcode").val();
-			$("#truck_addr").val(loc);
-			$("#truck_postnum").val(post_num);
-			
-			if(count >= 4 && $('input:radio[name=inlineRadioOptions]').is(':checked')){
-				var result = confirm(' 회원가입을 하시겠습니까?');
-					if(result) {
-						$("#basicForm").attr("action","join.do").submit();
-					}
-			}else{
-				alert("회원 구분을 체크해주세요");
-				return;
-			}
-		});
-		
 		//케이터링 여부
 		$(".truck_catestate").click(function(){
 			var index = $(".truck_catestate").index(this);
@@ -169,7 +78,17 @@
 			
 		});
 		
+		
+		$("#truckUpdate").click(function(){
+			var result = confirm("수정 하시겠습니까?");
+			if(result){
+				
+				$("#truck_postnum").val($("#sample4_postcode").val());
+				$("#truck_addr").val($("#sample4_roadAddress").val());
 
+				$("#updateForm").attr("action", "memberCeoUpdate.do").submit();
+			}
+		});
 		
 	});
 
@@ -233,83 +152,58 @@
 	<div class="row">
     <div class="col-md-8">
     <br/><br/>
-        <h1 class="entry-title"><span>회원가입</span> </h1>
+        <h1 class="entry-title"><span>회원정보 수정</span> </h1>
         <hr>
-            <form class="form-horizontal" method="post"  id="basicForm" enctype="multipart/form-data">        
-        <div class="form-group">
-          <label class="control-label col-sm-3">회원구분 : <span class="text-danger">*</span></label>
-          <div class="col-md-5 col-sm-8">
-            <div class="input-group">
-            	<label class="radio-inline">
-					<input type="radio" class="radioohoh" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 일반회원
-				</label>
-				<label class="radio-inline">
-					<input type="radio" class="radioohoh" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 사업자
-				</label>
-				<br/>
-				<label class="radio-inline">
-				    <input type="radio" class="radioohoh" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 광고대행사
-				</label>
-				<label class="radio-inline">
-				    <input type="radio" class="radioohoh" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 행사기획자
-				</label>
-					<input type="hidden" id="mem_state1" name="mem_state" />
-           </div>   
-          </div>
-        </div>
-        
+            <form class="form-horizontal" method="post"  id="updateForm" enctype="multipart/form-data">        
         <div class="form-group">
           <label class="control-label col-sm-3">아이디(이메일) : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-              <input type="email" class="form-control" name="mem_id" id="mem_id" placeholder="이메일을 입력하여 주세요." value="${vo.mem_id }">
+              <input type="email" class="form-control" readonly="readonly" name="mem_id" id="mem_id"  value="${vo.mem_id }">
+        	<input type="hidden" value="${vo.mem_state}" id="mem_state"/>
         </div>
               <div class="checkId"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">비밀번호 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
-              <input type="password" class="form-control" name="mem_pass" id="mem_pass" placeholder="Choose password (5-15 chars)" value="">
+              <input type="password" class="form-control" id="changePass"  value="">
+          	  <input type="hidden" name="mem_pass" id="realPass" value="${vo.mem_pass }"/>
           </div>
-          <div class="passCheck1"></div>
+          <div class="passChecked1"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">비밀번호 확인 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
-              <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Confirm your password" value="">
+              <input type="password" class="form-control" name="confirmPass" id="confirmPass" value="">
           </div>
-          <div class="passCheck"></div>
+          <div class="passChecked2"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">이름 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="${vo.mem_name }">
+            <input type="text" class="form-control" readonly="readonly" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="${vo.mem_name }">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">닉네임 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_nick" id="mem_nick" placeholder="Enter your Name here" value="${vo.mem_nick }">
+            <input type="text" class="form-control" readonly="readonly" name="mem_nick" id="mem_nick" placeholder="Enter your Name here" value="${vo.mem_nick }">
           </div>
           <div class="nickCheck"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">핸드폰번호 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_call" id="mem_call" placeholder="ex)010-4321-8109" value="">
+            <input type="text" class="form-control" name="mem_call" id="mem_call" placeholder="ex)010-4321-8109" value="${vo.mem_call }">
           </div>
             <div class="callCheck"></div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-offset-3 col-xs-10">
-            <input type="button" value="Sign Up" class="btn btn-primary" id="basicSignUp">
-          </div>
         </div>
         <!-- ====================== 푸드트럭 추가폼 =========================== -->
     <div class="subDiv">
         <div class="form-group">
           <label class="control-label col-sm-3">트럭번호 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="car_number" id="car_number" placeholder="푸드트럭 번호를 입력하여 주세요." value="">
+            <input type="text" class="form-control" name="car_number" id="car_number" value="${vo.car_number }">
           </div>
           <div class="car_number"></div>
         </div>
@@ -317,31 +211,31 @@
         <div class="form-group">
           <label class="control-label col-sm-3">상호명 <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="truck_name" id="truck_name" placeholder="상호명 입력" value="">
+            <input type="text" class="form-control" name="truck_name" id="truck_name" value="${vo.truck_name }">
           </div>
           <div class="truck_name"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">주소<span class="text-danger">*</span></label>
           <div class="col-md-3 col-sm-9">
-			<input type="text" class="form-control" id="sample4_postcode"  readonly="readonly" />
+			<input type="text" class="form-control" id="sample4_postcode"  readonly="readonly" value="${vo.truck_postnum }"/>
           </div>
 			<input type="button" class="btn btn-info" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" />
           </div>
           <div class="form-group">
           	<label class="control-label col-sm-3"></label>
 		 <div class="col-md-5 col-sm-9">
-				<input type="text" class="form-control" id="sample4_roadAddress"  readonly="readonly"/>
+				<input type="text" class="form-control" id="sample4_roadAddress"  readonly="readonly" value="${vo.truck_addr }"/>
 		 </div>
 		 </div>
 		 <div class="form-group">
 		 	<label class="control-label col-sm-3"></label>
 		 <div class="col-md-5 col-sm-9">
-				<input type="text" class="form-control" id="sample4_jibunAddress"  readonly="readonly" />
+				<input type="hidden" class="form-control" id="sample4_jibunAddress"  readonly="readonly" />
 		</div>
 				<span id="guide" style="color:#999"></span>
 				<input type="hidden" id="truck_addr" name="truck_addr" />
-				<input type="hidden" id="truck_postnum" name="truck_postnum" />
+				<input type="hidden" id="truck_postnum" name="truck_postnum"/>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">케이터링여부 : <span class="text-danger">*</span></label>
@@ -353,7 +247,7 @@
 			  <label class="radio-inline">
 				  <input type="radio" class="truck_catestate" name="catestate" value="no"> 아니오
 			  </label>
-			  <input type="hidden" id="truck_catestate" name="truck_catestate"/>
+			  <input type="hidden" id="truck_catestate" name="truck_catestate" value="${vo.truck_catestate }"/>
            </div>   
           </div>
         </div>
@@ -362,14 +256,16 @@
           <small>(optional)</small></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="truck_pictemp" class="form-control upload" placeholder="사진을 첨부하여 주세요." aria-describedby="file_upload">
+              <input type="file" name="truck_pictemp" class="form-control upload" >
+              <input type='hidden' name='exfile' value="${vo.truck_picreal1}" /> 
+              <input type="hidden" name="mem_state" id="mem_state" value="${vo.mem_state }"/>
             </div>
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-10">
-          	<input  type="button" value="취소" class="btn btn-primary">
-            <input name="foodInsert" type="button" value="회원가입" class="btn btn-primary" id="foodInsert">
+          	<input  type="button" value="돌아가기" class="btn btn-primary">
+            <input name="foodInsert" type="button" value="수정하기" class="btn btn-primary" id="truckUpdate">
           </div>
         </div>
         </div>
@@ -379,4 +275,4 @@
 </div>
 
 </body>
-</html>
+</html> 

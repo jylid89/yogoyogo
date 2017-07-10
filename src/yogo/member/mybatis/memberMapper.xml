@@ -49,8 +49,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <insert id="truckInsert" parameterType="yogo.member.dto.MemberVO">
 	INSERT INTO tb_truck 
 	VALUES ( #{truck_num}, #{mem_id}, #{truck_name}, 
-				 'aa', 'bb', #{truck_catestate} , 
-				 sysdate, #{truck_addr} , #{car_number} )
+				 #{truck_picreal1}, 'bb', #{truck_catestate} , 
+				 sysdate, #{truck_addr} , #{car_number} , #{truck_postnum} )
 </insert>
 
 <!-- id를 이용해서 닉네임, 이름, 회원구분 가지고 오기 -->

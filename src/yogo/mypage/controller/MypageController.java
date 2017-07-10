@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import yogo.adver.dao.AdverDAO;
+import yogo.adver.dao.AdverDAOImpl;
 import yogo.adver.dto.AdverVO;
 import yogo.catering.dto.CateringVO;
 import yogo.member.dto.MemberVO;
@@ -105,24 +108,76 @@ public class MypageController {
 			return mv;
 		}
 		
-	// 사용자 정보 가지고 오기	
-		@RequestMapping(value="selectMember.do")
-		public ModelAndView selectMember(HttpSession session) {
-			ModelAndView mv = new ModelAndView();
-			String mem_id = (String)session.getAttribute("mem_id");
-			MemberVO vo = dao.selectMember(mem_id);
-			
-			mv.addObject("vo", vo);
-			mv.setViewName("/mypage/memberUpdate");
-			return mv;
-		}
+		// 사업자 정보 가지고 오기	
+				@RequestMapping(value="selectMember.do")
+				public ModelAndView selectMember(HttpSession session) {
+					ModelAndView mv = new ModelAndView();
+					String mem_id = (String)session.getAttribute("mem_id");
+					String mem_state = (String)session.getAttribute("mem_state");
+					MemberVO vo = dao.selectMember(mem_id);
+					vo.setMem_state(mem_state);
+					mv.addObject("vo", vo);
+					mv.setViewName("/mypage/memberUpdate");
+					return mv;
+				}
+				// 사용자 정보 가지고 오기	
+				@RequestMapping(value="selectCeoMember.do")
+				public ModelAndView selectCeoMember(HttpSession session) {
+					ModelAndView mv = new ModelAndView();
+					String mem_id = (String)session.getAttribute("mem_id");
+					String mem_state = (String)session.getAttribute("mem_state");
+					MemberVO vo = dao.selectMember(mem_id);
+					vo.setMem_state(mem_state);
+					mv.addObject("vo", vo);
+					mv.setViewName("/mypage/memberCeoUpdate");
+					return mv;
+				}
+		// 패스워드 확인 폼 이동
+				@RequestMapping(value="mempassConfirm.do")
+				public String mempassConfirm() {
+					return "/mypage/mempassConfirm";
+				}
+				
+				// 패스워드 ajax
+				@RequestMapping(value="passCheck.do")
+				@ResponseBody
+				public String passCheck(String mem_pass, HttpSession session) {
+					ModelAndView mv = new ModelAndView();
+					String mem_id = (String)session.getAttribute("mem_id");
+					String result = dao.passCheck(mem_pass, mem_id);
+					return result;
+				}
 		
 	// 사용자 정보 업데이트
 		@RequestMapping(value="memberUpdate.do")
 		public String memberUpdate(MemberVO vo, HttpSession session) {
 			vo.setMem_id((String)session.getAttribute("mem_id"));
-			dao.memberUpdate(vo);
+				dao.memberUpdate(vo);
 			return "redirect:selectMember.do";
+		}
+		
+		// 사업자 정보 수정
+		@RequestMapping(value="memberCeoUpdate.do")
+		public String memberCeoUpdate(MemberVO vo, HttpSession session) {
+			vo.setMem_id((String)session.getAttribute("mem_id"));
+			
+			MultipartFile truck_pictemp = vo.getTruck_pictemp();
+			if(truck_pictemp.isEmpty()){
+				vo.setTruck_picreal1(vo.getExfile());
+			}else{
+				String truck_picreal1 = truck_pictemp.getOriginalFilename();
+				truck_picreal1 = System.currentTimeMillis()+"_"+truck_picreal1;
+				vo.setTruck_picreal1("/YogoYogo/images/foodtruck/"+truck_picreal1);
+			try {
+				File file = new File("C:\\Users\\yeeun\\git\\yogoyogo\\WebContent\\images\\foodtruck\\" + truck_picreal1);
+				truck_pictemp.transferTo(file);
+			} catch (Exception e) {
+				System.out.println("파일 업로드 실패" + e.getMessage());
+			}
+		}
+				dao.memberUpdate(vo);
+				dao.ceoUpdate(vo);
+			return "redirect:selectCeoMember.do";
 		}
 		
 		// 메뉴 추가
@@ -197,29 +252,5 @@ public class MypageController {
 			mv.addObject("list", list);
 			mv.setViewName("/mypage/adverAppStatus_ceo");
 			return mv;
-		}
-		
-		
-		//ajax -> 신청하기/신청취소 버튼제어
-		@RequestMapping(value="cateConfirmCheck.do")
-		@ResponseBody
-		public String confirmCheck(String cate_num,String truck_num){
-			
-			String result = dao.cateConfirmCheck(cate_num, truck_num);
-			return result;
-			
-		}
-		//(사업자)케이터링 승인 시
-		@RequestMapping(value="/catAppConfirm.do")
-		@ResponseBody
-		public String catAppConfirm(CateringVO vo){
-			String temp="";
-			int result = dao.catAppConfirm(vo);
-			if(result == 1) {
-				temp = "업데이트";
-			} else {
-				temp = "승인";
-			}
-			return temp;
 		}
 }

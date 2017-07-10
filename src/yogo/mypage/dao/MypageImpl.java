@@ -80,6 +80,10 @@ public class MypageImpl implements MypageDAO {
 		MemberVO vo = new MemberVO();
 		try {
 			vo = ss.selectOne("mypage.selectMember", mem_id);
+			
+			if(vo.getMem_state().equals("사업자")){
+				vo = ss.selectOne("mypage.selectCeoMember", mem_id);
+			}
 		} catch(Exception e) {
 			System.out.println("개인정보 불러오기 실패"+e.getMessage());
 		}
@@ -89,6 +93,7 @@ public class MypageImpl implements MypageDAO {
 	// 사용자 정보 업데이트
 	@Override
 	public void memberUpdate(MemberVO vo) {
+		System.out.println("사용자 정보 업데이트 impl");
 		try {
 			ss.update("mypage.memberUpdate", vo);
 		} catch(Exception e) {
@@ -158,26 +163,20 @@ public class MypageImpl implements MypageDAO {
 		return list;
 	}
 
-	//(사업자)케이터링 승인 시 상태 업데이트
+	//비밀번호 ajax
 	@Override
-	public int catAppConfirm(CateringVO vo) {
-		int result = 0;
-		try {
-			result = ss.update("mypage.catAppConfirm",vo);
-		} catch(Exception e) {
-			System.out.println("mypage.catAppConfirm 실패 "+e.getMessage());
-		}
+	public String passCheck(String mem_pass, String mem_id) {
+		HashMap map = new HashMap();
+		map.put("mem_pass", mem_pass);
+		map.put("mem_id", mem_id);
+		String result = ss.selectOne("mypage.passCheck", map);
 		return result;
 	}
-	
-	//ajax->신청/취소버튼
+
+	//사업자 정보수정
 	@Override
-	public String cateConfirmCheck(String cate_num, String truck_num) {
-		HashMap map = new HashMap();
-		map.put("cate_num", cate_num);
-		map.put("truck_num", truck_num);
+	public void ceoUpdate(MemberVO vo) {
+		ss.update("mypage.cedUpdate", vo);
 		
-		String result = ss.selectOne("mypage.cateConfirmCheck",map);
-		return result;
-	}	
+	}
 }

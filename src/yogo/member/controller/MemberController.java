@@ -1,6 +1,7 @@
 package yogo.member.controller;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.minidev.json.JSONObject;
@@ -70,6 +72,18 @@ public class MemberController {
 	//회원가입
 	@RequestMapping(value="join.do")
 	public ModelAndView join(MemberVO vo, HttpSession session){
+		MultipartFile truck_pictemp = vo.getTruck_pictemp();
+		if(truck_pictemp != null){
+			String truck_picreal1 = truck_pictemp.getOriginalFilename();
+			truck_picreal1 = System.currentTimeMillis() + "_" + truck_picreal1;
+			vo.setTruck_picreal1("/YogoYogo/images/foodtruck/"+truck_picreal1);
+			try {
+				File file = new File("C:\\Users\\yeeun\\git\\yogoyogo\\WebContent\\images\\foodtruck\\" + truck_picreal1);
+				truck_pictemp.transferTo(file);
+			} catch (Exception e) {
+				System.out.println("파일업로드 실패 : " + e.getMessage());
+            } 
+		}
 			int result=0;
 		if(vo.getMem_state().equals("사업자")){
 			result = memberDao.memberInsert(vo);
