@@ -40,7 +40,7 @@ public class PosController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("result",result);
 		mv.setViewName("redirect:posList.do");
-		return mv;
+		return mv; 
 	}
 	
 	
