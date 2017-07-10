@@ -25,12 +25,10 @@
   }
 
   .btn-common {
-    font-size: 14px;
-    color: #0099ae;
-    border: 1px solid #0099ae;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-size: 30px;
+    font-weight: 500;
     padding: 10px 25px;
+    margin-bottom: 10px;
   }
 
   #action .col-sm-5{
@@ -39,16 +37,6 @@
     top: 0;
     height: 100%;
     right: 0;
-  }
-
-
-  .btn-common:hover, 
-  .btn-common:focus{
-    outline: none;
-    background: none;
-    box-shadow: none;
-    color: #01707f;
-    border-color:#01707f;
   }
 
   .align-right{
@@ -68,7 +56,7 @@
   }
 
   .padding-top{
-    padding-top: 90px;
+    padding-top: 30px;
   }
 
   .padding-right{
@@ -208,13 +196,13 @@ Blog Default
   padding: 20px 0;
 }
 
-.timeline-date .btn-common{
-  font-size: 18px;
-  color: #4a4a4a;
-  font-weight: 300;
-  border-radius: 0;
-  padding: 17px 40px;
-}
+/* .timeline-date .btn-common{ */
+/*   font-size: 18px; */
+/*   color: #4a4a4a; */
+/*   font-weight: 300; */
+/*   border-radius: 0; */
+/*   padding: 17px 40px; */
+/* } */
 
 .arrow-right{
   position: relative;
