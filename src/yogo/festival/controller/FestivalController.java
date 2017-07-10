@@ -3,6 +3,8 @@ package yogo.festival.controller;
 import java.io.File;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +24,11 @@ public class FestivalController {
 	 //행사 리스트 보기
 	@RequestMapping(value="festivalList.do")
 	public ModelAndView list(){
-		System.out.println("행사를 보여줘");
+		
 		List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listModel",list);
+		
 		mv.setViewName("/festival/festivalList");
 		return mv;
 		
@@ -33,11 +36,18 @@ public class FestivalController {
 	
 	 //행사 상세보기
 	@RequestMapping(value="festivalView.do")
-	public ModelAndView view( FestivalVO vo ){
-		System.out.println("컨트롤은타냐?");
+	public ModelAndView view( FestivalVO vo ,HttpSession session){
+		String mem_state = (String)session.getAttribute("mem_state");
+		String mem_id = (String)session.getAttribute("mem_id");
+		if(mem_state.equals("사업자")){
+			String truck_num = festivalDAO.selectTrucknum(mem_id);
+			vo.setTruck_num(truck_num);
+		}
 		FestivalVO view = festivalDAO.festivalView(vo);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("viewModel",view);
+		mv.addObject("vo", vo);
 		mv.setViewName("/festival/festivalDetail");
 		return mv;
 	}
@@ -70,7 +80,7 @@ public class FestivalController {
                 // output.write(fileData);
             	
                 // 2. File 사용
-                File file = new File("C:\\Users\\SAMSUNG\\Documents\\workspace-sts-3.7.3.RELEASE\\Marketing\\WebContent\\img\\" + event_picreal);
+                File file = new File("C:\\Users\\yeeun\\git\\yogoyogo\\WebContent\\images\\festival\\" + event_picreal);
                 event_pictemp.transferTo(file);
             } catch (Exception e) {
                 System.out.println("파일업로드 실패 : " + e.getMessage());
@@ -105,7 +115,6 @@ public class FestivalController {
 		
 		
 		MultipartFile event_pictemp = vo.getEvent_pictemp();
-		System.out.println("event>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + event_pictemp.isEmpty());
         if (event_pictemp != null) {
         	
             String event_picreal = event_pictemp.getOriginalFilename();
@@ -119,7 +128,7 @@ public class FestivalController {
                 // output.write(fileData);
             	
                 // 2. File 사용
-                File file = new File("C:\\Users\\SAMSUNG\\Documents\\workspace-sts-3.7.3.RELEASE\\Marketing\\WebContent\\img\\" + event_picreal);
+            	File file = new File("C:\\Users\\yeeun\\git\\yogoyogo\\WebContent\\images\\festival\\"  + event_picreal);
                 event_pictemp.transferTo(file);
             } catch (Exception e) {
                 System.out.println("파일업로드 실패 : " + e.getMessage());
@@ -156,20 +165,14 @@ public class FestivalController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 	//행사 신청 추가(Insert)
 	@RequestMapping(value="eventConfirmInsert.do")
-	public ModelAndView eventConfirmInsert(FestivalVO festivalVo) {
+	public ModelAndView eventConfirmInsert(FestivalVO vo) {
 		
-		festivalDAO.eventConfirmInsert(festivalVo);
+		System.out.println(vo.getTruck_num() + " / " + vo.getEvent_num());
+		festivalDAO.eventConfirmInsert(vo);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("adv_num" ,festivalVo.getEvent_num());
+		mv.addObject("event_num" ,vo.getEvent_num());
 		mv.setViewName("redirect:festivalView.do");
 		return mv;
 		
@@ -194,23 +197,13 @@ public class FestivalController {
 		
 	//승인취소(delete)
 	@RequestMapping(value="eveConfirmDelete.do")
-	public ModelAndView advConfirmDelete(String event_num, String truck_num) {
+	public ModelAndView eveConfirmDelete(String event_num, String truck_num,FestivalVO vo) {
 		festivalDAO.eventConfirmDelete(event_num, truck_num);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("event_num" ,event_num);
-		mv.setViewName("redirect:festivalview.do");
+		mv.setViewName("redirect:festivalView.do");
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

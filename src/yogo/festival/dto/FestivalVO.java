@@ -3,38 +3,48 @@ package yogo.festival.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FestivalVO {
+	
 	/* 행사 글 번호 */
 	private String event_num;
+	
 	/* 회원 id */
 	private String mem_id;
+	
 	/* 행사지역 */
 	private String event_loc;
+	
 	/* 행사 글 제목 */
 	private String event_name;
+	
 	/* 행사 글 내용 */
 	private String event_content;
+	
 	/* 주최사 */
 	private String event_comp;
+	
 	/* 사진임시경로 */
 	private MultipartFile event_pictemp;
+	
 	/* 사진실제경로 */
 	private String event_picreal;
+	
 	/* 지도좌표 */
 	private String event_map;
+	
 	/* 글 게시한 날짜 */
 	private String event_date;
+	
 	/* 행사 시작 날짜 */
 	private String event_start;
+	
 	/* 행사 끝나는 날짜 */
 	private String event_end;
+	
 	/* 이벤트 승인 번호 */
 	private String eveconf_num;
+	
 	/* 업데이트 안할 시 원래 사진*/
 	private String exFile;
-	
-	
-	
-	
 	
 	public String getExFile() {
 		return exFile;

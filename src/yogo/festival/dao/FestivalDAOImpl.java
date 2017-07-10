@@ -78,45 +78,44 @@ public class FestivalDAOImpl implements FestivalDAO {
 	}
 	
 	//행사 신청추가(Insert)
-	public int eventConfirmInsert(FestivalVO festivalVo) {
-		String seq = ss.selectOne("festival.selectSeq");
-		//가져온 시퀀스 값에 문자열 넣어주기
-		String eventSeq = "EVENTC00";
-		eventSeq += seq;
-		//vo에 시퀀스 값 넣기
-		festivalVo.setEveconf_num(eventSeq);
-		
-		int result = ss.insert("festival.eventConfirmInsert", festivalVo);
+	public int eventConfirmInsert(FestivalVO vo) {
+		System.out.println(vo.getTruck_num() + "  / " + vo.getEvent_num() + "<<<impl");
+		int result = ss.insert("festival.eventConfirmInsert", vo);
 		return result;
 	}
 
-	//ajax->신청/취소버튼
+
+	//트럭번호 가져오기
+	public String selectTrucknum(String mem_id) {
+		String result = ss.selectOne("festival.selectTruckNum", mem_id);
+		return result;
+	}
+
+	@Override
 	public String confirmCheck(String event_num, String truck_num) {
 		HashMap map = new HashMap();
 		map.put("event_num", event_num);
 		map.put("truck_num", truck_num);
-		
-		String result = ss.selectOne("adver.confirmCheck",map);
+		String result = ss.selectOne("festival.confirmCheck", map);
 		return result;
 	}
 
-	//ajax->승인제어
+	@Override
 	public String confirmCancel(String event_num, String truck_num) {
 		HashMap map = new HashMap();
 		map.put("event_num", event_num);
 		map.put("truck_num", truck_num);
-		
-		String result = ss.selectOne("adver.confirmCancel",map);
+		String result = ss.selectOne("festival.confirmCancel", map);
 		return result;
 	}
 
-	//승인취소(Delete)
+	@Override
 	public void eventConfirmDelete(String event_num, String truck_num) {
 		HashMap map = new HashMap();
 		map.put("event_num", event_num);
 		map.put("truck_num", truck_num);
+		ss.delete("festival.eventConfirmDelete", map);
 		
-		ss.delete("adver.advConfirmDelete",map);		
 	}
 
 }

@@ -33,4 +33,6 @@ public interface FestivalDAO {
 	//승인취소(Delete)
 	void eventConfirmDelete(String event_num,String truck_num);
 	
+	//트럭번호 가져오기
+	String selectTrucknum(String mem_id);
 }

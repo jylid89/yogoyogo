@@ -55,8 +55,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 광고 신청추가(Insert) -->
 	<insert id="eventConfirmInsert" parameterType="yogo.festival.dto.FestivalVO">
-		INSERT INTO tb_eventconf
-		VALUES( eventconf_seq.nextval, #{event_num}, 'truck003', '대기중')
+		INSERT INTO tb_eventconf(eveconf_num, truck_num, event_num, eveconf_state)
+		VALUES( eventconf_seq.nextval, #{truck_num}, #{event_num}, '대기중')
 	</insert>
 	
 	<!-- ajax->신청/취소버튼 -->
@@ -67,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND truck_num = #{truck_num}
 	</select>
 
-	<!--ajax->승인제어 -->
+	<!-- ajax -> 승인제어  -->
 	<select id="confirmCancel" resultType="String" parameterType="hashmap">
 		SELECT eveconf_state
 		FROM tb_eventconf
@@ -82,6 +82,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE event_num = #{event_num}
 		AND truck_num = #{truck_num}
 	</delete>
+	
+	<!-- 트럭번호가져오기 -->
+	<select  id="selectTruckNum" parameterType="String" resultType="String">
+	SELECT truck_num
+	FROM tb_truck
+	WHERE mem_id = #{mem_id}
+	</select>
 
 </mapper>
 

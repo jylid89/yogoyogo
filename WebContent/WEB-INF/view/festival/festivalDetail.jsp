@@ -9,6 +9,7 @@
 	pageContext.setAttribute("br", "<br/>");
 	pageContext.setAttribute("cn", "\n");
 %>
+<% String mem_state = (String)session.getAttribute("mem_state"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +30,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 	$(function() {
 
 		$.ajax({
-			url : "confirmCheck.do",
+			url : "eveconfirmCheck.do",
 			type : "post",
 			data : {
 				"event_num" : $("#event_num").val(),
@@ -48,10 +49,9 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 
 		//신청하기 버튼 클릭시
 		$("#btn_confirm").click(function() {
-			alert("aa");
-			var result = confirm(' 신청 기간은 승인 다음날부터 3개월까지 입니다. 신청하시겠습니까?');
+			var result = confirm(' 신청하시겠습니까?');
 			if (result) {
-				$("#frm").attr("action", "eventConfirmInsert.do").submit();
+				$("#festiForm").attr("action", "eventConfirmInsert.do").submit();
 			}
 		});
 
@@ -62,7 +62,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							var result = confirm('신청을 취소하시겠습니까? (승인이 된 후에는 취소가 불가 합니다.)');
 							if (result) {
 								$.ajax({
-									url : "confirmCancel.do",
+									url : "eveconfirmCancel.do",
 									type : "post",
 									data : {
 										"event_num" : $("#event_num").val(),
@@ -73,9 +73,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 											alert("승인이 완료되어 취소가 불가 합니다.");
 											return;
 										} else {
-											$("#frm").attr("action",
-													"eventConfirmDelete.do")
-													.submit();
+											$("#festiForm").attr("action","eveConfirmDelete.do").submit();
 										}
 									}
 								})
@@ -232,28 +230,21 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 						onclick="javascript:location.href='festivalDelete.do?event_num=${viewModel.event_num}'"><button
 							class="btn btn-1 btn-1a">삭제</button></a>
 				</div>
-				<input type="hidden" name=event_num value=${viewModel.event_num }>
+				
 			</div>
 		</div>
 		<!-- 입점 신청 버튼 -->
-		<div class="col-xs-12 btn_group">
+		<div class="col-xs-12 btn_group ceo">
 			<div class="offer btn_group">
-				<input type="button" class="btn btn-2 btn-primary" value="입점 신청하기"
-					id="btn_confirm" /> &nbsp;&nbsp;&nbsp;&nbsp; <input type="button"
-					class="btn btn-3 btn-danger" value="신청취소" id="btn_cancel" /> <input
+				<input type="button" class="btn btn-2 btn-primary" value="입점 신청하기" id="btn_confirm" /> 
+				<input type="button"class="btn btn-3 btn-danger" value="신청취소" id="btn_cancel" /> <input
 					type="hidden" value="N" id="flag" />
-				<form name="frm" id="frm" method="post">
-					<input type="hidden" value="" name="event_num" id="event_num" /> <input
-						type="hidden" value="TRUCK003" name="truck_num" id="truck_num" />
+				<form id="festiForm" method="post">
+					<input type="hidden" name="event_num" id="event_num" value="${viewModel.event_num }">
+					<input type="hidden" value="${vo.truck_num }" name="truck_num" id="truck_num" />
 				</form>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
 </body>
 </html>

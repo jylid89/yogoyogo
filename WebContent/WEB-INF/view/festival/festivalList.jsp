@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<% String mem_state = (String)session.getAttribute("mem_state"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3l-heading">
 				<h3>행사목록</h3>
 			</div>
-			<div class="text-right">
+			<div class="text-right adver">
 				<button class="btn btn-1 btn-1a"
 					onclick="javascript:location.href='festivalInsert.do'">글쓰기</button>
 			</div>
