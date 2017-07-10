@@ -10,4 +10,5 @@ public interface PosDAO {
 	
 	int posInsert(PosVO vo);
 	
+	PosVO selectTruck(String truck_num);
 }

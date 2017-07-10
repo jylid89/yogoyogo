@@ -216,4 +216,9 @@ public class MypageImpl implements MypageDAO {
 		}
 		return result;
 	}
+
+	@Override
+	public MenuVO selectTruck(String truck_num) {
+		return ss.selectOne("mypage.selectTruck", truck_num);
+	}
 }

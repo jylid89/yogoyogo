@@ -30,8 +30,8 @@ public class MypageController {
 
 	// 케이터링 신청현황(일반사용자)
 	@RequestMapping(value="/catAppStatus_user.do")
-	public ModelAndView catAppStatus_user() {
-		String mem_id = "sangjun0131@naver.com";
+	public ModelAndView catAppStatus_user(HttpSession session) {
+		String mem_id = (String)session.getAttribute("mem_id");
 		List<CateringVO> list = new ArrayList<CateringVO>();
 		list = dao.selectCate_user(mem_id);
 		ModelAndView mv = new ModelAndView();
@@ -42,10 +42,10 @@ public class MypageController {
 	
 	// 케이터링 신청현황(사업자)
 	@RequestMapping(value="/catAppStatus_ceo.do")
-	public ModelAndView catAppStatus_ceo(){
+	public ModelAndView catAppStatus_ceo(HttpSession session){
 		System.out.println("사업자 컨트롤 타니?");
 		//찾을 아이디
-		String truck_num = "truck003";
+		String truck_num = (String)session.getAttribute("truck_num");
 		List<CateringVO> list = new ArrayList<CateringVO>();
 		list = dao.selectCate_ceo(truck_num);
 		ModelAndView mv = new ModelAndView();
@@ -58,9 +58,9 @@ public class MypageController {
 	
 	// 케이터링 신청현황(사업자)
 	@RequestMapping(value="/catAppApprove_ceo.do")
-	public ModelAndView catAppApprove_ceo(){
+	public ModelAndView catAppApprove_ceo(HttpSession session){
 		//찾을 아이디
-		String truck_num = "truck003";
+		String truck_num = (String)session.getAttribute("truck_num");
 		List<CateringVO> list = new ArrayList<CateringVO>();
 		list = dao.selectApprove_ceo(truck_num);
 		ModelAndView mv = new ModelAndView();
@@ -112,11 +112,14 @@ public class MypageController {
 	// 사업자 메뉴 리스트
 		@RequestMapping(value="menu_ceo.do")
 		public ModelAndView menu_ceo(HttpSession session) {
-			List<MenuVO> list = dao.selectMenu((String)session.getAttribute("mem_id"));
+			String mem_id = (String)session.getAttribute("mem_id");
+			String truck_num = (String)session.getAttribute("truck_num");
+			List<MenuVO> list = dao.selectMenu(mem_id);
+			MenuVO vo = dao.selectTruck(truck_num);
 			ModelAndView mv = new ModelAndView();
-			mv.addObject("truck_name", list.get(0).getTruck_name());
-			mv.addObject("truck_addr", list.get(0).getTruck_addr());
-			mv.addObject("truck_num", list.get(0).getTruck_num());
+			mv.addObject("truck_name", vo.getTruck_name());
+			mv.addObject("truck_addr", vo.getTruck_addr());
+			mv.addObject("truck_num", vo.getTruck_num());
 			mv.addObject("list", list);
 			mv.setViewName("/mypage/menu_ceo");
 			return mv;

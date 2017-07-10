@@ -62,5 +62,8 @@ public interface MypageDAO {
 	
 	//(사업자)케이터링 요청 거절 시
 	int catAppReject(CateringVO vo);
+	
+	// 트럭정보 가지고 오기
+	MenuVO selectTruck(String truck_num);
 
 }

@@ -155,4 +155,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE 	cate_num = #{cate_num}
 </update>
 
+<!-- 트럭정보 가지고 오기 -->
+<select id="selectTruck" parameterType="String" resultType="yogo.menu.dto.MenuVO">
+	SELECT truck_name, truck_addr, truck_num
+	FROM tb_truck
+	WHERE truck_num = #{truck_num}
+</select>
+
 </mapper>

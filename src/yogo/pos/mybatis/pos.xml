@@ -18,4 +18,11 @@ INSERT INTO TB_POS
 VALUES( POS_SEQ.nextval,'TRUCK003', sysdate , #{pos_totprice} , '1')
 </insert>
 
+<!-- 트럭 정보가지고 오기 -->
+<select id="selectTruck" parameterType="String" resultType="yogo.pos.dto.PosVO">
+SELECT truck_name
+FROM TB_TRUCK
+WHERE truck_num = #{truck_num}
+</select>
+
 </mapper>

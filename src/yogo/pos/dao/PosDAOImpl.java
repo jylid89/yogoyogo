@@ -40,6 +40,11 @@ public class PosDAOImpl implements PosDAO {
 		return result;
 	}
 
+	@Override
+	public PosVO selectTruck(String truck_num) {
+		return ss.selectOne("pos.selectTruck", truck_num);
+	}
+
 }
 
 

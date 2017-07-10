@@ -23,8 +23,9 @@ public class PosController {
 	public ModelAndView posList(HttpSession session){
 		String truck_num = (String)session.getAttribute("truck_num");
 		List<PosVO> list = posDAO.posList(truck_num);
+		PosVO vo = posDAO.selectTruck(truck_num);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("truck_name", list.get(0).getTruck_name());
+		mv.addObject("truck_name", vo.getTruck_name());
 		mv.addObject("posModel",list);
 		mv.setViewName("/pos/pos");
 		return mv;
