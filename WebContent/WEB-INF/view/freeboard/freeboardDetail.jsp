@@ -7,13 +7,8 @@
 <title>자유게시판 상세</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/YogoYogo/css/freeboard/freeboard.css"">
+
+<link rel="stylesheet" href="/YogoYogo/css/freeboard/freeboard.css">
 </head>
 <body>
 	<div class="container">
@@ -27,13 +22,13 @@
 								<div class="media">
 									<div class="media-left">
 										<a href="#"> <img
-											src="http://www.freeiconspng.com/uploads/person-male-light-icon--vista-people-iconset--icons-land-20.png"
+											src="/YogoYogo/images/freeboard/businessman.png"
 											class="media-object" alt="Sample Image">
 										</a>
 									</div>
 									<div class="media-body">
 										<h4 class="media-heading mg mg-t-5">
-											<span>${freeVO.mem_id}</span>
+											<span>${freeVO.mem_nick}</span>
 										</h4>
 										<input type="hidden" value="${freeVO.board_num}" name="board_num">
 									</div>
@@ -47,16 +42,16 @@
 						</div>
 
 						<div class="pd-b-10 pd-t-10 pd-r-15 pd-l-15"
-							style="padding: 35px; max-height: 500px; position: relative; overflow: block;">
+							style="padding: 10px 35px 35px 35px; max-height: 500px; position: relative; overflow: block;">
 							<h4 class="mg mg-t-5 mg-b-5 posttitle-font"></h4>
 							<h3>${freeVO.board_title}</h3>
 							<div class="mg postdesc-font"
-								style="-webkit-transition: top 1s; -moz-transition: top 1s; -o-transition: top 1s; transition: top 1s;">
+								style="-webkit-transition: top 1s; -moz-transition: top 1s; -o-transition: top 1s; transition: top 1s; margin: 15px">
 								${freeVO.board_content}</div>
-							<a href="freeModify.do?board_num=${freeVO.board_num}" style="text-decoration: none; display: inline-block; float: right; padding: 5px; color: white; background-color: orange"><div class="freeModify">수정</div></a>
-							<a href="freeDelete.do?board_num=${freeVO.board_num}" style="text-decoration: none; display: inline-block; float: right; padding: 5px; color: white; background-color: orange"><div class="freeDelete">삭제</div></a>
+							<a href="freeModify.do?board_num=${freeVO.board_num}" style="text-decoration: none; display: inline-block; float: right; padding: 10px; margin: 5px; color: white; background-color: orange"><div class="freeModify">수정</div></a>
+							<a href="freeDelete.do?board_num=${freeVO.board_num}" style="text-decoration: none; display: inline-block; float: right; padding: 10px; margin: 5px; color: white; background-color: orange"><div class="freeDelete">삭제</div></a>
 						</div>
-						<div class="post-post-content postMetaInline-media" style="">
+						<div class="post-post-content postMetaInline-media" style="border-bottom: none">
 							<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pd">
 								<div class="nav list-unstyled"></div>
 							</div>

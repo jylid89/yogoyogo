@@ -1,33 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
-
-<link rel="stylesheet" type="text/css"
-	href="/Marketing/view/css/noticeinsert.css">
-<script type="text/javascript" src="/Marketing/view/js/noticeinsert.js"></script>
-
+<title>자유게시판 글작성 페이지</title>
+<!-- <link rel="stylesheet" type="text/css" href="/Marketing/view/css/noticeinsert.css"> -->
+<!-- <script type="text/javascript" src="/Marketing/view/js/noticeinsert.js"></script> -->
 </head>
 <body>
 	<div class="wrapper">
-
 		<section id="support" class="doublediagonal">
-			<div class="container">b
+			<div class="container" style="margin-top: 40px; margin-bottom: 80px">
 				<div class="section-heading scrollpoint sp-effect3">
-					<h1>글쓰기</h1>
+					<h1 style="margin-bottom: 20px">자유게시판</h1>
 					<div class="divider"></div>
 				</div>
 				<div class="row">
@@ -38,28 +24,15 @@
 									enctype="multipart/form-data">
 
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="name"><h3>제목</h3></label>
 										<input name='board_title' type="text" class="form-control" name="board_title" id="board_title"
 											placeholder="제목을 입력하세요">
 									</div>
 									<div class="form-group">
-										<label class="col-md-3 control-label" for="location"><h3>구분</h3></label>
-										<select class='form-control' name='board_state'>
-											<option>공지사항</option>
-											<option>이벤트</option>
-											<option>자유게시판</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="message"><h3>내용</h3></label>
 										<textarea name='board_content' cols="30" rows="10" name="board_content" id="board_content"
 											class="form-control" placeholder="내용을 입력하세요"></textarea>
 									</div>
 									<!-- **************파일첨부 1************* -->
 									<div class="form-group ">
-										<label class="col-md-12 control-label" for="message"><h3>사진
-												업로드</h3></label>
-										<!-- image-preview-filename input [CUT FROM HERE]-->
 										<div class="input-group image-preview">
 											<input type="text"
 												class="form-control image-preview-filename"
@@ -93,24 +66,12 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</section>
-
 	</div>
-
-
-
-
-	</fieldset>
-	</form>
-	</div>
-	</div>
-	</div>
-	</div>
-	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+<!-- 	<script src="assets/js/jquery-1.11.1.min.js"></script> -->
+<!-- 	<script src="assets/js/bootstrap.min.js"></script> -->
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/placeholdem.min.js"></script>
 	<script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
@@ -123,6 +84,5 @@
 			appMaster.preLoader();
 		});
 	</script>
-
 </body>
 </html>

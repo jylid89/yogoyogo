@@ -10,17 +10,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT 	b.*, m.*
 	FROM 	tb_board b, tb_member m
 	WHERE 	board_state = 'freeboard' AND m.mem_id = b.mem_id
+	ORDER BY b.board_num DESC
 </select>
 
+<!-- 자유게시판 게시글 시퀀스 -->
 <select id="selectFreeSeq" resultType="String">
 	SELECT free_seq.nextval FROM dual
 </select>
 
 <!-- 자유게시판 상세 뷰(SELECT) -->
 <select id="freeDetail" resultType="yogo.board.dto.BoardVO" parameterType="yogo.board.dto.BoardVO">
- 	SELECT 	*
- 	FROM 	tb_board
- 	WHERE 	board_num = '${board_num}' AND board_state = 'freeboard'
+ 	SELECT 	b.*, m.*
+ 	FROM 	tb_board b, tb_member m
+ 	WHERE 	b.board_num = '${board_num}' AND b.board_state = 'freeboard' AND b.mem_id = m.mem_id
 </select>
 
 <!-- 자유게시판 작성(Insert) -->
