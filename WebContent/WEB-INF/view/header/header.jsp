@@ -176,7 +176,7 @@
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav">
 						<li><a href="foodtruckList.do" >푸드트럭</a></li> 	
-						<li><a href="about.html" >행사</a></li>
+						<li><a href="festivalList.do" >행사</a></li>
 						<li><a href="catelist.do">케이터링 신청</a></li>
 						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">서비스 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -187,7 +187,7 @@
 						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="newsList.do">뉴스</a></li>
-								<li><a href="codes.html">공지사항</a></li>
+								<li><a href="noticeList.do">공지사항</a></li>
 								<li><a href="freeboard.do">자유게시판</a></li>
 								<li><a href="qnaList.do">Q&A</a></li>     
 							</ul>
