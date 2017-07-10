@@ -18,6 +18,8 @@
 
   .overflow{
     overflow: hidden;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 20px;
   }
 
   .uppercase{
