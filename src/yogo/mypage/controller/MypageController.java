@@ -80,7 +80,7 @@ public class MypageController {
 		list = dao.adverConfList_adver(mem_id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
-		mv.setViewName("mypage/adverAppStatus_adver");
+		mv.setViewName("/mypage/adverAppStatus_adver");
 		return mv;
 	}
 	
