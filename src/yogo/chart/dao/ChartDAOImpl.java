@@ -19,7 +19,7 @@ public class ChartDAOImpl implements ChartDAO {
 	public List<Map<String, Object>> chartListTime(String selectDay, String truck_num) {
 		HashMap map = new HashMap();
 		map.put("selectDay", selectDay);
-		map.put("truck_num", truck_num);
+		map.put("truck_num", truck_num); 
 		return ss.selectList("chart.chartListTime", map);
 	}
 
