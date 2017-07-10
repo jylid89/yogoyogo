@@ -23,41 +23,41 @@
         
         <!-- Template CSS Files
         ================================================== -->
-        <link rel="stylesheet" href="css/mypage/bootstrap.min.css">
+<!--         <link rel="stylesheet" href="css/mypage/bootstrap.min.css"> -->
         <!-- Ionicons Fonts Css -->
-        <link rel="stylesheet" href="css/mypage/ionicons.min.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/ionicons.min.css">
         <!-- animate css -->
-        <link rel="stylesheet" href="css/mypage/animate.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/animate.css">
         <!-- Hero area slider css-->
-        <link rel="stylesheet" href="css/mypage/slider.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/slider.css">
         <!-- owl craousel css -->
-        <link rel="stylesheet" href="css/mypage/owl.carousel.css">
-        <link rel="stylesheet" href="css/mypage/owl.theme.css">
-        <link rel="stylesheet" href="css/mypage/jquery.fancybox.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/owl.carousel.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/owl.theme.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/jquery.fancybox.css">
         <!-- template main css file -->
-        <link rel="stylesheet" href="css/mypage/main.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/main.css">
         <!-- responsive css -->
-        <link rel="stylesheet" href="css/mypage/responsive.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/responsive.css">
         
         <!-- Template Javascript Files
         ================================================== -->
         <!-- modernizr js -->
-        <script src="js/mypage/modernizr-2.6.2.min.js"></script>
+        <script src="/YogoYogo/js/mypage/modernizr-2.6.2.min.js"></script>
         <!-- jquery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
         <!-- owl carouserl js -->
-        <script src="js/mypage/owl.carousel.min.js"></script>
+        <script src="/YogoYogo/js/mypage/owl.carousel.min.js"></script>
         <!-- bootstrap js -->
 
-        <script src="js/mypage/bootstrap.min.js"></script>
+<!--         <script src="js/mypage/bootstrap.min.js"></script> -->
         <!-- wow js -->
-        <script src="js/mypage/wow.min.js"></script>
+        <script src="/YogoYogo/js/mypage/wow.min.js"></script>
         <!-- slider js -->
-        <script src="js/mypage/slider.js"></script>
-        <script src="js/mypage/jquery.fancybox.js"></script>
+        <script src="/YogoYogo/js/mypage/slider.js"></script>
+        <script src="/YogoYogo/js/mypage/jquery.fancybox.js"></script>
         <!-- template main js -->
-        <script src="js/mypage/main.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/YogoYogo/js/mypage/main.js"></script>
+<!--         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 		<script type="text/javascript">
 		
 			$(function(){
@@ -102,9 +102,9 @@
                 <div class="container">
                     <div class="section-heading">
                         <h1 class="title wow fadeInDown" data-wow-delay=".3s">광고 신청현황</h1>
-                        <p class="wow fadeInDown" data-wow-delay=".5s">
-                            Aliquam lobortis. Maecenas vestibulum mollis diam. Pellentesque auctor neque nec urna. Nulla sit amet est. Aenean posuere <br> tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
-                        </p>
+<!--                         <p class="wow fadeInDown" data-wow-delay=".5s"> -->
+<!--                             Aliquam lobortis. Maecenas vestibulum mollis diam. Pellentesque auctor neque nec urna. Nulla sit amet est. Aenean posuere <br> tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. -->
+<!--                         </p> -->
                     </div>
                     
        	
@@ -114,7 +114,7 @@
                         <div class="col-sm-4 col-xs-12">
                             <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
                                 <div class="img-wrapper">
-                                    <img src="${list.truck_picreal1 }" class="img-responsive" alt="this is a title" >
+                                    <img src="${list.truck_picreal1 }" class="img-responsive" alt="this is a title" style="width:400px;">
                                     <div class="overlay">
                                         <div class="buttons">
                                             <a href="" data-toggle="modal" class="reduOK" data-target="#ModalCancel">거절</a>

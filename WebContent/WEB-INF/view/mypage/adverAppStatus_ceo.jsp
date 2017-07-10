@@ -31,7 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<body>	
 		<div class="work-progres">
 			<div class="chit-chat-heading">
-	      		Recent Followers
+	      		광고신청현황(사업자)
 			</div>
 			<br/><br/><br/><br/>
 			<div class="table-responsive">
