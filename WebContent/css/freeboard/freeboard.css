@@ -3,7 +3,7 @@ a{
 }
 
 .container{
-    margin: 50px auto;
+    margin: 0 auto;
     height: 500 px;
 }
 
@@ -14,10 +14,19 @@ a{
     border: 1px solid orange;
     background-color: orange;
     color: white;
+    margin-bottom: 30px;
 }
 
 .pageNum{
     display: inline-block;
+}
+
+.notice_title {
+	margin-top: 30px;	
+}
+
+.table-striped {
+	margin-top: 20px;
 }
 
  .one-post {

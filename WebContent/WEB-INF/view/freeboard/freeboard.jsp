@@ -12,7 +12,7 @@
 
 <body>
 <div class="container">
-  <h2>자유게시판</h2>
+  <h1 class="notice_title">자유게시판</h1>
   <!--<p>The .table-striped class adds zebra-stripes to a table:</p>            -->
   <table class="table table-striped">
     <thead>
@@ -41,7 +41,7 @@
       	</c:choose>
     </tbody>
   </table>
-  <div class="pageNum">< <a href="">1</a> ></div>
+  
   <a href="freeboardInsert.do"><div class="writeBtn">글쓰기</div></a>
 </div>
 

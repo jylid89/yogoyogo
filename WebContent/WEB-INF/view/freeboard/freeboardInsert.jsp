@@ -7,13 +7,14 @@
 <title>자유게시판 글작성 페이지</title>
 <!-- <link rel="stylesheet" type="text/css" href="/Marketing/view/css/noticeinsert.css"> -->
 <!-- <script type="text/javascript" src="/Marketing/view/js/noticeinsert.js"></script> -->
+<link rel="stylesheet" href="/YogoYogo/css/freeboard/freeboardInsert.css">
 </head>
 <body>
 	<div class="wrapper">
 		<section id="support" class="doublediagonal">
-			<div class="container" style="margin-top: 40px; margin-bottom: 80px">
+			<div class="container">
 				<div class="section-heading scrollpoint sp-effect3">
-					<h1 style="margin-bottom: 20px">자유게시판</h1>
+					<h1 class="writeTitle">자유게시판</h1>
 					<div class="divider"></div>
 				</div>
 				<div class="row">
@@ -41,7 +42,7 @@
 											<span class="input-group-btn"> <!-- image-preview-clear button -->
 												<button type="button"
 													class="btn image-preview-clear btn-primary btn-lg"
-													style="display: none;">
+													>
 													<span class="glyphicon glyphicon-remove"></span> Clear
 												</button> <!-- image-preview-input -->
 												<div class="btn image-preview-input btn-primary btn-lg">

@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+.tegline{
+	margin-top: 30px;
+}
+
+.notice_word{
+	margin-right: 5px;
+}
+
+.noticeWord{
+	float: right;
+	margin-bottom: 20px;
+	border-top: none;
+}
+
+.noticeBtn{
+	margin-right: 5px;
+	padding: 10px;
+	border: 1px solid black;
+	background: black;
+	color: white;
+	display: inline-block;
+}
+
+.notice_title{
+	margin-top: 30px;
+}
+
+.table-responsive{
+	margin-top: 20px;
+}
+
+.btn-lg{
+	display: inline-block;
+	float: right;
+}
+
+.col-md-6{
+	float:right;
+	margin-bottom: 30px;
+}
+
+.noticeWriteTitle{
+	margin-top: 30px;
+}
