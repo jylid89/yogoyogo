@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%
-    	String mem_id = (String)session.getAttribute("mem_id");
+    	String mem_id = (String)session.getAttribute("mem_id"); 
     %>
 <!DOCTYPE html>
 <html class="no-js">
