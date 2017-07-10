@@ -11,10 +11,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE cate.mem_id = #{mem_id} AND cate.truck_num = truck.truck_num
 </select>
 
+<!-- 케이터링 신청현황 ( 사업자 ) -->
 <select id="selectCate_ceo" resultType="yogo.catering.dto.CateringVO">
 	SELECT cate.*, mem.*, truck.*
 	FROM tb_cateconf cate, tb_member mem, tb_truck truck
-	WHERE cate.mem_id = mem.mem_id AND cate.truck_num = truck.truck_num
+	WHERE cate.mem_id = mem.mem_id 
+	AND cate.truck_num = truck.truck_num
+	AND cate.cate_state NOT IN( '거절' , '승인' )
+</select>
+
+<!-- 케이터링 승인현황 ( 사업자 ) -->
+<select id="selectApprove_ceo" resultType="yogo.catering.dto.CateringVO">
+	SELECT cate.*, mem.*, truck.*
+	FROM tb_cateconf cate, tb_member mem, tb_truck truck
+	WHERE cate.mem_id = mem.mem_id 
+	AND cate.truck_num = truck.truck_num
+	AND cate.cate_state = '승인'
 </select>
 
 <!-- (광고업체)광고신청현황 -->
@@ -127,6 +139,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	       truck_addr = #{truck_addr},   truck_postnum = #{truck_postnum}, 
 	       truck_catestate = #{truck_catestate}, truck_picreal1 = #{truck_picreal1}
 	WHERE mem_id = #{mem_id}
+</update>
+
+<!-- (사업자)케이터링 요청 승인 시 -->
+<update id="catAppConfirm" parameterType="yogo.catering.dto.CateringVO">
+	UPDATE 	tb_cateconf
+	SET 	cate_state='승인'
+	WHERE 	cate_num = #{cate_num}
+</update>
+
+<!-- (사업자)케이터링 요청 거절 시 -->
+<update id="catAppReject" parameterType="yogo.catering.dto.CateringVO">
+	UPDATE 	tb_cateconf
+	SET 	cate_state='거절' , cate_reason = #{cate_reason}
+	WHERE 	cate_num = #{cate_num}
 </update>
 
 </mapper>
