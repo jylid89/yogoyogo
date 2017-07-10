@@ -5,26 +5,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="chart">
 
-<select id="chartListTime" parameterType="String" resultType="hashmap">
+<select id="chartListTime" parameterType="hashmap" resultType="hashmap">
 SELECT to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS') as 시간, sum(pos_totprice) as 합계
 FROM tb_pos
-WHERE to_char(pos_date, 'YYYY-MM-DD') = #{selectDay}
+WHERE to_char(pos_date, 'YYYY-MM-DD') = #{selectDay} AND truck_num = #{truck_num}
 GROUP BY to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS')
 ORDER BY to_char(pos_date, 'YYYY-MM-DD HH24:MI:SS')
 </select>
 
-<select id="chartListDay" parameterType="String" resultType="hashmap">
+<select id="chartListDay" parameterType="hashmap" resultType="hashmap">
 SELECT to_char(pos_date, 'YYYY-MM-DD') as 일, sum(pos_totprice) as 합계
 FROM tb_pos
-WHERE to_char(pos_date, 'YYYY-MM') = #{selectMon}
+WHERE to_char(pos_date, 'YYYY-MM') = #{selectMon} AND truck_num = #{truck_num}
 GROUP BY to_char(pos_date, 'YYYY-MM-DD')
 ORDER BY to_char(pos_date, 'YYYY-MM-DD')
 </select>
 
-<select id="chartListMon" parameterType="String" resultType="hashmap">
+<select id="chartListMon" parameterType="hashmap" resultType="hashmap">
 SELECT to_char(pos_date, 'YYYY-MM') as 월, sum(pos_totprice) as 합계
 FROM tb_pos
-WHERE to_char(pos_date, 'YYYY') = #{selectYear}
+WHERE to_char(pos_date, 'YYYY') = #{selectYear} AND truck_num = #{truck_num}
 GROUP BY to_char(pos_date, 'YYYY-MM')
 ORDER BY to_char(pos_date, 'YYYY-MM')
 </select>

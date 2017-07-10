@@ -40,6 +40,9 @@ public class MemberDAOImpl implements MemberDAO {
 		MemberVO memberVo = null;
 		try {
 			memberVo = ss.selectOne("member.login", vo);
+			if(memberVo.getMem_state().equals("사업자")) {
+				memberVo.setTruck_num(ss.selectOne("member.loginGetTruckNum", vo));
+			}
 		} catch (Exception e) {
 			System.out.println("로그인실패함!!!!");
 		}

@@ -196,6 +196,8 @@
 							<ul class="dropdown-menu"> 
 								<li><a href="mempassConfirm.do">회원정보수정</a></li>
 								<li class="ceo"><a href="menu_ceo.do">메뉴수정(사업자)</a></li>
+								<li class="ceo"><a href="posList.do">포스기(사업자)</a></li>
+								<li class="ceo"><a href="chartList.do">매출통계(사업자)</a></li>
 								<li class="user"><a href="catAppStatus_user.do">케이터링신청현황(일반회원)</a></li>
 								<li class="ceo"><a href="catAppStatus_ceo.do">케이터링신청현황(사업자)</a></li>
 								<li class="ceo"><a href="adverAppStatus_ceo.do">광고신청현황(사업자)</a></li>

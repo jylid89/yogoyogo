@@ -2,13 +2,15 @@ package yogo.pos.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import yogo.pos.dto.PosVO;
 import yogo.pos.dao.PosDAOImpl;
+import yogo.pos.dto.PosVO;
 
 @Controller
 public class PosController {
@@ -18,9 +20,9 @@ public class PosController {
 	
 	//메뉴 리스트 보기
 	@RequestMapping(value="posList.do")
-	public ModelAndView posList(){
-		
-		List<PosVO> list = posDAO.posList();
+	public ModelAndView posList(HttpSession session){
+		String truck_num = (String)session.getAttribute("truck_num");
+		List<PosVO> list = posDAO.posList(truck_num);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("truck_name", list.get(0).getTruck_name());
 		mv.addObject("posModel",list);

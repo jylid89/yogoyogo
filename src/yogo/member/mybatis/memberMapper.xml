@@ -59,4 +59,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM tb_member
 	WHERE mem_id = #{mem_id}
 </select>
+
+<!-- 사업자일때 트럭번호 가지고 오기 -->
+<select id="loginGetTruckNum" parameterType="yogo.member.dto.MemberVO" resultType="String">
+	SELECT truck_num
+	FROM tb_truck
+	WHERE mem_id = #{mem_id}
+</select>
 </mapper>

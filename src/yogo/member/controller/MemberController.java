@@ -54,10 +54,11 @@ public class MemberController {
 		MemberVO reVO = memberDao.memberLogin(vo);
 		
 		if ( reVO != null ) {
-			session.setAttribute("mem_id", reVO.getMem_id());	
+			session.setAttribute("mem_id", reVO.getMem_id());
 			session.setAttribute("mem_state", reVO.getMem_state());
 			session.setAttribute("mem_nick", reVO.getMem_nick());
 			session.setAttribute("mem_name", reVO.getMem_name());
+			session.setAttribute("truck_num", reVO.getTruck_num());
 			result = 1;
 			view = "/main/main";
 		}

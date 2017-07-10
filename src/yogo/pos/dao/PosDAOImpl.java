@@ -16,11 +16,11 @@ public class PosDAOImpl implements PosDAO {
 	SqlSessionTemplate ss;
 	
 	//메뉴 리스트
-	public List<PosVO> posList() {
+	public List<PosVO> posList(String truck_num) {
 		
 		List list = new ArrayList();
 		try{
-			list = ss.selectList("pos.posSelect");
+			list = ss.selectList("pos.posSelect", truck_num);
 		}catch(Exception ex){
 			System.out.println("PosDAOImpl / posList 실패 : " + ex.getMessage());
 		}
