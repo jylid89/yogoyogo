@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 행사 추가하기 -->
 	<insert id="festivalInsert" parameterType="yogo.festival.dto.FestivalVO">
 		INSERT INTO TB_EVENT VALUES( EVENT_SEQ.nextval, 'qwer01@yogo.com',
-		#{event_loc}, #{event_name}, #{event_content}, #{event_comp}, '0'
+		#{event_loc}, #{event_name}, #{event_content}, #{event_comp}
 		<if test="event_picreal!= null || event_picreal != 'null'  ">
 		, #{event_picreal}
 		</if>
