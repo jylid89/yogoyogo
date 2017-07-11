@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%String mem_id = (String)session.getAttribute("mem_id"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,7 @@
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 </script>
+
 </head>
 	<body>
 	<!-- 리스트불러오기 -->
@@ -26,7 +27,7 @@
 			<c:forEach items='${listModel}'  var="a">
 				<div class="col-sm-4 w3_tab_img_left">
 					<div class="demo">
-						<a href="festivalView.do?event_num=${a.event_num}">
+						<a href="festivalView.do?event_num=${a.event_num}" id="doDetail">
 								<img src="/YogoYogo/images/festival/${a.event_picreal}" alt=" " class="img-responsive festiImg" />
 						</a>
 					</div>
@@ -36,6 +37,7 @@
 					</div>
 				</div>
 			</c:forEach>
+						<input type="hidden" id="mem_id" value="<%=mem_id %>"/>
 			<div class="clearfix"></div>
 		</div>
 		<div class="text-right evt">

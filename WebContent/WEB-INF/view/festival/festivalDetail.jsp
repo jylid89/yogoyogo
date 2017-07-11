@@ -9,8 +9,12 @@
 	pageContext.setAttribute("br", "<br/>");
 	pageContext.setAttribute("cn", "\n");
 %>
-<% String mem_state = (String)session.getAttribute("mem_state"); %>
-<% String mem_id = (String)session.getAttribute("mem_id"); %>
+<% 
+
+	String mem_state = (String)session.getAttribute("mem_state"); 
+	String mem_id = (String)session.getAttribute("mem_id");
+
+%>
 <!DOCTYPE>
 <html>
 <head>
@@ -31,13 +35,26 @@
 </script>
 
 <script type="text/javascript">
+
 	$(function(){
 		//자신의 글만 수정 삭제 보이기
+		if($("#mem_id").val() != null || $("#mem_id").val() != ""){
 		if($("#writer_id").val() == $("#mem_id").val()){
 				$(".updelete").show();
 			}else{
 				$(".updelete").hide();
 			}
+		}else{
+			$(".updelete").hide();
+		}
+		
+		//입점신청 버튼 사업자만 보이게 하기
+		if($("#mem_state").val() == "사업자"){
+			$(".valibtn").show();
+		}else{
+			$(".valibtn").hide();
+		}
+		
 	});
 </script>
 </head>
@@ -73,6 +90,7 @@
 		<font face="함초롬돋움">
 			<input type="hidden" id="writer_id" value="${viewModel.mem_id }"/>
 			<input type="hidden" id="mem_id" value="<%=mem_id %>" />
+			<input type="hidden" id="mem_state" value="<%=mem_state %>" />
 		</font>
 		
 		<div class="col-xs-12">
@@ -186,7 +204,7 @@
 		</div>
 		<!-- 입점 신청 버튼 -->
 		<div class="col-xs-12 btn_group ceo">
-			<div class="offer btn_group">
+			<div class="offer btn_group valibtn">
 				<input type="button" class="btn btn-2 btn-primary" value="입점 신청하기" id="btn_confirm" /> 
 				<input type="button"class="btn btn-3 btn-danger" value="신청취소" id="btn_cancel" /> <input
 					type="hidden" value="N" id="flag" />

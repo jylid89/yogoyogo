@@ -39,12 +39,19 @@ public class FestivalController {
 	public ModelAndView view( FestivalVO vo ,HttpSession session){
 		String mem_state = (String)session.getAttribute("mem_state");
 		String mem_id = (String)session.getAttribute("mem_id");
+		
+		if(mem_state == null){
+			mem_state="비회원";
+		}
+		
 		if(mem_state.equals("사업자")){
 			String truck_num = festivalDAO.selectTrucknum(mem_id);
 			vo.setTruck_num(truck_num);
+		}else{
+			
 		}
-		FestivalVO view = festivalDAO.festivalView(vo);
 		
+		FestivalVO view = festivalDAO.festivalView(vo);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("viewModel",view);
 		mv.addObject("vo", vo);
