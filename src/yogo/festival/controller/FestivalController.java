@@ -75,7 +75,7 @@ public class FestivalController {
         if (event_pictemp != null) {
             String event_picreal = event_pictemp.getOriginalFilename();
             event_picreal =System.currentTimeMillis() +"_"+  event_picreal;
-            vo.setEvent_picreal(event_picreal);
+            vo.setEvent_picreal("/YogoYogo/images/festival/"+event_picreal);
             try {
             	
                 // 2. File 사용

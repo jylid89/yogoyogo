@@ -21,7 +21,10 @@
 <body>
 	<div class="container">
 		<div class="text-center">
-			<h1>광고대행</h1>
+			<br/><br/>
+				<h1 style="font-family: hunR">광고대행 서비스</h1><br/>
+				<h6 style="font-family: hunR">광고대행 서비스 입니다. 원하는 광고를 클릭하여 상세 화면을 찾아보세요.</h6>
+			<br/><br/>
 		</div>
 			
 		 <div class="col-md-12">
@@ -38,9 +41,9 @@
 			<div class="clear"></div>
      </div>
      <div class="col-md-12 text-right">
-				<button class="btn btn-1 btn-1a"
-					onclick="javascript:location.href='insertForm.do'">글쓰기</button>
+				<button class="btn btn-1 btn-1a" onclick="javascript:location.href='insertForm.do'">글쓰기</button>
 			</div>
+			<br/><br/><br/>
      </div>
 </body>
 </html>

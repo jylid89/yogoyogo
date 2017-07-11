@@ -8,6 +8,8 @@ function hideURLbar(){ window.scrollTo(0,1); }
 
 $(function() {
 	
+	
+	
 	// 로그인 버튼을 눌렀을 때 ajax를 통해 아이디 비밀번호 확인
 	$("#loginOK").click(function(){
 		$.ajax({
@@ -30,11 +32,13 @@ $(function() {
 	
 	$('.login').show();
 	$('.logout').hide();
+	$(".adverClass").hide();
 	
 	// 로그인 했을때
 	if ($('#mem_name').val() != "null") {
 		$('.login').hide();
 		$('.logout').show();
+		
 		
 		// 로그인한 회원이 일반회원일때
 		if($('#mem_state').val() == "일반회원") {
@@ -42,6 +46,7 @@ $(function() {
 			$('.ceo').hide();
 			$('.adver').hide();
 			$('.evt').hide();
+			$(".adverClass").hide();
 			
 		// 로그인한 회원이 사업자일때
 		} else if($('#mem_state').val() == "사업자") {
@@ -49,6 +54,7 @@ $(function() {
 			$('.ceo').show();
 			$('.adver').hide();
 			$('.evt').hide();
+			$(".adverClass").show();
 			
 		// 로그인한 회원이 광고업체일때
 		} else if($('#mem_state').val() == "광고업체") {
@@ -56,6 +62,7 @@ $(function() {
 			$('.ceo').hide();
 			$('.adver').show();
 			$('.evt').hide();
+			$(".adverClass").show();
 		
 		// 로그인한 회원이 행사기획자일때
 		} else if($('#mem_state').val() == "행사기획자") {
@@ -63,8 +70,11 @@ $(function() {
 			$('.ceo').hide();
 			$('.adver').hide();
 			$('.evt').show();
-		} 
+			$(".adverClass").hide();
+		}
+		
 	}
+	
 });
 
 $(document).ready(function () { 
@@ -150,3 +160,5 @@ function loginWithKakao() {
   });
 };
 //]]>
+
+

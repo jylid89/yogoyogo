@@ -24,11 +24,13 @@
     			<br/><br/>
 	    			<section id="pinBoot">
 						<c:forEach varStatus="status" items="${list}" var="list" >
-	      					<article class="white-panel"><img src="${list.board_picreal }" alt="">
+	      					<article class="white-panel"><a href="newsDetail.do?board_num=${list.board_num}">
+	      						<img src="${list.board_picreal }" alt=""></a>
 	      					<br/><br/>
-	        					<h4><a href="newsDetail.do?board_num=${list.board_num}"><font face="hanna">${list.board_title }</font></a></h4>
+	        					<h4><a href="newsDetail.do?board_num=${list.board_num}">
+	        						<font face="hanna">${list.board_title }</font></a></h4>
 	        					<br/>
-	        					<p>${list.board_content}</p>
+	        					<a href="newsDetail.do?board_num=${list.board_num}"><p>${list.board_content}</p></a>s
 	      					</article>
 						</c:forEach>
 	    			</section>
