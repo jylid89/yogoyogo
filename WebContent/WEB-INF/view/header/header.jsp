@@ -159,7 +159,6 @@
                         <li><a href="newsList.do">뉴스</a></li>
                         <li><a href="noticeList.do">공지사항</a></li>
                         <li><a href="freeboard.do">자유게시판</a></li>
-                        <li><a href="qnaList.do">Q&A</a></li>     
                      </ul>
                   </li>
                   <li class="w3pages logout"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">마이페이지 <span class="caret"></span></a>

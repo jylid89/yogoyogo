@@ -202,7 +202,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							<div class="panel-body">
 							<c:forEach varStatus="status" items="${menu_drink}" var="menu_drink" >
 								<div class="col-md-3 order-grid">
-									<img src="${menu_drink.menu_picreal } style="height:300px;, width:300px;" class="img-responsive" alt="/">
+									<img src="${menu_drink.menu_picreal }" style="height:300px;, width:300px;" class="img-responsive" alt="/">
 									<div class="caption">
 										<div class="small">
 											<span class="text-ellipsis">${menu_drink.menu_name }</span><br /> <strong
