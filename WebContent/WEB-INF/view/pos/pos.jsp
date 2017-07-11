@@ -49,55 +49,60 @@ $(function() {
 		modal.keydown(ev);
 	}, false);
 
-	//결제 버튼 눌렀을 시 모달
+	//결제 버튼 눌렀을 시 결제창
 	$('.sale-btn').click(function(ev) {
+		
+		//tot = $("#total-price1").val();
+		//price = $("#total_price_modal").val(tot);
+		
+		var total = $('#total-price').text();
+		price = $("#total_price_modal").val(total);
 		modal.open();
+		
+		order = $("#pos_order").text();
+		$("#order").val(order);
+		
+		input_money = $("#screen").val();
+		$("#input_money").text(input_money);
+		
+		$(".keys").click(function(){
+			$("#change_money").val(String(Number($("#input_money").text())-(Number($('#total_price_modal').val()))))
+		});
+		
 		
 	});
 
 	$('#btn-reject_Ok').click(function() {
 		$("#cate_num").val($(".cate_num").val());
 	});
+	
+	
+	
+	
+	
+	
+	
+	
 	window.modal = modal;
 
 });
 </script>
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$(".pos_menu")
-								.click(
-										function() {
-											$("tbody")
-													.prepend(
-															"<tr><td>"
-																	+ $(this)
-																			.find(
-																					'h4')
-																			.text()
-																	+ "</td><td class='num'>1</td><td>"
-																	+ $(this)
-																			.find(
-																					'p')
-																			.text()
-																	+ "</td><td><input class='plus btn' type='button' value='+' onclick='plus(this)'/></td><td><input class='minus btn' type='button' value='-' onclick='minus(this)'/></td><td><input class='del btn btn-danger' type='button' value='휴지통' onclick='del(this)'/></td></tr>")
-											$("#total-price").text(
-													String(Number($(
-															"#total-price")
-															.text())
-															+ Number($(this)
-																	.find('p')
-																	.text())));
-											$("#total-price1").val(
-													String(Number($(
-															"#total-price")
-															.text())
-															+ Number($(this)
-																	.find('p')
-																	.text())));
-										});
-					});
+
+// 메뉴 클릭 시 화면에 메뉴 찍히는 쿼리
+$(document).ready(function() {
+	$(".pos_menu").click(function() {
+		$("tbody").prepend("<tr><td>"+
+							$(this).find('h4').text()
+							+ "</td><td class='num'>1</td><td>"
+							+ $(this).find('p').text()
+							+ "</td><td><input class='plus btn' type='button' value='+' onclick='plus(this)'/></td><td><input class='minus btn' type='button' value='-' onclick='minus(this)'/></td><td><input class='del btn btn-danger' type='button' value='휴지통' onclick='del(this)'/></td></tr>")
+		$("#total-price").text(String(Number($("#total-price").text())+ Number($(this).find('p').text())));
+		$("#total-price1").val(String(Number($("#total-price").text())+ Number($(this).find('p').text())));
+									});
+				});
+				
+	// 휴지통 버튼				
 	function del(elem) {
 		$(elem).parents('tr').remove();
 		$("#total-price")
@@ -115,6 +120,7 @@ $(function() {
 										elem).parents('tr').find('td:eq(1)')
 										.text())))));
 	}
+	// + 버튼
 	function plus(elem) {
 		$("#total-price")
 				.text(
@@ -130,7 +136,9 @@ $(function() {
 				String(Number($(elem).parents('tr').find('td:eq(1)').text())
 						+ Number(1)));
 
-	}
+}
+	
+	// - 버튼
 	function minus(elem) {
 		if ($(elem).parents('tr').find('td:eq(1)').text() > 1) {
 			$("#total-price").text(
@@ -147,7 +155,9 @@ $(function() {
 									.find('td:eq(1)').text())
 									- Number(1)));
 		}
-	}
+
+
+}
 </script>
 
 </head>
@@ -181,9 +191,9 @@ $(function() {
 				<div class="col-md-5">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">주문번호</h3>
+							<h3 class="panel-title pos_order">주문번호</h3>
 						</div>
-						<h1></h1>
+						<div class="pos_order" id="pos_order">1</div>
 					</div>
 					<div class="panel panel-success sale-body">
 						<div class="panel-heading">
@@ -191,7 +201,6 @@ $(function() {
 						</div>
 						<div class="table-responsive">
 							<table id="mytable" class="table table-bordred table-striped">
-
 								<thead>
 									<th>메뉴 이름</th>
 									<th>개수</th>
@@ -201,9 +210,7 @@ $(function() {
 									<th>메뉴삭제</th>
 								</thead>
 								<tbody>
-
 									<tr>
-
 									</tr>
 								</tbody>
 							</table>
@@ -214,14 +221,14 @@ $(function() {
 						<button type="submit" class="btn sale-btn btn-warning"
 							id="sale-btn">
 							<div class="col-md-6">
-								<h3>결제</h3>
+								<h3>합계</h3>
 							</div>
 							<div class="col-md-6">
 								<h3 id="total-price">0</h3>
 							</div>
 						</button>
 						<input name="pos_totprice" type="hidden" id="total-price1"
-							value="0" />
+							value="0" class="total_price_first" />
 						<input name="pos_num" type="hidden" id="pos_num"/>
 					</div>
 				</div>
@@ -233,7 +240,7 @@ $(function() {
 	<div id="modal" class="modal">
 		<div class="modal-dialog animated">
 			<div class="modal-content">
-				<form action="catAppReject.do" class="form-horizontal" method="get">
+				<form class="form-horizontal" action="posInsertOk.do" method="post" >
 					<div class="modal-header">
 						<strong>결제</strong>
 					</div>
@@ -268,26 +275,40 @@ $(function() {
 										<label for="dummyText" class="control-label ">결제 구분 :</label>
 									</div>
 									<div class="text-padding">
-										<label for="dummyText" class="control-label screen">받은 금액 :</label>
+										<label for="dummyText" class="control-label">받은 금액 :</label>
 									</div>
 									<div class="text-padding">
 										<label for="dummyText" class="control-label ">거스름 돈 :
 										</label>
 									</div>
-								</div><div class="screen"></div>
+								</div>
 								<div class="col-md-4">
-									<input type="text" name="cate_reason" id="cate_reason"
-										class="form-control input-padding"> 
+									<input type="text" name="order" id="order"
+										class="form-control input-padding">
 									<input type="text"
-										name="cate_reason" id="cate_reason" class="form-control input-padding">
-									<input type="text" name="cate_reason" id="cate_reason"
-										class="form-control input-padding"> 
-									<input type="number"
-										name="cate_reason" id="cate_reason" class="form-control input-padding" value="">
-									<input type="number" name="cate_reason" id="cate_reason"
+										name="pos_totprice" id="total_price_modal" class="form-control input-padding">
+									<div class="col-md-12 radio_button">
+										<div class="col-md-6">
+											<div class="radio input-padding" >
+												<label> <input type="radio" name="optionsRadios"
+													id="optionsRadios1" value="option1" checked>카드
+												</label>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="radio input-padding">
+												<label> <input type="radio" name="optionsRadios"
+													id="optionsRadios2" value="option2">현금
+												</label>
+											</div>
+										</div>
+									</div>
+									<div   id="input_money"
+										class="form-control input-padding screen"></div>
+									<input type="text" name="change_money" id="change_money"
 										class="form-control input-padding">
 								</div>
-								
+								<input type="hidden" class="screen" id="screen" /> 
 							</div>
 						</div>
 
@@ -296,8 +317,8 @@ $(function() {
 					<div class="modal-footer">
 						<button name="btn-default" id="btn-default"
 							class="btn btn-default" type="button" onclick="modal.close();">취소</button>
-						<button name="btn-reject_Ok" id="btn-reject_Ok"
-							class="btn btn-reject_Ok" type="submit">전송</button>
+						<button name="btn_complete" id="btn_complete"
+							class="btn btn_complete" type="submit">결제</button>
 					</div>
 				</form>
 			</div>

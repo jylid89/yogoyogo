@@ -26,6 +26,28 @@
     
 }
 
+
+.input-padding{
+	
+	font-size: 20px;
+	text-align: right;
+	
+}
+.radio_button{
+	
+	margin-top: 27px;
+	
+}
+.radio{
+	
+	width: 70px;
+	
+}
+.pos_order{
+	
+	font-size: 30pt;
+}
+
 .col-md-12{
 
 	text-align: center;
