@@ -268,7 +268,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							</div>
 						</div>
 						</c:forEach>
-					</div>
+					</div> 
 					<!-- //Review -->
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
 					<c:forEach varStatus="status" items="${reviewList}" var="reviewList" >
