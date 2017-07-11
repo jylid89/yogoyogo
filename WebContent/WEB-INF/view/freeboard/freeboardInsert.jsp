@@ -40,11 +40,11 @@
 												disabled="disabled">
 											<!-- don't give a name === doesn't send on POST/GET -->
 											<span class="input-group-btn"> <!-- image-preview-clear button -->
-												<button type="button"
-													class="btn image-preview-clear btn-primary btn-lg"
-													>
-													<span class="glyphicon glyphicon-remove"></span> Clear
-												</button> <!-- image-preview-input -->
+<!-- 												<button type="button" -->
+<!-- 													class="btn image-preview-clear btn-primary btn-lg" -->
+<!-- 													> -->
+<!-- 													<span class="glyphicon glyphicon-remove"></span> Clear -->
+<!-- 												</button> image-preview-input -->
 												<div class="btn image-preview-input btn-primary btn-lg">
 													<span class="glyphicon glyphicon-folder-open"></span> <span
 														class="image-preview-input-title">Browse</span> <input
