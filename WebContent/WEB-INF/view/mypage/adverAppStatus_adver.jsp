@@ -37,7 +37,7 @@
         <!-- template main css file -->
         <link rel="stylesheet" href="/YogoYogo/css/mypage/main.css">
         <!-- responsive css -->
-        <link rel="stylesheet" href="/YogoYogo/css/mypage/responsive.css">
+<!--         <link rel="stylesheet" href="/YogoYogo/css/mypage/responsive.css"> -->
         
         <!-- Template Javascript Files
         ================================================== -->

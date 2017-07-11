@@ -23,40 +23,40 @@
         
         <!-- Template CSS Files
         ================================================== -->
-        <link rel="stylesheet" href="css/mypage/bootstrap.min.css">
+<!--         <link rel="stylesheet" href="css/mypage/bootstrap.min.css"> -->
         <!-- Ionicons Fonts Css -->
-        <link rel="stylesheet" href="css/mypage/ionicons.min.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/ionicons.min.css">
         <!-- animate css -->
-        <link rel="stylesheet" href="css/mypage/animate.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/animate.css">
         <!-- Hero area slider css-->
-        <link rel="stylesheet" href="css/mypage/slider.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/slider.css">
         <!-- owl craousel css -->
-        <link rel="stylesheet" href="css/mypage/owl.carousel.css">
-        <link rel="stylesheet" href="css/mypage/owl.theme.css">
-        <link rel="stylesheet" href="css/mypage/jquery.fancybox.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/owl.carousel.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/owl.theme.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/jquery.fancybox.css">
         <!-- template main css file -->
-        <link rel="stylesheet" href="css/mypage/main.css">
+        <link rel="stylesheet" href="/YogoYogo/css/mypage/main.css">
         <!-- responsive css -->
-        <link rel="stylesheet" href="css/mypage/responsive.css">
+<!--         <link rel="stylesheet" href="/YogoYogo/css/mypage/responsive.css"> -->
         
         <!-- Template Javascript Files
         ================================================== -->
         <!-- modernizr js -->
-        <script src="js/mypage/modernizr-2.6.2.min.js"></script>
+        <script src="/YogoYogo/js/mypage/modernizr-2.6.2.min.js"></script>
         <!-- jquery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
         <!-- owl carouserl js -->
-        <script src="js/mypage/owl.carousel.min.js"></script>
+        <script src="/YogoYogo/js/mypage/owl.carousel.min.js"></script>
         <!-- bootstrap js -->
 
-        <script src="js/mypage/bootstrap.min.js"></script>
+<!--         <script src="js/mypage/bootstrap.min.js"></script> -->
         <!-- wow js -->
-        <script src="js/mypage/wow.min.js"></script>
+        <script src="/YogoYogo/js/mypage/wow.min.js"></script>
         <!-- slider js -->
-        <script src="js/mypage/slider.js"></script>
-        <script src="js/mypage/jquery.fancybox.js"></script>
+        <script src="/YogoYogo/js/mypage/slider.js"></script>
+        <script src="/YogoYogo/js/mypage/jquery.fancybox.js"></script>
         <!-- template main js -->
-        <script src="js/mypage/main.js"></script>
+        <script src="/YogoYogo/js/mypage/main.js"></script>
     </head>
         <body>
             <section id="works" class="works">
