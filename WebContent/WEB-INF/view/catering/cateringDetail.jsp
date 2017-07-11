@@ -14,6 +14,19 @@
 	margin-top: 20px;
 }
 </style>
+<script type="text/javascript">
+$(function() {
+	$('#cateSubmit').click(function() {
+		$('#sum_cate_time').val($('#startTime').val()+"~"+$('#endTime').val());
+		var cate_people = $('#cate_people').val().split('명')
+		$('#cate_people').val(cate_people[0]);
+		
+		var cate_budget = $('#cate_budget').val().split('원')
+		$('#cate_budget').val(cate_budget[0]);
+		$('#cateForm').attr('action', 'write_ok.do').submit();
+	});
+});
+</script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <!-- <link rel="stylesheet" -->
 <!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
@@ -35,125 +48,21 @@
 	<div class="menu">
 		<div class="container">
 			<div class="special-heading">
-				<h3>푸드트럭 명</h3>
+				<h3>${truckName }</h3>
 			</div>
 			<div class="menu-top-grids">
 				<div class="w3ls-menu-grids">
+					<c:forEach varStatus="status" items="${model}" var="model" >
 					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m1.jpg" alt="" />
+						<div class="agile-menu-grid text-center">
+								<img src="${model.menu_picreal }" style="width:223px; height:250px;" alt="" />
 								<div class="agileits-caption">
-									<h4>양꼬치</h4>
-									<p>1900원</p>
+									<h4>${model.menu_name }</h4>
+									<p>${model.menu_price }원</p>
 								</div>
 						</div>
 					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m2.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>크리스피 치킨</h4>
-									<p>16000원</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m3.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Phasellus</h4>
-									<p>$18</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m4.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Mauris </h4>
-									<p>$21</p>
-								</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-<!-- 				<div class="w3ls-menu-grids agileinfo"> -->
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m5.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Consectetur</h4>
-									<p>$10</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m6.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Suspendisse</h4>
-									<p>$15</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m1.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Phasellus</h4>
-									<p>$18</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m2.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Mauris </h4>
-									<p>$21</p>
-								</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-<!-- 				</div> -->
-				<div class="w3ls-menu-grids wthree-menu-grids">
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m3.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Consectetur</h4>
-									<p>$10</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m4.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Suspendisse</h4>
-									<p>$15</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m5.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Phasellus</h4>
-									<p>$18</p>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-3 menu-grid">
-						<div class="agile-menu-grid">
-								<img src="/YogoYogo/images/catering/m6.jpg" alt="" />
-								<div class="agileits-caption">
-									<h4>Mauris </h4>
-									<p>$21</p>
-								</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -162,26 +71,28 @@
 	<!-- 케이터링 신청 부분 -->
 	<h1>케이터링 신청하기</h1>
 	<div class="main-agile">
-		<form action="#" method="post">
-			<input  id="datepicker" name="Text" type="text" value="시작 일자" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Arrival date';}" required="">
-			<input  id="datepicker1" class="cal2" name="Text" type="text" value="종료 일자" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Departure date';}" required="">
-			<input type="text"  class="hname" name="name" placeholder="시작시간" required="">
-			<input type="text"  class="hname" name="name" placeholder="종료시간" required="">
-			<input type="text"  class="hname" name="name" placeholder="인원 수" required="">
-			<input type="text"  class="fname" name="First name" placeholder="이름" required="">
-			<input type="text"  class="lname" name="Last name" placeholder="Email" required="">
-			<input type="text"  class="pnum" name="Phone number" placeholder="핸드폰 번호" required="">
-			<input type="text"  class="email" name="Email" placeholder="예산" required="">
-			<input type="text"  class="addr" name="name" placeholder="주소" required="">
-			<input type="submit" value="신청하기">
+		<form id="cateForm" method="post">
+			<input type="text" name="cate_name" placeholder="케이터링 제목" required="">
+			<input type="text" name="cate_call" placeholder="신청자 연락처" required="">
+			<input type="text" id="startTime" placeholder="시작시간" required="">
+			<input type="text" id="endTime" placeholder="종료시간" required="">
+			<input id="datepicker" name="cate_date" type="text" value="케이터링 날짜" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '케이터링 날짜';}" required="">
+			<input type="text" name="cate_addr" placeholder="장소" required="">
+			<input type="text" name="cate_people" id="cate_people" placeholder="인원수" required="">
+			<input type="text" name="cate_budget" id="cate_budget" placeholder="예산" required="">
+			<input type="hidden" name="truck_num" value="${truckNum }">
+			<input type="hidden" id="sum_cate_time" name="cate_time" value="">
 		</form>
+			<input type="submit" id="cateSubmit" value="신청하기">
 	</div>
 <!-- Calendar -->
 	<link rel="stylesheet" href="/YogoYogo/css/catering/jquery-ui.css" />
 	<script src="/YogoYogo/js/catering/jquery-ui.js"></script>
 		<script>
-		 $(function() {
-		$( "#datepicker,#datepicker1" ).datepicker();
+		$(function() {
+			$( "#datepicker" ).datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
 		});
 	 </script>
 <!-- //Calendar -->

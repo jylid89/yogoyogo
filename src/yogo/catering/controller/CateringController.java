@@ -1,11 +1,11 @@
 package yogo.catering.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,15 +22,10 @@ public class CateringController {
 	
 		//write.do 생성
 		@RequestMapping("write_ok.do")
-		public ModelAndView insert(CateringVO vo){
-			String message = "글작성 실패";
-			int result = cateringDAO.cateringInsert(vo);
-			if(result > 0) message = "글작성 성공";
-			ModelAndView mv = new ModelAndView();
-			mv.addObject("message",message);
-			mv.addObject("result",result);
-			mv.setViewName("/catering/cateringDetail");
-			return mv;
+		public String insert(CateringVO vo, HttpSession session){
+			vo.setMem_id((String)session.getAttribute("mem_id"));
+			cateringDAO.cateringInsert(vo);
+			return "redirect:cateList.do";
 		}
 		
 		//list.do 생성
@@ -54,7 +49,7 @@ public class CateringController {
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("model",list);
 			mv.addObject("truckName",truckName);
-			mv.addObject("truckNum",truckName);
+			mv.addObject("truckNum",truckNum);
 			mv.setViewName("/catering/cateringDetail");
 			return mv;
 		}

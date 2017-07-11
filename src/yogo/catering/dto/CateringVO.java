@@ -3,6 +3,8 @@ package yogo.catering.dto;
 public class CateringVO {
 	/* 케이터링 번호 */
 	private String cate_num;
+	/* 케이터링 이름 */
+	private String cate_name;
 	/* 회원 ID */
 	private String mem_id;
 	/* 트럭번호 */
@@ -34,9 +36,12 @@ public class CateringVO {
 	/* 고객 연락처 */
 	private String mem_call;
 	
-	
-	
-	
+	public String getCate_name() {
+		return cate_name;
+	}
+	public void setCate_name(String cate_name) {
+		this.cate_name = cate_name;
+	}
 	public String getCate_reason() {
 		return cate_reason;
 	}

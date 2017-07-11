@@ -93,6 +93,7 @@ $(function(){
                         <table class='table table-hover ' style="text-align: center;">
                         	<thead>
                         		<tr>
+                        			<th class='text-center'>제목</th>
                         			<th class='text-center'>날짜</th>
                         			<th class='text-center'>시간</th>
                         			<th class='text-center'>인원</th>
@@ -102,6 +103,7 @@ $(function(){
                         		</tr>
                         	</thead>
                         		<tr>
+                        			<td>${list.cate_name}</td>
                         			<td>${list.cate_date}</td>
                         			<td>${list.cate_time}</td>
                         			<td>${list.cate_people}</td>

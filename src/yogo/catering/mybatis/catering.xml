@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 신청부분 -->	
 <insert id="cateringinsert" parameterType="yogo.catering.dto.CateringVO">
 	INSERT INTO tb_cateconf
-	VALUES( #{cate_num}, 'sangjun0131@naver.com', 'TRUCK003',  #{cate_call}, #{cate_date}, #{cate_time}, #{cate_addr},#{cate_people},#{cate_budget}, '대기중', 'bb')
+	VALUES( #{cate_num}, #{mem_id}, #{truck_num}, #{cate_call}, #{cate_date}, #{cate_time}, #{cate_addr}, #{cate_people}, #{cate_budget}, '대기중', '대기중', #{cate_name})
 </insert>
 <!-- 리스트부분 -->
 <select id="cateringlist" resultType="yogo.foodtruck.dto.FoodtruckVO">
