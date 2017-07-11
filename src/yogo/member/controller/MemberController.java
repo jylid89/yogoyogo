@@ -130,7 +130,7 @@ public class MemberController {
 			String clientSecret = "bvrp6O39Bq";//애플리케이션 클라이언트 시크릿값";
 			String redirectURI = "";
 			try {
-				redirectURI = URLEncoder.encode("192.168.0.178/YogoYogo5/register.do", "UTF-8");
+				redirectURI = URLEncoder.encode("192.168.0.188/YogoYogo/register.do", "UTF-8");
 			} catch (UnsupportedEncodingException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

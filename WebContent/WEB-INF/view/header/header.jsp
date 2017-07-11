@@ -11,7 +11,7 @@
 <%@ page import="java.io.InputStreamReader" %>
 <%
     String clientId = "zE5y1nty2rQY7EdwF341";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://192.168.0.178:8080/YogoYogo5/naverlogin.do", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://192.168.0.188:8080/YogoYogo/naverlogin.do", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
