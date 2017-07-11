@@ -1,0 +1,56 @@
+/*-- team section --*/
+.team-agileinfo{	
+	padding:50px 0;
+}
+.col-lg-3.col-md-3.col-sm-6.team-w3l {
+    text-align: center;
+}
+
+
+section.team-agileinfo h4 {
+	font-size:20px;
+	color:#000;
+    font-weight: 600;
+    font-family: 'Gudea', sans-serif;
+}
+section.team-agileinfo p {
+	font-size:16px;
+	font-weight:normal;
+	color:#000;
+	margin:20px 0;
+	
+}
+figure {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+/* Rotate */
+.hover06 figure img {
+	-webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-moz-transform: rotate(15deg) scale(1.4);
+	-o-transform: rotate(15deg) scale(1.4);
+	-ms-transform: rotate(15deg) scale(1.4);
+	-webkit-transition:all .7s ease-in-out;
+	transition:all .7s ease-in-out;
+	-moz-transition:all .7s ease-in-out;
+	-o-transition:all .7s ease-in-out;
+	-ms-transition:all .7s ease-in-out;
+}
+.team-info:hover .hover06 figure img {
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+	-moz-transform: rotate(0) scale(1);
+	-o-transform: rotate(0) scale(1);
+	-ms-transform: rotate(0) scale(1);
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-ms-border-radius:50%;
+}
+
+
+/*-- /team section --*/
