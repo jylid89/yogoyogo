@@ -28,7 +28,7 @@
 				<div class="col-sm-4 w3_tab_img_left">
 					<div class="demo">
 						<a href="festivalView.do?event_num=${a.event_num}" id="doDetail">
-								<img src="/YogoYogo/images/festival/${a.event_picreal}" alt=" " class="img-responsive festiImg" />
+								<img src="${a.event_picreal}" alt=" " class="img-responsive festiImg" />
 						</a>
 					</div>
 						<div class="agile-gallery-info">
