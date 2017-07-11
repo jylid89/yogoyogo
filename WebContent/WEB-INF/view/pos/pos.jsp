@@ -49,9 +49,10 @@ $(function() {
 		modal.keydown(ev);
 	}, false);
 
-	//결제 버튼 눌렀을 시
+	//결제 버튼 눌렀을 시 모달
 	$('.sale-btn').click(function(ev) {
 		modal.open();
+		
 	});
 
 	$('#btn-reject_Ok').click(function() {
@@ -65,7 +66,6 @@ $(function() {
 	$(document)
 			.ready(
 					function() {
-
 						$(".pos_menu")
 								.click(
 										function() {
@@ -97,7 +97,6 @@ $(function() {
 																	.find('p')
 																	.text())));
 										});
-
 					});
 	function del(elem) {
 		$(elem).parents('tr').remove();
@@ -184,7 +183,7 @@ $(function() {
 						<div class="panel-heading">
 							<h3 class="panel-title">주문번호</h3>
 						</div>
-						<h1>24</h1>
+						<h1></h1>
 					</div>
 					<div class="panel panel-success sale-body">
 						<div class="panel-heading">
@@ -212,7 +211,6 @@ $(function() {
 					</div>
 
 					<div class="sale-footer col-md-12 panel panel-success">
-						<!-- 						<form method="post" action="posInsertOk.do"> -->
 						<button type="submit" class="btn sale-btn btn-warning"
 							id="sale-btn">
 							<div class="col-md-6">
@@ -224,7 +222,7 @@ $(function() {
 						</button>
 						<input name="pos_totprice" type="hidden" id="total-price1"
 							value="0" />
-						<!-- 						</form> -->
+						<input name="pos_num" type="hidden" id="pos_num"/>
 					</div>
 				</div>
 
