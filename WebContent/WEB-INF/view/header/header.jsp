@@ -181,7 +181,7 @@
 						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">서비스 <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="useGuide.do">서비스 관련</a></li>
-								<li><a href="adverList.do">광고대행</a></li>     
+								<li class="ceo logout"><a href="adverList.do">광고대행</a></li>     
 							</ul>
 						</li>  
 						<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티 <span class="caret"></span></a>
