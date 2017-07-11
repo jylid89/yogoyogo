@@ -33,12 +33,6 @@
 											placeholder="제목을 입력하세요">
 									</div>
 									<div class="form-group">
-										<select class='form-control' name='board_state'>
-											<option>공지사항</option>
-											<option>이벤트</option>
-										</select>
-									</div>
-									<div class="form-group">
 										<textarea name='board_content' cols="30" rows="10"
 											class="form-control" placeholder="내용을 입력하세요"></textarea>
 									</div>

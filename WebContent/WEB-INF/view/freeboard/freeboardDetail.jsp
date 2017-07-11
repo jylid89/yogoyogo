@@ -44,7 +44,7 @@
 						<div class="pd-b-10 pd-t-10 pd-r-15 pd-l-15"
 							style="padding: 10px 35px 35px 35px; max-height: 500px; position: relative; overflow: block;">
 							<h4 class="mg mg-t-5 mg-b-5 posttitle-font"></h4>
-							<h3>${freeVO.board_title}</h3>
+							<h3><strong>${freeVO.board_title}</strong></h3>
 							<div class="mg postdesc-font"
 								style="-webkit-transition: top 1s; -moz-transition: top 1s; -o-transition: top 1s; transition: top 1s; margin: 15px">
 								${freeVO.board_content}</div>
