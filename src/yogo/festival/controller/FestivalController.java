@@ -86,11 +86,9 @@ public class FestivalController {
             } // try - catch
         } // if
 		
-		System.out.println("페스티벌인서트 컨트롤");
 		int result = festivalDAO.festivalInsert(vo);
 		List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
-		System.out.println(vo.toString());
 		mv.addObject("listModel",list);
 		mv.addObject("result",result);
 		mv.setViewName("redirect:festivalList.do");
@@ -136,7 +134,6 @@ public class FestivalController {
         int result = festivalDAO.festivalUpdate(vo);
         List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
-		System.out.println(vo.toString());
 		mv.addObject("listModel",list);
 		mv.addObject("result",result);
 		mv.setViewName("redirect:festivalList.do");
@@ -162,7 +159,6 @@ public class FestivalController {
 	@RequestMapping(value="eventConfirmInsert.do")
 	public ModelAndView eventConfirmInsert(FestivalVO vo) {
 		
-		System.out.println(vo.getTruck_num() + " / " + vo.getEvent_num());
 		festivalDAO.eventConfirmInsert(vo);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("event_num" ,vo.getEvent_num());

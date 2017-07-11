@@ -43,7 +43,6 @@ public class MypageController {
 	// 케이터링 신청현황(사업자)
 	@RequestMapping(value="/catAppStatus_ceo.do")
 	public ModelAndView catAppStatus_ceo(HttpSession session){
-		System.out.println("사업자 컨트롤 타니?");
 		//찾을 아이디
 		String truck_num = (String)session.getAttribute("truck_num");
 		List<CateringVO> list = new ArrayList<CateringVO>();

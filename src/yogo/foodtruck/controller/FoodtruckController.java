@@ -70,7 +70,6 @@ public class FoodtruckController {
 	//foodtruck 상세정보
 	@RequestMapping(value="foodtruckDetail.do")
 	public ModelAndView foodtruckView(FoodtruckVO vo){
-		System.out.println("디테일 컨트롤");
 		FoodtruckVO foodtruck = foodtruckDao.foodtruckView(vo);
 		List<MenuVO> menulist = foodtruckDao.menuView(vo);
 		ModelAndView mv = new ModelAndView();

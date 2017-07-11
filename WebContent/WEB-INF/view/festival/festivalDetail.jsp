@@ -84,7 +84,7 @@
 			<div class="page-header">
 				<h1><font face="함초롬돋움">행 사 내 용</font></h1>
 			</div>
-			<img alt="" src="/YogoYogo/images/festival/${viewModel.event_picreal }"> 
+			<img alt="" src="${viewModel.event_picreal }"> 
 				<h3 class="content"><font face="함초롬돋움">${fn:replace(viewModel.event_content,cn,br)}</font></h3>
 		</div>
 		<font face="함초롬돋움">
