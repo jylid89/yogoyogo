@@ -1,4 +1,8 @@
-
-.hamfont{
-	 font-family:함초롬 돋움
+@font-face{
+	font-family:"hunR";
+	src:url('/YogoYogo/fonts/hunR.eot');
+	src:url('/YogoYogo/fonts/hunR.eot?#iefix') format('embedded-opentype'),
+	url('/YogoYogo/fonts/hunR.woff') format('woff'),
+	url('/YogoYogo/fonts/hunR.ttf') format('truetype');
+	src:local(※), url('/YogoYogo/fonts/hunR.woff') format('woff');
 }

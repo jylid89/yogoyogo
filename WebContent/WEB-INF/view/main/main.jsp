@@ -119,7 +119,7 @@
 	<div class="special">
 		<div class="container">
 			<div class="special-heading">
-				<h3>푸드트럭 리스트</h3>
+				<h3 style="font-family: 훈정글북">푸드트럭 리스트</h3>
 			</div>
 			<div class="mainContainer">
       	  <div class="truckList">
