@@ -19,49 +19,47 @@
 <script type="text/javascript" src="/YogoYogo/js/pos/calculator.js"></script>
 <style type="text/css">
 .modal .modal-dialog {
-	width: 400px;
+	width: 800px;
+	height: 360px;
 }
 </style>
 <script type="text/javascript">
-	$(function() {
+$(function() {
 
-		var cate_num;
+	var cate_num;
 
-		var modal = new RModal(document.getElementById('modal'), {
-			//content: 'Abracadabra'
-			beforeOpen : function(next) {
-				console.log('beforeOpen');
-				next();
-			},
-			afterOpen : function() {
-				console.log('opened');
-			}
-
-			,
-			beforeClose : function(next) {
-				console.log('beforeClose');
-				next();
-			},
-			afterClose : function() {
-				console.log('closed');
-			}
-		});
-
-		document.addEventListener('keydown', function(ev) {
-			modal.keydown(ev);
-		}, false);
-
-		//결제 버튼 눌렀을 시
-		$('.sale-btn').click(function(ev) {
-			modal.open();
-		});
-
-		$('#btn-reject_Ok').click(function() {
-			$("#cate_num").val($(".cate_num").val());
-		});
-		window.modal = modal;
-
+	var modal = new RModal(document.getElementById('modal'), {
+		beforeOpen : function(next) {
+			console.log('beforeOpen');
+			next();
+		},
+		afterOpen : function() {
+			console.log('opened');
+		},
+		beforeClose : function(next) {
+			console.log('beforeClose');
+			next();
+		},
+		afterClose : function() {
+			console.log('closed');
+		}
 	});
+
+	document.addEventListener('keydown', function(ev) {
+		modal.keydown(ev);
+	}, false);
+
+	//결제 버튼 눌렀을 시
+	$('.sale-btn').click(function(ev) {
+		modal.open();
+	});
+
+	$('#btn-reject_Ok').click(function() {
+		$("#cate_num").val($(".cate_num").val());
+	});
+	window.modal = modal;
+
+});
 </script>
 <script type="text/javascript">
 	$(document)
@@ -244,7 +242,23 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<div class="input-group col-md-12">
-								<div class="col-md-6">
+							<div class="col-md-4">
+								<div id="calculator">
+									<!-- Screen and clear key -->
+									<div class="top">
+										<span class="clear">C</span>
+									</div>
+							
+									<div class="keys">
+										<!-- operators and other keys -->
+										<span>7</span> <span>8</span> <span>9</span>
+										<span>4</span> <span>5</span> <span>6</span> 
+										<span>1</span> <span>2</span> <span>3</span>
+										<span>0</span> <span>00</span> <span>000</span>
+									</div>
+								</div>
+							</div>
+								<div class="col-md-4">
 									<div class="text-padding">
 										<label for="dummyText" class="control-label "> 주문번호 :
 										</label>
@@ -256,24 +270,25 @@
 										<label for="dummyText" class="control-label ">결제 구분 :</label>
 									</div>
 									<div class="text-padding">
-										<label for="dummyText" class="control-label ">받은 금액 :</label>
+										<label for="dummyText" class="control-label screen">받은 금액 :</label>
 									</div>
 									<div class="text-padding">
 										<label for="dummyText" class="control-label ">거스름 돈 :
 										</label>
 									</div>
-								</div>
-								<div class="col-md-6">
+								</div><div class="screen"></div>
+								<div class="col-md-4">
 									<input type="text" name="cate_reason" id="cate_reason"
-										class="form-control"> <input type="text"
+										class="form-control"> 
+									<input type="text"
 										name="cate_reason" id="cate_reason" class="form-control">
 									<input type="text" name="cate_reason" id="cate_reason"
-										class="form-control"> <input type="number"
-										name="cate_reason" id="cate_reason" class="form-control">
+										class="form-control"> 
+									<input type="number"
+										name="cate_reason" id="cate_reason" class="form-control" value="">
 									<input type="number" name="cate_reason" id="cate_reason"
 										class="form-control">
 								</div>
-
 							</div>
 						</div>
 
@@ -289,22 +304,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="calculator">
-		<!-- Screen and clear key -->
-		<div class="top">
-			<span class="clear">C</span>
-			<div class="screen"></div>
-		</div>
 
-		<div class="keys">
-			<!-- operators and other keys -->
-			<span>7</span> <span>8</span> <span>9</span> <span class="operator">+</span>
-			<span>4</span> <span>5</span> <span>6</span> <span class="operator">-</span>
-			<span>1</span> <span>2</span> <span>3</span> <span class="operator">÷</span>
-			<span>0</span> <span>.</span> <span class="eval">=</span> <span
-				class="operator">x</span>
-		</div>
-	</div>
 	
 	
 </body>
