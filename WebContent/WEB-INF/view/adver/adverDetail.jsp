@@ -100,7 +100,7 @@ $(function(){
 							<input type="hidden" value="${vo.adv_num }" name="adv_num" id="adv_num"/>
 							<input type="hidden" value="${vo.truck_num }" name="truck_num" id="truck_num"/>
 						</form>
-							<input type="text" value=<%=mem_state %> id="member_state"/>
+							<input type="hidden" value=<%=mem_state %> id="member_state"/>
 				</div>
 			</div>
             <div class="col-md-12">

@@ -38,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	AND t.truck_num = c.truck_num
 	AND a.mem_id = #{mem_id}
 	AND c.advconf_state not in( '거절' , '승인' )
+	ORDER BY adv_start DESC
 </select>
 
 <!-- 광고거절 UPDATE -->
