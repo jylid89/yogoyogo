@@ -33,7 +33,6 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 		List<FoodtruckVO> list = new ArrayList<FoodtruckVO>();
 		HashMap map = new HashMap();
 		map.put("category", category);
-		System.out.println(values[0]);
 		if(values[0] != null) map.put("value", values[0]);
 		if(values[1] != null) map.put("eat", values[1]);
 		if(values[2] != null) map.put("drink", values[2]);
