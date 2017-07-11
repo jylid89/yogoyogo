@@ -10,12 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/YogoYogo/css/pos/pos.css">
-
+<link rel="stylesheet" href="/YogoYogo/css/pos/calculator.css">
 <link rel="stylesheet" href="/YogoYogo/css/pos/animate.css"
 	type="text/css" />
 <link rel="stylesheet" href="/YogoYogo/css/pos/rmodal.css"
 	type="text/css" />
 <script type="text/javascript" src="/YogoYogo/js/pos/rmodal.js"></script>
+<script type="text/javascript" src="/YogoYogo/js/pos/calculator.js"></script>
 <style type="text/css">
 .modal .modal-dialog {
 	width: 400px;
@@ -213,18 +214,19 @@
 					</div>
 
 					<div class="sale-footer col-md-12 panel panel-success">
-<!-- 						<form method="post" action="posInsertOk.do"> -->
-							<button type="submit" class="btn sale-btn btn-warning" id="sale-btn">
-								<div class="col-md-6">
-									<h3>결제</h3>
-								</div>
-								<div class="col-md-6">
-									<h3 id="total-price">0</h3>
-								</div>
-							</button>
-							<input name="pos_totprice" type="hidden" id="total-price1"
-								value="0" />
-<!-- 						</form> -->
+						<!-- 						<form method="post" action="posInsertOk.do"> -->
+						<button type="submit" class="btn sale-btn btn-warning"
+							id="sale-btn">
+							<div class="col-md-6">
+								<h3>결제</h3>
+							</div>
+							<div class="col-md-6">
+								<h3 id="total-price">0</h3>
+							</div>
+						</button>
+						<input name="pos_totprice" type="hidden" id="total-price1"
+							value="0" />
+						<!-- 						</form> -->
 					</div>
 				</div>
 
@@ -243,39 +245,38 @@
 						<div class="form-group">
 							<div class="input-group col-md-12">
 								<div class="col-md-6">
-								<div class="text-padding">
-								<label for="dummyText" class="control-label ">
-								주문번호 : </label>
-								</div>
-								<div class="text-padding">
-								<label for="dummyText" class="control-label ">총 합계 : </label>
-								</div>
-								<div class="text-padding">
-								<label for="dummyText" class="control-label ">결제 구분 :</label>
-								</div>
-								<div class="text-padding">
-								<label for="dummyText" class="control-label ">받은 금액 :</label>
-								</div>
-								<div class="text-padding">
-								<label for="dummyText" class="control-label ">거스름 돈 : </label>
-								</div>
+									<div class="text-padding">
+										<label for="dummyText" class="control-label "> 주문번호 :
+										</label>
+									</div>
+									<div class="text-padding">
+										<label for="dummyText" class="control-label ">총 합계 : </label>
+									</div>
+									<div class="text-padding">
+										<label for="dummyText" class="control-label ">결제 구분 :</label>
+									</div>
+									<div class="text-padding">
+										<label for="dummyText" class="control-label ">받은 금액 :</label>
+									</div>
+									<div class="text-padding">
+										<label for="dummyText" class="control-label ">거스름 돈 :
+										</label>
+									</div>
 								</div>
 								<div class="col-md-6">
-								<input type="text" name="cate_reason" id="cate_reason"
-									class="form-control"> 
-								<input type="text" name="cate_reason" id="cate_reason"
-									class="form-control"> 
 									<input type="text" name="cate_reason" id="cate_reason"
-									class="form-control"> 
+										class="form-control"> <input type="text"
+										name="cate_reason" id="cate_reason" class="form-control">
 									<input type="text" name="cate_reason" id="cate_reason"
-									class="form-control"> 
-									<input type="text" name="cate_reason" id="cate_reason"
-									class="form-control"> 
+										class="form-control"> <input type="number"
+										name="cate_reason" id="cate_reason" class="form-control">
+									<input type="number" name="cate_reason" id="cate_reason"
+										class="form-control">
 								</div>
-								 
+
 							</div>
 						</div>
-						
+
 					</div>
 
 					<div class="modal-footer">
@@ -288,5 +289,23 @@
 			</div>
 		</div>
 	</div>
+	<div id="calculator">
+		<!-- Screen and clear key -->
+		<div class="top">
+			<span class="clear">C</span>
+			<div class="screen"></div>
+		</div>
+
+		<div class="keys">
+			<!-- operators and other keys -->
+			<span>7</span> <span>8</span> <span>9</span> <span class="operator">+</span>
+			<span>4</span> <span>5</span> <span>6</span> <span class="operator">-</span>
+			<span>1</span> <span>2</span> <span>3</span> <span class="operator">÷</span>
+			<span>0</span> <span>.</span> <span class="eval">=</span> <span
+				class="operator">x</span>
+		</div>
+	</div>
+	
+	
 </body>
 </html>
