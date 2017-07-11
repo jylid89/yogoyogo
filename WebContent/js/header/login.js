@@ -7,8 +7,7 @@ function hideURLbar(){ window.scrollTo(0,1); }
 
 
 $(function() {
-	
-	
+		
 	
 	// 로그인 버튼을 눌렀을 때 ajax를 통해 아이디 비밀번호 확인
 	$("#loginOK").click(function(){
