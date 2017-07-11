@@ -20,18 +20,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 행사 추가하기 -->
 	<insert id="festivalInsert" parameterType="yogo.festival.dto.FestivalVO">
-		INSERT INTO TB_EVENT VALUES( EVENT_SEQ.nextval, 'qwer01@yogo.com',
+		INSERT INTO TB_EVENT(event_num, mem_id,event_loc, event_name, event_content, event_comp, event_picreal, event_map,
+												event_date, event_start, event_end)
+	    VALUES( event_seq.nextval,#{mem_id},
 		#{event_loc}, #{event_name}, #{event_content}, #{event_comp}
 		<if test="event_picreal!= null || event_picreal != 'null'  ">
 		, #{event_picreal}
 		</if>
-		,'0',sysdate,sysdate,sysdate )
+		,#{event_map},sysdate,#{event_start},#{event_end} )
 	</insert>
 	
 	<!-- 행사 수정하기 -->
 	<update id="festivalUpdate" parameterType="yogo.festival.dto.FestivalVO">
 	UPDATE tb_event
-	SET event_name=#{event_name}, event_loc=#{event_loc}, event_comp=#{event_comp}, event_content=#{event_content}
+	SET event_name=#{event_name}, event_loc=#{event_loc}, event_comp=#{event_comp}, event_content=#{event_content},
+			event_start = #{event_start}, event_end = #{event_end}, event_date = sysdate, event_map=${event_map}
 	<if test="event_picreal == exFile ">
 	, event_picreal=#{exFile}
 	</if>

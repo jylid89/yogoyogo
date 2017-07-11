@@ -10,78 +10,18 @@
 	pageContext.setAttribute("cn", "\n");
 %>
 <% String mem_state = (String)session.getAttribute("mem_state"); %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% String mem_id = (String)session.getAttribute("mem_id"); %>
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-</style>
-
 <link rel="stylesheet" href="/YogoYogo/css/festival/festivaldetail.css">
 
 <!-- 다음맵 API -->
-<script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=
-f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/YogoYogo/js/festival/festival.js"></script>
 
-		$.ajax({
-			url : "eveconfirmCheck.do",
-			type : "post",
-			data : {
-				"event_num" : $("#event_num").val(),
-				"truck_num" : $("#truck_num").val()
-			},
-			success : function(data) {
-				if (data == "0") {
-					$("#btn_confirm").show();
-					$("#btn_cancel").hide();
-				} else {
-					$("#btn_confirm").hide();
-					$("#btn_cancel").show();
-				}
-			}
-		})
-
-		//신청하기 버튼 클릭시
-		$("#btn_confirm").click(function() {
-			var result = confirm(' 신청하시겠습니까?');
-			if (result) {
-				$("#festiForm").attr("action", "eventConfirmInsert.do").submit();
-			}
-		});
-
-		//신청취소 버튼 클릭시
-		$("#btn_cancel")
-				.click(
-						function() {
-							var result = confirm('신청을 취소하시겠습니까? (승인이 된 후에는 취소가 불가 합니다.)');
-							if (result) {
-								$.ajax({
-									url : "eveconfirmCancel.do",
-									type : "post",
-									data : {
-										"event_num" : $("#event_num").val(),
-										"truck_num" : $("#truck_num").val()
-									},
-									success : function(data) {
-										if (data != "대기중") {
-											alert("승인이 완료되어 취소가 불가 합니다.");
-											return;
-										} else {
-											$("#festiForm").attr("action","eveConfirmDelete.do").submit();
-										}
-									}
-								})
-							}
-
-						});
-	});
-</script>
 <!-- fireworks scripts -->
 <script type="text/javascript" src="/YogoYogo/js/festival/jquery.fireworks.js"></script>
 <script>
@@ -89,18 +29,25 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 		$('.w3-agilefireworks').fireworks();
 	});
 </script>
-<!-- //fireworks scripts -->
+
+<script type="text/javascript">
+	$(function(){
+		//자신의 글만 수정 삭제 보이기
+		if($("#writer_id").val() == $("#mem_id").val()){
+				$(".updelete").show();
+			}else{
+				$(".updelete").hide();
+			}
+	});
+</script>
 </head>
 <body>
 	<!-- 헤더부분 -->
 	<div class="w3-agilefireworks">
-		<div
-			style="background: url('/YogoYogo/images/festival/2.jpg') center center no-repeat scroll"
-			class="business-header">
-
+		<div style="background: url('/YogoYogo/images/festival/2.jpg') center center no-repeat scroll" class="business-header">
 			<div class="col-lg-12  text-center">
 				<br> <br> <br> <br> <br> <br>
-				<p class="tagline">${viewModel.event_name}</p>
+					<p class="tagline">${viewModel.event_name}</p>
 				<br>
 			</div>
 		</div>
@@ -110,23 +57,27 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 	<div class="container">
 		<div class="col-xs-12">
 			<div class="page-header">
-				<h2>주최자 :  ${viewModel.event_comp }</h2>
-				&nbsp;&nbsp;&nbsp;
-				<h2>행사 날짜 : ${viewModel.event_start } ~ ${viewModel.event_end }</h2>
+				<h2><font face="함초롬돋움">주최  :  ${viewModel.event_comp }</font></h2>
+				<br/><br/>
+				<h2><font face="함초롬돋움">일시 : ${viewModel.event_start }  ~  ${viewModel.event_end }</font></h2>
 
 			</div>
 		</div>
 		<div class="col-xs-12">
 			<div class="page-header">
-				<h1>행 사 내 용</h1>
+				<h1><font face="함초롬돋움">행 사 내 용</font></h1>
 			</div>
 			<img alt="" src="/YogoYogo/images/festival/${viewModel.event_picreal }"> 
-				<h3 class="content">${fn:replace(viewModel.event_content,cn,br)}</h3>
-			
+				<h3 class="content"><font face="함초롬돋움">${fn:replace(viewModel.event_content,cn,br)}</font></h3>
 		</div>
+		<font face="함초롬돋움">
+			<input type="hidden" id="writer_id" value="${viewModel.mem_id }"/>
+			<input type="hidden" id="mem_id" value="<%=mem_id %>" />
+		</font>
+		
 		<div class="col-xs-12">
 			<div class="page-header">
-				<h1>위 치 정 보</h1>
+				<h1><font face="함초롬돋움">위 치 정 보</font></h1>
 			</div>
 			<!-- map보여지는 부분 -->
 			<div id="map" style="width: 100%; height: 500px;"></div>
@@ -223,12 +174,12 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 					<a onclick="javascript:location.href='festivalList.do'"><button
 							class="btn btn-1 btn-1a">목록</button></a>
 				</div>
-				<div class="col-md-4 text-right">
-					<a
-						onclick="javascript:location.href='festivalUpdate.do?event_num=${viewModel.event_num}'"><button
-							class="btn btn-1 btn-1a">수정</button></a> <a
-						onclick="javascript:location.href='festivalDelete.do?event_num=${viewModel.event_num}'"><button
-							class="btn btn-1 btn-1a">삭제</button></a>
+				<div class="col-md-4 text-right updelete">
+					<a onclick="javascript:location.href='festivalUpdate.do?event_num=${viewModel.event_num}'">
+						<button class="btn btn-1 btn-1a">수정</button>
+					</a>
+				    	<button class="btn btn-1 btn-1a" id="deleteBtn">삭제</button>
+					 </a>
 				</div>
 				
 			</div>

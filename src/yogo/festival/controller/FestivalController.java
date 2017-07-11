@@ -23,12 +23,12 @@ public class FestivalController {
 	
 	 //행사 리스트 보기
 	@RequestMapping(value="festivalList.do")
-	public ModelAndView list(){
-		
+	public ModelAndView list(HttpSession session){
+		String mem_state = (String)session.getAttribute("mem_state");
 		List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listModel",list);
-		
+		mv.addObject("mem_state", mem_state);
 		mv.setViewName("/festival/festivalList");
 		return mv;
 		
@@ -62,22 +62,14 @@ public class FestivalController {
 	
 	 //행사 글 추가
 	@RequestMapping(value="festivalInsertOk.do")
-	public ModelAndView insert( FestivalVO vo){
-		
-//		if(vo.getExFile().equals(vo.getEvent_pictemp())){
-//			
-//		}
+	public ModelAndView insert( FestivalVO vo, HttpSession session){
+		vo.setMem_id((String)session.getAttribute("mem_id"));
 		MultipartFile event_pictemp = vo.getEvent_pictemp();
         if (event_pictemp != null) {
             String event_picreal = event_pictemp.getOriginalFilename();
-            event_picreal = event_picreal+"_"+System.currentTimeMillis();
+            event_picreal =System.currentTimeMillis() +"_"+  event_picreal;
             vo.setEvent_picreal(event_picreal);
             try {
-            	
-                // 1. FileOutputStream 사용
-                // byte[] fileData = file.getBytes();
-                // FileOutputStream output = new FileOutputStream("C:/images/" + fileName);
-                // output.write(fileData);
             	
                 // 2. File 사용
                 File file = new File("C:\\Users\\yeeun\\git\\yogoyogo\\WebContent\\images\\festival\\" + event_picreal);
@@ -91,6 +83,7 @@ public class FestivalController {
 		int result = festivalDAO.festivalInsert(vo);
 		List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.toString());
 		mv.addObject("listModel",list);
 		mv.addObject("result",result);
 		mv.setViewName("redirect:festivalList.do");
@@ -110,23 +103,15 @@ public class FestivalController {
 	
 	//행사 글 수정하기
 	@RequestMapping(value="festivalUpdateOk.do")
-	public ModelAndView update(FestivalVO vo){
-		
-		
-		
+	public ModelAndView update(FestivalVO vo,HttpSession session){
+		vo.setMem_id((String)session.getAttribute("mem_id"));
 		MultipartFile event_pictemp = vo.getEvent_pictemp();
         if (event_pictemp != null) {
         	
             String event_picreal = event_pictemp.getOriginalFilename();
-            event_picreal = event_picreal+"_"+System.currentTimeMillis();
+            event_picreal =System.currentTimeMillis() +"_"+  event_picreal;
             vo.setEvent_picreal(event_picreal);
             try {
-            	
-                // 1. FileOutputStream 사용
-                // byte[] fileData = file.getBytes();
-                // FileOutputStream output = new FileOutputStream("C:/images/" + fileName);
-                // output.write(fileData);
-            	
                 // 2. File 사용
             	File file = new File("C:\\Users\\yeeun\\git\\yogoyogo\\WebContent\\images\\festival\\"  + event_picreal);
                 event_pictemp.transferTo(file);
@@ -144,6 +129,7 @@ public class FestivalController {
         int result = festivalDAO.festivalUpdate(vo);
         List<FestivalVO> list = festivalDAO.list();
 		ModelAndView mv = new ModelAndView();
+		System.out.println(vo.toString());
 		mv.addObject("listModel",list);
 		mv.addObject("result",result);
 		mv.setViewName("redirect:festivalList.do");
