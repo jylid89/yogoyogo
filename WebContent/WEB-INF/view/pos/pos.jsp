@@ -72,15 +72,9 @@ $(function() {
 		
 	});
 
-	$('#btn-reject_Ok').click(function() {
-		$("#cate_num").val($(".cate_num").val());
+	$('#btn_complete').click(function() {
+		$("#pos_order").val(String(Number($("#pos_order").text())+(Number(1))));
 	});
-	
-	
-	
-	
-	
-	
 	
 	
 	window.modal = modal;
@@ -193,7 +187,7 @@ $(document).ready(function() {
 						<div class="panel-heading">
 							<h3 class="panel-title pos_order">주문번호</h3>
 						</div>
-						<div class="pos_order" id="pos_order">1</div>
+						<div class="pos_order" id="pos_order">${seq}</div>
 					</div>
 					<div class="panel panel-success sale-body">
 						<div class="panel-heading">
@@ -283,7 +277,7 @@ $(document).ready(function() {
 									</div>
 								</div>
 								<div class="col-md-4">
-									<input type="text" name="order" id="order"
+									<input type="text" name="pos_order" id="order"
 										class="form-control input-padding">
 									<input type="text"
 										name="pos_totprice" id="total_price_modal" class="form-control input-padding">

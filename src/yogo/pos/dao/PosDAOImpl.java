@@ -45,6 +45,13 @@ public class PosDAOImpl implements PosDAO {
 		return ss.selectOne("pos.selectTruck", truck_num);
 	}
 
+	//시퀀스 가져오기
+	@Override
+	public String selectOrder(){
+		return ss.selectOne("pos.posOrder");
+	}
+	
+
 }
 
 
