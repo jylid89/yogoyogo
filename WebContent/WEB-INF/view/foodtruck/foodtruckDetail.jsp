@@ -268,15 +268,6 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							</div>
 						</div>
 						</c:forEach>
-						<div class="facts">
-							<!--더 보기 버튼  -->
-								<a href="#"><div class="svg-wrapper">
-									<svg height="60" width="320">
-           								<rect class="shape" height="60" width="320" />
-       								  </svg>
-									<div class="text text-center">더보기</div>
-								</div></a>
-						</div>
 					</div>
 					<!-- //Review -->
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
