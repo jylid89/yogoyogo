@@ -282,18 +282,26 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
 					<c:forEach varStatus="status" items="${reviewList}" var="reviewList" >
 						<div class="facts">
-							<div class="facts_left">
-								<img src="${reviewList.rev_picreal }" alt=" "
-									class="img-responsive" />
-							</div>
-							<div class="facts_right">
-								<div class="facts_right1">
-									<h2>${reviewList.rev_title }</h2>
-								</div>
-								<div class="clear"></div>
-								<p>${reviewList.rev_content }</p>
-							</div>
+					<div class="facts_left">
+						<img src="${reviewList.rev_picreal }" alt=" " class="img-responsive" />
+					</div>
+					<div class="facts_right">
+						<div class="facts_right1">
+							<h2>${revieList.rev_title }</h2>
 						</div>
+						<div class="facts_right2">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="twitter"> </a></li>
+								<li><a href="#" class="p"> </a></li>
+								<li><a href="#" class="g-plus"> </a></li>
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<p>${reviewList.rev_content }</p>
+					</div>
+					<div class="clear"></div>
+				</div>
 					</c:forEach>
 					</div>
 				</div>

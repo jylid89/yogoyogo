@@ -33,12 +33,13 @@ $(function() {
 	$('.login').show();
 	$('.logout').hide();
 	$(".adverClass").hide();
+	$('.cate').hide();
 	
 	// 로그인 했을때
 	if ($('#mem_name').val() != "null") {
 		$('.login').hide();
 		$('.logout').show();
-		
+		$('.cate').show();
 		
 		// 로그인한 회원이 일반회원일때
 		if($('#mem_state').val() == "일반회원") {
@@ -55,6 +56,7 @@ $(function() {
 			$('.adver').hide();
 			$('.evt').hide();
 			$(".adverClass").show();
+			$('.cate').hide();
 			
 		// 로그인한 회원이 광고업체일때
 		} else if($('#mem_state').val() == "광고업체") {
