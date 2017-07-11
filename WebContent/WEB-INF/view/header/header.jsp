@@ -20,7 +20,7 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
 %>
-
+ 
 <%
    String mem_name = (String)session.getAttribute("mem_name");
    String mem_state = (String)session.getAttribute("mem_state");

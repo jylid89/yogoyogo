@@ -205,6 +205,7 @@ a.simpleCart_empty {
 	-webkit-transition:.5s all;
 	-moz-transition:.5s all; 
 	transition:.5s all;
+	font-size: 17px;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background-color: transparent;
