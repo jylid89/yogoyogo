@@ -24,9 +24,11 @@ public class PosController {
 		String truck_num = (String)session.getAttribute("truck_num");
 		List<PosVO> list = posDAO.posList(truck_num);
 		PosVO vo = posDAO.selectTruck(truck_num);
+		String seq = posDAO.selectOrder();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("truck_name", vo.getTruck_name());
 		mv.addObject("posModel",list);
+		mv.addObject("seq",seq);
 		mv.setViewName("/pos/pos");
 		return mv;
 		
@@ -34,12 +36,21 @@ public class PosController {
 	
 	//결제 완료
 	@RequestMapping(value="posInsertOk.do")
-	public ModelAndView posInsert(PosVO vo){
+	public ModelAndView posInsert(PosVO vo, HttpSession session){
 		System.out.println(vo.getPos_totprice());
-		int result = posDAO.posInsert(vo);
+		vo.setTruck_num((String)session.getAttribute("truck_num"));
+		posDAO.posInsert(vo);
+		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("result",result);
-		mv.setViewName("redirect:posList.do");
+		
+		List<PosVO> list = posDAO.posList((String)session.getAttribute("truck_num"));
+		PosVO pvo = posDAO.selectTruck((String)session.getAttribute("truck_num"));
+		String seq = posDAO.selectOrder();
+		mv.addObject("truck_name", pvo.getTruck_name());
+		mv.addObject("posModel",list);
+		mv.addObject("seq",seq);
+		mv.setViewName("/pos/pos");
+//		mv.setViewName("redirect:posList.do");
 		return mv; 
 	}
 	

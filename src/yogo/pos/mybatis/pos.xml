@@ -12,10 +12,15 @@ FROM TB_MENU menu, TB_TRUCK truck
 WHERE truck.truck_num = #{truck_num} AND truck.truck_num = menu.truck_num 
 </select>
 
+<select id="posOrder" resultType="String">
+SELECT ORDER_SEQ.nextval
+FROM DUAL 
+</select>
+
 <!-- 결제 완료 -->
 <insert id="posInsert" parameterType="yogo.pos.dto.PosVO">
 INSERT INTO TB_POS 
-VALUES( POS_SEQ.nextval,'TRUCK003', sysdate, #{pos_totprice} , '1')
+VALUES( POS_SEQ.nextval, #{truck_num}, sysdate, #{pos_totprice} , #{pos_order})
 </insert>
 
 <!-- 트럭 정보가지고 오기 -->

@@ -11,4 +11,7 @@ public interface PosDAO {
 	int posInsert(PosVO vo);
 	
 	PosVO selectTruck(String truck_num);
+	
+	//시퀀스 가져오기
+	String selectOrder();
 }
