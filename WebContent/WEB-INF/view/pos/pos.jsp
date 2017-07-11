@@ -258,7 +258,7 @@ $(function() {
 									</div>
 								</div>
 							</div>
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<div class="text-padding">
 										<label for="dummyText" class="control-label "> 주문번호 :
 										</label>
@@ -279,16 +279,17 @@ $(function() {
 								</div><div class="screen"></div>
 								<div class="col-md-4">
 									<input type="text" name="cate_reason" id="cate_reason"
-										class="form-control"> 
+										class="form-control input-padding"> 
 									<input type="text"
-										name="cate_reason" id="cate_reason" class="form-control">
+										name="cate_reason" id="cate_reason" class="form-control input-padding">
 									<input type="text" name="cate_reason" id="cate_reason"
-										class="form-control"> 
+										class="form-control input-padding"> 
 									<input type="number"
-										name="cate_reason" id="cate_reason" class="form-control" value="">
+										name="cate_reason" id="cate_reason" class="form-control input-padding" value="">
 									<input type="number" name="cate_reason" id="cate_reason"
-										class="form-control">
+										class="form-control input-padding">
 								</div>
+								
 							</div>
 						</div>
 

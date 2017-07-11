@@ -20,10 +20,9 @@ html {
 
 /* Using box shadows to create 3D effects */
 #calculator {
-	width: 380px;
+	width: 250px;
 	height: auto;
 	
-	margin: 100px auto;
 	padding: 20px 20px 9px;
 	
 	background: #9dd2ea;
@@ -70,9 +69,9 @@ html {
 	
 	cursor: pointer;
 	
-	width: 100px;
-	height: 100px;
-	font-size : 30pt;
+	width: 63px;
+	height: 50px;
+	font-size : 15pt;
 	
 	background: white;
 	border-radius: 3px;
@@ -81,7 +80,7 @@ html {
 	margin: 0 7px 11px 0;
 	
 	color: #888;
-	line-height: 100px;
+	line-height: 50px;
 	text-align: center;
 	
 	/* prevent selection of text inside keys */

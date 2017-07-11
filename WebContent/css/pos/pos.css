@@ -120,4 +120,12 @@
 }
 .text-padding{
 	padding: 0px 5px 5px ;
+	margin-top: 20px;
+}
+.input-padding{
+	padding: 0px 5px 5px ;
+	margin-top: 27px;
+}
+label{
+	font-size:20px;
 }
