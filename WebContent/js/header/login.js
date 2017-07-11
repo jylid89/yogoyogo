@@ -41,19 +41,29 @@ $(function() {
 			$('.user').show();
 			$('.ceo').hide();
 			$('.adver').hide();
+			$('.evt').hide();
 			
 		// 로그인한 회원이 사업자일때
 		} else if($('#mem_state').val() == "사업자") {
 			$('.user').hide();
 			$('.ceo').show();
 			$('.adver').hide();
+			$('.evt').hide();
 			
 		// 로그인한 회원이 광고업체일때
 		} else if($('#mem_state').val() == "광고업체") {
 			$('.user').hide();
 			$('.ceo').hide();
 			$('.adver').show();
-		}
+			$('.evt').hide();
+		
+		// 로그인한 회원이 행사기획자일때
+		} else if($('#mem_state').val() == "행사기획자") {
+			$('.user').hide();
+			$('.ceo').hide();
+			$('.adver').hide();
+			$('.evt').show();
+		} 
 	}
 });
 
