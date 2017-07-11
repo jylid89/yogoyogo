@@ -7,7 +7,7 @@ import yogo.activity.dto.ActivityVO;
 public interface ActivityDAO {
 
 	// 활동 리스트 불려오는 기능
-	List<ActivityVO> list();
+	List<ActivityVO> list(String truck_num);
 	
 	// 활동 글쓰기 기능 
 	int activityInsert(ActivityVO vo);

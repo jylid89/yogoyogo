@@ -55,7 +55,7 @@
 							<li class="col-sm-3">
 								<div class="fff">
 									<div class="thumbnail">
-										<img style="height:240px;, width:360px" id="menu_picreal" src="${list.menu_picreal }" alt="">
+										<img style="height:240px;, width:360px;" id="menu_picreal" src="${list.menu_picreal }" alt="">
 									</div>
 									<div class="caption">
 										<input type='hidden' id='menu_num' value="${list.menu_num}">

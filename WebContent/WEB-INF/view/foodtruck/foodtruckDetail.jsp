@@ -54,10 +54,20 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 		$('.carousel').carousel({
 			interval : 6000
 		})
+		
+		if( $('#request_truck_num').val() == $('#session_truck_num').val() ) {
+			$('#isWriter').show();
+		}
+		else {
+			$('#isWriter').hide();
+		}
 	});
 </script>
 </head>
 <div class="body">
+	<input type="hidden" id="request_truck_num" value="<%=request.getParameter("truck_num")%>">
+	<input type="hidden" id="session_truck_num" value="<%=session.getAttribute("truck_num")%>">
+	
 	<!-- main -->
 	<div class="col-xs-12" style="background-color: #fff;">
 		<div class="page-header">
@@ -167,29 +177,18 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							</label>
 							<section id="answer1">
 							<div class="panel-body">
+							<c:forEach varStatus="status" items="${menu_eat}" var="menu_eat" >
 								<div class="col-md-3 order-grid">
-									<img src="/YogoYogo/images/foodtruck/d1.jpg"
+									<img src="${menu_eat.menu_picreal }"
 										class="img-responsive" alt="/">
 									<div class="caption">
 										<div class="small">
-											<span class="text-ellipsis">메뉴</span><br /> <strong
-												class="text-ellipsis ">가격</strong>
+											<span class="text-ellipsis">${menu_eat.menu_name }</span><br /> <strong
+												class="text-ellipsis ">${menu_eat.menu_price }</strong>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-3 order-grid">
-									<img src="/YogoYogo/images/foodtruck/d2.jpg"
-										class="img-responsive" alt="/">
-								</div>
-								<div class="col-md-3 order-grid">
-									<img src="/YogoYogo/images/foodtruck/d3.jpg"
-										class="img-responsive" alt="/">
-								</div>
-								<div class="col-md-3 order-grid">
-									<img src="/YogoYogo/images/foodtruck/d4.jpg"
-										class="img-responsive" alt="/">
-								</div>
-								<div class="clerafix"></div>
+							</c:forEach>
 							</div>
 							</section>
 
@@ -200,7 +199,19 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							</label>
 
 							<section id="answer2">
-							<p>You don't. Simple.</p>
+							<div class="panel-body">
+							<c:forEach varStatus="status" items="${menu_drink}" var="menu_drink" >
+								<div class="col-md-3 order-grid">
+									<img src="${menu_drink.menu_picreal } style="height:300px;, width:300px;" class="img-responsive" alt="/">
+									<div class="caption">
+										<div class="small">
+											<span class="text-ellipsis">${menu_drink.menu_name }</span><br /> <strong
+												class="text-ellipsis ">${menu_drink.menu_price }</strong>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+							</div>
 							</section>
 
 							<input id="question3" type="checkbox" name="toggle"
@@ -210,31 +221,44 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 							</label>
 
 							<section id="answer3">
-							<p>Yes, and it looks good. Pretty awesome, eh?</p>
+							<div class="panel-body">
+							<c:forEach varStatus="status" items="${menu_enjoy}" var="menu_drink" >
+								<div class="col-md-3 order-grid">
+									<img src="${menu_enjoy.menu_picreal }"
+										class="img-responsive" alt="/">
+									<div class="caption">
+										<div class="small">
+											<span class="text-ellipsis">${menu_enjoy.menu_name }</span><br /> <strong
+												class="text-ellipsis ">${menu_enjoy.menu_price }</strong>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+							</div>
 							</section>
 
 						</div>
 					</div>
 				<!-- timeline -->
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-						<div class="facts">
+						<div class="facts" id="isWriter">
 							<div class="text-right">
-								<button class="btn btn-1 btn-1a" onclick="javascript:location.href='activityInsert.do'">글쓰기</button>
+								<button class="btn btn-1 btn-1a" onclick="javascript:location.href='activityInsert.do?truck_num=${foodtruck.truck_num}'">글쓰기</button>
 							</div>
 						</div>
+						<c:forEach varStatus="status" items="${activityList}" var="activityList" >
 						<div class="facts">
 							<div class="single-grid">
 								<div class="blog-left-grid">
 									<div class="blog-leftl">
-										<h4>10 월</h4>
-										<h3>10</h3>
+										<h4>${activityList.mark_date}</h4>
 									</div>
 									<div class="blog-leftr">
 										<div class="text-left">
 											
 										</div>
-										<p>오늘 장사가 잘되네요</p>
-										<img src="/YogoYogo/images/foodtruck/25.jpg" alt=" "
+										<p>${activityList.mark_content}</p>
+										<img src="${activityList.mark_picreal}" alt=" "
 											class="img-responsive" />
 											
 									</div>
@@ -243,22 +267,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 								</div>
 							</div>
 						</div>
-						<div class="facts">
-							<div class="single-grid">
-								<div class="blog-left-grid">
-									<div class="blog-leftl">
-										<h4>10 월</h4>
-										<h3>10 일</h3>
-									</div>
-									<div class="blog-leftr">
-										<p>오늘 장사가 잘되네요</p>
-										<img src="/YogoYogo/images/foodtruck/25.jpg" alt=" "
-											class="img-responsive" />
-									</div>
-									<div class="clear"></div>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 						<div class="facts">
 							<!--더 보기 버튼  -->
 								<a href="#"><div class="svg-wrapper">
@@ -269,33 +278,23 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 								</div></a>
 						</div>
 					</div>
-					<!-- //timeline -->
+					<!-- //Review -->
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+					<c:forEach varStatus="status" items="${reviewList}" var="reviewList" >
 						<div class="facts">
 							<div class="facts_left">
-								<img src="/YogoYogo/images/foodtruck/1.jpg" alt=" "
+								<img src="${reviewList.rev_picreal }" alt=" "
 									class="img-responsive" />
 							</div>
 							<div class="facts_right">
 								<div class="facts_right1">
-									<h2>James Robert</h2>
-								</div>
-								<div class="facts_right2">
-									<ul>
-										<li><a href="#" class="facebook"> </a></li>
-										<li><a href="#" class="twitter"> </a></li>
-										<li><a href="#" class="p"> </a></li>
-										<li><a href="#" class="g-plus"> </a></li>
-									</ul>
+									<h2>${reviewList.rev_title }</h2>
 								</div>
 								<div class="clear"></div>
-								<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor incididunt ut labore et dolore magna
-									aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								<p>${reviewList.rev_content }</p>
 							</div>
-							<div class="clear"></div>
 						</div>
+					</c:forEach>
 					</div>
 				</div>
 			</div>

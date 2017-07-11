@@ -6,19 +6,28 @@ import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import yogo.activity.dao.ActivityDAO;
+import yogo.activity.dto.ActivityVO;
 import yogo.foodtruck.dao.FoodtruckDAO;
 import yogo.foodtruck.dto.FoodtruckVO;
 import yogo.menu.dto.MenuVO;
+import yogo.review.dao.ReviewDAO;
+import yogo.review.dto.ReviewVO;
 
 @Controller
 public class FoodtruckController {
 	
 	@Autowired
 	FoodtruckDAO foodtruckDao;
+	
+	@Autowired
+	ActivityDAO activityDao;
+	
+	@Autowired
+	ReviewDAO reviewDao;
 	
 //	리스트 부분
 	@RequestMapping(value="foodtruckList.do")
@@ -70,11 +79,24 @@ public class FoodtruckController {
 	//foodtruck 상세정보
 	@RequestMapping(value="foodtruckDetail.do")
 	public ModelAndView foodtruckView(FoodtruckVO vo){
+		System.out.println("디테일 컨트롤");
 		FoodtruckVO foodtruck = foodtruckDao.foodtruckView(vo);
-		List<MenuVO> menulist = foodtruckDao.menuView(vo);
+		
+		List<MenuVO> menu_eat = foodtruckDao.menuViewEat(vo);
+		List<MenuVO> menu_drink = foodtruckDao.menuViewDrink(vo);
+		List<MenuVO> menu_enjoy = foodtruckDao.menuViewEnjoy(vo);
+		
+		List<ActivityVO> activityList = activityDao.list(vo.getTruck_num());
+		List<ReviewVO> reviewList = reviewDao.reviewList(vo.getTruck_num());
+		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("foodtruck",foodtruck);
-		mv.addObject("menuList",menulist);
+		
+		mv.addObject("menu_eat", menu_eat);
+		mv.addObject("menu_drink", menu_drink);
+		mv.addObject("menu_enjoy", menu_enjoy);
+		mv.addObject("activityList", activityList);
+		mv.addObject("reviewList", reviewList);
+		mv.addObject("foodtruck", foodtruck);
 		mv.setViewName("/foodtruck/foodtruckDetail");
 		return mv;
 	}

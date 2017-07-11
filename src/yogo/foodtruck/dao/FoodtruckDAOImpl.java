@@ -65,17 +65,31 @@ public class FoodtruckDAOImpl implements FoodtruckDAO {
 		return truckVO;
 	}
 //	디테일 부분 중 메뉴 정보
+//	@Override
+//	public List<MenuVO> menuView(FoodtruckVO vo) {
+//		List<MenuVO> list = null;
+//		try{
+//			list = ss.selectList("foodtruck.menudetail", vo);
+//			System.out.println("케이터링 view dao 접속");
+//		}catch( Exception ex )
+//		{
+//			System.out.println("케이터링 실패 : " + ex.getMessage());
+//		}
+//		
+//		return list;
+//	}
 	@Override
-	public List<MenuVO> menuView(FoodtruckVO vo) {
-		List<MenuVO> list = null;
-		try{
-			list = ss.selectList("foodtruck.menudetail", vo);
-			System.out.println("케이터링 view dao 접속");
-		}catch( Exception ex )
-		{
-			System.out.println("케이터링 실패 : " + ex.getMessage());
-		}
-		
-		return list;
+	public List<MenuVO> menuViewEat(FoodtruckVO vo) {
+		return ss.selectList("foodtruck.menuViewEat", vo);
+	}
+	
+	@Override
+	public List<MenuVO> menuViewDrink(FoodtruckVO vo) {
+		return ss.selectList("foodtruck.menuViewDrink", vo);
+	}
+	
+	@Override
+	public List<MenuVO> menuViewEnjoy(FoodtruckVO vo) {
+		return ss.selectList("foodtruck.menuViewEnjoy", vo);
 	}
 }

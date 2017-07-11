@@ -16,11 +16,11 @@ public class ActivityDAOImpl implements ActivityDAO {
 	SqlSessionTemplate ss;
 	
 	//활동 리스트
-	public List<ActivityVO> list() {
+	public List<ActivityVO> list(String truck_num) {
 		
 		List list = new ArrayList();
 		try{
-		list = ss.selectList("activity.activitySelect");
+			list = ss.selectList("activity.activitySelect", truck_num);
 		}catch( Exception ex ){
 		 	System.out.println("ActitivyDAOImpl / activityselect"+ex.getMessage());
 		}

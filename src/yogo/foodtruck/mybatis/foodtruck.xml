@@ -7,7 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 트럭리스트 셀렉 -->
 <select id="select" resultType="yogo.foodtruck.dto.FoodtruckVO"> 
-	SELECT * FROM tb_truck	
+	SELECT * FROM tb_truck
+	ORDER BY truck_date DESC
 </select>
 
 <!-- 트럭 상세정보 -->
@@ -16,9 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <!-- 메뉴 상세정보 -->
-<select id="menudetail" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.menu.dto.MenuVO">
-	SELECT * FROM tb_menu WHERE truck_num = #{truck_num}
-</select>
+<!-- <select id="menudetail" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.menu.dto.MenuVO"> -->
+<!-- 	SELECT * FROM tb_menu WHERE truck_num = #{truck_num} -->
+<!-- </select> -->
 
 <!-- 메뉴명, 위치에 따른 검색 -->
 <select id="search" parameterType="hashmap" resultType="yogo.foodtruck.dto.FoodtruckVO">
@@ -60,6 +61,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				</if>
 			</if>
 	)
+</select>
+
+<!-- 푸드트럭 상세보기 먹을거리 메뉴 -->
+<select id="menuViewEat" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.menu.dto.MenuVO">
+	SELECT *
+	FROM tb_menu
+	WHERE truck_num = #{truck_num} AND menu_cate = '먹을거리'
+</select>
+
+<!-- 푸드트럭 상세보기 마실거리 메뉴 -->
+<select id="menuViewDrink" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.menu.dto.MenuVO">
+	SELECT *
+	FROM tb_menu
+	WHERE truck_num = #{truck_num} AND menu_cate = '마실거리'
+</select>
+
+<!-- 푸드트럭 상세보기 즐길거리 메뉴 -->
+<select id="menuViewEnjoy" parameterType="yogo.foodtruck.dto.FoodtruckVO" resultType="yogo.menu.dto.MenuVO">
+	SELECT *
+	FROM tb_menu
+	WHERE truck_num = #{truck_num} AND menu_cate = '즐길거리'
 </select>
 
 </mapper>

@@ -12,5 +12,9 @@ public interface FoodtruckDAO {
 	
 	public FoodtruckVO foodtruckView(FoodtruckVO vo);
 	
-	public List<MenuVO> menuView(FoodtruckVO vo);
+	public List<MenuVO> menuViewEat(FoodtruckVO vo);
+
+	public List<MenuVO> menuViewDrink(FoodtruckVO vo);
+
+	public List<MenuVO> menuViewEnjoy(FoodtruckVO vo);
 }
