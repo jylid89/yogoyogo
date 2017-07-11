@@ -117,7 +117,7 @@
 				// 주소로 좌표를 검색합니다
 				geocoder
 						.addr2coord(
-								'${viewModel.event_map }',
+								'${viewModel.event_loc }',
 								function(status, result) {
 
 									// 정상적으로 검색이 완료됐으면 
@@ -150,13 +150,10 @@
 												+ '        </div>'
 												+ '        <div class="body">'
 												+ '            <div class="img">'
-												+ '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">'
+												+ '                <img src="${viewModel.event_picreal }" width="73" height="70">'
 												+ '           </div>'
 												+ '            <div class="desc">'
-												+ '                <div class="ellipsis">서울특별시 금천구 가산디지털1로 151</div>'
-												+
-												//			       		      '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-												'                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
+												+ '                <div class="ellipsis">${viewModel.event_loc }</div>'
 												+ '            </div>'
 												+ '        </div>'
 												+ '    </div>' + '</div>';
