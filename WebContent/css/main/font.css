@@ -6,3 +6,12 @@
 	url('/YogoYogo/fonts/hunR.ttf') format('truetype');
 	src:local(※), url('/YogoYogo/fonts/hunR.woff') format('woff');
 }
+
+@font-face{
+	font-family:"dodo";
+	src:url('/YogoYogo/fonts/BMDOHYEON_ttf.ttf');
+	src:url('/YogoYogo/fonts/BMDOHYEON_ttf.eot?#iefix') format('embedded-opentype'),
+	url('/YogoYogo/fonts/BMDOHYEON_ttf.woff') format('woff'),
+	url('/YogoYogo/fonts/BMDOHYEON_ttf.ttf') format('truetype');
+	src:local(※), url('/YogoYogo/fonts/BMDOHYEON_ttf.woff') format('woff');
+}

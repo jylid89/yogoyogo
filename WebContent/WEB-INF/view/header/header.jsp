@@ -11,7 +11,7 @@
 <%@ page import="java.io.InputStreamReader" %>
 <%
     String clientId = "zE5y1nty2rQY7EdwF341";//애플리케이션 클라이언트 아이디값";
-    String redirectURI = URLEncoder.encode("http://192.168.0.178:8080/YogoYogo5/naverlogin.do", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://192.168.0.188:8080/YogoYogo/naverlogin.do", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();
     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -145,9 +145,9 @@
             </div> 
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                <ul class="nav navbar-nav">
-                  <li><a href="foodtruckList.do" >푸드트럭</a></li>    
-                  <li><a href="festivalList.do" >행사</a></li>
-                  <li><a href="cateList.do">케이터링 신청</a></li>
+                  <li><a href="foodtruckList.do">푸드트럭</a></li>    
+                  <li><a href="festivalList.do">행사</a></li>
+                  <li class="cate"><a href="cateList.do">케이터링 신청</a></li>
                   <li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">서비스 <span class="caret"></span></a>
                      <ul class="dropdown-menu">
                         <li><a href="useGuide.do">서비스 관련</a></li>

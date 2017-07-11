@@ -66,7 +66,11 @@ public class FoodtruckController {
 				temp[i] = st.nextToken();
 				i = i+1;
 			}
-			values[0] = temp[1];
+			if(temp[1] == null) {
+				values[0] = addr;
+			} else {
+				values[0] = temp[1];
+			}
 		}
 		
 		ModelAndView mv = new ModelAndView();

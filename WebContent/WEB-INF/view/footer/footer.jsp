@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/YogoYogo/css/footer/footer.css">
 <div class="footer">
-    <div  id="footer">
+    <div  class="footer-margin">
         <div class="container">
+        	
             <div class="row">
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> 푸드트럭 </h3>

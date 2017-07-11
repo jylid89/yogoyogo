@@ -5,12 +5,9 @@
 <head>
 <title> yogo yogo 메인~!</title>
 </head>
-<body>
-
-	<%
-		response.sendRedirect("main.do");
-	%>
-
-
-</body>
+	<body>
+		<%
+			response.sendRedirect("main.do");
+		%>
+	</body>
 </html>
