@@ -69,8 +69,8 @@ $(function() {
 	</div>
 	<!-- //menu -->
 	<!-- 케이터링 신청 부분 -->
-	<h1>케이터링 신청하기</h1>
-	<div class="main-agile">
+	<h1 class="logout">케이터링 신청하기</h1>
+	<div class="main-agile logout">
 		<form id="cateForm" method="post">
 			<input type="text" name="cate_name" placeholder="케이터링 제목" required="">
 			<input type="text" name="cate_call" placeholder="신청자 연락처" required="">

@@ -147,7 +147,7 @@
                <ul class="nav navbar-nav">
                   <li><a href="foodtruckList.do">푸드트럭</a></li>    
                   <li><a href="festivalList.do">행사</a></li>
-                  <li class="cate"><a href="cateList.do">케이터링 신청</a></li>
+                  <li><a href="cateList.do">케이터링 신청</a></li>
                   <li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">서비스 <span class="caret"></span></a>
                      <ul class="dropdown-menu">
                         <li><a href="useGuide.do">서비스 관련</a></li>
