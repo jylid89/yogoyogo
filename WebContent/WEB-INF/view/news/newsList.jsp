@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row">
 			<br/><br/>
-    			<h2><font face="SungDongGothic" size="11px">푸드트럭 뉴스</font></h2>
+    			<center><h1  style="font-family: hunR;font-color:black">푸드트럭 뉴스</h1></center>
     			<br/><br/>
 	    			<section id="pinBoot">
 						<c:forEach varStatus="status" items="${list}" var="list" >

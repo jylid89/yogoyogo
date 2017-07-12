@@ -20,7 +20,7 @@
 		<div class="col-md-12">
 			<div class="w3l-heading">
 			<br/><br/>
-				<h3><font face="함초롬돋움" size="8px">행사목록</font></h3>
+				<center><h1  style="font-family: hunR;font-color:black">행사 리스트</h1></center>
 			<br/><br/>
 			</div>
 			
