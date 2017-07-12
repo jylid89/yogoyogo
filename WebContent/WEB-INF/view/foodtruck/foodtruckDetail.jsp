@@ -71,7 +71,9 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 	<!-- main -->
 	<div class="col-xs-12" style="background-color: #fff;">
 		<div class="page-header">
-			<h1>${foodtruck.truck_name }</h1>
+		<br/><br/>
+			<h1 style="font-family: hunR">${foodtruck.truck_name }</h1>
+			<br/><br/>
 		</div>
 	</div>
 	<div class="col-xs-14">
@@ -156,17 +158,17 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 		<div class="sap_tabs">
 			<div id="horizontalTab"
 				style="display: block; width: 100%; margin: 0px;">
-				<ul class="resp-tabs-list">
+				<ul class="resp-tabs-list"  style="font-family: hunR">
 					<li class="resp-tab-item grid1" aria-controls="tab_item-0"
-						role="tab"><span>푸드트럭 <i>정보</i></span></li>
+						role="tab"><span>푸드트럭 정보</span></li>
 					<li class="resp-tab-item grid2" aria-controls="tab_item-1"
-						role="tab"><span>타임 <i>라인</i></span></li>
+						role="tab"><span>타임 라인</span></li>
 					<li class="resp-tab-item grid3" aria-controls="tab_item-2"
 						role="tab"><span>리뷰 </span></li>
 					<div class="clear"></div>
 				</ul>
 
-				<div class="resp-tabs-container">
+				<div class="resp-tabs-container" style="font-family: hunR">
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 						<!-- 메뉴부분 -->
 						<div class="facts">

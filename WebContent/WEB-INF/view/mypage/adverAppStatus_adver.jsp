@@ -94,21 +94,11 @@
     </head>
         <body>
         
-<!--
-            ==================================================
-            Portfolio Section Start
-            ================================================== -->
             <section id="works" class="works">
                 <div class="container">
                     <div class="section-heading">
                         <h1 class="title wow fadeInDown" data-wow-delay=".3s">광고 신청현황</h1>
-<!--                         <p class="wow fadeInDown" data-wow-delay=".5s"> -->
-<!--                             Aliquam lobortis. Maecenas vestibulum mollis diam. Pellentesque auctor neque nec urna. Nulla sit amet est. Aenean posuere <br> tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. -->
-<!--                         </p> -->
                     </div>
-                    
-       	
-       	
                     <div class="row">
                      <c:forEach varStatus="status" items="${list}" var="list" >
                         <div class="col-sm-4 col-xs-12">
