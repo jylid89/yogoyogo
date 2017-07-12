@@ -47,31 +47,11 @@
 						</tbody>
 					</table>
 					<div class='write_btn'>
-					<button class='btn btn-primary btn-lg' onclick="javascript:location.href='noticeInsert.do'">글쓰기</button>
+					<a href="noticeInsert.do"><div class="writeBtn btn btn-lg">글쓰기</div> </a>
 					</div>
-<!-- 					<div class="notice_paging" style="display:inline-block;float: left;"> -->
-<!-- 						<ul class="pagination pull-center"> -->
-<!-- 							<li class="disabled"> -->
-<!-- 							<a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a> -->
-<!-- 							</li> -->
-<!-- 							<li class="active"><a href="#">1</a> -->
-<!-- 							</li> -->
-<!-- 							<li><a href="#">2</a></li> -->
-<!-- 							<li><a href="#">3</a></li> -->
-<!-- 							<li><a href="#">4</a></li> -->
-<!-- 							<li><a href="#">5</a></li> -->
-<!-- 							<li><a href="#"><span -->
-<!-- 									class="glyphicon glyphicon-chevron-right"></span></a></li> -->
-<!-- 						</ul> -->
-<!-- 					</div> -->
 					<div class="col-md-6">
 						<div id="custom-search-input">
 							<div class="input-group col-md-12">
-								<input type="text" class="form-control input-lg"  placeholder="검색어를 입력하세요" /> <span class="input-group-btn">
-									<button class="btn btn-info btn-lg" type="button">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</span>
 							</div>
 						</div>
 					</div>

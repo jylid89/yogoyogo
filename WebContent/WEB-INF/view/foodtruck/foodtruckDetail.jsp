@@ -280,7 +280,7 @@ f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
 					</div>
 					<div class="facts_right">
 						<div class="facts_right1">
-							<h2>${revieList.rev_title }</h2>
+							<h2><font face="함초롬돋움" size="8px">${revieList.rev_title }</font></h2>
 						</div>
 						<div class="facts_right2">
 							<ul>

@@ -125,7 +125,7 @@
          </div>
          <br/><br/><br/>
          <div class="pull-right logout">
-            <div style="margin-right : 20px;"><%=mem_name %>님 환영합니다.</div>
+            <div style="margin-right : 300px;"><%=mem_name %>님 환영합니다.</div>
          </div>
       </div>
    </div>
