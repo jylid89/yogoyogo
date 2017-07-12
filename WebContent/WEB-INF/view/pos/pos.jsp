@@ -69,7 +69,22 @@ $(function() {
 			$("#change_money").val(String(Number($("#input_money").text())-(Number($('#total_price_modal').val()))))
 		});
 		
+	
+// 		alert(check1);
+// 		alert(check2);
 		
+		
+		
+		
+		$("input[type=radio][name=optionsRadios]").change(function(){
+			var check1 = $("input[type=radio][id=optionsRadios1]:checked").val();
+			var check2 = $("input[type=radio][id=optionsRadios2]:checked").val();
+			if( check1 == "카드"){
+				$('.money').hide();
+			}else if(check2 == "현금"){
+				$('.money').show();
+			}
+		});
 	});
 
 	$('#btn_complete').click(function() {
@@ -285,24 +300,25 @@ $(document).ready(function() {
 										<div class="col-md-6">
 											<div class="radio input-padding" >
 												<label> <input type="radio" name="optionsRadios"
-													id="optionsRadios1" value="option1" checked>카드
+													id="optionsRadios1" value="카드">카드
 												</label>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="radio input-padding">
 												<label> <input type="radio" name="optionsRadios"
-													id="optionsRadios2" value="option2">현금
+													id="optionsRadios2" value="현금">현금
 												</label>
 											</div>
 										</div>
 									</div>
+									<div class="money">
 									<div   id="input_money"
 										class="form-control input-padding screen"></div>
 									<input type="text" name="change_money" id="change_money"
 										class="form-control input-padding">
+									</div>
 								</div>
-								<input type="hidden" class="screen" id="screen" /> 
 							</div>
 						</div>
 
