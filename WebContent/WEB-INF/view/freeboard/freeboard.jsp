@@ -44,7 +44,7 @@
 				</c:choose>
 			</tbody>
 		</table>
-		<a href="freeboardInsert.do"><div class="writeBtn">글쓰기</div> </a>
+		<a href="freeboardInsert.do"><div class="writeBtn btn btn-lg">글쓰기</div> </a>
 	</div>
 </body>
 </html>
