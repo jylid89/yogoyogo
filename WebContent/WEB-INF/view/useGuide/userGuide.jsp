@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="timeline-blog overflow padding-top">
                     <div class="timeline-date text-center">
-                        <p class="btn btn-common uppercase">서비스 이용방법</p>
+                        <p class="btn btn-common uppercase"><font face="함초롬돋움" size="8px">서비스 이용방법</font></p>
                     </div>
                     <div class="timeline-divider overflow padding-bottom">
                         <div class="col-sm-6 padding-right arrow-right wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
