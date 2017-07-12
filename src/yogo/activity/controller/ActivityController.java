@@ -40,24 +40,24 @@ public class ActivityController {
 	}
 	
 	// 타임라인 글쓰기
-	@RequestMapping(value="activityInsertOk.do")
-	public String insert( ActivityVO vo){
-		MultipartFile mark_pictemp = vo.getMark_pictemp();
-        if (mark_pictemp != null) {
-            String mark_picreal = mark_pictemp.getOriginalFilename();
-            mark_picreal = mark_picreal+"_"+System.currentTimeMillis();
-            vo.setMark_picreal(mark_picreal);
-            try {
-                File file = new File("C:\\Users\\SAMSUNG\\Documents\\workspace-sts-3.7.3.RELEASE\\Marketing\\WebContent\\img\\" + mark_picreal);
-                mark_pictemp.transferTo(file);
-            } catch (Exception e) {
-                System.out.println("타임라인 글쓰기 실패 : " + e.getMessage());
-            } // try - catch
-        } // if
-        
-	 	activityDAO.activityInsert(vo);
-		return "redirect:activityList.do";		
-	}
+		@RequestMapping(value="activityInsertOk.do")
+		public String insert( ActivityVO vo, HttpSession session){
+			MultipartFile mark_pictemp = vo.getMark_pictemp();
+	        if (mark_pictemp != null) {
+	            String mark_picreal = mark_pictemp.getOriginalFilename();
+	            mark_picreal = System.currentTimeMillis()+"_"+mark_picreal;
+	            vo.setMark_picreal(mark_picreal);
+	            try {
+	                File file = new File("C:\\Users\\com\\git\\yogoyogo4\\WebContent\\images\\activity\\" + mark_picreal);
+	                mark_pictemp.transferTo(file);
+	            } catch (Exception e) {
+	                System.out.println("타임라인 글쓰기 실패 : " + e.getMessage());
+	            } // try - catch
+	        } // if
+	        vo.setTruck_num((String)session.getAttribute("truck_num"));
+		 	activityDAO.activityInsert(vo);
+			return "redirect:foodtruckDetail.do?truck_num="+vo.getTruck_num();	
+		}
 
 	// 타임라인 글수정
 	@RequestMapping(value="activityUpdateOk.do")

@@ -20,8 +20,8 @@
 	<!-- 리스트부분 -->
 	<div class="special">
 		<div class="container">
-			<div class="special-heading">
-				<h3><font face="함초롬돋움">푸드트럭 리스트</font></h3>
+			<div>
+				<center><h1  style="font-family: hunR;font-color:black">푸드트럭 리스트</h1></center>
 			</div>
 			<div class="mainContainer">
       	<div class="gallery-grids">
