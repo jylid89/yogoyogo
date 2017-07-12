@@ -268,27 +268,27 @@
         <div class="form-group">
           <label class="control-label col-sm-3">비밀번호 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
-              <input type="password" class="form-control" name="mem_pass" id="mem_pass" placeholder="Choose password (5-15 chars)" value="">
+              <input type="password" class="form-control" name="mem_pass" id="mem_pass" placeholder="비밀번호는 숫자포함 6자리 이상입니다." value="">
           </div>
           <div class="passCheck1"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">비밀번호 확인 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
-              <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Confirm your password" value="">
+              <input type="password" class="form-control" name="cpassword" id="cpassword"  value="">
           </div>
           <div class="passCheck"></div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">이름 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="${vo.mem_name }">
+            <input type="text" class="form-control" name="mem_name" id="mem_name" value="${vo.mem_name }">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">닉네임 : <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="mem_nick" id="mem_nick" placeholder="Enter your Name here" value="${vo.mem_nick }">
+            <input type="text" class="form-control" name="mem_nick" id="mem_nick"  value="${vo.mem_nick }">
           </div>
           <div class="nickCheck"></div>
         </div>
@@ -317,7 +317,7 @@
         <div class="form-group">
           <label class="control-label col-sm-3">상호명 <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-9">
-            <input type="text" class="form-control" name="truck_name" id="truck_name" placeholder="상호명 입력" value="">
+            <input type="text" class="form-control" name="truck_name" id="truck_name"  value="">
           </div>
           <div class="truck_name"></div>
         </div>
