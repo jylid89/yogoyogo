@@ -46,7 +46,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 <!-- 다음맵 API -->
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=
-f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
+0b9a23fb350894b108d49dd7ae75b852&libraries=services"></script>
 
 <script type="text/javascript">
 	//Carousel Auto-Cycle

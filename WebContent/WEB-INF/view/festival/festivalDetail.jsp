@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/YogoYogo/css/festival/festivaldetail.css">
 
 <!-- 다음맵 API -->
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f237c90fc0f07115759cbf267df10e2b&libraries=services"></script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=0b9a23fb350894b108d49dd7ae75b852&libraries=services"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/YogoYogo/js/festival/festival.js"></script>
 
